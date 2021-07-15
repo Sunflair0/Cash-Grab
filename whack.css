@@ -6,7 +6,7 @@ body {
     background-repeat: no-repeat;
 }
 
-#button {
+#start {
     height: 100px;
     width: 100px;
     transition: transform .2s;
@@ -31,7 +31,7 @@ body {
     font-size: xx-large;
 }
 
-#timer {
+#time {
     width: 200px;
     color: white;
     background-color: black;

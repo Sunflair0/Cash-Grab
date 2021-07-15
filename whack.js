@@ -1,8 +1,60 @@
 let hits = 0;
 let timeLeft = 60;
-document.getElementById("button").addEventListener("click", countdown);
 
-function countdown() {
+
+
+function startTimer(duration, display) {
+    var timer = duration,
+        seconds;
+    setInterval(function() {
+
+        seconds = parseInt(timer % 60, 10);
+
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+window.onload = function() {
+    let sixtySeconds = 60,
+        display = document.querySelector('#time');
+    startTimer(sixtySeconds, display);
+};
+
+
+document.getElementById("start").addEventListener("click", startTimer);
+
+
+
+const holes = document.querySelectorAll(".div");
+
+function moleAppear() {
+    let active = holes[Math.floor(Math.random() * holes.length)];
+
+    setTimeout {
+        () => {
+            active.
+        }
+
+    }
+}
+
+
+
+
+window.onload = function() {
+    let sixtySeconds = 60,
+        display = document.querySelector("#time");
+    startTimer(sixtySeconds, display);
+};
+
+
+function countDown() {
     let x = setTimeout(countdown, 1000);
 
     let time = document.getElementById("timer");
@@ -20,7 +72,7 @@ function countdown() {
     timeLeft--;
 }
 
-let moleClass = document.querySelectorAll(".moleHole");
+const moleClass = document.querySelectorAll(".moleHole");
 let active = moleClass[Math.floor(Math.random() * moleClass.length)];
 const moleLocation = () => {
     moleClass[Math.floor(Math.random() * moleClass.length)].classList.replace("moleHole", "theMole");
@@ -145,62 +197,39 @@ let whereMole = window.setInterval(() => {
 // Trevor's Scoreboard
 
 
-// let topScore = 0;
-// let secondScore = 0;
-// let thirdScore = 0;
-// let gameBoard = document.querySelectorAll(".theMole");
-// gameBoard.forEach((val) => {
-//     val.addEventListener("click", (e) => {
-//         hits++;
-//         document.getElementById("hit").innerText = hits
-//         if (hits >= thirdScore) {
-//             thirdScore = hits;
-//             document.getElementById("score3").innerText = thirdScore
-//             if (hits >= secondScore) {
-//                 thirdScore = secondScore;
-//                 secondScore = hits;
-//                 document.getElementById("score2").interText = secondScore
-//                 if (hits >= topScore) {
-//                     secondScore = topScore;
-//                     topScore = hits;
-//                     document.getElementById("score1").interText = secondScore
+let topScore = 0;
+let secondScore = 0;
+let thirdScore = 0;
+let gameBoard = document.querySelectorAll(".theMole");
+gameBoard.forEach((val) => {
+    val.addEventListener("click", (e) => {
+        hits++;
+        document.getElementById("hit").innerText = hits
+        if (hits >= thirdScore) {
+            thirdScore = hits;
+            document.getElementById("score3").innerText = thirdScore
+            if (hits >= secondScore) {
+                thirdScore = secondScore;
+                secondScore = hits;
+                document.getElementById("score2").interText = secondScore
+                if (hits >= topScore) {
+                    secondScore = topScore;
+                    topScore = hits;
+                    document.getElementById("score1").interText = secondScore
 
-//                     if (score >= topScore) {
-//                         topScore = score - 1;
-//                         document.getElementById("score1").innerText = topScore;
-//                         console.log(topScore);
-//                     } else if (score >= secondScore) {
-//                         secondScore = score - 1;
-//                         document.getElementById("score2").innerText = score;
-//                     } else if (score >= thirdScore) {
-//                         thirdScore = score - 1;
-//                         document.getElementById("score3").innerText = score;
-//                     }
-//                 }
-//             }
-//         }
-//     })
-// })
-
-// function randoPath() {
-//     let active = divs[Math.floor(Math.random() * 5) + 1];
-
-// }
-
-// document.addEventListener("click", clickCount);
-// for (
-//     i = 0; randoBirdFlight < i; i++); {
-//     birdFlight();
-
-// }
-
-// function randoBirdFlight() {
-//     return Math.floor(Math.random() * 10) + 1;
-
-// }
-
-// window.addEventListener("MouseUp", birdFlight);
-
-// function birdFlight(randoBirdFlight) {
-
-// }
+                    if (score >= topScore) {
+                        topScore = score - 1;
+                        document.getElementById("score1").innerText = topScore;
+                        console.log(topScore);
+                    } else if (score >= secondScore) {
+                        secondScore = score - 1;
+                        document.getElementById("score2").innerText = score;
+                    } else if (score >= thirdScore) {
+                        thirdScore = score - 1;
+                        document.getElementById("score3").innerText = score;
+                    }
+                }
+            }
+        }
+    })
+})
