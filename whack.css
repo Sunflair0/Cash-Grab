@@ -1,0 +1,158 @@
+body {
+    background-image: url(./picture/whack.png);
+    background-color: black;
+    background-size: cover;
+    background-clip: content-box;
+    background-repeat: no-repeat;
+}
+
+#button {
+    height: 100px;
+    width: 100px;
+    transition: transform .2s;
+}
+
+.button:hover {
+    transform: scale(1.5);
+}
+
+#tUp {
+    color: white;
+}
+
+#scored {
+    width: 200px;
+    color: white;
+    background-color: black;
+    margin-left: 10px;
+    border-right: 4px solid white;
+    border-left: 4px solid white;
+    text-align: center;
+    font-size: xx-large;
+}
+
+#timer {
+    width: 200px;
+    color: white;
+    background-color: black;
+    margin-left: 10px;
+    border-right: 4px solid white;
+    border-left: 4px solid white;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.moleHole {
+    height: 100px;
+    width: 100px;
+    margin: 40px;
+    background-image: url(./picture/hole.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.theMole {
+    height: 100px;
+    width: 100px;
+    margin: 40px;
+    background-image: url(./picture/mole.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.theSplat {
+    height: 100px;
+    width: 100px;
+    margin: 40px;
+    background-image: url(./picture/splat.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.shell-main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+
+/* Birds in Sky */
+
+.sky {
+    border: 2px solid;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 33%;
+}
+
+.ground {
+    border: 2px solid;
+    display: flex;
+    flex-flow: row wrap;
+    flex-basis: 57%;
+}
+
+.bottom {
+    border: 2px solid;
+    display: flex;
+    flex-flow: row wrap;
+    flex-basis: 10%;
+}
+
+.bird-path-one {
+    display: flex;
+    flex-basis: 20%;
+    background-color: green;
+    border: solid 2px;
+    border-radius: 50px;
+    width: 20px;
+    transition: transform 12s;
+    transform: translate(600px);
+}
+
+.bird-path-two {
+    display: flex;
+    flex-basis: 20%;
+    background-color: green;
+    border: solid 2px;
+    border-radius: 50px;
+    width: 20px;
+    transition: transform 12s;
+    transform: translate(600px);
+}
+
+.bird-path-three {
+    display: flex;
+    flex-basis: 20%;
+    background-color: green;
+    border: solid 2px;
+    border-radius: 50px;
+    width: 20px;
+    transition: transform 12s;
+    transform: translate(600px);
+}
+
+.bird-path-four {
+    display: flex;
+    flex-basis: 20%;
+    background-color: green;
+    border: solid 2px;
+    border-radius: 50px;
+    width: 20px;
+    transition: transform 12s;
+    transform: translate(600px);
+}
+
+.bird-path-five {
+    display: flex;
+    flex-basis: 20%;
+    background-color: green;
+    border: solid 2px;
+    width: 20px;
+    border-radius: 50px;
+    transition: transform 12s;
+    transform: translate(600px);
+}
