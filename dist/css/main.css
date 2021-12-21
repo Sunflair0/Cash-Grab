@@ -1,0 +1,323 @@
+/* Birds in Sky */
+.sky {
+  border: 2px solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-preferred-size: 33%;
+      flex-basis: 33%;
+}
+
+.bird-path-one {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  background-color: green;
+  border: solid 2px;
+  border-radius: 50px;
+  width: 20px;
+  -webkit-transition: -webkit-transform 12s;
+  transition: -webkit-transform 12s;
+  transition: transform 12s;
+  transition: transform 12s, -webkit-transform 12s;
+  -webkit-transform: translate(600px);
+          transform: translate(600px);
+}
+
+.bird-path-two {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  background-color: green;
+  border: solid 2px;
+  border-radius: 50px;
+  width: 20px;
+  -webkit-transition: -webkit-transform 12s;
+  transition: -webkit-transform 12s;
+  transition: transform 12s;
+  transition: transform 12s, -webkit-transform 12s;
+  -webkit-transform: translate(600px);
+          transform: translate(600px);
+}
+
+.bird-path-three {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  background-color: green;
+  border: solid 2px;
+  border-radius: 50px;
+  width: 20px;
+  -webkit-transition: -webkit-transform 12s;
+  transition: -webkit-transform 12s;
+  transition: transform 12s;
+  transition: transform 12s, -webkit-transform 12s;
+  -webkit-transform: translate(600px);
+          transform: translate(600px);
+}
+
+.bird-path-four {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  background-color: green;
+  border: solid 2px;
+  border-radius: 50px;
+  width: 20px;
+  -webkit-transition: -webkit-transform 12s;
+  transition: -webkit-transform 12s;
+  transition: transform 12s;
+  transition: transform 12s, -webkit-transform 12s;
+  -webkit-transform: translate(600px);
+          transform: translate(600px);
+}
+
+.bird-path-five {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  background-color: green;
+  border: solid 2px;
+  width: 20px;
+  border-radius: 50px;
+  -webkit-transition: -webkit-transform 12s;
+  transition: -webkit-transform 12s;
+  transition: transform 12s;
+  transition: transform 12s, -webkit-transform 12s;
+  -webkit-transform: translate(600px);
+          transform: translate(600px);
+}
+
+.moleHole {
+  height: 100px;
+  width: 100px;
+  margin: 40px;
+  background-image: url(./picture/hole.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.theMole {
+  height: 100px;
+  width: 100px;
+  margin: 40px;
+  background-image: url(./picture/mole.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.theSplat {
+  height: 100px;
+  width: 100px;
+  margin: 40px;
+  background-image: url(./picture/splat.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#tUp {
+  color: white;
+}
+
+#scored {
+  width: 200px;
+  color: white;
+  background-color: black;
+  margin-left: 10px;
+  border-right: 4px solid white;
+  border-left: 4px solid white;
+  text-align: center;
+  font-size: xx-large;
+}
+
+#time {
+  width: 200px;
+  color: white;
+  background-color: black;
+  margin-left: 10px;
+  border-right: 4px solid white;
+  border-left: 4px solid white;
+  text-align: center;
+  font-size: xx-large;
+}
+
+/* Birds in Sky */
+.sky {
+  border: 2px solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-preferred-size: 33%;
+      flex-basis: 33%;
+}
+
+.bird-path-one {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  background-color: green;
+  border: solid 2px;
+  border-radius: 50px;
+  width: 20px;
+  -webkit-transition: -webkit-transform 12s;
+  transition: -webkit-transform 12s;
+  transition: transform 12s;
+  transition: transform 12s, -webkit-transform 12s;
+  -webkit-transform: translate(600px);
+          transform: translate(600px);
+}
+
+.bird-path-two {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  background-color: green;
+  border: solid 2px;
+  border-radius: 50px;
+  width: 20px;
+  -webkit-transition: -webkit-transform 12s;
+  transition: -webkit-transform 12s;
+  transition: transform 12s;
+  transition: transform 12s, -webkit-transform 12s;
+  -webkit-transform: translate(600px);
+          transform: translate(600px);
+}
+
+.bird-path-three {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  background-color: green;
+  border: solid 2px;
+  border-radius: 50px;
+  width: 20px;
+  -webkit-transition: -webkit-transform 12s;
+  transition: -webkit-transform 12s;
+  transition: transform 12s;
+  transition: transform 12s, -webkit-transform 12s;
+  -webkit-transform: translate(600px);
+          transform: translate(600px);
+}
+
+.bird-path-four {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  background-color: green;
+  border: solid 2px;
+  border-radius: 50px;
+  width: 20px;
+  -webkit-transition: -webkit-transform 12s;
+  transition: -webkit-transform 12s;
+  transition: transform 12s;
+  transition: transform 12s, -webkit-transform 12s;
+  -webkit-transform: translate(600px);
+          transform: translate(600px);
+}
+
+.bird-path-five {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  background-color: green;
+  border: solid 2px;
+  width: 20px;
+  border-radius: 50px;
+  -webkit-transition: -webkit-transform 12s;
+  transition: -webkit-transform 12s;
+  transition: transform 12s;
+  transition: transform 12s, -webkit-transform 12s;
+  -webkit-transform: translate(600px);
+          transform: translate(600px);
+}
+
+body {
+  background-image: url(./dist/asset/meadow.png);
+  background-color: black;
+  background-size: cover;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+}
+
+#start {
+  height: 10px;
+  width: 10px;
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
+}
+
+.button:hover {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+.shell-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+}
+
+.ground {
+  border: 2px solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-preferred-size: 57%;
+      flex-basis: 57%;
+}
+
+.bottom {
+  border: 2px solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-preferred-size: 10%;
+      flex-basis: 10%;
+}
+/*# sourceMappingURL=main.css.map */
