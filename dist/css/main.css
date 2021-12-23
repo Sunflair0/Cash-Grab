@@ -1,17 +1,49 @@
-/* Birds in Sky */
-.sky {
-  border: 2px solid;
+.bottom {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-preferred-size: 33%;
-      flex-basis: 33%;
+  -ms-flex-preferred-size: 12%;
+      flex-basis: 12%;
+  bottom: 0;
 }
 
+#tUp {
+  color: white;
+}
+
+#scored, #time {
+  width: 200px;
+  color: white;
+  margin-left: 10px;
+  border-right: 4px solid white;
+  border-left: 4px solid white;
+  text-align: center;
+  font-size: xx-large;
+}
+
+body {
+  background-image: url(/dist/asset/meadow.png);
+  background-color: black;
+  background-size: cover;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* Birds in Sky */
 .bird-path-one {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -103,176 +135,24 @@
 }
 
 .moleHole {
-  height: 100px;
-  width: 100px;
-  margin: 40px;
-  background-image: url(./picture/hole.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  border: black solid 2px;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  background-image: url(./dist/asset/hole.png);
 }
 
 .theMole {
-  height: 100px;
-  width: 100px;
-  margin: 40px;
-  background-image: url(./picture/mole.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image: url(./asset/mole.png);
 }
 
 .theSplat {
-  height: 100px;
-  width: 100px;
-  margin: 40px;
-  background-image: url(./picture/splat.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#tUp {
-  color: white;
-}
-
-#scored {
-  width: 200px;
-  color: white;
-  background-color: black;
-  margin-left: 10px;
-  border-right: 4px solid white;
-  border-left: 4px solid white;
-  text-align: center;
-  font-size: xx-large;
-}
-
-#time {
-  width: 200px;
-  color: white;
-  background-color: black;
-  margin-left: 10px;
-  border-right: 4px solid white;
-  border-left: 4px solid white;
-  text-align: center;
-  font-size: xx-large;
-}
-
-/* Birds in Sky */
-.sky {
-  border: 2px solid;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-preferred-size: 33%;
-      flex-basis: 33%;
-}
-
-.bird-path-one {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  background-color: green;
-  border: solid 2px;
-  border-radius: 50px;
-  width: 20px;
-  -webkit-transition: -webkit-transform 12s;
-  transition: -webkit-transform 12s;
-  transition: transform 12s;
-  transition: transform 12s, -webkit-transform 12s;
-  -webkit-transform: translate(600px);
-          transform: translate(600px);
-}
-
-.bird-path-two {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  background-color: green;
-  border: solid 2px;
-  border-radius: 50px;
-  width: 20px;
-  -webkit-transition: -webkit-transform 12s;
-  transition: -webkit-transform 12s;
-  transition: transform 12s;
-  transition: transform 12s, -webkit-transform 12s;
-  -webkit-transform: translate(600px);
-          transform: translate(600px);
-}
-
-.bird-path-three {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  background-color: green;
-  border: solid 2px;
-  border-radius: 50px;
-  width: 20px;
-  -webkit-transition: -webkit-transform 12s;
-  transition: -webkit-transform 12s;
-  transition: transform 12s;
-  transition: transform 12s, -webkit-transform 12s;
-  -webkit-transform: translate(600px);
-          transform: translate(600px);
-}
-
-.bird-path-four {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  background-color: green;
-  border: solid 2px;
-  border-radius: 50px;
-  width: 20px;
-  -webkit-transition: -webkit-transform 12s;
-  transition: -webkit-transform 12s;
-  transition: transform 12s;
-  transition: transform 12s, -webkit-transform 12s;
-  -webkit-transform: translate(600px);
-          transform: translate(600px);
-}
-
-.bird-path-five {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  background-color: green;
-  border: solid 2px;
-  width: 20px;
-  border-radius: 50px;
-  -webkit-transition: -webkit-transform 12s;
-  transition: -webkit-transform 12s;
-  transition: transform 12s;
-  transition: transform 12s, -webkit-transform 12s;
-  -webkit-transform: translate(600px);
-          transform: translate(600px);
-}
-
-body {
-  background-image: url(./dist/asset/meadow.png);
-  background-color: black;
-  background-size: cover;
-  background-clip: content-box;
-  background-repeat: no-repeat;
+  background-image: url(./asset/splat.png);
 }
 
 #start {
-  height: 10px;
-  width: 10px;
+  height: 100px;
+  width: 100px;
   -webkit-transition: -webkit-transform .2s;
   transition: -webkit-transform .2s;
   transition: transform .2s;
@@ -295,29 +175,37 @@ body {
   height: 100vh;
 }
 
-.ground {
-  border: 2px solid;
+.sky {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -ms-flex-preferred-size: 57%;
-      flex-basis: 57%;
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+}
+
+.ground {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: row wrap;
+      flex-wrap: row wrap;
+  margin: auto;
+  width: 90%;
+  -ms-flex-preferred-size: 60%;
+      flex-basis: 60%;
 }
 
 .bottom {
-  border: 2px solid;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -ms-flex-preferred-size: 10%;
       flex-basis: 10%;
+  border: white 4px solid;
+  background: black;
 }
 /*# sourceMappingURL=main.css.map */

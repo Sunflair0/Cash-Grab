@@ -1,0 +1,36 @@
+body {
+    background-image: url(/dist/asset/meadow.png);
+    background-color: black;
+    background-size: cover;
+    background-clip: content-box;
+    background-repeat: no-repeat;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+@mixin hole {
+    height: 100px;
+    width: 100px;
+    margin: 40px;    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+
+@mixin score {
+    width: 200px;
+    color: white;
+    background-color: black;
+    margin-left: 10px;
+    border-right: 4px solid white;
+    border-left: 4px solid white;
+    text-align: center;
+    font-size: xx-large;
+}
