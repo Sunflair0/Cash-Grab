@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/Sunflair0/Whack-#readme",
   "dependencies": {
-    "sass": "^1.45.0"
+    "sass": "^1.45.1"
   }
 }

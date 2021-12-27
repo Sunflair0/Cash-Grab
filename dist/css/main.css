@@ -1,24 +1,109 @@
-.bottom {
+#start {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-preferred-size: 12%;
-      flex-basis: 12%;
-  bottom: 0;
+  max-width: 100px;
+  max-height: 100px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
 }
 
-#tUp {
-  color: white;
+.button:hover {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
 }
 
 #scored, #time {
   width: 200px;
-  color: white;
-  margin-left: 10px;
-  border-right: 4px solid white;
-  border-left: 4px solid white;
   text-align: center;
   font-size: xx-large;
+}
+
+.whiteBoxes {
+  max-height: 120px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  width: 100%;
+  border: black 5px dotted;
+  padding: 3px;
+  outline: white solid 4px;
+  outline-offset: -11px;
+}
+
+.wBox1 {
+  -ms-flex-preferred-size: 10%;
+      flex-basis: 10%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.wBox2, .wBox3 {
+  padding-left: 5px;
+  padding-top: 5px;
+  -ms-flex-preferred-size: 17%;
+      flex-basis: 17%;
+  border-left: white 4px solid;
+}
+
+.wBox4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 5px;
+  padding-left: 5px;
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
+  border-left: white 4px solid;
+}
+
+#cash {
+  height: 60px;
+  width: auto;
+  background: url(/dist/asset/cash.png);
+}
+
+#whack {
+  height: 80px;
+  width: auto;
+  background: url(/dist/asset/whack.png);
+}
+
+#sun {
+  height: 80px;
+  background: url(/dist/asset/sunhole.png);
+}
+
+.wBox5 {
+  padding-top: 5px;
+  padding-left: 5px;
+  -ms-flex-preferred-size: calc(36%-100px);
+      flex-basis: calc(36%-100px);
+  width: 30%;
+  margin-left: white 4px solid;
+  border-left: white 4px solid;
+}
+
+#wBox5 {
+  max-height: 80%;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  bottom: -10vh;
 }
 
 body {
@@ -27,6 +112,14 @@ body {
   background-size: cover;
   background-clip: content-box;
   background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
 }
 
 * {
@@ -37,8 +130,8 @@ body {
 }
 
 img {
-  width: 100%;
   height: auto;
+  width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -134,68 +227,121 @@ img {
           transform: translate(600px);
 }
 
-.moleHole {
-  border: black solid 2px;
+#ch1, #ch2, #ch3, #ch4, #ch5, #ch6, #ch7, #ch8, #ch9, #ch10, #ch11, #ch12 {
   width: 100%;
-  height: auto;
-  margin: auto;
-  background-image: url(./dist/asset/hole.png);
-}
-
-.theMole {
-  background-image: url(./asset/mole.png);
-}
-
-.theSplat {
-  background-image: url(./asset/splat.png);
-}
-
-#start {
-  height: 100px;
-  width: 100px;
-  -webkit-transition: -webkit-transform .2s;
-  transition: -webkit-transform .2s;
-  transition: transform .2s;
-  transition: transform .2s, -webkit-transform .2s;
-}
-
-.button:hover {
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
-}
-
-.shell-main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: auto;
+  background-position: center;
+}
+
+.hole {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: #e7e707 solid 2px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-preferred-size: 21%;
+      flex-basis: 21%;
+  width: 300%;
+  margin: auto;
+}
+
+.theCash {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: #ff00d4 solid 2px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 23%;
+  -webkit-transform: scale(0.3, 0.3);
+          transform: scale(0.3, 0.3);
+  -ms-flex-preferred-size: 21%;
+      flex-basis: 21%;
+  background-image: url(/dist/asset/cash.png) no-repeat;
+}
+
+.theSmash {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: #00fff2 solid 2px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 10%;
+  height: auto;
+  -webkit-transform: scale(0.75, 0.75);
+          transform: scale(0.75, 0.75);
+  -ms-flex-preferred-size: 21%;
+      flex-basis: 21%;
+  background-image: url(/dist/asset/smash.png);
+}
+
+.first, .second {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  margin-left: -1%;
+  max-width: 126px;
+  position: relative;
+}
+
+#first {
+  max-width: 126px;
+  -webkit-transform: scale(1.3, 1.3);
+          transform: scale(1.3, 1.3);
+}
+
+#second {
+  max-width: 126px;
+  -webkit-transform: scale(2.3, 2.3);
+          transform: scale(2.3, 2.3);
 }
 
 .sky {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-preferred-size: 30%;
-      flex-basis: 30%;
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  border: red solid 3px;
 }
 
 .ground {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: row wrap;
-      flex-wrap: row wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   margin: auto;
-  width: 90%;
-  -ms-flex-preferred-size: 60%;
-      flex-basis: 60%;
+  width: 94%;
+  -ms-flex-preferred-size: 62%;
+      flex-basis: 62%;
 }
 
 .bottom {
+  -ms-flex-preferred-size: 13.5%;
+      flex-basis: 13.5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -203,9 +349,9 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-preferred-size: 10%;
-      flex-basis: 10%;
-  border: white 4px solid;
+  border: white 2px solid;
   background: black;
+  padding: 3px;
+  position: relative;
 }
 /*# sourceMappingURL=main.css.map */

@@ -1,11 +1,25 @@
 let hits = 0;
+let score = 0;
 let timeLeft = 60;
 
 
 
+function startButton() {
+    let sixtySeconds = 60,
+        display = document.querySelector('#time');
+    startTimer(sixtySeconds, display);
+};
+
+document.getElementById("start").addEventListener("click", startTimer);
+
+
+
 function startTimer(duration, display) {
+document.getElementById("start").removeEventListener("click", startTimer);  
+ 
     var timer = duration,
         seconds;
+
     setInterval(function() {
 
         seconds = parseInt(timer % 60, 10);
@@ -17,35 +31,30 @@ function startTimer(duration, display) {
         if (--timer < 0) {
             timer = duration;
         }
+        
     }, 1000);
 }
 
-window.onload = function() {
-    let sixtySeconds = 60,
-        display = document.querySelector('#time');
-    startTimer(sixtySeconds, display);
-};
 
 
-document.getElementById("start").addEventListener("click", startTimer);
 
 
+
+
+document.getElementById("button").addEventListener("click", moleAppear1, true);
 
 const holes = document.querySelectorAll(".div");
 
 function moleAppear() {
     let active = holes[Math.floor(Math.random() * holes.length)];
+    active.classList.add("theMole");
 
-    setTimeout {
-        () => {
-            active.
-        }
+     setTimeout(() => {
+          active.classList.remove("theMole" );
+        setTimeout(moleAppear1, 100);
+        }, 1000);
 
     }
-}
-
-
-
 
 window.onload = function() {
     let sixtySeconds = 60,
@@ -53,6 +62,14 @@ window.onload = function() {
     startTimer(sixtySeconds, display);
 };
 
+let counter = window.setInterval(() => {
+    document.getElementById("timer").innerText = timeLeft;
+    timeLeft--;
+    if (timeLeft < 0) {
+        window.clearInterval(counter);
+        window.clearInterval(whereMole);
+    }
+}, 1000);
 
 function countDown() {
     let x = setTimeout(countdown, 1000);

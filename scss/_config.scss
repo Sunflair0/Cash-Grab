@@ -1,20 +1,24 @@
 body {
+    
     background-image: url(/dist/asset/meadow.png);
     background-color: black;
     background-size: cover;
     background-clip: content-box;
     background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;  
 }
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-img {
-    width: 100%;
+ img {    
     height: auto;
-    object-fit: cover;
-}
+    width: 100%;
+    object-fit: cover;   
+ }
 @mixin hole {
     height: 100px;
     width: 100px;

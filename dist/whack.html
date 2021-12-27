@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,33 +7,36 @@
     <title>Cash Smash</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Flavors&display=swap"
         rel="stylesheet">
-        <link rel="icon" href="/dist/asset/favicon-16x16.png" type="image/png">
-    <link rel="stylesheet" href="./css/main.css">
+        <link rel="icon" href="/dist/asset/favicon-32x32.png" type="image/png">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css">
 </head>
-
 <body>
-    <div class="shell-main">
+   
         <div class="sky"></div>
         <div class="ground">
-            <div><input type="image" class="moleHole" id="mh1" src="/dist/asset/hole.png" >1</div>
-            <div><input type="image" class="moleHole" id="mh1" src="/dist/asset/tuliphole.png" >2</div>
-            <div><input type="image" class="moleHole" id="mh1" src="/dist/asset/daisyhole.png" >3</div>
-            <div><input type="image" class="moleHole" id="mh1" src="/dist/asset/sunhole.png" >4</div>
-            <div><input type="image" class="moleHole" id="mh1" src="/dist/asset/hole.png" >5</div>
-            <div><input type="image" class="moleHole" id="mh1" src="/dist/asset/tuliphole.png" >6</div>
-            <div><input type="image" class="moleHole" id="mh1" src="/dist/asset/daisyhole.png" >7</div>
-            <div><input type="image" class="moleHole" id="mh1" src="/dist/asset/hole.png" >8</div>
-            <div><input type="image" class="moleHole" id="mh1" src="/dist/asset/rosehole.png" >9</div>
-            <div><input type="image" class="moleHole" id="mh1" src="/dist/asset/tuliphole.png" >10</div>
-            <div><input type="image" class="moleHole" id="mh1" src="/dist/asset/hole.png" >11</div>
-            <div><input type="image" class="moleHole" id="mh1" src="/dist/asset/sunhole.png" >12</div>
+            <div class="hole" id="ch1"><img src="asset/hole.png">1</div>
+            <div class="hole" id="theCash"><img src="asset/cash.png">2</div>
+            <div class="hole" id="ch3"><img src="asset/sunhole.png">3</div>
+            <div class="hole" id="theSmash"><img src="asset/smash.png">4</div>
+            <div class="hole" id="ch5"><img src="asset/hole.png">5</div>
+            <div class="hole" id="ch6"><img src="asset/hole.png">6</div>
+            <div class="hole" id="ch7"><img src="asset/hole.png">7</div>
+            <div class="hole" id="ch8"><img src="asset/hole.png">8</div>
+            <div class="hole" id="ch9"><img src="asset/hole.png">9</div>
+            <div class="hole" id="ch10"><img src="asset/hole.png">10</div>
+            <div class="hole" id="ch11"><img src="asset/hole.png">11</div>
+            <div class="hole" id="ch12"><img src="asset/hole.png">12</div>
         </div>
 
         <div class="bottom">
-            <input type="image" id="start" class="button" src="/dist/asset/start.png" />
-            <div><span id="time">:60</span>seconds</div>
-            <div id="tUp"></div>
-            <div id="scored">SCORE:</div>
+            <div class="whiteBoxes">
+            <div class="wBox1"><input type="image" id="start" class="button" src="/dist/asset/start.png" onclick="startButton()" /></div>
+            <div class="wBox2">Seconds: <br> <span id="time" id="tUp">:60</span></div>            
+            <div class="wBox3">Score: <br><span id= "scored">0</span></div>   
+            <div class="wBox4">
+                50pts<div class="first"><img src="/dist/asset/cash.png" id="first"></div> 
+                <div style="color:red";>-15pts</div><div class="second"><img src="/dist/asset/sunhole.png" id="second"></div></div> 
+            <div class="wBox5">Next:<br><img src="asset/whack.png" id="wBox5"></div>       
         </div>
     </div>
     <script type="text/javascript" src="whack.js"></script>

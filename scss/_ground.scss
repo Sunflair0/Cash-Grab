@@ -1,0 +1,50 @@
+#ch1,#ch2,#ch3,#ch4,#ch5,#ch6,#ch7,#ch8,#ch9,#ch10,#ch11,#ch12 { 
+    width: 100%;
+    display: flex;
+    margin: auto;
+    background-position: center;   
+}
+.hole {
+    display: flex;
+    border: rgb(231, 231, 7) solid 2px;
+    justify-content: center;  
+    flex-basis: 21%;
+    width: 300%;
+    margin: auto;
+}
+.theCash {
+    display: flex;
+    border: rgb(255, 0, 212) solid 2px;
+    justify-content: center; 
+    width: 23%;
+    transform: scale(.3,.3);
+    flex-basis: 21%;
+    background-image: url(/dist/asset/cash.png) no-repeat;
+}
+.theSmash {
+    display: flex;
+    border: rgb(0, 255, 242) solid 2px;
+    justify-content: center; 
+    width: 10%;
+    height: auto;
+    transform: scale(.75,.75);
+    flex-basis: 21%;
+    background-image: url(/dist/asset/smash.png);
+}
+.first, .second {
+    flex-direction: column;
+    display: flex;      
+    margin: auto; 
+    flex-basis: 20%;
+    margin-left: -1%;
+    max-width: 126px;  
+    position: relative;
+}
+#first {  
+    max-width: 126px;  
+    transform: scale(1.3,1.3);
+}
+#second {  
+    max-width: 126px;  
+    transform: scale(2.3,2.3);
+}

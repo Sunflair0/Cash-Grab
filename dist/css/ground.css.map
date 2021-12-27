@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,SAAS,CAAC;EACL,MAAM,EAAE,eAAe;EACvB,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EAKb,MAAM,EAAE,IAAI;EACZ,gBAAgB,EAAE,0BAA0B;CAC/C;;AAED,AAAA,QAAQ,CAAC;EAEL,gBAAgB,EAAE,qBAAqB;CAE1C;;AAED,AAAA,SAAS,CAAC;EAEN,gBAAgB,EAAE,sBAAsB;CAC3C",
-    "sources": [
-        "../../scss/ground.scss"
-    ],
-    "names": [],
-    "file": "ground.css"
-}
