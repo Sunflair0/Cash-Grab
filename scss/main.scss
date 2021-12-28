@@ -2,10 +2,11 @@
 @import 'config';
 @import 'birds';
 @import 'ground';
+@import 'responsive';
 
 .sky {
     display: flex;    
-    flex-basis: 25%;
+    flex-basis: 23%;
     border: red solid 3px;
 }
 .ground {
@@ -17,15 +18,15 @@
     margin: auto;
     //max-height: 175px;
     //max-width: 230px;
-    width: 94%;
-    flex-basis: 62%;
+    //width: 94%;
+    flex-basis: 62.5%;
 }
 
 .bottom {
-    flex-basis: 13.5%;
+    flex-basis: 14.5%;
     display: flex;
     flex-direction: row;       
-    border: white 2px solid;
+    border: white 4px solid;
     background: rgb(0, 0, 0);
     padding: 3px;
     position: relative;

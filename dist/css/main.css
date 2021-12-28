@@ -9,15 +9,30 @@
           justify-content: center;
   -ms-flex-line-pack: center;
       align-content: center;
-  -webkit-transition: -webkit-transform .2s;
-  transition: -webkit-transform .2s;
-  transition: transform .2s;
-  transition: transform .2s, -webkit-transform .2s;
+  -webkit-animation: start alternate 1s linear ease-in;
+          animation: start alternate 1s linear ease-in;
 }
 
-.button:hover {
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
+@-webkit-keyframes start {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+}
+
+@keyframes start {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  to {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
 }
 
 #scored, #time {
@@ -37,7 +52,7 @@
   display: flex;
   color: white;
   width: 100%;
-  border: black 5px dotted;
+  border: #00fff2 5px dotted;
   padding: 3px;
   outline: white solid 4px;
   outline-offset: -11px;
@@ -106,12 +121,11 @@
   bottom: -10vh;
 }
 
-body {
+body, html {
   background-image: url(/dist/asset/meadow.png);
   background-color: black;
   background-size: cover;
   background-clip: content-box;
-  background-repeat: no-repeat;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -119,7 +133,19 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
+  min-width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow-x: hidden;
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
 }
 
 * {
@@ -264,6 +290,34 @@ img {
   -ms-flex-preferred-size: 21%;
       flex-basis: 21%;
   background-image: url(/dist/asset/cash.png) no-repeat;
+  -webkit-animation: cashPop 1s alternate cubic-bezier(0.75, 0.95, 0.2, 1) ease-out;
+          animation: cashPop 1s alternate cubic-bezier(0.75, 0.95, 0.2, 1) ease-out;
+}
+
+@-webkit-keyframes cashPop {
+  0% {
+    -webkit-transform: translateY(0%) rotate(0turn);
+            transform: translateY(0%) rotate(0turn);
+    opacity: .25;
+  }
+  50% {
+    -webkit-transform: translateY(100%) rotate(2turn);
+            transform: translateY(100%) rotate(2turn);
+    opacity: 1;
+  }
+}
+
+@keyframes cashPop {
+  0% {
+    -webkit-transform: translateY(0%) rotate(0turn);
+            transform: translateY(0%) rotate(0turn);
+    opacity: .25;
+  }
+  50% {
+    -webkit-transform: translateY(100%) rotate(2turn);
+            transform: translateY(100%) rotate(2turn);
+    opacity: 1;
+  }
 }
 
 .theSmash {
@@ -315,8 +369,8 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-preferred-size: 25%;
-      flex-basis: 25%;
+  -ms-flex-preferred-size: 23%;
+      flex-basis: 23%;
   border: red solid 3px;
 }
 
@@ -334,14 +388,13 @@ img {
       -ms-flex-direction: row;
           flex-direction: row;
   margin: auto;
-  width: 94%;
-  -ms-flex-preferred-size: 62%;
-      flex-basis: 62%;
+  -ms-flex-preferred-size: 62.5%;
+      flex-basis: 62.5%;
 }
 
 .bottom {
-  -ms-flex-preferred-size: 13.5%;
-      flex-basis: 13.5%;
+  -ms-flex-preferred-size: 14.5%;
+      flex-basis: 14.5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -349,7 +402,7 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  border: white 2px solid;
+  border: white 4px solid;
   background: black;
   padding: 3px;
   position: relative;

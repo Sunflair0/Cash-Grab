@@ -20,7 +20,17 @@
     transform: scale(.3,.3);
     flex-basis: 21%;
     background-image: url(/dist/asset/cash.png) no-repeat;
+    animation: cashPop 1s alternate cubic-bezier(0.75, 0.95, 0.2, 1) ease-out;
 }
+@keyframes cashPop{
+0% {
+transform:translateY(0%) rotate(0turn);
+opacity:.25;}
+50% {
+transform:translateY(100%) rotate(2turn);
+opacity:1;}
+}
+
 .theSmash {
     display: flex;
     border: rgb(0, 255, 242) solid 2px;

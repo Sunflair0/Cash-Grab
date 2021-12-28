@@ -1,13 +1,18 @@
-body {
+body, html{
     
     background-image: url(/dist/asset/meadow.png);
     background-color: black;
     background-size: cover;
     background-clip: content-box;
-    background-repeat: no-repeat;
+    //background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
-    height: 100vh;  
+    min-height: 100vh;  
+    min-width: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    transition: transform .2s;  
 }
 *{
     box-sizing: border-box;
