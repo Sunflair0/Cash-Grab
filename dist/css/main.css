@@ -9,6 +9,9 @@
           justify-content: center;
   -ms-flex-line-pack: center;
       align-content: center;
+}
+
+.start {
   -webkit-animation: start alternate 1s linear ease-in;
           animation: start alternate 1s linear ease-in;
 }
@@ -121,11 +124,12 @@
   bottom: -10vh;
 }
 
-body, html {
+body {
   background-image: url(/dist/asset/meadow.png);
   background-color: black;
   background-size: cover;
   background-clip: content-box;
+  background-repeat: no-repeat;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -365,36 +369,70 @@ img {
           transform: scale(2.3, 2.3);
 }
 
+@media (min-width: 576px) {
+  span {
+    font-family: 'Orbitron';
+  }
+}
+
+@media (min-width: 768px) {
+  span {
+    font-family: 'Orbitron';
+  }
+}
+
+@media (min-width: 992px) {
+  span {
+    font-family: 'Orbitron';
+  }
+}
+
+@media (min-width: 1200px) {
+  span {
+    font-family: 'Orbitron';
+  }
+}
+
 .sky {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -ms-flex-preferred-size: 23%;
       flex-basis: 23%;
+}
+
+.header {
   border: red solid 3px;
+  font-family: 'Flavors';
+  font-size: xx-large;
+  color: #bd491b;
+  text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
 }
 
 .ground {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin: auto;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -ms-flex-preferred-size: 62.5%;
       flex-basis: 62.5%;
+  width: 95%;
+  margin: auto;
+  border: red solid 3px;
 }
 
 .bottom {
-  -ms-flex-preferred-size: 14.5%;
-      flex-basis: 14.5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -402,9 +440,37 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+  width: 100%;
+  padding: 3px;
   border: white 4px solid;
   background: black;
-  padding: 3px;
-  position: relative;
+}
+
+.smashBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-preferred-size: 23%;
+      flex-basis: 23%;
+  max-width: 286px;
+  margin: auto;
+  border: red solid 3px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+span {
+  font-family: 'Orbitron';
 }
 /*# sourceMappingURL=main.css.map */

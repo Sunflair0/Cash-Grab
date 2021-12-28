@@ -3,9 +3,10 @@
     max-width:100px;
     max-height: 100px;
     justify-content: center;
-    align-content: center;
+    align-content: center;      
+}
+.start {
     animation: start alternate 1s linear ease-in;
-      
 }
 @keyframes start{
 from {

@@ -5,29 +5,42 @@
 @import 'responsive';
 
 .sky {
-    display: flex;    
-    flex-basis: 23%;
+    @include flexShell;   
+    flex-basis: 23%;  
+}
+.header {
     border: red solid 3px;
+    font-family: 'Flavors';
+    font-size: xx-large;
+    color: rgb(189, 73, 27);
+    text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
 }
 .ground {
-    display: flex;   
-    flex-wrap: wrap;
-    justify-content: space-between;  
-    //flex-grow: 1;
-    flex-direction: row;
-    margin: auto;
-    //max-height: 175px;
-    //max-width: 230px;
-    //width: 94%;
+    @include flexShell;
     flex-basis: 62.5%;
+    width: 95%; 
+    margin: auto;    
+    border: red solid 3px;
 }
 
 .bottom {
-    flex-basis: 14.5%;
-    display: flex;
-    flex-direction: row;       
+    @include flexShell;
+    flex-basis: auto;  
+    width: 100%;
+    padding: 3px;    
     border: white 4px solid;
-    background: rgb(0, 0, 0);
-    padding: 3px;
-    position: relative;
+    background: rgb(0, 0, 0);   
+}
+
+    .smashBox {
+        @include flexShell;
+        flex-basis: 23%;
+        max-width: 286px;
+        //height: 125px;    
+        margin: auto;
+        border: red solid 3px;
+        justify-content: space-between;
+}
+span {
+    font-family: 'Orbitron';
 }
