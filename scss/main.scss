@@ -9,7 +9,6 @@
     flex-basis: 23%;  
 }
 .header {
-    border: red solid 3px;
     font-family: 'Flavors';
     font-size: xx-large;
     color: rgb(189, 73, 27);
@@ -20,7 +19,7 @@
     flex-basis: 62.5%;
     width: 95%; 
     margin: auto;    
-    border: red solid 3px;
+    border: rgb(255, 123, 0) solid 3px;
 }
 
 .bottom {
@@ -32,7 +31,7 @@
     background: rgb(0, 0, 0);   
 }
 
-    .smashBox {
+.smashBox {
         @include flexShell;
         flex-basis: 23%;
         max-width: 286px;
@@ -43,4 +42,5 @@
 }
 span {
     font-family: 'Orbitron';
+    margin-top: 2vh;
 }

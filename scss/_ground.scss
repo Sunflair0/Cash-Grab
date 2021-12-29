@@ -11,6 +11,7 @@
     flex-basis: 21%;
     width: 300%;
     margin: auto;
+    background-image: url(/dist/asset/hole.png) no-repeat contain;
 }
 .theCash {
     display: flex;
@@ -19,7 +20,7 @@
     width: 23%;
     transform: scale(.3,.3);
     flex-basis: 21%;
-    background-image: url(/dist/asset/cash.png) no-repeat;
+    background-image: url(/dist/asset/cash.png) no-repeat contain;
     animation: cashPop 1s alternate cubic-bezier(0.75, 0.95, 0.2, 1) ease-out;
 }
 @keyframes cashPop{
@@ -50,11 +51,43 @@ opacity:1;}
     max-width: 126px;  
     position: relative;
 }
-#first {  
+#first-a {  
     max-width: 126px;  
-    transform: scale(1.3,1.3);
+    transform: scale(.8,.8);
+    background-image: url(/dist/asset/cash.png);
 }
-#second {  
+#first-b {  
     max-width: 126px;  
-    transform: scale(2.3,2.3);
+    transform: scale(.8,.8);
+    background-image: url(/dist/asset/cash.png);
+}
+#first-c {  
+    max-width: 126px;  
+    transform: scale(.8,.8);
+    background-image: url(/dist/asset/cash.png);
+}
+#first-d {  
+    max-width: 126px;  
+    transform: scale(.8,.8);
+    background-image: url(/dist/asset/cash.png);
+}
+#second-a {  
+    max-width: 126px;  
+    transform: scale(.8,.8);
+    background-image: url(/dist/asset/sunmole.png);
+}
+#second-b {  
+    max-width: 126px;  
+    transform: scale(.8,.8);
+    background-image: url(/dist/asset/daisymole.png);
+}
+#second-c {  
+    max-width: 126px;  
+    transform: scale(.8,.8);
+    background-image: url(/dist/asset/tulipmole.png);
+}
+#second-b {  
+    max-width: 126px;  
+    transform: scale(.8,.8);
+    background-image: url(/dist/asset/rosemole.png);
 }

@@ -16,6 +16,7 @@ to{
     transform: scale(1.5);
 }
 }
+
 #scored, #time {
     width: 200px;   
     text-align: center;
@@ -31,26 +32,32 @@ to{
     padding: 3px;
     outline:white solid 4px;
     outline-offset:  -11px;
-    
 }
 .wBox1 {
+    visibility: visible;
     flex-basis: 10%;
-    margin-top: auto;
-    margin-bottom: auto;
 }
-.wBox2,.wBox3 {
-    padding-left: 5px;
-    padding-top: 5px;
-    flex-basis: 17%;
+  
+.wBox2{
+    visibility: hidden;
+    flex-basis: 10%;
+    padding-left: 6px;
+    padding-top: 6px;
+    position: fixed;
+    
+    
+}
+.wBox3 {
+    flex-basis: 24%;
+    padding-left: 6px;
+    padding-top: 6px;    
     border-left: white 4px solid;
-
 }
 .wBox4 {
-    display: flex;
-    //position: relative;
-    padding-top: 5px;
-    padding-left: 5px;
     flex-basis: 40%;
+    display: flex;
+    padding-top: 6px;
+    padding-left: 6px;    
     border-left: white 4px solid;
 }
 
@@ -66,11 +73,11 @@ to{
 }
 #sun{
     height: 80px;
-    background: url(/dist/asset/sunhole.png);
+    background: url(/dist/asset/sunmole.png);
 }
 .wBox5 {
-    padding-top: 5px;
-    padding-left: 5px;
+    padding-top: 6px;
+    padding-left: 6px;
     flex-basis: calc(36%-100px);
     width: 30%;
     margin-left: white 4px solid;

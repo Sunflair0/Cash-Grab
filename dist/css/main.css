@@ -62,28 +62,36 @@
 }
 
 .wBox1 {
+  visibility: visible;
   -ms-flex-preferred-size: 10%;
       flex-basis: 10%;
-  margin-top: auto;
-  margin-bottom: auto;
 }
 
-.wBox2, .wBox3 {
-  padding-left: 5px;
-  padding-top: 5px;
-  -ms-flex-preferred-size: 17%;
-      flex-basis: 17%;
+.wBox2 {
+  visibility: hidden;
+  -ms-flex-preferred-size: 10%;
+      flex-basis: 10%;
+  padding-left: 6px;
+  padding-top: 6px;
+  position: fixed;
+}
+
+.wBox3 {
+  -ms-flex-preferred-size: 24%;
+      flex-basis: 24%;
+  padding-left: 6px;
+  padding-top: 6px;
   border-left: white 4px solid;
 }
 
 .wBox4 {
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-top: 5px;
-  padding-left: 5px;
-  -ms-flex-preferred-size: 40%;
-      flex-basis: 40%;
+  padding-top: 6px;
+  padding-left: 6px;
   border-left: white 4px solid;
 }
 
@@ -101,12 +109,12 @@
 
 #sun {
   height: 80px;
-  background: url(/dist/asset/sunhole.png);
+  background: url(/dist/asset/sunmole.png);
 }
 
 .wBox5 {
-  padding-top: 5px;
-  padding-left: 5px;
+  padding-top: 6px;
+  padding-left: 6px;
   -ms-flex-preferred-size: calc(36%-100px);
       flex-basis: calc(36%-100px);
   width: 30%;
@@ -278,6 +286,7 @@ img {
       flex-basis: 21%;
   width: 300%;
   margin: auto;
+  background-image: url(/dist/asset/hole.png) no-repeat contain;
 }
 
 .theCash {
@@ -293,7 +302,7 @@ img {
           transform: scale(0.3, 0.3);
   -ms-flex-preferred-size: 21%;
       flex-basis: 21%;
-  background-image: url(/dist/asset/cash.png) no-repeat;
+  background-image: url(/dist/asset/cash.png) no-repeat contain;
   -webkit-animation: cashPop 1s alternate cubic-bezier(0.75, 0.95, 0.2, 1) ease-out;
           animation: cashPop 1s alternate cubic-bezier(0.75, 0.95, 0.2, 1) ease-out;
 }
@@ -357,16 +366,60 @@ img {
   position: relative;
 }
 
-#first {
+#first-a {
   max-width: 126px;
-  -webkit-transform: scale(1.3, 1.3);
-          transform: scale(1.3, 1.3);
+  -webkit-transform: scale(0.8, 0.8);
+          transform: scale(0.8, 0.8);
+  background-image: url(/dist/asset/cash.png);
 }
 
-#second {
+#first-b {
   max-width: 126px;
-  -webkit-transform: scale(2.3, 2.3);
-          transform: scale(2.3, 2.3);
+  -webkit-transform: scale(0.8, 0.8);
+          transform: scale(0.8, 0.8);
+  background-image: url(/dist/asset/cash.png);
+}
+
+#first-c {
+  max-width: 126px;
+  -webkit-transform: scale(0.8, 0.8);
+          transform: scale(0.8, 0.8);
+  background-image: url(/dist/asset/cash.png);
+}
+
+#first-d {
+  max-width: 126px;
+  -webkit-transform: scale(0.8, 0.8);
+          transform: scale(0.8, 0.8);
+  background-image: url(/dist/asset/cash.png);
+}
+
+#second-a {
+  max-width: 126px;
+  -webkit-transform: scale(0.8, 0.8);
+          transform: scale(0.8, 0.8);
+  background-image: url(/dist/asset/sunmole.png);
+}
+
+#second-b {
+  max-width: 126px;
+  -webkit-transform: scale(0.8, 0.8);
+          transform: scale(0.8, 0.8);
+  background-image: url(/dist/asset/daisymole.png);
+}
+
+#second-c {
+  max-width: 126px;
+  -webkit-transform: scale(0.8, 0.8);
+          transform: scale(0.8, 0.8);
+  background-image: url(/dist/asset/tulipmole.png);
+}
+
+#second-b {
+  max-width: 126px;
+  -webkit-transform: scale(0.8, 0.8);
+          transform: scale(0.8, 0.8);
+  background-image: url(/dist/asset/rosemole.png);
 }
 
 @media (min-width: 576px) {
@@ -384,6 +437,7 @@ img {
 @media (min-width: 992px) {
   span {
     font-family: 'Orbitron';
+    margin-top: 3vh;
   }
 }
 
@@ -408,7 +462,6 @@ img {
 }
 
 .header {
-  border: red solid 3px;
   font-family: 'Flavors';
   font-size: xx-large;
   color: #bd491b;
@@ -429,7 +482,7 @@ img {
       flex-basis: 62.5%;
   width: 95%;
   margin: auto;
-  border: red solid 3px;
+  border: #ff7b00 solid 3px;
 }
 
 .bottom {
@@ -472,5 +525,6 @@ img {
 
 span {
   font-family: 'Orbitron';
+  margin-top: 2vh;
 }
 /*# sourceMappingURL=main.css.map */
