@@ -34,7 +34,7 @@
 .smashBox {
         @include flexShell;
         flex-basis: 23%;
-        max-width: 286px;
+        max-width: 200px;
         //height: 125px;    
         margin: auto;
         border: red solid 3px;

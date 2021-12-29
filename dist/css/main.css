@@ -84,6 +84,22 @@
   border-left: white 4px solid;
 }
 
+.wBox3:before {
+  content: '\2665' '\2665' '\2665' '\2665';
+  color: red;
+  font-size: xx-large;
+  position: absolute;
+  bottom: 2.5vh;
+}
+
+.wBox3:before:before {
+  content: '\2665' '\2665' '\2665' '\2665';
+  color: #858585;
+  font-size: xx-large;
+  position: absolute;
+  bottom: 2.5vh;
+}
+
 .wBox4 {
   -ms-flex-preferred-size: 40%;
       flex-basis: 40%;
@@ -120,6 +136,7 @@
   width: 30%;
   margin-left: white 4px solid;
   border-left: white 4px solid;
+  overflow: hidden;
 }
 
 #wBox5 {
@@ -415,7 +432,7 @@ img {
   background-image: url(/dist/asset/tulipmole.png);
 }
 
-#second-b {
+#second-d {
   max-width: 126px;
   -webkit-transform: scale(0.8, 0.8);
           transform: scale(0.8, 0.8);
@@ -515,7 +532,7 @@ img {
       flex-wrap: wrap;
   -ms-flex-preferred-size: 23%;
       flex-basis: 23%;
-  max-width: 286px;
+  max-width: 200px;
   margin: auto;
   border: red solid 3px;
   -webkit-box-pack: justify;
