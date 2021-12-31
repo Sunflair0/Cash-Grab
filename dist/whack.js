@@ -3,7 +3,7 @@ let secondScore = 0;
 let thirdScore = 0;
 let hits = 0;
 let score = 0;
-let timer = 59;
+let timer = 29;
 let start = document.getElementById('start');
 let time = document.getElementById('time');
 let wBox2 = document.querySelectorAll(".wBox2");
@@ -24,15 +24,18 @@ start.addEventListener("click", () => {
         popUps();
         sun = document.querySelectorAll('.sunMole');
         return sun;      
-    }, 1000);
+    }, 500);
     window.setTimeout(() => {
         window.clearInterval(whereMole);
         window.clearInterval(time);
+        
+        
         // document.getElementById('start').style.visibility = "visible";
         score = 1
-        time.innerHTML = 60;
-        timer = 59
-    }, 60900);
+        time.innerHTML = 30;
+        timer = 29
+        roundEnd();
+    }, 30900);
 });
 
 const popUps = () => {
@@ -47,18 +50,18 @@ holes.forEach((val) => {
         document.getElementById('score').innerText = score;
         if (e.target.classList.contains("sunMole")) {
             e.target.classList.replace("sunMole", "splat")
-            score++;
-            if (score >= topScore) {
-                topScore = score - 1;
-                document.getElementById("score1").innerText = topScore;
-                console.log(topScore);
-            } else if (score >= secondScore) {
-                secondScore = score - 1;
-                document.getElementById("score2").innerText = score;
-            } else if (score >= thirdScore) {
-                thirdScore = score - 1;
-                document.getElementById("score3").innerText = score;
-            }
+            score--;
+            // if (score >= topScore) {
+            //     topScore = score - 1;
+            //     document.getElementById("score1").innerText = topScore;
+            //     console.log(topScore);
+            // } else if (score >= secondScore) {
+            //     secondScore = score - 1;
+            //     document.getElementById("score2").innerText = score;
+            // } else if (score >= thirdScore) {
+            //     thirdScore = score - 1;
+            //     document.getElementById("score3").innerText = score;
+            // }
         }
     })
 });
@@ -68,6 +71,16 @@ let resetHoles = window.setInterval(() => {
         val.classList.replace("splat", "darkhole");
     })
 }, 1000)
+
+const roundEnd = () => {
+    document.getElementById('start').style.visibility = "visible";
+    document.getElementById('roundEnd').style.visibility = "visible";
+  
+    let endScore = document.querySelectorAll(".darkhole");
+    endScore.forEach((val) => {
+        val.classList.replace("darkhole", "roundEnd");
+    });
+  }
 
 // Trevor's Scoreboard
 

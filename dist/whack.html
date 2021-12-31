@@ -17,7 +17,7 @@
             <h1>Cash Smash</h1>
         </div>
     </div>
-    <div class="ground">        
+    <div class="ground">          
         <div class="darkhole"></div>
         <div class="darkhole"></div>
         <div class="darkhole"></div>
@@ -30,11 +30,12 @@
         <div class="darkhole"></div>
         <div class="darkhole"></div>
         <div class="darkhole"></div>    
-</div>
+         <!-- <div id="roundEnd"></div>  -->
+</div> 
     <div class="bottom">
         <div class="whiteBoxes">
             <div class="wBox1"><input type="image" id="start" class="button start" src="/dist/asset/start.png"/></div>
-            <div class="wBox2">Seconds<br><span id="time" id="tUp">:60</span></div>
+            <div class="wBox2">Seconds<br><span id="time">:30</span></div>
             <div class="wBox3">Score:<br><span id="score">0</span></div>
             <div class="wBox4">
                 50pts<div class="first-a"></div>
@@ -47,5 +48,15 @@
     <script type="text/javascript" src="whack.js"></script>
 </body>
 
+
+<!-- const roundEnd = () => {
+    document.getElementById('start').style.visibility = "visible";
+    document.getElementById('roundEnd').style.visibility = "visible";
+  
+    let endScore = document.querySelectorAll(".darkhole");
+    endScore.forEach((val) => {
+        val.classList.replace("darkhole", "roundEnd");
+    });
+  } -->
 
 </html>

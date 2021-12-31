@@ -1,0 +1,172 @@
+#start {
+    
+    display: flex;
+    max-width:100px;
+    max-height: 100px;
+    justify-content: center;
+    align-content: center;      
+}
+.start {
+    animation: start alternate 1s linear ease-in;
+}
+@keyframes start{
+from {
+    transform: scale(1);
+}
+to{
+    transform: scale(1.5);
+}
+}
+
+#score, #time {
+    width: 200px;   
+    text-align: center;
+    font-size: xx-large;   
+}
+.whiteBoxes {
+    max-height: 120px;
+    flex-direction: row;
+    display: flex;
+    color: white; 
+    width: 100%;
+    border: rgb(255, 255, 255) 5px dotted; 
+    padding: 3px;
+    outline:white ridge 4px;
+    outline-offset: -11px;
+    
+    &:hover{
+        animation: color infinite 1s steps(6, jump-both);
+    }    
+}
+@keyframes color {
+    0% {
+        border: rgb(204, 0, 255) 5px dotted; 
+    }
+    20% {
+        border: rgb(0, 255, 242) 5px dotted; 
+    }
+    40% {
+        border: rgb(19, 156, 30) 5px dotted; 
+    }
+    60% {
+        border: rgb(238, 255, 0) 5px dotted; 
+    }
+    80% {
+        border: rgb(255, 145, 0) 5px dotted; 
+    }
+    100% {
+        border: rgb(255, 0, 0) 5px dotted; 
+    }
+}
+
+.wBox1 {
+    visibility: visible;
+    flex-basis: 10%;
+    border: white 2px ridge; 
+}
+  
+.wBox2{
+    visibility: hidden;
+    flex-basis: 10%;
+    padding-left: 6px;
+    padding-top: 6px;
+    position: fixed;
+    //border: white 2px ridge;
+    
+    
+}
+.wBox3 {
+    flex-basis: 24%;
+    padding-left: 6px;
+    padding-top: 6px;    
+    border-left: white 4px ridge;
+    position: relative;
+
+    &:before {        
+        content: '\2665';
+        color: rgb(255, 0, 0);
+        font-size: x-large;
+        position: absolute;
+        bottom: 1vh;      
+}
+    &:after {        
+        content: '\2665';
+        color: rgb(255, 0, 0);
+        font-size: x-large;
+        position: absolute;
+        bottom: 1vh;
+    }
+}
+.wBox4 {
+    flex-basis: 40%;
+    position: relative;
+    display: flex;
+    padding-top: 6px;
+    padding-left: 6px;    
+    border-left: white 4px ridge;
+}
+
+#cash{
+    height: 60px;
+    width: auto;
+    background: url(/dist/asset/cash.png);
+}
+#whack{
+    
+    height: 80px;
+    width: auto;
+    background: url(/dist/asset/whack.png);
+}
+#sun{
+    height: 80px;
+    background: url(/dist/asset/darksun.png);
+}
+.wBox5 {
+    
+    padding-top: 6px;
+    padding-left: 6px;
+    flex-basis: calc(36%-100px);
+    width: 30%;
+    border-left: rgb(255, 255, 255) 4px ridge;
+    overflow: hidden;
+}
+#wBox5 {
+    background-image: url(/dist/asset/whack.png);
+    max-height: 75%;  
+    width: auto;
+    display: flex;
+    margin: auto;
+} 
+.first_a {  
+    @include wBox4;
+    background-image: url(/dist/asset/cash25.png);
+}
+.first-b {  
+     @include wBox4;
+     background-image: url(/dist/asset/lapis25.png);
+ }
+ .first-c {  
+     @include wBox4;
+     background-image: url(/dist/asset/pearl25.png);
+ }
+ .first-d {  
+     @include wBox4;
+     background-image: url(/dist/asset/yellow25.png);
+     transform: scale(.65,.65);
+ }
+.second-a {  
+    @include wBox4;
+    background-image: url(/dist/asset/darksun.png);   
+}
+.second-b {  
+    @include wBox4;
+    background-image: url(/dist/asset/darkdaisy.png);
+}
+.second-c {  
+    @include wBox4;
+    background-image: url(/dist/asset/darktulip.png);
+}
+.second-d {  
+    @include wBox4;
+    background-image: url(/dist/asset/darkrose.png);
+}

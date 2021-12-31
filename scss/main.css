@@ -132,11 +132,7 @@
   background-size: cover;
 }
 
-#tUp {
-  color: white;
-}
-
-#scored {
+#score {
   width: 200px;
   color: white;
   background-color: black;
