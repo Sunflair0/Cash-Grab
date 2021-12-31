@@ -67,7 +67,7 @@ let resetHoles = window.setInterval(() => {
     splats.forEach((val) => {
         val.classList.replace("splat", "darkhole");
     })
-}, 2000)
+}, 1000)
 
 // Trevor's Scoreboard
 

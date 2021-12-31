@@ -1,4 +1,4 @@
-@import 'bottom';
+@import 'stats';
 @import 'config';
 @import 'mixins';
 @import 'ground';
@@ -21,10 +21,6 @@
     width: 95%; 
     margin: auto;    
     border: rgb(255, 123, 0) solid 3px;
-    z-index: -10;
-    justify-content: space-around;
-    align-items: flex-end;
-    height: 50%;
 }
 
 .bottom {

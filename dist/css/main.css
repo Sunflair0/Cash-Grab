@@ -38,7 +38,7 @@
   }
 }
 
-#scored, #time {
+#score, #time {
   width: 200px;
   text-align: center;
   font-size: xx-large;
@@ -55,10 +55,57 @@
   display: flex;
   color: white;
   width: 100%;
-  border: #00fff2 5px dotted;
+  border: white 5px dotted;
   padding: 3px;
   outline: white solid 4px;
   outline-offset: -11px;
+}
+
+.whiteBoxes:hover {
+  -webkit-animation: color infinite 1s steps(6, jump-both);
+          animation: color infinite 1s steps(6, jump-both);
+}
+
+@-webkit-keyframes color {
+  0% {
+    border: #cc00ff 5px dotted;
+  }
+  20% {
+    border: #00fff2 5px dotted;
+  }
+  40% {
+    border: #139c1e 5px dotted;
+  }
+  60% {
+    border: #eeff00 5px dotted;
+  }
+  80% {
+    border: #ff9100 5px dotted;
+  }
+  100% {
+    border: red 5px dotted;
+  }
+}
+
+@keyframes color {
+  0% {
+    border: #cc00ff 5px dotted;
+  }
+  20% {
+    border: #00fff2 5px dotted;
+  }
+  40% {
+    border: #139c1e 5px dotted;
+  }
+  60% {
+    border: #eeff00 5px dotted;
+  }
+  80% {
+    border: #ff9100 5px dotted;
+  }
+  100% {
+    border: red 5px dotted;
+  }
 }
 
 .wBox1 {
@@ -104,6 +151,7 @@
 .wBox4 {
   -ms-flex-preferred-size: 40%;
       flex-basis: 40%;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -150,25 +198,174 @@
   margin: auto;
 }
 
-.second {
-  -webkit-transform: scale(0.35, 0.35);
-          transform: scale(0.35, 0.35);
+.first_a {
+  background-image: url(/dist/asset/cash.png);
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  max-width: 50px;
+  height: 50px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  margin-left: -1%;
+  max-width: 50px;
+  min-width: 50px;
+  position: absolute;
+  border: blueviolet 2px solid;
+}
+
+.first-b {
+  background-image: url(/dist/asset/lapis.png);
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  max-width: 50px;
+  height: 50px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  margin-left: -1%;
+  max-width: 50px;
+  min-width: 50px;
+  position: absolute;
+  border: blueviolet 2px solid;
+}
+
+.first-c {
+  background-image: url(/dist/asset/pearl.png);
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  max-width: 50px;
+  height: 50px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  margin-left: -1%;
+  max-width: 50px;
+  min-width: 50px;
+  position: absolute;
+  border: blueviolet 2px solid;
+}
+
+.first-d {
+  background-image: url(/dist/asset/yellow.png);
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  max-width: 50px;
+  height: 50px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  margin-left: -1%;
+  max-width: 50px;
+  min-width: 50px;
+  position: absolute;
+  border: blueviolet 2px solid;
+  -webkit-transform: scale(0.65, 0.65);
+          transform: scale(0.65, 0.65);
 }
 
 .second-a {
   background-image: url(/dist/asset/sunmole.png);
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  max-width: 50px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 50px;
+  min-width: 50px;
+  border: blueviolet 2px solid;
 }
 
 .second-b {
   background-image: url(/dist/asset/daisymole.png);
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  max-width: 50px;
+  height: 50px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  margin-left: -1%;
+  max-width: 50px;
+  min-width: 50px;
+  position: absolute;
+  border: blueviolet 2px solid;
 }
 
 .second-c {
   background-image: url(/dist/asset/tulipmole.png);
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  max-width: 50px;
+  height: 50px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  margin-left: -1%;
+  max-width: 50px;
+  min-width: 50px;
+  position: absolute;
+  border: blueviolet 2px solid;
 }
 
 .second-d {
   background-image: url(/dist/asset/rosemole.png);
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  max-width: 50px;
+  height: 50px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  margin-left: -1%;
+  max-width: 50px;
+  min-width: 50px;
+  position: absolute;
+  border: blueviolet 2px solid;
 }
 
 body {
@@ -232,15 +429,6 @@ img {
      object-fit: cover;
 }
 
-#ch1, #ch2, #ch3, #ch4, #ch5, #ch6, #ch7, #ch8, #ch9, #ch10, #ch11, #ch12 {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: auto;
-  background-position: center;
-}
-
 .darkhole {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -251,72 +439,17 @@ img {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-  max-width: 200px;
+  -ms-flex-preferred-size: 23%;
+      flex-basis: 23%;
+  max-width: 180px;
+  height: 100px;
   margin: auto;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   margin-top: 10vh;
-  background-image: url(/dist/asset/hole.png);
+  background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  z-index: -10;
-  background-position: center bottom;
-  -webkit-backdrop-filter: brightness(1.1);
-          backdrop-filter: brightness(1.1);
-}
-
-.hole {
-  -ms-flex-preferred-size: auto;
-      flex-basis: auto;
-  width: 200px;
-  height: 100px;
-  margin: 10px;
-  border: #ff00d4 solid 2px;
-}
-
-.first {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: auto;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  margin-left: -1%;
-  max-width: 50px;
-  min-width: 50px;
-  bottom: -25vh;
-  position: absolute;
-}
-
-.first_a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: auto;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  margin-left: -1%;
-  max-width: 50px;
-  min-width: 50px;
-  bottom: -25vh;
-  position: absolute;
-  background-image: url(/dist/asset/cash.png);
-}
-
-.first-b {
-  background-image: url(/dist/asset/lapis.png);
-}
-
-.first-c {
-  background-image: url(/dist/asset/pearl.png);
-}
-
-.first-d {
-  background-image: url(/dist/asset/yellow.png);
-  -webkit-transform: scale(0.65, 0.65);
-          transform: scale(0.65, 0.65);
+  border-radius: 20%;
+  background-image: url(/dist/asset/darkhole.png);
 }
 
 @media (min-width: 576px) {
@@ -326,8 +459,8 @@ img {
 }
 
 @media (min-width: 768px) {
-  span {
-    font-family: 'Orbitron';
+  .darkhole {
+    max-width: 180px;
   }
 }
 
@@ -350,24 +483,11 @@ img {
 }
 
 .theCash {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  border: #ff00d4 solid 2px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 23%;
   background-size: contain;
   background-repeat: no-repeat;
-  -webkit-transform: scale(0.3, 0.3);
-          transform: scale(0.3, 0.3);
-  -ms-flex-preferred-size: 21%;
-      flex-basis: 21%;
   background-image: url(/dist/asset/cash.png) no-repeat contain;
   -webkit-animation: cashPop 1s alternate cubic-bezier(0.75, 0.95, 0.2, 1) ease-out;
           animation: cashPop 1s alternate cubic-bezier(0.75, 0.95, 0.2, 1) ease-out;
-  background-color: yellowgreen;
 }
 
 @-webkit-keyframes cashPop {
@@ -400,69 +520,68 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border: #00fff2 solid 2px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-preferred-size: 23%;
+      flex-basis: 23%;
+  max-width: 180px;
+  height: 100px;
+  margin: auto;
+  margin-top: 10vh;
+  background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  width: 10%;
-  height: auto;
-  -webkit-transform: scale(0.75, 0.75);
-          transform: scale(0.75, 0.75);
-  -ms-flex-preferred-size: 21%;
-      flex-basis: 21%;
+  border-radius: 20%;
   background-image: url(/dist/asset/smash.png);
-  background-color: #eea508;
 }
 
 .splat {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border: #00fff2 solid 2px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-preferred-size: 23%;
+      flex-basis: 23%;
+  max-width: 180px;
+  height: 100px;
+  margin: auto;
+  margin-top: 10vh;
+  background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  width: 10%;
-  height: auto;
-  -webkit-transform: scale(0.75, 0.75);
-          transform: scale(0.75, 0.75);
-  -ms-flex-preferred-size: 21%;
-      flex-basis: 21%;
-  background-image: url(/dist/asset/whack.png);
-  background-color: #00fff2;
+  border-radius: 20%;
+  background-image: url(/dist/asset/splat.png);
 }
 
 .sunMole {
   background-image: url(/dist/asset/darksun.png);
-  background-color: yellow;
   background-size: contain;
   background-repeat: no-repeat;
-  -webkit-backdrop-filter: grayscale(3);
-          backdrop-filter: grayscale(3);
-  z-index: 10;
 }
 
 .tulipMole {
   background-image: url(/dist/asset/darktulip.png);
-  background-color: #ff00d4;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .daisyMole {
   background-image: url(/dist/asset/darkdaisy.png);
-  background-color: white;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .roseMole {
   background-image: url(/dist/asset/darkrose.png);
-  background-color: red;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -503,13 +622,6 @@ img {
   width: 95%;
   margin: auto;
   border: #ff7b00 solid 3px;
-  z-index: -10;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  height: 50%;
 }
 
 .bottom {

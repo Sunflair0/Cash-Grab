@@ -1,48 +1,5 @@
-#ch1,#ch2,#ch3,#ch4,#ch5,#ch6,#ch7,#ch8,#ch9,#ch10,#ch11,#ch12 { 
-    width: 100%;
-    display: flex;
-    margin: auto;
-    background-position: center;   
-}
 .darkhole {
     @include flexShell;    
-    flex-basis: 100%;
-    max-width: 200px;
-    margin: auto;
-    justify-content: space-around;
-    margin-top: 10vh;
-    background-image: url(/dist/asset/hole.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: -10;
-    background-position: center bottom;
-    backdrop-filter: brightness(1.1);
+    @include actionBox;
+    background-image: url(/dist/asset/darkhole.png);
 }
-.hole {
-    flex-basis: auto;
-    width: 200px;
-    height: 100px;
-    margin: 10px;
-    border: rgb(255, 0, 212) solid 2px;
-}
-.first {
-    @include wBox4;    
- }
- 
- .first_a {  
-     @include wBox4;
-     background-image: url(/dist/asset/cash.png);
- }
- .first-b {  
-    // @include wBox4;
-     background-image: url(/dist/asset/lapis.png);
- }
- .first-c {  
-     //@include wBox4;
-     background-image: url(/dist/asset/pearl.png);
- }
- .first-d {  
-    // @include wBox4;
-     background-image: url(/dist/asset/yellow.png);
-     transform: scale(.65,.65);
- }
