@@ -13,6 +13,10 @@
         font-family: 'Orbitron';
         margin-top: 3vh;
     }
+    .second {  
+        transform: scale(.35,.35);
+        margin-bottom: 8vh;
+    }
 }
 @media (min-width: 1200px) {
     span {

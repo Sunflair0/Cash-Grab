@@ -1,0 +1,17 @@
+@mixin wBox4{
+   //flex-direction: column;
+   display: flex;      
+   margin: auto; 
+   flex-basis: 20%;
+   margin-left: -1%;
+   max-width: 50px;  
+   min-width: 50px;
+   bottom: -25vh;
+   position: absolute; 
+ }
+@mixin flexShell {
+    display: flex;
+    flex-direction: row;  
+    flex-wrap: wrap;
+    
+}

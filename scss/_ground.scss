@@ -4,90 +4,45 @@
     margin: auto;
     background-position: center;   
 }
-.hole {
-    display: flex;
-    border: rgb(231, 231, 7) solid 2px;
-    justify-content: center;  
-    flex-basis: 21%;
-    width: 300%;
+.darkhole {
+    @include flexShell;    
+    flex-basis: 100%;
+    max-width: 200px;
     margin: auto;
-    background-image: url(/dist/asset/hole.png) no-repeat contain;
+    justify-content: space-around;
+    margin-top: 10vh;
+    background-image: url(/dist/asset/hole.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -10;
+    background-position: center bottom;
+    backdrop-filter: brightness(1.1);
 }
-.theCash {
-    display: flex;
+.hole {
+    flex-basis: auto;
+    width: 200px;
+    height: 100px;
+    margin: 10px;
     border: rgb(255, 0, 212) solid 2px;
-    justify-content: center; 
-    width: 23%;
-    transform: scale(.3,.3);
-    flex-basis: 21%;
-    background-image: url(/dist/asset/cash.png) no-repeat contain;
-    animation: cashPop 1s alternate cubic-bezier(0.75, 0.95, 0.2, 1) ease-out;
 }
-@keyframes cashPop{
-0% {
-transform:translateY(0%) rotate(0turn);
-opacity:.25;}
-50% {
-transform:translateY(100%) rotate(2turn);
-opacity:1;}
-}
-
-.theSmash {
-    display: flex;
-    border: rgb(0, 255, 242) solid 2px;
-    justify-content: center; 
-    width: 10%;
-    height: auto;
-    transform: scale(.75,.75);
-    flex-basis: 21%;
-    background-image: url(/dist/asset/smash.png);
-}
-.first, .second {
-    flex-direction: column;
-    display: flex;      
-    margin: auto; 
-    flex-basis: 20%;
-    margin-left: -1%;
-    max-width: 126px;  
-    position: relative;
-}
-#first-a {  
-    max-width: 126px;  
-    transform: scale(.8,.8);
-    background-image: url(/dist/asset/cash.png);
-}
-#first-b {  
-    max-width: 126px;  
-    transform: scale(.8,.8);
-    background-image: url(/dist/asset/cash.png);
-}
-#first-c {  
-    max-width: 126px;  
-    transform: scale(.8,.8);
-    background-image: url(/dist/asset/cash.png);
-}
-#first-d {  
-    max-width: 126px;  
-    transform: scale(.8,.8);
-    background-image: url(/dist/asset/cash.png);
-}
-#second-a {  
-    max-width: 126px;  
-    transform: scale(.8,.8);
-    background-image: url(/dist/asset/sunmole.png);
-}
-#second-b {  
-    max-width: 126px;  
-    transform: scale(.8,.8);
-    background-image: url(/dist/asset/daisymole.png);
-}
-#second-c {  
-    max-width: 126px;  
-    transform: scale(.8,.8);
-    background-image: url(/dist/asset/tulipmole.png);
-}
-#second-d {  
-    max-width: 126px;  
-    transform: scale(.8,.8);
-    background-image: url(/dist/asset/rosemole.png);
-}
+.first {
+    @include wBox4;    
+ }
+ 
+ .first_a {  
+     @include wBox4;
+     background-image: url(/dist/asset/cash.png);
+ }
+ .first-b {  
+    // @include wBox4;
+     background-image: url(/dist/asset/lapis.png);
+ }
+ .first-c {  
+     //@include wBox4;
+     background-image: url(/dist/asset/pearl.png);
+ }
+ .first-d {  
+    // @include wBox4;
+     background-image: url(/dist/asset/yellow.png);
+     transform: scale(.65,.65);
+ }

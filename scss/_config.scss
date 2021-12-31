@@ -13,6 +13,26 @@ body{
     align-items: center;
     overflow-x: hidden;
     transition: transform .2s;  
+    
+    &::-webkit-scrollbar {
+        width: 25px;    
+
+        &-track 
+            {
+            background: rgb(0, 0, 0);
+            }    
+        &-thumb 
+            {
+        background:#dd7438 ;
+        box-shadow: inset 0 0 7px #000000;
+        border-radius: 20px;
+        overflow: auto;
+        padding: 5px;
+        background-clip: padding-box;
+        border: transparent solid .3rem;
+        
+            }
+      }
 }
 *{
     box-sizing: border-box;
@@ -24,8 +44,3 @@ body{
     width: 100%;
     object-fit: cover;   
  }
-@mixin flexShell {
-    display: flex;
-    flex-direction: row;  
-    flex-wrap: wrap;
-}

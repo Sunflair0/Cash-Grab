@@ -82,22 +82,23 @@
   padding-left: 6px;
   padding-top: 6px;
   border-left: white 4px solid;
+  position: relative;
 }
 
 .wBox3:before {
-  content: '\2665' '\2665' '\2665' '\2665';
+  content: '\2665';
   color: red;
-  font-size: xx-large;
+  font-size: x-large;
   position: absolute;
-  bottom: 2.5vh;
+  bottom: 1vh;
 }
 
-.wBox3:before:before {
-  content: '\2665' '\2665' '\2665' '\2665';
-  color: #858585;
-  font-size: xx-large;
+.wBox3:after {
+  content: '\2665';
+  color: red;
+  font-size: x-large;
   position: absolute;
-  bottom: 2.5vh;
+  bottom: 1vh;
 }
 
 .wBox4 {
@@ -140,13 +141,34 @@
 }
 
 #wBox5 {
-  max-height: 80%;
+  background-image: url(/dist/asset/whack.png);
+  max-height: 75%;
   width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: auto;
-  bottom: -10vh;
+}
+
+.second {
+  -webkit-transform: scale(0.35, 0.35);
+          transform: scale(0.35, 0.35);
+}
+
+.second-a {
+  background-image: url(/dist/asset/sunmole.png);
+}
+
+.second-b {
+  background-image: url(/dist/asset/daisymole.png);
+}
+
+.second-c {
+  background-image: url(/dist/asset/tulipmole.png);
+}
+
+.second-d {
+  background-image: url(/dist/asset/rosemole.png);
 }
 
 body {
@@ -177,6 +199,25 @@ body {
   transition: transform .2s, -webkit-transform .2s;
 }
 
+body::-webkit-scrollbar {
+  width: 25px;
+}
+
+body::-webkit-scrollbar-track {
+  background: black;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #dd7438;
+  -webkit-box-shadow: inset 0 0 7px #000000;
+          box-shadow: inset 0 0 7px #000000;
+  border-radius: 20px;
+  overflow: auto;
+  padding: 5px;
+  background-clip: padding-box;
+  border: transparent solid .3rem;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -191,97 +232,6 @@ img {
      object-fit: cover;
 }
 
-/* Birds in Sky */
-.bird-path-one {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  background-color: green;
-  border: solid 2px;
-  border-radius: 50px;
-  width: 20px;
-  -webkit-transition: -webkit-transform 12s;
-  transition: -webkit-transform 12s;
-  transition: transform 12s;
-  transition: transform 12s, -webkit-transform 12s;
-  -webkit-transform: translate(600px);
-          transform: translate(600px);
-}
-
-.bird-path-two {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  background-color: green;
-  border: solid 2px;
-  border-radius: 50px;
-  width: 20px;
-  -webkit-transition: -webkit-transform 12s;
-  transition: -webkit-transform 12s;
-  transition: transform 12s;
-  transition: transform 12s, -webkit-transform 12s;
-  -webkit-transform: translate(600px);
-          transform: translate(600px);
-}
-
-.bird-path-three {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  background-color: green;
-  border: solid 2px;
-  border-radius: 50px;
-  width: 20px;
-  -webkit-transition: -webkit-transform 12s;
-  transition: -webkit-transform 12s;
-  transition: transform 12s;
-  transition: transform 12s, -webkit-transform 12s;
-  -webkit-transform: translate(600px);
-          transform: translate(600px);
-}
-
-.bird-path-four {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  background-color: green;
-  border: solid 2px;
-  border-radius: 50px;
-  width: 20px;
-  -webkit-transition: -webkit-transform 12s;
-  transition: -webkit-transform 12s;
-  transition: transform 12s;
-  transition: transform 12s, -webkit-transform 12s;
-  -webkit-transform: translate(600px);
-          transform: translate(600px);
-}
-
-.bird-path-five {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  background-color: green;
-  border: solid 2px;
-  width: 20px;
-  border-radius: 50px;
-  -webkit-transition: -webkit-transform 12s;
-  transition: -webkit-transform 12s;
-  transition: transform 12s;
-  transition: transform 12s, -webkit-transform 12s;
-  -webkit-transform: translate(600px);
-          transform: translate(600px);
-}
-
 #ch1, #ch2, #ch3, #ch4, #ch5, #ch6, #ch7, #ch8, #ch9, #ch10, #ch11, #ch12 {
   width: 100%;
   display: -webkit-box;
@@ -291,19 +241,112 @@ img {
   background-position: center;
 }
 
-.hole {
+.darkhole {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border: #e7e707 solid 2px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-preferred-size: 21%;
-      flex-basis: 21%;
-  width: 300%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  max-width: 200px;
   margin: auto;
-  background-image: url(/dist/asset/hole.png) no-repeat contain;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 10vh;
+  background-image: url(/dist/asset/hole.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -10;
+  background-position: center bottom;
+  -webkit-backdrop-filter: brightness(1.1);
+          backdrop-filter: brightness(1.1);
+}
+
+.hole {
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+  width: 200px;
+  height: 100px;
+  margin: 10px;
+  border: #ff00d4 solid 2px;
+}
+
+.first {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  margin-left: -1%;
+  max-width: 50px;
+  min-width: 50px;
+  bottom: -25vh;
+  position: absolute;
+}
+
+.first_a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  margin-left: -1%;
+  max-width: 50px;
+  min-width: 50px;
+  bottom: -25vh;
+  position: absolute;
+  background-image: url(/dist/asset/cash.png);
+}
+
+.first-b {
+  background-image: url(/dist/asset/lapis.png);
+}
+
+.first-c {
+  background-image: url(/dist/asset/pearl.png);
+}
+
+.first-d {
+  background-image: url(/dist/asset/yellow.png);
+  -webkit-transform: scale(0.65, 0.65);
+          transform: scale(0.65, 0.65);
+}
+
+@media (min-width: 576px) {
+  span {
+    font-family: 'Orbitron';
+  }
+}
+
+@media (min-width: 768px) {
+  span {
+    font-family: 'Orbitron';
+  }
+}
+
+@media (min-width: 992px) {
+  span {
+    font-family: 'Orbitron';
+    margin-top: 3vh;
+  }
+  .second {
+    -webkit-transform: scale(0.35, 0.35);
+            transform: scale(0.35, 0.35);
+    margin-bottom: 8vh;
+  }
+}
+
+@media (min-width: 1200px) {
+  span {
+    font-family: 'Orbitron';
+  }
 }
 
 .theCash {
@@ -315,6 +358,8 @@ img {
       -ms-flex-pack: center;
           justify-content: center;
   width: 23%;
+  background-size: contain;
+  background-repeat: no-repeat;
   -webkit-transform: scale(0.3, 0.3);
           transform: scale(0.3, 0.3);
   -ms-flex-preferred-size: 21%;
@@ -322,6 +367,7 @@ img {
   background-image: url(/dist/asset/cash.png) no-repeat contain;
   -webkit-animation: cashPop 1s alternate cubic-bezier(0.75, 0.95, 0.2, 1) ease-out;
           animation: cashPop 1s alternate cubic-bezier(0.75, 0.95, 0.2, 1) ease-out;
+  background-color: yellowgreen;
 }
 
 @-webkit-keyframes cashPop {
@@ -358,6 +404,8 @@ img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background-size: contain;
+  background-repeat: no-repeat;
   width: 10%;
   height: auto;
   -webkit-transform: scale(0.75, 0.75);
@@ -365,103 +413,58 @@ img {
   -ms-flex-preferred-size: 21%;
       flex-basis: 21%;
   background-image: url(/dist/asset/smash.png);
+  background-color: #eea508;
 }
 
-.first, .second {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+.splat {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: auto;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  margin-left: -1%;
-  max-width: 126px;
-  position: relative;
+  border: #00fff2 solid 2px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 10%;
+  height: auto;
+  -webkit-transform: scale(0.75, 0.75);
+          transform: scale(0.75, 0.75);
+  -ms-flex-preferred-size: 21%;
+      flex-basis: 21%;
+  background-image: url(/dist/asset/whack.png);
+  background-color: #00fff2;
 }
 
-#first-a {
-  max-width: 126px;
-  -webkit-transform: scale(0.8, 0.8);
-          transform: scale(0.8, 0.8);
-  background-image: url(/dist/asset/cash.png);
+.sunMole {
+  background-image: url(/dist/asset/darksun.png);
+  background-color: yellow;
+  background-size: contain;
+  background-repeat: no-repeat;
+  -webkit-backdrop-filter: grayscale(3);
+          backdrop-filter: grayscale(3);
+  z-index: 10;
 }
 
-#first-b {
-  max-width: 126px;
-  -webkit-transform: scale(0.8, 0.8);
-          transform: scale(0.8, 0.8);
-  background-image: url(/dist/asset/cash.png);
+.tulipMole {
+  background-image: url(/dist/asset/darktulip.png);
+  background-color: #ff00d4;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-#first-c {
-  max-width: 126px;
-  -webkit-transform: scale(0.8, 0.8);
-          transform: scale(0.8, 0.8);
-  background-image: url(/dist/asset/cash.png);
+.daisyMole {
+  background-image: url(/dist/asset/darkdaisy.png);
+  background-color: white;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-#first-d {
-  max-width: 126px;
-  -webkit-transform: scale(0.8, 0.8);
-          transform: scale(0.8, 0.8);
-  background-image: url(/dist/asset/cash.png);
-}
-
-#second-a {
-  max-width: 126px;
-  -webkit-transform: scale(0.8, 0.8);
-          transform: scale(0.8, 0.8);
-  background-image: url(/dist/asset/sunmole.png);
-}
-
-#second-b {
-  max-width: 126px;
-  -webkit-transform: scale(0.8, 0.8);
-          transform: scale(0.8, 0.8);
-  background-image: url(/dist/asset/daisymole.png);
-}
-
-#second-c {
-  max-width: 126px;
-  -webkit-transform: scale(0.8, 0.8);
-          transform: scale(0.8, 0.8);
-  background-image: url(/dist/asset/tulipmole.png);
-}
-
-#second-d {
-  max-width: 126px;
-  -webkit-transform: scale(0.8, 0.8);
-          transform: scale(0.8, 0.8);
-  background-image: url(/dist/asset/rosemole.png);
-}
-
-@media (min-width: 576px) {
-  span {
-    font-family: 'Orbitron';
-  }
-}
-
-@media (min-width: 768px) {
-  span {
-    font-family: 'Orbitron';
-  }
-}
-
-@media (min-width: 992px) {
-  span {
-    font-family: 'Orbitron';
-    margin-top: 3vh;
-  }
-}
-
-@media (min-width: 1200px) {
-  span {
-    font-family: 'Orbitron';
-  }
+.roseMole {
+  background-image: url(/dist/asset/darkrose.png);
+  background-color: red;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .sky {
@@ -500,6 +503,13 @@ img {
   width: 95%;
   margin: auto;
   border: #ff7b00 solid 3px;
+  z-index: -10;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  height: 50%;
 }
 
 .bottom {
@@ -518,26 +528,6 @@ img {
   padding: 3px;
   border: white 4px solid;
   background: black;
-}
-
-.smashBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-preferred-size: 23%;
-      flex-basis: 23%;
-  max-width: 200px;
-  margin: auto;
-  border: red solid 3px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 span {

@@ -52,27 +52,23 @@ to{
     padding-left: 6px;
     padding-top: 6px;    
     border-left: white 4px solid;
+    position: relative;
 
-    &:before {
-        
-        content: '\2665' '\2665' '\2665' '\2665';
-        color: red;
-        font-size: xx-large;
+    &:before {        
+        content: '\2665';
+        color: rgb(255, 0, 0);
+        font-size: x-large;
         position: absolute;
-        bottom:2.5vh;
-
-        &:before {
-        
-            content: '\2665' '\2665' '\2665' '\2665';
-            color: rgb(133, 133, 133);
-            font-size: xx-large;
-            position: absolute;
-            bottom:2.5vh;
-        }
+        bottom: 1vh;      
+}
+    &:after {        
+        content: '\2665';
+        color: rgb(255, 0, 0);
+        font-size: x-large;
+        position: absolute;
+        bottom: 1vh;
     }
 }
-
-
 .wBox4 {
     flex-basis: 40%;
     display: flex;
@@ -103,13 +99,27 @@ to{
     margin-left: white 4px solid;
     border-left: white 4px solid;
     overflow: hidden;
-
 }
 #wBox5 {
-   // background-image: url(/dist/asset/whack.png);
-    max-height: 80%;  
+    background-image: url(/dist/asset/whack.png);
+    max-height: 75%;  
     width: auto;
     display: flex;
     margin: auto;
-    bottom: -10vh;
+}
+.second {  
+    transform: scale(.35,.35);
+    //margin-bottom: 8vh;
+}
+.second-a {  
+    background-image: url(/dist/asset/sunmole.png);
+}
+.second-b {  
+    background-image: url(/dist/asset/daisymole.png);
+}
+.second-c {  
+    background-image: url(/dist/asset/tulipmole.png);
+}
+.second-d {  
+    background-image: url(/dist/asset/rosemole.png);
 }
