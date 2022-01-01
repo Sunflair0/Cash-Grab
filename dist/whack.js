@@ -1,8 +1,6 @@
-let topScore = 0;
-let secondScore = 0;
-let thirdScore = 0;
-let hits = 0;
 let score = 0;
+let proScore =0;
+let antiScore =0;
 let timer = 29;
 let start = document.getElementById('start');
 let time = document.getElementById('time');
@@ -44,24 +42,12 @@ start.addEventListener("click", () => {
 const popUps = () => {
      holes[Math.floor(Math.random() * holes.length)].classList.add('sunMole');
 }
-
 holes.forEach((val) => {
     val.addEventListener('click', (e) => {
         document.getElementById('score').innerText = score;
         if (e.target.classList.contains("sunMole")) {
             e.target.classList.replace("sunMole", "splat")
             score++;
-            // if (score >= topScore) {
-            //     topScore = score - 1;
-            //     document.getElementById("score1").innerText = topScore;
-            //     console.log(topScore);
-            // } else if (score >= secondScore) {
-            //     secondScore = score - 1;
-            //     document.getElementById("score2").innerText = score;
-            // } else if (score >= thirdScore) {
-            //     thirdScore = score - 1;
-            //     document.getElementById("score3").innerText = score;
-            // }
         }
     })
 });
@@ -71,40 +57,3 @@ let resetHoles = window.setInterval(() => {
         val.classList.replace("splat", "darkhole");
     })
 }, 1000)
-
-// Trevor's Scoreboard
-
-
-let gameBoard = document.querySelectorAll(".Mole");
-gameBoard.forEach((val) => {
-    val.addEventListener("click", (e) => {
-        hits++;
-        document.getElementById("hit").innerText = hits
-        if (hits >= thirdScore) {
-            thirdScore = hits;
-            document.getElementById("score3").innerText = thirdScore
-            if (hits >= secondScore) {
-                thirdScore = secondScore;
-                secondScore = hits;
-                document.getElementById("score2").interText = secondScore
-                if (hits >= topScore) {
-                    secondScore = topScore;
-                    topScore = hits;
-                    document.getElementById("score1").interText = secondScore
-
-                    if (score >= topScore) {
-                        topScore = score - 1;
-                        document.getElementById("score1").innerText = topScore;
-                        console.log(topScore);
-                    } else if (score >= secondScore) {
-                        secondScore = score - 1;
-                        document.getElementById("score2").innerText = score;
-                    } else if (score >= thirdScore) {
-                        thirdScore = score - 1;
-                        document.getElementById("score3").innerText = score;
-                    }
-                }
-            }
-        }
-    })
-})
