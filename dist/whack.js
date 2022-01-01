@@ -24,25 +24,25 @@ start.addEventListener("click", () => {
         popUps();
         sun = document.querySelectorAll('.sunMole');
         return sun;      
-    }, 500);
+    }, 1000);
     window.setTimeout(() => {
         window.clearInterval(whereMole);
         window.clearInterval(time);
-        
-        
-        // document.getElementById('start').style.visibility = "visible";
-        score = 1
-        time.innerHTML = 30;
+        document.getElementById('start').style.visibility = "visible";
+        document.getElementsByClassName('wBox2')[0].style.visibility = "hidden";
+        document.getElementById('score').innerText = score;
         timer = 29
-        roundEnd();
     }, 30900);
+    window.setInterval(() => {
+        let clearHole = document.querySelectorAll(".sunMole");
+        clearHole.forEach((val) => {
+            val.classList.replace("sunMole", "darkhole");
+        })
+    }, 2000)
 });
 
 const popUps = () => {
      holes[Math.floor(Math.random() * holes.length)].classList.add('sunMole');
-    // chance[luck];
-    // console.log(chance[luck]);
-
 }
 
 holes.forEach((val) => {
@@ -50,7 +50,7 @@ holes.forEach((val) => {
         document.getElementById('score').innerText = score;
         if (e.target.classList.contains("sunMole")) {
             e.target.classList.replace("sunMole", "splat")
-            score--;
+            score++;
             // if (score >= topScore) {
             //     topScore = score - 1;
             //     document.getElementById("score1").innerText = topScore;
@@ -71,16 +71,6 @@ let resetHoles = window.setInterval(() => {
         val.classList.replace("splat", "darkhole");
     })
 }, 1000)
-
-const roundEnd = () => {
-    document.getElementById('start').style.visibility = "visible";
-    document.getElementById('roundEnd').style.visibility = "visible";
-  
-    let endScore = document.querySelectorAll(".darkhole");
-    endScore.forEach((val) => {
-        val.classList.replace("darkhole", "roundEnd");
-    });
-  }
 
 // Trevor's Scoreboard
 
