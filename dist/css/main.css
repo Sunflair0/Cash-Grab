@@ -153,35 +153,25 @@ img {
 .theCash {
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(/dist/asset/cash.png) no-repeat contain;
-  -webkit-animation: cashPop 1s alternate cubic-bezier(0.75, 0.95, 0.2, 1) ease-out;
-          animation: cashPop 1s alternate cubic-bezier(0.75, 0.95, 0.2, 1) ease-out;
+  background-image: url(/dist/asset/darkcash.png);
 }
 
-@-webkit-keyframes cashPop {
-  0% {
-    -webkit-transform: translateY(0%) rotate(0turn);
-            transform: translateY(0%) rotate(0turn);
-    opacity: .25;
-  }
-  50% {
-    -webkit-transform: translateY(100%) rotate(2turn);
-            transform: translateY(100%) rotate(2turn);
-    opacity: 1;
-  }
+.theLapis {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/dist/asset/darklapis.png);
 }
 
-@keyframes cashPop {
-  0% {
-    -webkit-transform: translateY(0%) rotate(0turn);
-            transform: translateY(0%) rotate(0turn);
-    opacity: .25;
-  }
-  50% {
-    -webkit-transform: translateY(100%) rotate(2turn);
-            transform: translateY(100%) rotate(2turn);
-    opacity: 1;
-  }
+.theYellow {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/dist/asset/darkyellow.png);
+}
+
+.thePearl {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/dist/asset/darkpearl.png);
 }
 
 .theSmash {
