@@ -1,43 +1,42 @@
-#start {
-    
-    display: flex;
-    max-width:100px;
-    max-height: 100px;
-    justify-content: center;
-    align-content: center;      
-}
-.start {
-    animation: start alternate 1s linear ease-in;
-}
-@keyframes start{
-from {
-    transform: scale(1);
-}
-to{
-    transform: scale(1.5);
-}
-}
+// #start {    
+//     display: flex;
+//     max-width:100px;
+//     max-height: 100px;
+//     justify-content: center;
+//     align-content: center;      
+// }
+// .start {
+//     animation: start alternate 1s linear ease-in;
+// }
+// @keyframes start{
+// from {
+//     transform: scale(1);
+// }
+// to{
+//     transform: scale(1.5);
+// }
+// }
 
-#score, #time {
-    width: 200px;   
-    text-align: center;
-    font-size: xx-large;   
-}
-.whiteBoxes {
-    max-height: 120px;
-    flex-direction: row;
-    display: flex;
-    color: white; 
-    width: 100%;
-    border: rgb(255, 255, 255) 5px dotted; 
-    padding: 3px;
-    outline:white ridge 4px;
-    outline-offset: -11px;
+// #score, #time {
+//     width: 200px;   
+//     text-align: center;
+//     font-size: xx-large;   
+// }
+// .whiteBoxes {
+//     max-height: 120px;
+//     flex-direction: row;
+//     display: flex;
+//     color: white; 
+//     width: 100%;
+//     border: rgb(255, 255, 255) 5px dotted; 
+//     padding: 3px;
+//     outline:white ridge 4px;
+//     outline-offset: -11px;
     
-    &:hover{
-        animation: color infinite 1s steps(6, jump-both);
-    }    
-}
+//     &:hover{
+//         animation: color infinite 1s steps(6, jump-both);
+//     }    
+// }
 @keyframes color {
     0% {
         border: rgb(204, 0, 255) 5px dotted; 
@@ -107,7 +106,7 @@ to{
 #cash{
     height: 60px;
     width: auto;
-    background: url(/dist/asset/cash.png);
+    background: url(/dist/asset/theCash.png);
 }
 #whack{
     
@@ -137,7 +136,7 @@ to{
 } 
 .first_a {  
     @include wBox4;
-    background-image: url(/dist/asset/cash25.png);
+    background-image: url(/dist/asset/yellow25.png);
 }
 .first-b {  
      @include wBox4;
@@ -149,7 +148,7 @@ to{
  }
  .first-d {  
      @include wBox4;
-     background-image: url(/dist/asset/yellow25.png);
+     background-image: url(/dist/asset/cash25.png);
      transform: scale(.65,.65);
  }
 .second-a {  

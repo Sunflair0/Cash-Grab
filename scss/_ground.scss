@@ -3,29 +3,3 @@
     @include actionBox;
     background-image: url(/dist/asset/darkhole.png);
 }
-#roundEnd {
-    width: 100vw;
-    height: 50vh;
-    background-color: rgba(0, 0, 0, 0.75);
-    border-style: ridge;
-    border:rgb(255, 255, 255) 5px ridge;
-    padding: 20px;
-    margin: 20px;    
-    visibility: hidden;
-}
-
-
-  
-
-.roundEnd{
-    animation: end 2s ease forwards;
-}
-
-@keyframes end {
-    from {
-        transform: scale(0);
-    }
-    to {
-        transform: scale(1);
-    }
-}

@@ -8,12 +8,14 @@
 .sky {
     @include flexShell;   
     flex-basis: 23%;  
+    border: red 5px solid;
+
 }
 .header {
     font-family: 'Flavors';
     font-size: xx-large;
     color: rgb(189, 73, 27);
-    text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+    text-shadow: -3px -3px 0 rgb(0, 0, 0), 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
 }
 .ground {
     @include flexShell;
@@ -21,14 +23,13 @@
     width: 95%; 
     margin: auto;    
 }
-
-.bottom {
+.action_box {
     @include flexShell;
     flex-basis: auto;  
     width: 100%;
     padding: 3px;    
     border: white 4px ridge;
-    background: rgb(0, 0, 0);   
+    background: rgb(66, 64, 64);   
 }
 span {
     font-family: 'Orbitron';

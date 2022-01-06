@@ -659,7 +659,7 @@ img {
   margin: auto;
 }
 
-.bottom {
+.action_box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
