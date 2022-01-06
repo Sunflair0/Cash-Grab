@@ -8,24 +8,21 @@
 .sky {
     @include flexShell;   
     flex-basis: 23%;  
+border: red 5px solid;
 }
-.header1 {
+.header {
     font-family: 'Flavors';
-    background-clip: border-box;
     font-size: xx-large;
-   
-    text-shadow: -3px -3px 0 rgb(0, 0, 0), 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
-}
-.bg_clip{
-height: 300px;
-width: 1000px;
-background-color: yellow;
-background: yellowgreen;
+
+
+    color: rgb(189, 73, 27);
+    text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
 }
 .ground {
     @include flexShell;
     flex-basis: 62.5%;
     width: 95%; 
+border: red 5px solid;
     margin: auto;    
 }
 

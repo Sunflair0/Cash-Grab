@@ -644,20 +644,14 @@ img {
       flex-wrap: wrap;
   -ms-flex-preferred-size: 23%;
       flex-basis: 23%;
+  border: red 5px solid;
 }
 
-.header1 {
+.header {
   font-family: 'Flavors';
-  background-clip: border-box;
   font-size: xx-large;
-  text-shadow: -3px -3px 0 black, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
-}
-
-.bg_clip {
-  height: 300px;
-  width: 1000px;
-  background-color: yellow;
-  background: yellowgreen;
+  color: #bd491b;
+  text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
 }
 
 .ground {
@@ -673,6 +667,7 @@ img {
   -ms-flex-preferred-size: 62.5%;
       flex-basis: 62.5%;
   width: 95%;
+  border: red 5px solid;
   margin: auto;
 }
 

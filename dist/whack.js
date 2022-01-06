@@ -36,13 +36,13 @@ start.addEventListener("click", () => {
         clearHole.forEach((val) => {
             val.classList.replace("sunMole", "darkhole");
         })
-    }, 2500)
+    }, 3000)
    window.setInterval(() => {
         let clearCash = document.querySelectorAll(".theCash");
         clearCash.forEach((val) => {
             val.classList.replace("theCash", "darkhole");
         })
-    }, 2500)
+    }, 3000)
 });
 const choiceArray = () => {
     let pickRandom = [Math.floor(Math.random() * 2)];
