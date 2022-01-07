@@ -1,42 +1,42 @@
-// #start {    
-//     display: flex;
-//     max-width:100px;
-//     max-height: 100px;
-//     justify-content: center;
-//     align-content: center;      
-// }
-// .start {
-//     animation: start alternate 1s linear ease-in;
-// }
-// @keyframes start{
-// from {
-//     transform: scale(1);
-// }
-// to{
-//     transform: scale(1.5);
-// }
-// }
+#start {    
+    display: flex;
+    max-width:100px;
+    max-height: 100px;
+    justify-content: center;
+    align-content: center;      
+}
+.start {
+    animation: start alternate 1s linear ease-in;
+}
+@keyframes start{
+from {
+    transform: scale(1);
+}
+to{
+    transform: scale(1.5);
+}
+}
 
-// #score, #time {
-//     width: 200px;   
-//     text-align: center;
-//     font-size: xx-large;   
-// }
-// .whiteBoxes {
-//     max-height: 120px;
-//     flex-direction: row;
-//     display: flex;
-//     color: white; 
-//     width: 100%;
-//     border: rgb(255, 255, 255) 5px dotted; 
-//     padding: 3px;
-//     outline:white ridge 4px;
-//     outline-offset: -11px;
+#score, #time {
+    width: 200px;   
+    text-align: center;
+    font-size: xx-large;   
+}
+.whiteBoxes {
+    max-height: 120px;
+    flex-direction: row;
+    display: flex;
+    color: white; 
+    width: 100%;
+    border: rgb(255, 255, 255) 5px dotted; 
+    padding: 3px;
+    outline:white ridge 4px;
+    outline-offset: -11px;
     
-//     &:hover{
-//         animation: color infinite 1s steps(6, jump-both);
-//     }    
-// }
+    &:hover{
+        animation: color infinite 1s steps(6, jump-both);
+    }    
+}
 @keyframes color {
     0% {
         border: rgb(204, 0, 255) 5px dotted; 
@@ -102,14 +102,12 @@
     padding-left: 6px;    
     border-left: white 4px ridge;
 }
-
 #cash{
     height: 60px;
     width: auto;
     background: url(/dist/asset/theCash.png);
 }
-#whack{
-    
+#whack{    
     height: 80px;
     width: auto;
     background: url(/dist/asset/whack.png);

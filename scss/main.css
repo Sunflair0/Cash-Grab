@@ -85,6 +85,58 @@ img {
     font-family: "Orbitron";
   }
 }
+#start {
+  display: flex;
+  max-width: 100px;
+  max-height: 100px;
+  justify-content: center;
+  align-content: center;
+}
+
+.start {
+  -webkit-animation: start alternate 1s linear ease-in;
+          animation: start alternate 1s linear ease-in;
+}
+
+@-webkit-keyframes start {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes start {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.5);
+  }
+}
+#score, #time {
+  width: 200px;
+  text-align: center;
+  font-size: xx-large;
+}
+
+.whiteBoxes {
+  max-height: 120px;
+  flex-direction: row;
+  display: flex;
+  color: white;
+  width: 100%;
+  border: white 5px dotted;
+  padding: 3px;
+  outline: white ridge 4px;
+  outline-offset: -11px;
+}
+.whiteBoxes:hover {
+  -webkit-animation: color infinite 1s steps(6, jump-both);
+          animation: color infinite 1s steps(6, jump-both);
+}
+
 @-webkit-keyframes color {
   0% {
     border: #cc00ff 5px dotted;
@@ -105,6 +157,7 @@ img {
     border: red 5px dotted;
   }
 }
+
 @keyframes color {
   0% {
     border: #cc00ff 5px dotted;
@@ -218,7 +271,7 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
-  border: #d60981 2px solid;
+  border: #12b312 2px solid;
   background-image: url(/dist/asset/yellow25.png);
 }
 
@@ -236,7 +289,7 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
-  border: #d60981 2px solid;
+  border: #12b312 2px solid;
   background-image: url(/dist/asset/lapis25.png);
 }
 
@@ -254,7 +307,7 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
-  border: #d60981 2px solid;
+  border: #12b312 2px solid;
   background-image: url(/dist/asset/pearl25.png);
 }
 
@@ -272,7 +325,7 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
-  border: #d60981 2px solid;
+  border: #12b312 2px solid;
   background-image: url(/dist/asset/cash25.png);
   transform: scale(0.65, 0.65);
 }
@@ -291,7 +344,7 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
-  border: #d60981 2px solid;
+  border: #12b312 2px solid;
   background-image: url(/dist/asset/darksun.png);
 }
 
@@ -309,7 +362,7 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
-  border: #d60981 2px solid;
+  border: #12b312 2px solid;
   background-image: url(/dist/asset/darkdaisy.png);
 }
 
@@ -327,7 +380,7 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
-  border: #d60981 2px solid;
+  border: #12b312 2px solid;
   background-image: url(/dist/asset/darktulip.png);
 }
 
@@ -345,7 +398,7 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
-  border: #d60981 2px solid;
+  border: #12b312 2px solid;
   background-image: url(/dist/asset/darkrose.png);
 }
 
@@ -381,7 +434,7 @@ img {
   width: 100%;
   padding: 3px;
   border: white 4px ridge;
-  background: #424040;
+  background: black;
 }
 
 span {
