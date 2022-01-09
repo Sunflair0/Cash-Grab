@@ -1,24 +1,24 @@
 let score = 0;
 
 let timer = 29;
-let round =0;
+let round =2;
 let start = document.getElementById('start');
 let time = document.getElementById('time');
-// let wBox2 = document.querySelectorAll(".wBox2");
-// let holes = document.querySelectorAll(".darkhole");
-// let sun = document.querySelectorAll(".sunMole");
-// let cash1  = document.querySelectorAll(".theCash");
-// let daisy  = document.querySelectorAll(".daisyMole");
-// let cash2  = document.querySelectorAll(".theLapis");
-// let tulip  = document.querySelectorAll(".tulipMole");
-// let cash3  = document.querySelectorAll(".theYellow");
-// let rose  = document.querySelectorAll(".roseMole");
-// let cash4  = document.querySelectorAll(".thePearl");
-// const darkmole = ["sun","daisy","tulip","rose"];
-// const darkcash = ["cash1","cash2","cash3","cash4"];
-// let min = round;
-// let max = round + 1
-
+let wBox2 = document.querySelectorAll(".wBox2");
+let holes = document.querySelectorAll(".darkhole");
+let sun = document.querySelectorAll(".sunMole");
+let cash1  = document.querySelectorAll(".theCash");
+let daisy  = document.querySelectorAll(".daisyMole");
+let cash2  = document.querySelectorAll(".theLapis");
+let tulip  = document.querySelectorAll(".tulipMole");
+let cash3  = document.querySelectorAll(".theYellow");
+let rose  = document.querySelectorAll(".roseMole");
+let cash4  = document.querySelectorAll(".thePearl");
+const darkmole = ["sun","daisy","tulip","rose"];
+const darkcash = ["cash1","cash2","cash3","cash4"];
+let min = round;
+let max = round + 1;
+let x = 0;
 
 
 //  const roundEnd = () => {
@@ -39,17 +39,21 @@ start.addEventListener("click", () => {
         timer--;
     }, 1000);
 
-choice();
+
+    let whereMole = window.setInterval(() => {
+      choice();
 console.log(choice(min, max));
-if (choice(min, max) % 2==0) {proScore}
-else {antiScore};
-    // let whereMole = window.setInterval(() => {
-        
-    //     popUps();
-    //     // sun = document.querySelectorAll('.theSun');
-    //     // cash1 = document.querySelectorAll('.theCash');
-    //     return sun || cash1;      
-    // }, 2000);
+console.log(x);
+//console.log(choice());
+if (choice(min, max) % 2==0) {proScore()}
+else {antiScore()};  
+        // popUps();
+
+
+        // sun = document.querySelectorAll('.theSun');
+        // cash1 = document.querySelectorAll('.theCash');
+        // return sun || cash1;      
+    }, 2000);
     window.setTimeout(() => {
         window.clearInterval(whereMole);
         window.clearInterval(time);
@@ -72,15 +76,21 @@ else {antiScore};
     }, 3000)    
 });
 
+function proScore(){
+console.log(proScore,"proScore");
+}
+function antiScore(){
+console.log(antiScore,"antiScore");
+}
+
 
 function choice(min, max) {
-  return Math.floor(Math.random() * (max - min + 1));
+  let x = (Math.floor(Math.random() * (max - min + 1))+2);
 
+return x;
 
-// if (choice(min, max) % 2==0) {proScore}
-// else {antiScore};
-
-}
+}if (choice(min, max) % 2==0) {proScore()}
+else {antiScore()};
 
 function antiScore(){
  let whereMole = window.setInterval(() => {
@@ -89,6 +99,7 @@ function antiScore(){
          sun = document.querySelectorAll('.theSun');
         return sun;      
     }, 2000);
+
 
 const popUps = () => {
      holes[Math.floor(Math.random() * holes.length)].classList.add('sunMole');

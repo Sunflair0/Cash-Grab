@@ -631,7 +631,7 @@ img {
       flex-wrap: wrap;
   -ms-flex-preferred-size: 23%;
       flex-basis: 23%;
-   border: red 5px solid;
+   border: rgb(148, 9, 74)5px solid;
 
 }
 
@@ -673,7 +673,7 @@ img {
   width: 100%;
   padding: 3px;
   border: white 4px ridge;
-  background: rgb(0, 0, 0); 
+  background: #000000; 
 }
 
 span {
