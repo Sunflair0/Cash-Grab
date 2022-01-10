@@ -44,7 +44,6 @@ start.addEventListener("click", () => {
       choice();
 console.log(choice(min, max));
 console.log(x);
-//console.log(choice());
 if (choice(min, max) % 2==0) {proScore()}
 else {antiScore()};  
         // popUps();
