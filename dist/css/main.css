@@ -82,44 +82,6 @@ img {
   background-image: url(/dist/asset/darkhole.png);
 }
 
-#roundEnd {
-  width: 100vw;
-  height: 50vh;
-  background-color: rgba(0, 0, 0, 0.75);
-  border-style: ridge;
-  border: white 5px ridge;
-  padding: 20px;
-  margin: 20px;
-  visibility: hidden;
-}
-
-.roundEnd {
-  -webkit-animation: end 2s ease forwards;
-          animation: end 2s ease forwards;
-}
-
-@-webkit-keyframes end {
-  from {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-  }
-  to {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
-
-@keyframes end {
-  from {
-    -webkit-transform: scale(0);
-            transform: scale(0);
-  }
-  to {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
-
 @media (min-width: 576px) {
   span {
     font-family: 'Orbitron';
@@ -138,8 +100,8 @@ img {
     margin-top: 3vh;
   }
   .second {
-    -webkit-transform: scale(0.35, 0.35);
-            transform: scale(0.35, 0.35);
+    -webkit-transform: scale(0.9, 0.9);
+            transform: scale(0.9, 0.9);
     margin-bottom: 8vh;
   }
 }
@@ -148,100 +110,6 @@ img {
   span {
     font-family: 'Orbitron';
   }
-}
-
-.theCash {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-image: url(/dist/asset/darkcash.png);
-}
-
-.theLapis {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-image: url(/dist/asset/darklapis.png);
-}
-
-.theYellow {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-image: url(/dist/asset/darkyellow.png);
-}
-
-.thePearl {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-image: url(/dist/asset/darkpearl.png);
-}
-
-.theSmash {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-preferred-size: 23%;
-      flex-basis: 23%;
-  max-width: 180px;
-  height: 100px;
-  margin: auto;
-  margin-top: 10vh;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  border-radius: 20%;
-  background-image: url(/dist/asset/smash.png);
-}
-
-.splat {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-preferred-size: 23%;
-      flex-basis: 23%;
-  max-width: 180px;
-  height: 100px;
-  margin: auto;
-  margin-top: 10vh;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  border-radius: 20%;
-  background-image: url(/dist/asset/splat.png);
-}
-
-.sunMole {
-  background-image: url(/dist/asset/darksun.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.tulipMole {
-  background-image: url(/dist/asset/darktulip.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.daisyMole {
-  background-image: url(/dist/asset/darkdaisy.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.roseMole {
-  background-image: url(/dist/asset/darkrose.png);
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 
 #start {
@@ -406,10 +274,11 @@ img {
   padding-left: 6px;
   border-left: white 4px ridge;
 }
+
 #cash {
   height: 60px;
   width: auto;
-  background: url(/dist/asset/cash.png);
+  background: url(/dist/asset/theCash.png);
 }
 
 #whack {
@@ -461,8 +330,8 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
-  
-  background-image: url(/dist/asset/cash25.png);
+  border: #12b312 2px solid;
+  background-image: url(/dist/asset/yellow25.png);
 }
 
 .first-b {
@@ -483,7 +352,7 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
-  
+  border: #12b312 2px solid;
   background-image: url(/dist/asset/lapis25.png);
 }
 
@@ -505,7 +374,7 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
-
+  border: #12b312 2px solid;
   background-image: url(/dist/asset/pearl25.png);
 }
 
@@ -527,8 +396,8 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
- 
-  background-image: url(/dist/asset/yellow25.png);
+  border: #12b312 2px solid;
+  background-image: url(/dist/asset/cash25.png);
   -webkit-transform: scale(0.65, 0.65);
           transform: scale(0.65, 0.65);
 }
@@ -551,7 +420,7 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
- 
+  border: #12b312 2px solid;
   background-image: url(/dist/asset/darksun.png);
 }
 
@@ -573,6 +442,7 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
+  border: #12b312 2px solid;
   background-image: url(/dist/asset/darkdaisy.png);
 }
 
@@ -594,7 +464,7 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
-  
+  border: #12b312 2px solid;
   background-image: url(/dist/asset/darktulip.png);
 }
 
@@ -616,6 +486,7 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
+  border: #12b312 2px solid;
   background-image: url(/dist/asset/darkrose.png);
 }
 
@@ -631,15 +502,14 @@ img {
       flex-wrap: wrap;
   -ms-flex-preferred-size: 23%;
       flex-basis: 23%;
-   border: rgb(148, 9, 74)5px solid;
-
+  border: #94094a 5px dashed;
 }
 
 .header {
   font-family: 'Flavors';
   font-size: xx-large;
   color: #bd491b;
-  text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+  text-shadow: -3px -3px 0 black, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
 }
 
 .ground {
@@ -673,7 +543,7 @@ img {
   width: 100%;
   padding: 3px;
   border: white 4px ridge;
-  background: #000000; 
+  background: black;
 }
 
 span {
