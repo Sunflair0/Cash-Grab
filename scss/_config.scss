@@ -1,5 +1,10 @@
+html
+{
+    overflow: hidden;
+}
 body{
-    
+    overflow: hidden;
+    position: relative;
     background-image: url(/dist/asset/meadow.png);
     background-color: black;
     background-size: cover;

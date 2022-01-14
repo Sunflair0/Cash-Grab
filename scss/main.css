@@ -1,319 +1,561 @@
-/* Birds in Sky */
-.sky {
-  border: 2px solid;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-preferred-size: 33%;
-      flex-basis: 33%;
-}
-
-.bird-path-one {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  background-color: green;
-  border: solid 2px;
-  border-radius: 50px;
-  width: 20px;
-  -webkit-transition: -webkit-transform 12s;
-  transition: -webkit-transform 12s;
-  transition: transform 12s;
-  transition: transform 12s, -webkit-transform 12s;
-  -webkit-transform: translate(600px);
-          transform: translate(600px);
-}
-
-.bird-path-two {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  background-color: green;
-  border: solid 2px;
-  border-radius: 50px;
-  width: 20px;
-  -webkit-transition: -webkit-transform 12s;
-  transition: -webkit-transform 12s;
-  transition: transform 12s;
-  transition: transform 12s, -webkit-transform 12s;
-  -webkit-transform: translate(600px);
-          transform: translate(600px);
-}
-
-.bird-path-three {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  background-color: green;
-  border: solid 2px;
-  border-radius: 50px;
-  width: 20px;
-  -webkit-transition: -webkit-transform 12s;
-  transition: -webkit-transform 12s;
-  transition: transform 12s;
-  transition: transform 12s, -webkit-transform 12s;
-  -webkit-transform: translate(600px);
-          transform: translate(600px);
-}
-
-.bird-path-four {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  background-color: green;
-  border: solid 2px;
-  border-radius: 50px;
-  width: 20px;
-  -webkit-transition: -webkit-transform 12s;
-  transition: -webkit-transform 12s;
-  transition: transform 12s;
-  transition: transform 12s, -webkit-transform 12s;
-  -webkit-transform: translate(600px);
-          transform: translate(600px);
-}
-
-.bird-path-five {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  background-color: green;
-  border: solid 2px;
-  width: 20px;
-  border-radius: 50px;
-  -webkit-transition: -webkit-transform 12s;
-  transition: -webkit-transform 12s;
-  transition: transform 12s;
-  transition: transform 12s, -webkit-transform 12s;
-  -webkit-transform: translate(600px);
-          transform: translate(600px);
-}
-
-.moleHole {
-  height: 100px;
-  width: 100px;
-  margin: 40px;
-  background-image: url(./picture/hole.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.theMole {
-  height: 100px;
-  width: 100px;
-  margin: 40px;
-  background-image: url(./picture/mole.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.theSplat {
-  height: 100px;
-  width: 100px;
-  margin: 40px;
-  background-image: url(./picture/splat.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#score {
-  width: 200px;
-  color: white;
-  background-color: black;
-  margin-left: 10px;
-  border-right: 4px solid white;
-  border-left: 4px solid white;
-  text-align: center;
-  font-size: xx-large;
-}
-
-#time {
-  width: 200px;
-  color: white;
-  background-color: black;
-  margin-left: 10px;
-  border-right: 4px solid white;
-  border-left: 4px solid white;
-  text-align: center;
-  font-size: xx-large;
-}
-
-/* Birds in Sky */
-.sky {
-  border: 2px solid;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-preferred-size: 33%;
-      flex-basis: 33%;
-}
-
-.bird-path-one {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  background-color: green;
-  border: solid 2px;
-  border-radius: 50px;
-  width: 20px;
-  -webkit-transition: -webkit-transform 12s;
-  transition: -webkit-transform 12s;
-  transition: transform 12s;
-  transition: transform 12s, -webkit-transform 12s;
-  -webkit-transform: translate(600px);
-          transform: translate(600px);
-}
-
-.bird-path-two {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  background-color: green;
-  border: solid 2px;
-  border-radius: 50px;
-  width: 20px;
-  -webkit-transition: -webkit-transform 12s;
-  transition: -webkit-transform 12s;
-  transition: transform 12s;
-  transition: transform 12s, -webkit-transform 12s;
-  -webkit-transform: translate(600px);
-          transform: translate(600px);
-}
-
-.bird-path-three {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  background-color: green;
-  border: solid 2px;
-  border-radius: 50px;
-  width: 20px;
-  -webkit-transition: -webkit-transform 12s;
-  transition: -webkit-transform 12s;
-  transition: transform 12s;
-  transition: transform 12s, -webkit-transform 12s;
-  -webkit-transform: translate(600px);
-          transform: translate(600px);
-}
-
-.bird-path-four {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  background-color: green;
-  border: solid 2px;
-  border-radius: 50px;
-  width: 20px;
-  -webkit-transition: -webkit-transform 12s;
-  transition: -webkit-transform 12s;
-  transition: transform 12s;
-  transition: transform 12s, -webkit-transform 12s;
-  -webkit-transform: translate(600px);
-          transform: translate(600px);
-}
-
-.bird-path-five {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  background-color: green;
-  border: solid 2px;
-  width: 20px;
-  border-radius: 50px;
-  -webkit-transition: -webkit-transform 12s;
-  transition: -webkit-transform 12s;
-  transition: transform 12s;
-  transition: transform 12s, -webkit-transform 12s;
-  -webkit-transform: translate(600px);
-          transform: translate(600px);
+@charset "UTF-8";
+html {
+  overflow: hidden;
 }
 
 body {
-  background-image: url(./dist/asset/meadow.png);
+  overflow: hidden;
+  position: relative;
+  background-image: url(/dist/asset/meadow.png);
   background-color: black;
   background-size: cover;
   background-clip: content-box;
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100%;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  transition: transform 0.2s;
+}
+body::-webkit-scrollbar {
+  width: 25px;
+}
+body::-webkit-scrollbar-track {
+  background: black;
+}
+body::-webkit-scrollbar-thumb {
+  background: #dd7438;
+  box-shadow: inset 0 0 7px #000000;
+  border-radius: 20px;
+  overflow: auto;
+  padding: 5px;
+  background-clip: padding-box;
+  border: transparent solid 0.3rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  height: auto;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.darkhole {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: 23%;
+  max-width: 180px;
+  height: 100px;
+  margin: auto;
+  margin-top: 10vh;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 20%;
+  background-image: url(/dist/asset/darkhole.png);
+}
+
+#roundEnd {
+  width: 100vw;
+  height: 50vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-style: ridge;
+  border: white 5px ridge;
+  padding: 20px;
+  margin: 20px;
+  visibility: hidden;
+}
+
+.roundEnd {
+  -webkit-animation: end 2s ease forwards;
+          animation: end 2s ease forwards;
+}
+
+@-webkit-keyframes end {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes end {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@media (min-width: 576px) {
+  span {
+    font-family: "Orbitron";
+  }
+}
+@media (min-width: 768px) {
+  .darkhole {
+    max-width: 180px;
+  }
+}
+@media (min-width: 992px) {
+  span {
+    font-family: "Orbitron";
+    margin-top: 3vh;
+  }
+
+  .second {
+    transform: scale(0.35, 0.35);
+    margin-bottom: 8vh;
+  }
+}
+@media (min-width: 1200px) {
+  span {
+    font-family: "Orbitron";
+  }
+}
+.theCash {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/dist/asset/darkcash.png);
+}
+
+.theLapis {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/dist/asset/darklapis.png);
+}
+
+.theYellow {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/dist/asset/darkyellow.png);
+}
+
+.thePearl {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/dist/asset/darkpearl.png);
+}
+
+.theSmash {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: 23%;
+  max-width: 180px;
+  height: 100px;
+  margin: auto;
+  margin-top: 10vh;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 20%;
+  background-image: url(/dist/asset/smash.png);
+}
+
+.splat {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: 23%;
+  max-width: 180px;
+  height: 100px;
+  margin: auto;
+  margin-top: 10vh;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 20%;
+  background-image: url(/dist/asset/splat.png);
+}
+
+.sunMole {
+  background-image: url(/dist/asset/darksun.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.tulipMole {
+  background-image: url(/dist/asset/darktulip.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.daisyMole {
+  background-image: url(/dist/asset/darkdaisy.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.roseMole {
+  background-image: url(/dist/asset/darkrose.png);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 #start {
-  height: 10px;
-  width: 10px;
-  -webkit-transition: -webkit-transform .2s;
-  transition: -webkit-transform .2s;
-  transition: transform .2s;
-  transition: transform .2s, -webkit-transform .2s;
-}
-
-.button:hover {
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
-}
-
-.shell-main {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  height: 100vh;
+  max-width: 100px;
+  max-height: 100px;
+  justify-content: center;
+  align-content: center;
+}
+
+.start {
+  -webkit-animation: start alternate 1s linear ease-in;
+          animation: start alternate 1s linear ease-in;
+}
+
+@-webkit-keyframes start {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes start {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.5);
+  }
+}
+#score, #time {
+  width: 200px;
+  text-align: center;
+  font-size: xx-large;
+}
+
+.whiteBoxes {
+  max-height: 120px;
+  flex-direction: row;
+  display: flex;
+  color: white;
+  width: 100%;
+  border: white 5px dotted;
+  padding: 3px;
+  outline: white ridge 4px;
+  outline-offset: -11px;
+}
+.whiteBoxes:hover {
+  -webkit-animation: color infinite 1s steps(6, jump-both);
+          animation: color infinite 1s steps(6, jump-both);
+}
+
+@-webkit-keyframes color {
+  0% {
+    border: #cc00ff 5px dotted;
+  }
+  20% {
+    border: #00fff2 5px dotted;
+  }
+  40% {
+    border: #00ff15 5px dotted;
+  }
+  60% {
+    border: #d9ff00 5px dotted;
+  }
+  80% {
+    border: #ff7b00 5px dotted;
+  }
+  100% {
+    border: red 5px dotted;
+  }
+}
+
+@keyframes color {
+  0% {
+    border: #cc00ff 5px dotted;
+  }
+  20% {
+    border: #00fff2 5px dotted;
+  }
+  40% {
+    border: #00ff15 5px dotted;
+  }
+  60% {
+    border: #d9ff00 5px dotted;
+  }
+  80% {
+    border: #ff7b00 5px dotted;
+  }
+  100% {
+    border: red 5px dotted;
+  }
+}
+.wBox1 {
+  visibility: visible;
+  flex-basis: 10%;
+  border: white 2px ridge;
+}
+
+.wBox2 {
+  visibility: hidden;
+  flex-basis: 10%;
+  padding-left: 6px;
+  padding-top: 6px;
+  position: fixed;
+}
+
+.wBox3 {
+  flex-basis: 24%;
+  padding-left: 6px;
+  padding-top: 6px;
+  border-left: white 4px ridge;
+  position: relative;
+}
+.wBox3:before {
+  content: "♥";
+  color: red;
+  font-size: x-large;
+  position: absolute;
+  bottom: 1vh;
+}
+.wBox3:after {
+  content: "♥";
+  color: red;
+  font-size: x-large;
+  position: absolute;
+  bottom: 1vh;
+}
+
+.wBox4 {
+  flex-basis: 40%;
+  position: relative;
+  display: flex;
+  padding-top: 6px;
+  padding-left: 6px;
+  border-left: white 4px ridge;
+}
+
+#cash {
+  height: 60px;
+  width: auto;
+  background: url(/dist/asset/cash.png);
+}
+
+#whack {
+  height: 80px;
+  width: auto;
+  background: url(/dist/asset/whack.png);
+}
+
+#sun {
+  height: 80px;
+  background: url(/dist/asset/darksun.png);
+}
+
+.wBox5 {
+  padding-top: 6px;
+  padding-left: 6px;
+  flex-basis: calc(36%-100px);
+  width: 30%;
+  border-left: white 4px ridge;
+  overflow: hidden;
+}
+
+#wBox5 {
+  background-image: url(/dist/asset/whack.png);
+  max-height: 75%;
+  width: auto;
+  display: flex;
+  margin: auto;
+}
+
+.first_a {
+  flex-basis: 50%;
+  max-width: 50px;
+  height: 50px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  margin: auto;
+  flex-basis: 20%;
+  margin-left: -1%;
+  max-width: 50px;
+  min-width: 50px;
+  position: absolute;
+  border: blueviolet 2px solid;
+  background-image: url(/dist/asset/cash25.png);
+}
+
+.first-b {
+  flex-basis: 50%;
+  max-width: 50px;
+  height: 50px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  margin: auto;
+  flex-basis: 20%;
+  margin-left: -1%;
+  max-width: 50px;
+  min-width: 50px;
+  position: absolute;
+  border: blueviolet 2px solid;
+  background-image: url(/dist/asset/lapis25.png);
+}
+
+.first-c {
+  flex-basis: 50%;
+  max-width: 50px;
+  height: 50px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  margin: auto;
+  flex-basis: 20%;
+  margin-left: -1%;
+  max-width: 50px;
+  min-width: 50px;
+  position: absolute;
+  border: blueviolet 2px solid;
+  background-image: url(/dist/asset/pearl25.png);
+}
+
+.first-d {
+  flex-basis: 50%;
+  max-width: 50px;
+  height: 50px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  margin: auto;
+  flex-basis: 20%;
+  margin-left: -1%;
+  max-width: 50px;
+  min-width: 50px;
+  position: absolute;
+  border: blueviolet 2px solid;
+  background-image: url(/dist/asset/yellow25.png);
+  transform: scale(0.65, 0.65);
+}
+
+.second-a {
+  flex-basis: 50%;
+  max-width: 50px;
+  height: 50px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  margin: auto;
+  flex-basis: 20%;
+  margin-left: -1%;
+  max-width: 50px;
+  min-width: 50px;
+  position: absolute;
+  border: blueviolet 2px solid;
+  background-image: url(/dist/asset/darksun.png);
+}
+
+.second-b {
+  flex-basis: 50%;
+  max-width: 50px;
+  height: 50px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  margin: auto;
+  flex-basis: 20%;
+  margin-left: -1%;
+  max-width: 50px;
+  min-width: 50px;
+  position: absolute;
+  border: blueviolet 2px solid;
+  background-image: url(/dist/asset/darkdaisy.png);
+}
+
+.second-c {
+  flex-basis: 50%;
+  max-width: 50px;
+  height: 50px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  margin: auto;
+  flex-basis: 20%;
+  margin-left: -1%;
+  max-width: 50px;
+  min-width: 50px;
+  position: absolute;
+  border: blueviolet 2px solid;
+  background-image: url(/dist/asset/darktulip.png);
+}
+
+.second-d {
+  flex-basis: 50%;
+  max-width: 50px;
+  height: 50px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  margin: auto;
+  flex-basis: 20%;
+  margin-left: -1%;
+  max-width: 50px;
+  min-width: 50px;
+  position: absolute;
+  border: blueviolet 2px solid;
+  background-image: url(/dist/asset/darkrose.png);
+}
+
+.sky {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: 23%;
+}
+
+.header {
+  font-family: "Flavors";
+  font-size: xx-large;
+  color: #bd491b;
+  text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
 }
 
 .ground {
-  border: 2px solid;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -ms-flex-preferred-size: 57%;
-      flex-basis: 57%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: 62.5%;
+  width: 95%;
+  margin: auto;
 }
 
 .bottom {
-  border: 2px solid;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -ms-flex-preferred-size: 10%;
-      flex-basis: 10%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: auto;
+  width: 100%;
+  padding: 3px;
+  border: white 4px ridge;
+  background: black;
 }
-/*# sourceMappingURL=main.css.map */
+
+span {
+  font-family: "Orbitron";
+  margin-top: 2vh;
+}/*# sourceMappingURL=main.css.map */

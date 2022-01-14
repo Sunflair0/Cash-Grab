@@ -1,3 +1,13 @@
+// window.addEventListener("scroll", preventMotion, false);
+// window.addEventListener("touchmove", preventMotion, false);
+
+// function preventMotion(event)
+// {
+//     window.scrollTo(0, 0);
+//     event.preventDefault();
+//     event.stopPropagation();
+// }
+
 let score = 0;
 let proScore =0;
 let antiScore =0;
@@ -61,7 +71,7 @@ holes.forEach((val) => {
         document.getElementById('score').innerText = score;
         if (e.target.classList.contains("theCash")) {
             e.target.classList.replace("theCash", "splat")
-            score++;
+            score=+50;
         }
     })
 });
