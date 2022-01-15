@@ -40,18 +40,18 @@ start.addEventListener("click", () => {
         timer--;
     }, 1000);
     let whereMole = window.setInterval(() => {
-        popUps();
+        // popUps();
 
     
 
-        // let result = choice(min, max);
-        // console.log(result);
-        // if (result % 2==0) {
-        //     proScore()
-        // }
-        // else {
-        //     antiScore()
-        // };  
+        let result = choice(min, max);
+        console.log(result);
+        if (result % 2==0) {
+            proScore()
+        }
+        else {
+            antiScore()
+        };  
         
     }, 2000);
     window.setTimeout(() => {
@@ -74,29 +74,102 @@ start.addEventListener("click", () => {
         clearHole.forEach((val) => {
             val.classList.replace(`mole${round}`, "darkhole");
         })
-    }, 3000)
-
-    
+    }, 3000)    
 });
 
-const popUps = () => {
-     holes[Math.floor(Math.random() * holes.length)].classList.add(`cash${round}`);
-}
-holes.forEach((val) => {
+function proScore(){    
+    let whereMole = window.setInterval(() => {        
+           popUpsPlus();
+            cash = document.querySelectorAll(`.cash${round}`);
+           return cash;      
+       }, 2000);
+   window.setTimeout(()=> {
+       window.clearInterval(whereMole);
+       window.clearInterval(time);
+       document.getElementById('start').style.visibility="hidden";
+       document.getElementById('score').innerText=score;
+       timer = 29
+   },30900);
+   window.setInterval(()=> {
+       let clearHole = document.querySelectorAll( `.cash${round}`);
+       clearHole.forEach((val)=> {
+           val.classList.replace( `cash${round}`,"darkhole");
+       })
+   },3000)
+   };
+   
+   holes.forEach((val) => {
+       val.addEventListener('click', (e) => {
+           document.getElementById('score').innerText = score;
+           if (e.target.classList.contains(`cash${round}`)) {
+               e.target.classList.replace( `cash${round}`, "smash")
+               score=score+50;
+           }
+       })
+   });
+   let resetHolesPlus = window.setInterval(() => {
+       let smash = document.querySelectorAll(".smash");
+       smash.forEach((val) => {
+           val.classList.replace("smash", `.cash${round}`);
+       })
+   }, 1000)
+
+function antiScore(){    
+    let whereMole = window.setInterval(() => {        
+           popUpsMinus();
+           mole = document.querySelectorAll(`.mole${round}`);
+           return mole;     
+       }, 2000);
+   window.setTimeout(()=> {
+       window.clearInterval(whereMole);
+       window.clearInterval(time);
+       document.getElementById('start').style.visibility="hidden";
+       document.getElementById('score').innerText=score;
+       timer = 29
+   },30900);
+   window.setInterval(()=> {
+       let clearHole = document.querySelectorAll(`.mole${round}`);
+       clearHole.forEach((val)=> {
+           val.classList.replace(`mole${round}`,"darkhole");
+       })
+   },3000)
+   };
+
+   holes.forEach((val) => {
     val.addEventListener('click', (e) => {
         document.getElementById('score').innerText = score;
-        if (e.target.classList.contains(`cash${round}`)) {
-            e.target.classList.replace(`cash${round}`, "splat")
-            score=+50;
+        if (e.target.classList.contains(`mole${round}`)) {
+            e.target.classList.replace( `mole${round}`, "splat")
+            score=score-15;
         }
     })
 });
-let resetHoles = window.setInterval(() => {
-    let splats = document.querySelectorAll(".splat");
-    splats.forEach((val) => {
-        val.classList.replace("splat", "darkhole");
+let resetHolesMinus = window.setInterval(() => {
+    let smash = document.querySelectorAll(".splat");
+    smash.forEach((val) => {
+        val.classList.replace("splat", `.mole${round}`);
     })
 }, 1000)
+
+
+// const popUps = () => {
+//      holes[Math.floor(Math.random() * holes.length)].classList.add(`cash${round}`);
+// }
+// holes.forEach((val) => {
+//     val.addEventListener('click', (e) => {
+//         document.getElementById('score').innerText = score;
+//         if (e.target.classList.contains(`cash${round}`)) {
+//             e.target.classList.replace(`cash${round}`, "splat")
+//             score=+50;
+//         }
+//     })
+// });
+// let resetHoles = window.setInterval(() => {
+//     let splats = document.querySelectorAll(".splat");
+//     splats.forEach((val) => {
+//         val.classList.replace("splat", "darkhole");
+//     })
+// }, 1500)
 
 
 function choice(min, max) {
