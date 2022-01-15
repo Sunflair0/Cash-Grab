@@ -1,4 +1,10 @@
+html {
+  overflow: hidden;
+}
+
 body {
+  overflow: hidden;
+  position: relative;
   background-image: url(/dist/asset/meadow.png);
   background-color: black;
   background-size: cover;
@@ -150,31 +156,28 @@ img {
   }
 }
 
-.theCash {
+.gameIcon {
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.cash1 {
   background-image: url(/dist/asset/darkcash.png);
 }
 
-.theLapis {
-  background-size: contain;
-  background-repeat: no-repeat;
+.cash2 {
   background-image: url(/dist/asset/darklapis.png);
 }
 
-.theYellow {
-  background-size: contain;
-  background-repeat: no-repeat;
+.cash3 {
   background-image: url(/dist/asset/darkyellow.png);
 }
 
-.thePearl {
-  background-size: contain;
-  background-repeat: no-repeat;
+.cash4 {
   background-image: url(/dist/asset/darkpearl.png);
 }
 
-.theSmash {
+.smash {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -220,28 +223,20 @@ img {
   background-image: url(/dist/asset/splat.png);
 }
 
-.sunMole {
+.mole1 {
   background-image: url(/dist/asset/darksun.png);
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 
-.tulipMole {
+.mole2 {
   background-image: url(/dist/asset/darktulip.png);
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 
-.daisyMole {
+.mole3 {
   background-image: url(/dist/asset/darkdaisy.png);
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 
-.roseMole {
+.mole4 {
   background-image: url(/dist/asset/darkrose.png);
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 
 #start {
