@@ -1,5 +1,4 @@
 let score = 0;
-
 let timer = 29;
 let round =2;
 let start = document.getElementById('start');
@@ -51,14 +50,7 @@ start.addEventListener("click", () => {
         else {
             antiScore()
         };  
-
-
-        // popUps();
-
-
-        // sun = document.querySelectorAll('.theSun');
-        // cash1 = document.querySelectorAll('.theCash');
-        // return sun || cash1;      
+     
     }, 2000);
     window.setTimeout(() => {
         window.clearInterval(whereMole);
@@ -66,7 +58,7 @@ start.addEventListener("click", () => {
         document.getElementById('start').style.visibility = "visible";
         document.getElementsByClassName('wBox2')[0].style.visibility = "hidden";
         document.getElementById('score').innerText = score;
-        timer = 59
+        timer = 29
     }, 30900);
     window.setInterval(() => {
         let clearHole = document.querySelectorAll(".theCash");
@@ -91,24 +83,37 @@ function choice(min, max) {
     return result;
 }
 
-//if (choice(min, max) % 2==0) {proScore()}
-//else {antiScore()};
+function antiScore(){    
+    let whereMole = window.setInterval(() => {        
+           popUpsMinus();
+           sun = document.querySelectorAll('.theSun');
+           return sun;     
+       }, 2000);
+   window.setTimeout(()=> {
+       window.clearInterval(whereMole);
+       window.clearInterval(time);
+       document.getElementById('start').style.visibility="hidden";
+       document.getElementById('score').innerText=score;
+       timer = 29
+   },30900);
+   window.setInterval(()=> {
+       let clearHole = document.querySelectorAll(".the");
+       clearHole.forEach((val)=> {
+           val.classList.replace("sunMole","darkhole");
+       })
+   },3000)
+   };
 
-function antiScore(){
-    console.log("antiScore")
-    return;
-
- let whereMole = window.setInterval(() => {
-        
-        popUps();
-         sun = document.querySelectorAll('.theSun');
-        return sun;      
-    }, 2000);
+// function antiScore(){
+//  let whereMole = window.setInterval(() => {        
+//         popUps();
+//          sun = document.querySelectorAll('.theSun');
+//         return sun;      
+//     }, 2000);
 
 
-const popUps = () => {
-     holes[Math.floor(Math.random() * holes.length)].classList.add('sunMole');
-}
+
+
 holes.forEach((val) => {
     val.addEventListener('click', (e) => {
         document.getElementById('score').innerText = score;
@@ -118,28 +123,37 @@ holes.forEach((val) => {
         }
     })
 });
-let resetHoles = window.setInterval(() => {
+
+let resetHolesMinus = window.setInterval(() => {
     let splats = document.querySelectorAll(".splat");
     splats.forEach((val) => {
         val.classList.replace("splat", "darkhole");
     })
-}, 1000)
-}
+}, 1000);
 
-function proScore(){
-    console.log("proScore")
-    return;
 
- let whereMole = window.setInterval(() => {
-        
-        popUps();
+function proScore(){    
+ let whereMole = window.setInterval(() => {        
+        popUpsPlus();
          cash1 = document.querySelectorAll('.theCash');
         return cash1;      
     }, 2000);
+window.setTimeout(()=> {
+    window.clearInterval(whereMole);
+    window.clearInterval(time);
+    document.getElementById('start').style.visibility="hidden";
+    document.getElementById('score').innerText=score;
+    timer = 29
+},30900);
+window.setInterval(()=> {
+    let clearHole = document.querySelectorAll(".theCash");
+    clearHole.forEach((val)=> {
+        val.classList.replace("cash1","darkhole");
+    })
+},3000)
+};
 
-const popUps = () => {
-     holes[Math.floor(Math.random() * holes.length)].classList.add('cash1');
-}
+
 holes.forEach((val) => {
     val.addEventListener('click', (e) => {
         document.getElementById('score').innerText = score;
@@ -149,10 +163,17 @@ holes.forEach((val) => {
         }
     })
 });
-let resetHoles = window.setInterval(() => {
+let resetHolesPlus = window.setInterval(() => {
     let smash = document.querySelectorAll(".smash");
     smash.forEach((val) => {
         val.classList.replace("smash", "cash1");
     })
 }, 1000)
+
+
+const popUpsMinus = () => {
+    holes[Math.floor(Math.random() * holes.length)].classList.add('sunMole');
+}
+const popUpsPlus = () => {
+    holes[Math.floor(Math.random() * holes.length)].classList.add('cash1');
 }
