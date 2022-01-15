@@ -18,7 +18,7 @@ const darkmole = ["sun","daisy","tulip","rose"];
 const darkcash = ["cash1","cash2","cash3","cash4"];
 let min = round;
 let max = round + 1;
-let x = 0;
+
 
 
 //  const roundEnd = () => {
@@ -41,11 +41,18 @@ start.addEventListener("click", () => {
 
 
     let whereMole = window.setInterval(() => {
-      choice();
-console.log(choice(min, max));
-console.log(x);
-if (choice(min, max) % 2==0) {proScore()}
-else {antiScore()};  
+      let result = choice(min, max);
+
+        console.log(result);
+
+        if (result % 2==0) {
+            proScore()
+        }
+        else {
+            antiScore()
+        };  
+
+
         // popUps();
 
 
@@ -75,23 +82,22 @@ else {antiScore()};
     }, 3000)    
 });
 
-function proScore(){
-console.log(proScore,"proScore");
-}
-function antiScore(){
-console.log(antiScore,"antiScore");
-}
+
 
 
 function choice(min, max) {
-  let x = (Math.floor(Math.random() * (max - min + 1))+2);
+  let result =(Math.floor(Math.random() * (max - min + 1))+2);
 
-return x;
+    return result;
+}
 
-}if (choice(min, max) % 2==0) {proScore()}
-else {antiScore()};
+//if (choice(min, max) % 2==0) {proScore()}
+//else {antiScore()};
 
 function antiScore(){
+    console.log("antiScore")
+    return;
+
  let whereMole = window.setInterval(() => {
         
         popUps();
@@ -121,6 +127,9 @@ let resetHoles = window.setInterval(() => {
 }
 
 function proScore(){
+    console.log("proScore")
+    return;
+
  let whereMole = window.setInterval(() => {
         
         popUps();
