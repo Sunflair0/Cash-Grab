@@ -5,7 +5,7 @@ html {
 body {
   overflow: hidden;
   position: relative;
-  background-image: url(/dist/asset/meadow.png);
+  background-image: url(/dist/asset/round1.png);
   background-color: black;
   background-size: cover;
   background-clip: content-box;
@@ -239,6 +239,22 @@ img {
   background-image: url(/dist/asset/darkrose.png);
 }
 
+.round1 {
+  background-image: url(/dist/asset/round1.png);
+}
+
+.round2 {
+  background-image: url(/dist/asset/round2.png);
+}
+
+.round3 {
+  background-image: url(/dist/asset/round3.png);
+}
+
+.round4 {
+  background-image: url(/dist/asset/round4.png);
+}
+
 #start {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -370,7 +386,7 @@ img {
       flex-basis: 24%;
   padding-left: 6px;
   padding-top: 6px;
-  border-left: white 4px ridge;
+  border: white 2px ridge;
   position: relative;
 }
 
@@ -399,7 +415,7 @@ img {
   display: flex;
   padding-top: 6px;
   padding-left: 6px;
-  border-left: white 4px ridge;
+  border: white 2px ridge;
 }
 
 #cash {
@@ -425,7 +441,7 @@ img {
   -ms-flex-preferred-size: calc(36%-100px);
       flex-basis: calc(36%-100px);
   width: 30%;
-  border-left: white 4px ridge;
+  border: white 2px ridge;
   overflow: hidden;
 }
 
@@ -615,6 +631,15 @@ img {
   position: absolute;
   border: blueviolet 2px solid;
   background-image: url(/dist/asset/darkrose.png);
+}
+
+.roundModal {
+  background-color: #000000bf;
+}
+
+.roundEnd {
+  top: -200%;
+  position: fixed;
 }
 
 .sky {

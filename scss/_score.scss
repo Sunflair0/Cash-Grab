@@ -77,7 +77,7 @@ to{
     flex-basis: 24%;
     padding-left: 6px;
     padding-top: 6px;    
-    border-left: white 4px ridge;
+    border: white 2px ridge;
     position: relative;
 
     &:before {        
@@ -101,7 +101,7 @@ to{
     display: flex;
     padding-top: 6px;
     padding-left: 6px;    
-    border-left: white 4px ridge;
+    border: white 2px ridge;
 }
 
 #cash{
@@ -125,7 +125,7 @@ to{
     padding-left: 6px;
     flex-basis: calc(36%-100px);
     width: 30%;
-    border-left: rgb(255, 255, 255) 4px ridge;
+    border: white 2px ridge;
     overflow: hidden;
 }
 #wBox5 {

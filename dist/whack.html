@@ -12,6 +12,37 @@
 </head>
 
 <body>
+        
+    <div class="roundEnd">
+        <div class="headings">
+        <div class="heading">Targets</div>
+        <div class="heading">Amount</div>
+        <div class="heading">Value</div>
+        <div class="heading"></div>
+        <div class="heading">Score</div>
+</div>
+<div class="lineOne">
+    <div id="plusImg"></div>
+    <div id="plusAmt"></div>
+    <div class="times"></div>
+    <div id="plusValue"></div>
+    <div id="plusScore"></div>
+</div>
+<div class="lineTwo">
+    <div id="minusImg"></div>
+    <div id="minusAmt"></div>
+    <div class="times"></div>
+    <div id="minusValue"></div>
+    <div id="minusScore"></div>
+</div>
+<div class="line"></div>
+<h3 class="advance">Advance to the next level!</h3>
+<h3 class="tryAgain">Try Again</h3>
+<div class="theBar">
+<progress id="achieve" value="" max="100"></progress>
+<div id="score">0</div>
+</div>
+    </div>
     <div class="sky">
         <div class="header">
             <h1>Cash Smash</h1>
@@ -42,9 +73,11 @@
                 <div style="color:red";>-15pts
                 <div class="second-a"></div></div>
             </div>
-            <div class="wBox5">Next:<br><img src="asset/whack.png" id="wBox5"></div>
+            <div class="wBox5">Next:<br>
+                <div class="round1"></div><img src="asset/round2.png" id="wBox5"></div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script type="text/javascript" src="whack.js"></script>
 </body>
 
