@@ -641,6 +641,101 @@ img {
   width: 80%;
   color: white;
   position: fixed;
+  border-style: ridge;
+  border: white 5px ridge;
+  padding: 20px;
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.headings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 5rem;
+  font-size: xx-large;
+}
+
+.lineOne, .lineTwo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 7rem;
+  font-size: x-large;
+  margin-top: 2rem;
+}
+
+.roundModal img {
+  width: 50%;
+}
+
+progress {
+  height: 25%;
+  color: yellowgreen;
+  margin-bottom: 2rem;
+  overflow-x: hidden;
+}
+
+#roundScore {
+  height: 7rem;
+  font-size: x-large;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  -webkit-box-align: right;
+      -ms-flex-align: right;
+          align-items: right;
+}
+
+.times {
+  font-size: x-large;
+  position: absolute;
+}
+
+.line {
+  margin: 1% auto;
+  width: 90%;
+  height: 3px;
+  border: white 2px solid;
+  margin-bottom: 2rem;
+}
+
+.endGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 1rem;
+}
+
+.eval {
+  width: 75%;
+}
+
+.theBar {
+  width: 15%;
 }
 
 .sky {

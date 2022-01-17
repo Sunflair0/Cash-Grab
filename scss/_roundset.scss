@@ -4,5 +4,72 @@
     width: 80%;
     color:white;
      //top: -200%;
-   position: fixed;
+   position: fixed;  
+   border-style: ridge;
+   border:rgb(255, 255, 255) 5px ridge;
+   padding: 20px;
+   margin: 20px;    
+   display: flex;
+   flex-direction: column;
+}
+.headings {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 5rem;
+    font-size: xx-large;
+}
+.lineOne, .lineTwo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;    
+    height: 7rem;
+    font-size: x-large;    
+    margin-top: 2rem;
+}
+
+.roundModal img {
+    width: 50%;
+    
+}
+// #plusImg, #minusImg {
+//     width: auto;
+// }
+
+progress {
+    height: 25%;
+   color: yellowgreen;
+    margin-bottom: 2rem;
+    overflow-x: hidden;
+}
+
+#roundScore {
+    height: 7rem;
+    font-size: x-large;  
+    display: flex;
+    justify-content: right;
+    align-items: right;   
+}
+
+.times {    
+    font-size: x-large;
+    position: absolute;
+}
+.line {
+    margin: 1% auto;
+    width: 90% ;
+    height: 3px;
+    border: white 2px solid;
+    margin-bottom: 2rem;
+}
+.endGroup {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+}
+.eval {
+    width: 75%;
+}
+.theBar {
+    width: 15%;
 }

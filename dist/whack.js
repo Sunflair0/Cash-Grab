@@ -147,6 +147,25 @@ let resetHoles = window.setInterval(() => {
     })
 }, 1500);
 
+document.getElementById("plusAmt").innerText=plusAmt;
+document.getElementById("plusValue").innerText=plusVal;
+document.getElementById("plusScore").innerText=plusScore;
+
+document.getElementById("minusAmt").innerText=minusAmt;
+document.getElementById("minusValue").innerText=minusVal;
+document.getElementById("minusScore").innerText=minusScore;
+
+function statusMessage (msg){
+    let container = document.querySelector(".eval");
+    container.innerText = msg;
+
+    if (score < 100){
+   msg= `Try Again`;
+}else{
+    msg= `Advance to the next level!`;
+}}
+
+
 // let tl = gsap.timeline(onComplete:gamePlay);
 
 tl.fromTo(".roundModal", { transformOrigin: "-100%, -200%" }, { transformOrigin: "50%, 50%" });
