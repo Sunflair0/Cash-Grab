@@ -147,6 +147,20 @@ let resetHoles = window.setInterval(() => {
     })
 }, 1500);
 
+function progressBar() {
+    let elem = document.getElementById("achieve");
+    let width = 1;
+    let id = setInterval(fillBar, 15);
+    function fillBar() {
+      if (width >= 100) {
+        clearInterval(id);
+      } else {
+        width++;
+        elem.style.width = width + '%';
+      }
+    }
+  }
+  
 document.getElementById("plusAmt").innerText=plusAmt;
 document.getElementById("plusValue").innerText=plusVal;
 document.getElementById("plusScore").innerText=plusScore;

@@ -685,11 +685,22 @@ img {
   width: 50%;
 }
 
-progress {
-  height: 25%;
-  color: yellowgreen;
+.progress {
+  padding: 2px;
+  width: 100%;
+  max-width: 500px;
+  background: transparent;
+  border: 2px solid #c4a728;
+  border-radius: 20px;
+  height: 30px;
   margin-bottom: 2rem;
-  overflow-x: hidden;
+}
+
+.progress .progress-bar {
+  height: 100%;
+  width: 5%;
+  border-radius: 15px;
+  background: repeating-linear-gradient(135deg, #be9b00, #be9b00 20px, #b7ad00 20px, #b7ad00 40px);
 }
 
 #roundScore {
@@ -736,6 +747,7 @@ progress {
 
 .theBar {
   width: 15%;
+  top: 0;
 }
 
 .sky {
