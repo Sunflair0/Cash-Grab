@@ -342,22 +342,15 @@ img {
   border-left: white 4px ridge;
 }
 
-#cash {
-  height: 60px;
-  width: auto;
-  background: url(/dist/asset/cash.png);
-}
+
 
 #whack {
   height: 80px;
   width: auto;
-  background: url(/dist/asset/whack.png);
+  background: url(/dist/asset/round2.png);
 }
 
-#sun {
-  height: 80px;
-  background: url(/dist/asset/darksun.png);
-}
+
 
 .wBox5 {
   padding-top: 6px;
@@ -369,7 +362,7 @@ img {
 }
 
 #wBox5 {
-  background-image: url(/dist/asset/whack.png);
+  background-image: url(/dist/asset/round2.png);
   max-height: 75%;
   width: auto;
   display: flex;

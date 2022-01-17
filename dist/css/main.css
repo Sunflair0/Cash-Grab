@@ -392,6 +392,7 @@ img {
 
 .wBox3:before {
   content: '\2665';
+  content: '\2764';
   color: red;
   font-size: x-large;
   position: absolute;
@@ -399,7 +400,8 @@ img {
 }
 
 .wBox3:after {
-  content: '\2665';
+  content: '\1F525';
+  content: '\2764';
   color: red;
   font-size: x-large;
   position: absolute;
@@ -427,7 +429,7 @@ img {
 #whack {
   height: 80px;
   width: auto;
-  background: url(/dist/asset/whack.png);
+  background: url(/dist/asset/round1.png);
 }
 
 #sun {
@@ -446,7 +448,7 @@ img {
 }
 
 #wBox5 {
-  background-image: url(/dist/asset/whack.png);
+  background-image: url(/dist/asset/round1.png);
   max-height: 75%;
   width: auto;
   display: -webkit-box;
@@ -635,10 +637,9 @@ img {
 
 .roundModal {
   background-color: #000000bf;
-}
-
-.roundEnd {
-  top: -200%;
+  height: 60%;
+  width: 80%;
+  color: white;
   position: fixed;
 }
 

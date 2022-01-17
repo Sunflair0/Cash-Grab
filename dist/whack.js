@@ -31,6 +31,12 @@ const darkcash = [cash1, cash2, cash3, cash4];
 
 let mole = darkmole[round];
 let cash = darkcash[round];
+let plusAmt = 0;
+let plusVal = 50;
+let plusScore =0;
+let minusAmt = 0;
+let minusVal =-15;
+let minusScore = 0;
 let result = 0;
 
 let min = round;
@@ -52,7 +58,7 @@ start.addEventListener("click", () => {
         else {
             popUpsMinus()
         };
-    }, 2000);
+    }, 1000);
     window.setTimeout(() => {
         window.clearInterval(whereMole);
         window.clearInterval(time);
@@ -72,21 +78,26 @@ const popUpsMinus = () => {
     holes[Math.floor(Math.random() * holes.length)].classList.add(`mole${round}`);
     console.log("pop-");
     {
-        window.setInterval(() => {
-            console.log("clearHole");
+        let clear = window.setInterval(() => {
+
             let clearHole = document.querySelectorAll(`.mole${round}`);
             clearHole.forEach((val) => {
                 val.classList.replace(`mole${round}`, "darkhole");
             })
-        }, 3000)
-
+        }, 2000);
         holes.forEach((val) => {
             val.addEventListener('click', (e) => {
-                document.getElementById('score').innerText = score;
-                if (e.target.classList.contains(`mole${round}`)) {
-                    e.target.classList.replace(`mole${round}`, "splat")
+                 document.getElementById('score').innerText = score;   
+                    if (e.target.classList.contains(`mole${round}`)) {
+                    e.target.classList.replace(`mole${round}`, "splat");
                     score = score - 15;
+                    minusAmt++;   
+                    minusScore = minusVal * minusAmt;          
                 }
+                window.setTimeout(() => {
+                    window.clearInterval(clear);
+                }, 2000);
+
             })
         })
     }
@@ -97,20 +108,28 @@ const popUpsPlus = () => {
     holes[Math.floor(Math.random() * holes.length)].classList.add(`cash${round}`);
     console.log("pop+");
     {
-        window.setInterval(() => {
+        let clear1 = window.setInterval(() => {
             console.log("clear");
-            let clearHole = document.querySelectorAll(`.cash${round}`);
-            clearHole.forEach((val) => {
+            let clearHole1 = document.querySelectorAll(`.cash${round}`);
+            clearHole1.forEach((val) => {
                 val.classList.replace(`cash${round}`, "darkhole");
             })
-        }, 3000)
+        }, 2000);
+
+
         holes.forEach((val) => {
             val.addEventListener('click', (e) => {
                 document.getElementById('score').innerText = score;
                 if (e.target.classList.contains(`cash${round}`)) {
                     e.target.classList.replace(`cash${round}`, "smash")
                     score = score + 50;
+                    plusAmt++;
+                    plusScore = plusVal * plusAmt;
                 }
+                window.setTimeout(() => {
+                    window.clearInterval(clear1);
+                }, 2000);
+
             })
         })
     }
@@ -128,7 +147,7 @@ let resetHoles = window.setInterval(() => {
     })
 }, 1500);
 
-let tl = gsap.timeline();
+// let tl = gsap.timeline(onComplete:gamePlay);
 
-tl.set(".roundModal",{transformOrigin: "50%, 50%"});
-tl.to(".roundModal",{duration:4, y:500, ease:"bounce", backgroundColor: "#000000bf", border:"5px ridge white", borderRadius: "20%", });
+tl.fromTo(".roundModal", { transformOrigin: "-100%, -200%" }, { transformOrigin: "50%, 50%" });
+tl.to(".roundModal", { duration: 2, y: 500, ease: "bounce", backgroundColor: "#000000bf", border: "5px ridge white", });

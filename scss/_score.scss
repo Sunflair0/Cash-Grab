@@ -82,13 +82,15 @@ to{
 
     &:before {        
         content: '\2665';
+        content: '\2764';
         color: rgb(255, 0, 0);
         font-size: x-large;
         position: absolute;
         bottom: 1vh;      
 }
     &:after {        
-        content: '\2665';
+        content: '\1F525';
+        content: '\2764';
         color: rgb(255, 0, 0);
         font-size: x-large;
         position: absolute;
@@ -113,7 +115,7 @@ to{
     
     height: 80px;
     width: auto;
-    background: url(/dist/asset/whack.png);
+    background: url(/dist/asset/round1.png);
 }
 #sun{
     height: 80px;
@@ -129,7 +131,7 @@ to{
     overflow: hidden;
 }
 #wBox5 {
-    background-image: url(/dist/asset/whack.png);
+    background-image: url(/dist/asset/round1.png);
     max-height: 75%;  
     width: auto;
     display: flex;
