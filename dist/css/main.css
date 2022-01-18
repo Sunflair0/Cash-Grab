@@ -51,6 +51,17 @@ body::-webkit-scrollbar-thumb {
   border: transparent solid .3rem;
 }
 
+body button {
+  font-size: x-large;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#4aec0a), color-stop(60%, #fcee2c));
+  background-image: linear-gradient(to top, #4aec0a 0%, #fcee2c 60%);
+  color: #f30000;
+  cursor: pointer;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -266,6 +277,7 @@ img {
           justify-content: center;
   -ms-flex-line-pack: center;
       align-content: center;
+  cursor: pointer;
 }
 
 .start {
@@ -637,10 +649,11 @@ img {
 
 .roundModal {
   background-color: #000000bf;
-  height: 70%;
+  height: 65%;
   width: 80%;
   color: white;
   top: 10%;
+  top: -100%;
   position: fixed;
   border-style: ridge;
   border: white 5px ridge;
@@ -664,7 +677,7 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 5rem;
+  max-height: 5rem;
   font-size: xx-large;
 }
 
@@ -685,6 +698,10 @@ img {
 #plusImg, #minusImg {
   width: 100px;
   min-width: 54px;
+}
+
+.mathChar {
+  font-size: medium;
 }
 
 .progress {
@@ -729,7 +746,7 @@ img {
   width: 90%;
   height: 3px;
   border: white 2px solid;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .endGroup {
@@ -743,8 +760,15 @@ img {
   margin-top: 1rem;
 }
 
-.eval {
+#evalMes {
+  font-family: "Dongle";
+  font-size: x-large;
+  margin-bottom: 1rem;
+}
+
+.evalOne {
   width: 75%;
+  top: 0;
 }
 
 .theBar {

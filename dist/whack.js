@@ -11,6 +11,18 @@
 let score = 0;
 let timer = 29;
 let round = 1;
+let plusAmt = 0;
+let plusVal = 50;
+let plusScore = 0;
+let minusAmt = 0;
+let minusVal = -15;
+let minusScore = 0;
+let result = 0;
+let min = round;
+let max = round + 1;
+let heart = '\u{2764}';
+let trophy = '\u{1f3c6}';
+
 let start = document.getElementById('start');
 let time = document.getElementById('time');
 let wBox2 = document.querySelectorAll(".wBox2");
@@ -31,16 +43,6 @@ const darkcash = [cash1, cash2, cash3, cash4];
 
 let mole = darkmole[round];
 let cash = darkcash[round];
-let plusAmt = 0;
-let plusVal = 50;
-let plusScore = 0;
-let minusAmt = 0;
-let minusVal = -15;
-let minusScore = 0;
-let result = 0;
-
-let min = round;
-let max = round + 1;
 
 start.addEventListener("click", () => {
     document.getElementById('start').style.visibility = "hidden";
@@ -66,6 +68,8 @@ start.addEventListener("click", () => {
         document.getElementsByClassName('wBox2')[0].style.visibility = "hidden";
         document.getElementById('score').innerText = score;
         timer = 29
+        roundGsap();
+        
     }, 30900);
 });
 
@@ -95,7 +99,7 @@ const popUpsMinus = () => {
                 document.getElementById('score').innerText = score;
                 if (e.target.classList.contains(`mole${round}`)) {
                     e.target.classList.replace(`mole${round}`, "splat");
-                    score = score - 15;
+                    score =- 15;
                     minusAmt++;
                     minusScore = minusVal * minusAmt;
                 }
@@ -125,12 +129,10 @@ const popUpsPlus = () => {
                 document.getElementById('score').innerText = score;
                 if (e.target.classList.contains(`cash${round}`)) {
                     e.target.classList.replace(`cash${round}`, "smash")
-                    score = score + 50;
+                    score =+ 50;
                     plusAmt++;
                     plusScore = plusVal * plusAmt;
                 }
-
-
             })
         })
     }
@@ -162,27 +164,76 @@ function progressBar() {
     }
 }
 
-document.getElementById("plusAmt").innerText = plusAmt;
-document.getElementById("plusValue").innerText = plusVal;
-document.getElementById("plusScore").innerText = plusScore;
-
-document.getElementById("minusAmt").innerText = minusAmt;
-document.getElementById("minusValue").innerText = minusVal;
-document.getElementById("minusScore").innerText = minusScore;
-
 function statusMessage(msg) {
-    let container = document.querySelector(".eval");
+    let container = document.querySelector("#evalMes");
     container.innerText = msg;
+}
+
+function roundEnd(){
+    document.getElementById("plusAmt").innerText = plusAmt;
+    document.getElementById("plusValue").innerText = plusVal;
+    document.getElementById("plusScore").innerText = plusScore;
+
+    document.getElementById("minusAmt").innerText = minusAmt;
+    document.getElementById("minusValue").innerText = minusVal;
+    document.getElementById("minusScore").innerText = minusScore;
 
     if (score < 100) {
-        msg = `Try Again`;
+        statusMessage(`Use a heart and try again`);
+
+        let tryAgain = document.getElementById('eval');
+
+        tryAgain = document.createElement("button");
+
+        document.getElementById('eval').append(tryAgain);
+
+        tryAgain.innerText = `${heart}`;
+
+        tryAgain.addEventListener("click",useHeart);
+        
     } else {
-        msg = `Advance to the next level!`;
+        statusMessage(`Advance to the next level!`);
+
+        let advance = document.createElement("button");
+
+        document.getElementById('eval').append(advance);
+
+        advance.innerText = `${trophy}`;
+        
+        advance.addEventListener("click",roundUp);
     }
 }
 
+statusMessage(`Advance to the next level!`);
+let advance = document.createElement("button");
+document.getElementById('eval').append(advance);
+advance.innerText = `${trophy}`;
+advance.addEventListener("click",roundUp);
 
-// let tl = gsap.timeline(onComplete:gamePlay);
+function useHeart(){
+    console.log("use heart works");
+    roundUp();
+}
 
-tl.fromTo(".roundModal", { transformOrigin: "-100%, -200%" }, { transformOrigin: "50%, 50%" });
-tl.to(".roundModal", { duration: 2, y: 500, ease: "bounce", backgroundColor: "#000000bf", border: "5px ridge white", });
+function roundGsap(){
+ let tl = gsap.timeline();
+//tl.from(".roundModal", { transformOrigin: "-100%, -100%" }, { transformOrigin: "50%, 50%" });
+tl.to(".roundModal", { duration: 2, y: "165%", ease: "bounce", backgroundColor: "#000000bf", border: "5px ridge white", });}
+
+function roundUp(){
+    round++
+    score = 0;
+    plusAmt = 0;    
+    plusScore = 0;
+    minusAmt = 0;
+    minusScore = 0;
+
+    let el = document.getElementById('eval');
+    el.remove();
+
+    document.body.style.backgroundImage = `url(/dist/asset/round${round}.png)`;
+    document.getElementById('start').style.visibility = "visible";
+
+gsap.to(".roundModal", {y:"-100%", delay:5, duration: 3, ease:Back.easeOut.config(2)});    
+
+}

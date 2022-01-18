@@ -38,6 +38,15 @@ body{
         
             }
       }
+      & button {
+          font-size:x-large;
+          height: 45px;
+          width: 45px;
+          border-radius: 50%;
+          background-image: linear-gradient(to top, #4aec0a 0%, #fcee2c 60%);
+          color:rgb(243, 0, 0);
+          cursor: pointer;
+      }
 }
 *{
     box-sizing: border-box;

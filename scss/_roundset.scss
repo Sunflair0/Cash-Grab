@@ -1,11 +1,10 @@
 .roundModal {
     background-color: #000000bf;
-    height: 70%;
+    height: 65%;
     width: 80%;
     color:white;
     top: 10%;
-     //top: -200%;
-     
+    top: -100%;     
    position: fixed;  
    border-style: ridge;
    border:rgb(255, 255, 255) 5px ridge;
@@ -17,7 +16,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 5rem;
+    max-height: 5rem;
     font-size: xx-large;
 }
 .lineOne, .lineTwo {
@@ -31,6 +30,9 @@
 #plusImg, #minusImg {
     width: 100px;
     min-width: 54px;
+}
+.mathChar{
+    font-size: medium;
 }
 .progress {
     padding: 2px;
@@ -72,17 +74,24 @@
     width: 90% ;
     height: 3px;
     border: white 2px solid;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 .endGroup {
     display: flex;
     flex-direction: row;
     margin-top: 1rem;
 }
-.eval {
+#evalMes {
+    font-family: "Dongle";
+    font-size: x-large;
+    margin-bottom: 1rem;
+}
+.evalOne {
     width: 75%;
+    top:0;
 }
 .theBar {
     width: 20%;
     top:0;
 }
+
