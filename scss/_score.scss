@@ -5,6 +5,7 @@
     max-height: 100px;
     justify-content: center;
     align-content: center;      
+    cursor: pointer;
 }
 .start {
     animation: start alternate 1s linear ease-in;
@@ -77,18 +78,20 @@ to{
     flex-basis: 24%;
     padding-left: 6px;
     padding-top: 6px;    
-    border-left: white 4px ridge;
+    border: white 2px ridge;
     position: relative;
 
     &:before {        
         content: '\2665';
+        content: '\2764';
         color: rgb(255, 0, 0);
         font-size: x-large;
         position: absolute;
         bottom: 1vh;      
 }
     &:after {        
-        content: '\2665';
+        content: '\1F525';
+        content: '\2764';
         color: rgb(255, 0, 0);
         font-size: x-large;
         position: absolute;
@@ -101,7 +104,7 @@ to{
     display: flex;
     padding-top: 6px;
     padding-left: 6px;    
-    border-left: white 4px ridge;
+    border: white 2px ridge;
 }
 
 #cash{
@@ -113,7 +116,7 @@ to{
     
     height: 80px;
     width: auto;
-    background: url(/dist/asset/whack.png);
+    background: url(/dist/asset/round1.png);
 }
 #sun{
     height: 80px;
@@ -125,11 +128,11 @@ to{
     padding-left: 6px;
     flex-basis: calc(36%-100px);
     width: 30%;
-    border-left: rgb(255, 255, 255) 4px ridge;
+    border: white 2px ridge;
     overflow: hidden;
 }
 #wBox5 {
-    background-image: url(/dist/asset/whack.png);
+    background-image: url(/dist/asset/round1.png);
     max-height: 75%;  
     width: auto;
     display: flex;

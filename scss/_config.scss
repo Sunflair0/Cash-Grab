@@ -1,6 +1,11 @@
+html
+{
+    overflow: hidden;
+}
 body{
-    
-    background-image: url(/dist/asset/meadow.png);
+    overflow: hidden;
+    position: relative;
+    background-image: url(/dist/asset/round1.png);
     background-color: black;
     background-size: cover;
     background-clip: content-box;
@@ -32,6 +37,15 @@ body{
         border: transparent solid .3rem;
         
             }
+      }
+      & button {
+          font-size:x-large;
+          height: 45px;
+          width: 45px;
+          border-radius: 50%;
+          background-image: linear-gradient(to top, #4aec0a 0%, #fcee2c 60%);
+          color:rgb(243, 0, 0);
+          cursor: pointer;
       }
 }
 *{

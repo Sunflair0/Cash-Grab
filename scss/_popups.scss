@@ -1,19 +1,21 @@
-.theCash {
+.gameIcon {
     background-size: contain;
-    background-repeat: no-repeat;
-    background-image: url(/dist/asset/cash.png) no-repeat contain;
-    animation: cashPop 1s alternate cubic-bezier(0.75, 0.95, 0.2, 1) ease-out;    
-}
-@keyframes cashPop {
-0% {
-transform:translateY(0%) rotate(0turn);
-opacity:.25;}
-50% {
-transform:translateY(100%) rotate(2turn);
-opacity:1;}
+    background-repeat: no-repeat;  
 }
 
-.theSmash {
+.cash1 {    
+    background-image: url(/dist/asset/darkcash.png);
+}
+.cash2{
+    background-image: url(/dist/asset/darklapis.png);
+}
+.cash3{
+    background-image: url(/dist/asset/darkyellow.png);
+}
+.cash4 {    
+    background-image: url(/dist/asset/darkpearl.png);
+}
+.smash {
     @include flexShell;    
     @include actionBox;
     background-image: url(/dist/asset/smash.png);
@@ -23,24 +25,27 @@ opacity:1;}
     @include actionBox;
     background-image: url(/dist/asset/splat.png);
 }
-
-.sunMole {
-    background-image: url(/dist/asset/darksun.png);
-    background-size: contain;
-    background-repeat: no-repeat;
+.mole1 {
+    background-image: url(/dist/asset/darksun.png); 
 }
-.tulipMole {
-    background-image: url(/dist/asset/darktulip.png);
-    background-size: contain;
-    background-repeat: no-repeat;
+.mole2 {
+    background-image: url(/dist/asset/darktulip.png); 
 }
-.daisyMole {
-    background-image: url(/dist/asset/darkdaisy.png);
-    background-size: contain;
-    background-repeat: no-repeat;
+.mole3 {
+    background-image: url(/dist/asset/darkdaisy.png);   
 }
-.roseMole {
+.mole4 {
     background-image: url(/dist/asset/darkrose.png);
-    background-size: contain;
-    background-repeat: no-repeat;
+}
+.round1 {
+    background-image: url(/dist/asset/round1.png); 
+}
+.round2 {
+    background-image: url(/dist/asset/round2.png); 
+}
+.round3 {
+    background-image: url(/dist/asset/round3.png); 
+}
+.round4 {
+    background-image: url(/dist/asset/round4.png); 
 }

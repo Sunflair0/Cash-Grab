@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
   background-image: url(/dist/asset/meadow.png);
   background-color: black;
@@ -219,6 +220,203 @@ img {
       flex-wrap: wrap;
   -ms-flex-preferred-size: 23%;
       flex-basis: 23%;
+=======
+@charset "UTF-8";
+html {
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
+  position: relative;
+  background-image: url(/dist/asset/meadow.png);
+  background-color: black;
+  background-size: cover;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100%;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  transition: transform 0.2s;
+}
+body::-webkit-scrollbar {
+  width: 25px;
+}
+body::-webkit-scrollbar-track {
+  background: black;
+}
+body::-webkit-scrollbar-thumb {
+  background: #dd7438;
+  box-shadow: inset 0 0 7px #000000;
+  border-radius: 20px;
+  overflow: auto;
+  padding: 5px;
+  background-clip: padding-box;
+  border: transparent solid 0.3rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  height: auto;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.darkhole {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: 23%;
+>>>>>>> both
+  max-width: 180px;
+  height: 100px;
+  margin: auto;
+  margin-top: 10vh;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 20%;
+<<<<<<< HEAD
+  background-image: url(/dist/asset/splat.png);
+=======
+  background-image: url(/dist/asset/darkhole.png);
+}
+
+#roundEnd {
+  width: 100vw;
+  height: 50vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-style: ridge;
+  border: white 5px ridge;
+  padding: 20px;
+  margin: 20px;
+  visibility: hidden;
+}
+
+.roundEnd {
+  -webkit-animation: end 2s ease forwards;
+          animation: end 2s ease forwards;
+}
+
+@-webkit-keyframes end {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes end {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@media (min-width: 576px) {
+  span {
+    font-family: "Orbitron";
+  }
+>>>>>>> both
+}
+@media (min-width: 768px) {
+  .darkhole {
+    max-width: 180px;
+  }
+}
+@media (min-width: 992px) {
+  span {
+    font-family: "Orbitron";
+    margin-top: 3vh;
+  }
+
+<<<<<<< HEAD
+.sunMole {
+  background-image: url(/dist/asset/darksun.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.tulipMole {
+  background-image: url(/dist/asset/darktulip.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.daisyMole {
+  background-image: url(/dist/asset/darkdaisy.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+=======
+  .second {
+    transform: scale(0.35, 0.35);
+    margin-bottom: 8vh;
+  }
+}
+@media (min-width: 1200px) {
+  span {
+    font-family: "Orbitron";
+  }
+}
+.theCash {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/dist/asset/darkcash.png);
+}
+
+.theLapis {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/dist/asset/darklapis.png);
+}
+
+.theYellow {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/dist/asset/darkyellow.png);
+}
+
+.thePearl {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/dist/asset/darkpearl.png);
+}
+
+.theSmash {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: 23%;
+  max-width: 180px;
+  height: 100px;
+  margin: auto;
+  margin-top: 10vh;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 20%;
+  background-image: url(/dist/asset/smash.png);
+}
+
+.splat {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: 23%;
   max-width: 180px;
   height: 100px;
   margin: auto;
@@ -248,6 +446,7 @@ img {
   background-repeat: no-repeat;
 }
 
+>>>>>>> both
 .roseMole {
   background-image: url(/dist/asset/darkrose.png);
   background-size: contain;
@@ -255,6 +454,7 @@ img {
 }
 
 #start {
+<<<<<<< HEAD
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -265,6 +465,13 @@ img {
           justify-content: center;
   -ms-flex-line-pack: center;
       align-content: center;
+=======
+  display: flex;
+  max-width: 100px;
+  max-height: 100px;
+  justify-content: center;
+  align-content: center;
+>>>>>>> both
 }
 
 .start {
@@ -274,17 +481,25 @@ img {
 
 @-webkit-keyframes start {
   from {
+<<<<<<< HEAD
     -webkit-transform: scale(1);
             transform: scale(1);
   }
   to {
     -webkit-transform: scale(1.5);
             transform: scale(1.5);
+=======
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.5);
+>>>>>>> both
   }
 }
 
 @keyframes start {
   from {
+<<<<<<< HEAD
     -webkit-transform: scale(1);
             transform: scale(1);
   }
@@ -294,6 +509,14 @@ img {
   }
 }
 
+=======
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.5);
+  }
+}
+>>>>>>> both
 #score, #time {
   width: 200px;
   text-align: center;
@@ -302,12 +525,16 @@ img {
 
 .whiteBoxes {
   max-height: 120px;
+<<<<<<< HEAD
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
   display: -webkit-box;
   display: -ms-flexbox;
+=======
+  flex-direction: row;
+>>>>>>> both
   display: flex;
   color: white;
   width: 100%;
@@ -315,6 +542,7 @@ img {
   padding: 3px;
   outline: white ridge 4px;
   outline-offset: -11px;
+<<<<<<< HEAD
 }
 
 .whiteBoxes:hover {
@@ -322,6 +550,14 @@ img {
           animation: color infinite 1s steps(6, jump-both);
 }
 
+=======
+}
+.whiteBoxes:hover {
+  -webkit-animation: color infinite 1s steps(6, jump-both);
+          animation: color infinite 1s steps(6, jump-both);
+}
+
+>>>>>>> both
 @-webkit-keyframes color {
   0% {
     border: #cc00ff 5px dotted;
@@ -363,42 +599,66 @@ img {
     border: red 5px dotted;
   }
 }
+<<<<<<< HEAD
 
 .wBox1 {
   visibility: visible;
   -ms-flex-preferred-size: 10%;
       flex-basis: 10%;
+=======
+.wBox1 {
+  visibility: visible;
+  flex-basis: 10%;
+>>>>>>> both
   border: white 2px ridge;
 }
 
 .wBox2 {
   visibility: hidden;
+<<<<<<< HEAD
   -ms-flex-preferred-size: 10%;
       flex-basis: 10%;
+=======
+  flex-basis: 10%;
+>>>>>>> both
   padding-left: 6px;
   padding-top: 6px;
   position: fixed;
 }
 
 .wBox3 {
+<<<<<<< HEAD
   -ms-flex-preferred-size: 24%;
       flex-basis: 24%;
+=======
+  flex-basis: 24%;
+>>>>>>> both
   padding-left: 6px;
   padding-top: 6px;
   border-left: white 4px ridge;
   position: relative;
 }
+<<<<<<< HEAD
 
 .wBox3:before {
   content: '\2665';
+=======
+.wBox3:before {
+  content: "♥";
+>>>>>>> both
   color: red;
   font-size: x-large;
   position: absolute;
   bottom: 1vh;
 }
+<<<<<<< HEAD
 
 .wBox3:after {
   content: '\2665';
+=======
+.wBox3:after {
+  content: "♥";
+>>>>>>> both
   color: red;
   font-size: x-large;
   position: absolute;
@@ -406,6 +666,7 @@ img {
 }
 
 .wBox4 {
+<<<<<<< HEAD
   -ms-flex-preferred-size: 40%;
       flex-basis: 40%;
   position: relative;
@@ -457,17 +718,62 @@ img {
 .first_a {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
+=======
+  flex-basis: 40%;
+  position: relative;
+  display: flex;
+  padding-top: 6px;
+  padding-left: 6px;
+  border-left: white 4px ridge;
+}
+
+
+
+#whack {
+  height: 80px;
+  width: auto;
+  background: url(/dist/asset/round2.png);
+}
+
+
+
+.wBox5 {
+  padding-top: 6px;
+  padding-left: 6px;
+  flex-basis: calc(36%-100px);
+  width: 30%;
+  border-left: white 4px ridge;
+  overflow: hidden;
+}
+
+#wBox5 {
+  background-image: url(/dist/asset/round2.png);
+  max-height: 75%;
+  width: auto;
+  display: flex;
+  margin: auto;
+}
+
+.first_a {
+  flex-basis: 50%;
+>>>>>>> both
   max-width: 50px;
   height: 50px;
   margin: auto;
   background-size: contain;
   background-repeat: no-repeat;
+<<<<<<< HEAD
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: auto;
   -ms-flex-preferred-size: 20%;
       flex-basis: 20%;
+=======
+  display: flex;
+  margin: auto;
+  flex-basis: 20%;
+>>>>>>> both
   margin-left: -1%;
   max-width: 50px;
   min-width: 50px;
@@ -477,19 +783,29 @@ img {
 }
 
 .first-b {
+<<<<<<< HEAD
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
+=======
+  flex-basis: 50%;
+>>>>>>> both
   max-width: 50px;
   height: 50px;
   margin: auto;
   background-size: contain;
   background-repeat: no-repeat;
+<<<<<<< HEAD
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: auto;
   -ms-flex-preferred-size: 20%;
       flex-basis: 20%;
+=======
+  display: flex;
+  margin: auto;
+  flex-basis: 20%;
+>>>>>>> both
   margin-left: -1%;
   max-width: 50px;
   min-width: 50px;
@@ -499,19 +815,29 @@ img {
 }
 
 .first-c {
+<<<<<<< HEAD
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
+=======
+  flex-basis: 50%;
+>>>>>>> both
   max-width: 50px;
   height: 50px;
   margin: auto;
   background-size: contain;
   background-repeat: no-repeat;
+<<<<<<< HEAD
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: auto;
   -ms-flex-preferred-size: 20%;
       flex-basis: 20%;
+=======
+  display: flex;
+  margin: auto;
+  flex-basis: 20%;
+>>>>>>> both
   margin-left: -1%;
   max-width: 50px;
   min-width: 50px;
@@ -521,25 +847,36 @@ img {
 }
 
 .first-d {
+<<<<<<< HEAD
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
+=======
+  flex-basis: 50%;
+>>>>>>> both
   max-width: 50px;
   height: 50px;
   margin: auto;
   background-size: contain;
   background-repeat: no-repeat;
+<<<<<<< HEAD
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: auto;
   -ms-flex-preferred-size: 20%;
       flex-basis: 20%;
+=======
+  display: flex;
+  margin: auto;
+  flex-basis: 20%;
+>>>>>>> both
   margin-left: -1%;
   max-width: 50px;
   min-width: 50px;
   position: absolute;
   border: blueviolet 2px solid;
   background-image: url(/dist/asset/yellow25.png);
+<<<<<<< HEAD
   -webkit-transform: scale(0.65, 0.65);
           transform: scale(0.65, 0.65);
 }
@@ -547,17 +884,30 @@ img {
 .second-a {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
+=======
+  transform: scale(0.65, 0.65);
+}
+
+.second-a {
+  flex-basis: 50%;
+>>>>>>> both
   max-width: 50px;
   height: 50px;
   margin: auto;
   background-size: contain;
   background-repeat: no-repeat;
+<<<<<<< HEAD
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: auto;
   -ms-flex-preferred-size: 20%;
       flex-basis: 20%;
+=======
+  display: flex;
+  margin: auto;
+  flex-basis: 20%;
+>>>>>>> both
   margin-left: -1%;
   max-width: 50px;
   min-width: 50px;
@@ -567,19 +917,29 @@ img {
 }
 
 .second-b {
+<<<<<<< HEAD
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
+=======
+  flex-basis: 50%;
+>>>>>>> both
   max-width: 50px;
   height: 50px;
   margin: auto;
   background-size: contain;
   background-repeat: no-repeat;
+<<<<<<< HEAD
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: auto;
   -ms-flex-preferred-size: 20%;
       flex-basis: 20%;
+=======
+  display: flex;
+  margin: auto;
+  flex-basis: 20%;
+>>>>>>> both
   margin-left: -1%;
   max-width: 50px;
   min-width: 50px;
@@ -589,19 +949,29 @@ img {
 }
 
 .second-c {
+<<<<<<< HEAD
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
+=======
+  flex-basis: 50%;
+>>>>>>> both
   max-width: 50px;
   height: 50px;
   margin: auto;
   background-size: contain;
   background-repeat: no-repeat;
+<<<<<<< HEAD
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: auto;
   -ms-flex-preferred-size: 20%;
       flex-basis: 20%;
+=======
+  display: flex;
+  margin: auto;
+  flex-basis: 20%;
+>>>>>>> both
   margin-left: -1%;
   max-width: 50px;
   min-width: 50px;
@@ -611,19 +981,29 @@ img {
 }
 
 .second-d {
+<<<<<<< HEAD
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
+=======
+  flex-basis: 50%;
+>>>>>>> both
   max-width: 50px;
   height: 50px;
   margin: auto;
   background-size: contain;
   background-repeat: no-repeat;
+<<<<<<< HEAD
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: auto;
   -ms-flex-preferred-size: 20%;
       flex-basis: 20%;
+=======
+  display: flex;
+  margin: auto;
+  flex-basis: 20%;
+>>>>>>> both
   margin-left: -1%;
   max-width: 50px;
   min-width: 50px;
@@ -633,6 +1013,7 @@ img {
 }
 
 .sky {
+<<<<<<< HEAD
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -649,12 +1030,23 @@ img {
 
 .header {
   font-family: 'Flavors';
+=======
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: 23%;
+}
+
+.header {
+  font-family: "Flavors";
+>>>>>>> both
   font-size: xx-large;
   color: #bd491b;
   text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
 }
 
 .ground {
+<<<<<<< HEAD
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -668,10 +1060,18 @@ img {
       flex-basis: 62.5%;
   width: 95%;
   border: red 5px solid;
+=======
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: 62.5%;
+  width: 95%;
+>>>>>>> both
   margin: auto;
 }
 
 .bottom {
+<<<<<<< HEAD
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -683,6 +1083,12 @@ img {
       flex-wrap: wrap;
   -ms-flex-preferred-size: auto;
       flex-basis: auto;
+=======
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: auto;
+>>>>>>> both
   width: 100%;
   padding: 3px;
   border: white 4px ridge;
@@ -690,7 +1096,13 @@ img {
 }
 
 span {
+<<<<<<< HEAD
   font-family: 'Orbitron';
   margin-top: 2vh;
 }
 /*# sourceMappingURL=main.css.map */
+=======
+  font-family: "Orbitron";
+  margin-top: 2vh;
+}/*# sourceMappingURL=main.css.map */
+>>>>>>> both

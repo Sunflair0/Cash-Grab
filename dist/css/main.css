@@ -1,5 +1,11 @@
+html {
+  overflow: hidden;
+}
+
 body {
-  background-image: url(/dist/asset/meadow.png);
+  overflow: hidden;
+  position: relative;
+  background-image: url(/dist/asset/round1.png);
   background-color: black;
   background-size: cover;
   background-clip: content-box;
@@ -43,6 +49,17 @@ body::-webkit-scrollbar-thumb {
   padding: 5px;
   background-clip: padding-box;
   border: transparent solid .3rem;
+}
+
+body button {
+  font-size: x-large;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#4aec0a), color-stop(60%, #fcee2c));
+  background-image: linear-gradient(to top, #4aec0a 0%, #fcee2c 60%);
+  color: #f30000;
+  cursor: pointer;
 }
 
 * {
@@ -150,41 +167,28 @@ img {
   }
 }
 
-.theCash {
+.gameIcon {
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(/dist/asset/cash.png) no-repeat contain;
-  -webkit-animation: cashPop 1s alternate cubic-bezier(0.75, 0.95, 0.2, 1) ease-out;
-          animation: cashPop 1s alternate cubic-bezier(0.75, 0.95, 0.2, 1) ease-out;
 }
 
-@-webkit-keyframes cashPop {
-  0% {
-    -webkit-transform: translateY(0%) rotate(0turn);
-            transform: translateY(0%) rotate(0turn);
-    opacity: .25;
-  }
-  50% {
-    -webkit-transform: translateY(100%) rotate(2turn);
-            transform: translateY(100%) rotate(2turn);
-    opacity: 1;
-  }
+.cash1 {
+  background-image: url(/dist/asset/darkcash.png);
 }
 
-@keyframes cashPop {
-  0% {
-    -webkit-transform: translateY(0%) rotate(0turn);
-            transform: translateY(0%) rotate(0turn);
-    opacity: .25;
-  }
-  50% {
-    -webkit-transform: translateY(100%) rotate(2turn);
-            transform: translateY(100%) rotate(2turn);
-    opacity: 1;
-  }
+.cash2 {
+  background-image: url(/dist/asset/darklapis.png);
 }
 
-.theSmash {
+.cash3 {
+  background-image: url(/dist/asset/darkyellow.png);
+}
+
+.cash4 {
+  background-image: url(/dist/asset/darkpearl.png);
+}
+
+.smash {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -230,28 +234,36 @@ img {
   background-image: url(/dist/asset/splat.png);
 }
 
-.sunMole {
+.mole1 {
   background-image: url(/dist/asset/darksun.png);
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 
-.tulipMole {
+.mole2 {
   background-image: url(/dist/asset/darktulip.png);
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 
-.daisyMole {
+.mole3 {
   background-image: url(/dist/asset/darkdaisy.png);
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 
-.roseMole {
+.mole4 {
   background-image: url(/dist/asset/darkrose.png);
-  background-size: contain;
-  background-repeat: no-repeat;
+}
+
+.round1 {
+  background-image: url(/dist/asset/round1.png);
+}
+
+.round2 {
+  background-image: url(/dist/asset/round2.png);
+}
+
+.round3 {
+  background-image: url(/dist/asset/round3.png);
+}
+
+.round4 {
+  background-image: url(/dist/asset/round4.png);
 }
 
 #start {
@@ -265,6 +277,7 @@ img {
           justify-content: center;
   -ms-flex-line-pack: center;
       align-content: center;
+  cursor: pointer;
 }
 
 .start {
@@ -385,12 +398,13 @@ img {
       flex-basis: 24%;
   padding-left: 6px;
   padding-top: 6px;
-  border-left: white 4px ridge;
+  border: white 2px ridge;
   position: relative;
 }
 
 .wBox3:before {
   content: '\2665';
+  content: '\2764';
   color: red;
   font-size: x-large;
   position: absolute;
@@ -398,7 +412,8 @@ img {
 }
 
 .wBox3:after {
-  content: '\2665';
+  content: '\1F525';
+  content: '\2764';
   color: red;
   font-size: x-large;
   position: absolute;
@@ -414,7 +429,7 @@ img {
   display: flex;
   padding-top: 6px;
   padding-left: 6px;
-  border-left: white 4px ridge;
+  border: white 2px ridge;
 }
 
 #cash {
@@ -426,7 +441,7 @@ img {
 #whack {
   height: 80px;
   width: auto;
-  background: url(/dist/asset/whack.png);
+  background: url(/dist/asset/round1.png);
 }
 
 #sun {
@@ -440,12 +455,12 @@ img {
   -ms-flex-preferred-size: calc(36%-100px);
       flex-basis: calc(36%-100px);
   width: 30%;
-  border-left: white 4px ridge;
+  border: white 2px ridge;
   overflow: hidden;
 }
 
 #wBox5 {
-  background-image: url(/dist/asset/whack.png);
+  background-image: url(/dist/asset/round1.png);
   max-height: 75%;
   width: auto;
   display: -webkit-box;
@@ -630,6 +645,135 @@ img {
   position: absolute;
   border: blueviolet 2px solid;
   background-image: url(/dist/asset/darkrose.png);
+}
+
+.roundModal {
+  background-color: #000000bf;
+  height: 65%;
+  width: 80%;
+  color: white;
+  top: 10%;
+  top: -100%;
+  position: fixed;
+  border-style: ridge;
+  border: white 5px ridge;
+  padding: 20px;
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.headings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-height: 5rem;
+  font-size: xx-large;
+}
+
+.lineOne, .lineTwo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 7rem;
+  font-size: x-large;
+  margin-top: 2rem;
+}
+
+#plusImg, #minusImg {
+  width: 100px;
+  min-width: 54px;
+}
+
+.mathChar {
+  font-size: medium;
+}
+
+.progress {
+  padding: 2px;
+  width: 50%;
+  max-width: 100%;
+  background: transparent;
+  border: 2px solid #c4a728;
+  border-radius: 20px;
+  height: 30px;
+  margin-bottom: 2rem;
+}
+
+.progress .progress-bar {
+  height: 100%;
+  width: 5%;
+  border-radius: 15px;
+  background: repeating-linear-gradient(135deg, #be9b00, #be9b00 20px, #b7ad00 20px, #b7ad00 40px);
+}
+
+#roundScore {
+  height: 7rem;
+  font-size: x-large;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  -webkit-box-align: right;
+      -ms-flex-align: right;
+          align-items: right;
+}
+
+.times {
+  font-size: x-large;
+  position: absolute;
+}
+
+.line {
+  margin: 1% auto;
+  width: 90%;
+  height: 3px;
+  border: white 2px solid;
+  margin-bottom: 1rem;
+}
+
+.endGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 1rem;
+}
+
+#evalMes {
+  font-family: "Dongle";
+  font-size: x-large;
+  margin-bottom: 1rem;
+}
+
+.evalOne {
+  width: 75%;
+  top: 0;
+}
+
+.theBar {
+  width: 20%;
+  top: 0;
 }
 
 .sky {
