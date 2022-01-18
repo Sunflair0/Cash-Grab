@@ -637,9 +637,10 @@ img {
 
 .roundModal {
   background-color: #000000bf;
-  height: 60%;
+  height: 70%;
   width: 80%;
   color: white;
+  top: 10%;
   position: fixed;
   border-style: ridge;
   border: white 5px ridge;
@@ -681,14 +682,15 @@ img {
   margin-top: 2rem;
 }
 
-.roundModal img {
-  width: 50%;
+#plusImg, #minusImg {
+  width: 100px;
+  min-width: 54px;
 }
 
 .progress {
   padding: 2px;
-  width: 100%;
-  max-width: 500px;
+  width: 50%;
+  max-width: 100%;
   background: transparent;
   border: 2px solid #c4a728;
   border-radius: 20px;
@@ -746,7 +748,7 @@ img {
 }
 
 .theBar {
-  width: 15%;
+  width: 20%;
   top: 0;
 }
 

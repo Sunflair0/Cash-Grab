@@ -33,9 +33,9 @@ let mole = darkmole[round];
 let cash = darkcash[round];
 let plusAmt = 0;
 let plusVal = 50;
-let plusScore =0;
+let plusScore = 0;
 let minusAmt = 0;
-let minusVal =-15;
+let minusVal = -15;
 let minusScore = 0;
 let result = 0;
 
@@ -85,19 +85,20 @@ const popUpsMinus = () => {
                 val.classList.replace(`mole${round}`, "darkhole");
             })
         }, 2000);
+
+        window.setTimeout(() => {
+            window.clearInterval(clear);
+        }, 2000);
+
         holes.forEach((val) => {
             val.addEventListener('click', (e) => {
-                 document.getElementById('score').innerText = score;   
-                    if (e.target.classList.contains(`mole${round}`)) {
+                document.getElementById('score').innerText = score;
+                if (e.target.classList.contains(`mole${round}`)) {
                     e.target.classList.replace(`mole${round}`, "splat");
                     score = score - 15;
-                    minusAmt++;   
-                    minusScore = minusVal * minusAmt;          
+                    minusAmt++;
+                    minusScore = minusVal * minusAmt;
                 }
-                window.setTimeout(() => {
-                    window.clearInterval(clear);
-                }, 2000);
-
             })
         })
     }
@@ -115,7 +116,9 @@ const popUpsPlus = () => {
                 val.classList.replace(`cash${round}`, "darkhole");
             })
         }, 2000);
-
+        window.setTimeout(() => {
+            window.clearInterval(clear1);
+        }, 2000);
 
         holes.forEach((val) => {
             val.addEventListener('click', (e) => {
@@ -126,9 +129,7 @@ const popUpsPlus = () => {
                     plusAmt++;
                     plusScore = plusVal * plusAmt;
                 }
-                window.setTimeout(() => {
-                    window.clearInterval(clear1);
-                }, 2000);
+
 
             })
         })
@@ -152,32 +153,33 @@ function progressBar() {
     let width = 1;
     let id = setInterval(fillBar, 15);
     function fillBar() {
-      if (width >= 100) {
-        clearInterval(id);
-      } else {
-        width++;
-        elem.style.width = width + '%';
-      }
+        if (width >= 100) {
+            clearInterval(id);
+        } else {
+            width++;
+            elem.style.width = width + '%';
+        }
     }
-  }
-  
-document.getElementById("plusAmt").innerText=plusAmt;
-document.getElementById("plusValue").innerText=plusVal;
-document.getElementById("plusScore").innerText=plusScore;
+}
 
-document.getElementById("minusAmt").innerText=minusAmt;
-document.getElementById("minusValue").innerText=minusVal;
-document.getElementById("minusScore").innerText=minusScore;
+document.getElementById("plusAmt").innerText = plusAmt;
+document.getElementById("plusValue").innerText = plusVal;
+document.getElementById("plusScore").innerText = plusScore;
 
-function statusMessage (msg){
+document.getElementById("minusAmt").innerText = minusAmt;
+document.getElementById("minusValue").innerText = minusVal;
+document.getElementById("minusScore").innerText = minusScore;
+
+function statusMessage(msg) {
     let container = document.querySelector(".eval");
     container.innerText = msg;
 
-    if (score < 100){
-   msg= `Try Again`;
-}else{
-    msg= `Advance to the next level!`;
-}}
+    if (score < 100) {
+        msg = `Try Again`;
+    } else {
+        msg = `Advance to the next level!`;
+    }
+}
 
 
 // let tl = gsap.timeline(onComplete:gamePlay);
