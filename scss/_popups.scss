@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // .theCash {
 //     background-size: contain;
 //     background-repeat: no-repeat;
@@ -48,3 +49,56 @@
 //     background-size: contain;
 //     background-repeat: no-repeat;
 // }
+=======
+.gameIcon {
+    background-size: contain;
+    background-repeat: no-repeat;  
+}
+
+.cash1 {    
+    background-image: url(/dist/asset/darkcash.png);
+}
+.cash2{
+    background-image: url(/dist/asset/darklapis.png);
+}
+.cash3{
+    background-image: url(/dist/asset/darkyellow.png);
+}
+.cash4 {    
+    background-image: url(/dist/asset/darkpearl.png);
+}
+.smash {
+    @include flexShell;    
+    @include actionBox;
+    background-image: url(/dist/asset/smash.png);
+}
+.splat {
+    @include flexShell;    
+    @include actionBox;
+    background-image: url(/dist/asset/splat.png);
+}
+.mole1 {
+    background-image: url(/dist/asset/darksun.png); 
+}
+.mole2 {
+    background-image: url(/dist/asset/darktulip.png); 
+}
+.mole3 {
+    background-image: url(/dist/asset/darkdaisy.png);   
+}
+.mole4 {
+    background-image: url(/dist/asset/darkrose.png);
+}
+.round1 {
+    background-image: url(/dist/asset/round1.png); 
+}
+.round2 {
+    background-image: url(/dist/asset/round2.png); 
+}
+.round3 {
+    background-image: url(/dist/asset/round3.png); 
+}
+.round4 {
+    background-image: url(/dist/asset/round4.png); 
+}
+>>>>>>> both

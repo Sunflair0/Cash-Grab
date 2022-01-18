@@ -1,4 +1,5 @@
 @charset "UTF-8";
+<<<<<<< HEAD
 body {
   background-image: url(/dist/asset/meadow.png);
   background-color: black;
@@ -30,6 +31,45 @@ body::-webkit-scrollbar-thumb {
   border: transparent solid 0.3rem;
 }
 
+=======
+html {
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
+  position: relative;
+  background-image: url(/dist/asset/meadow.png);
+  background-color: black;
+  background-size: cover;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100%;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  transition: transform 0.2s;
+}
+body::-webkit-scrollbar {
+  width: 25px;
+}
+body::-webkit-scrollbar-track {
+  background: black;
+}
+body::-webkit-scrollbar-thumb {
+  background: #dd7438;
+  box-shadow: inset 0 0 7px #000000;
+  border-radius: 20px;
+  overflow: auto;
+  padding: 5px;
+  background-clip: padding-box;
+  border: transparent solid 0.3rem;
+}
+
+>>>>>>> both
 * {
   box-sizing: border-box;
   margin: 0;
@@ -57,12 +97,48 @@ img {
   background-repeat: no-repeat;
   border-radius: 20%;
   background-image: url(/dist/asset/darkhole.png);
+<<<<<<< HEAD
+=======
 }
 
+#roundEnd {
+  width: 100vw;
+  height: 50vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-style: ridge;
+  border: white 5px ridge;
+  padding: 20px;
+  margin: 20px;
+  visibility: hidden;
+}
+
+.roundEnd {
+  -webkit-animation: end 2s ease forwards;
+          animation: end 2s ease forwards;
+}
+
+@-webkit-keyframes end {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes end {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 @media (min-width: 576px) {
   span {
     font-family: "Orbitron";
   }
+>>>>>>> both
 }
 @media (min-width: 768px) {
   .darkhole {
@@ -75,6 +151,74 @@ img {
     margin-top: 3vh;
   }
 
+<<<<<<< HEAD
+@media (min-width: 576px) {
+  span {
+    font-family: "Orbitron";
+  }
+=======
+  .second {
+    transform: scale(0.35, 0.35);
+    margin-bottom: 8vh;
+  }
+}
+@media (min-width: 1200px) {
+  span {
+    font-family: "Orbitron";
+  }
+}
+.theCash {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/dist/asset/darkcash.png);
+}
+
+.theLapis {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/dist/asset/darklapis.png);
+}
+
+.theYellow {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/dist/asset/darkyellow.png);
+}
+
+.thePearl {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/dist/asset/darkpearl.png);
+}
+
+.theSmash {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: 23%;
+  max-width: 180px;
+  height: 100px;
+  margin: auto;
+  margin-top: 10vh;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 20%;
+  background-image: url(/dist/asset/smash.png);
+>>>>>>> both
+}
+@media (min-width: 768px) {
+  .darkhole {
+    max-width: 180px;
+  }
+}
+@media (min-width: 992px) {
+  span {
+    font-family: "Orbitron";
+    margin-top: 3vh;
+  }
+
+<<<<<<< HEAD
   .second {
     transform: scale(0.9, 0.9);
     margin-bottom: 8vh;
@@ -93,6 +237,56 @@ img {
   align-content: center;
 }
 
+=======
+.splat {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: 23%;
+  max-width: 180px;
+  height: 100px;
+  margin: auto;
+  margin-top: 10vh;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 20%;
+  background-image: url(/dist/asset/splat.png);
+}
+
+.sunMole {
+  background-image: url(/dist/asset/darksun.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.tulipMole {
+  background-image: url(/dist/asset/darktulip.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.daisyMole {
+  background-image: url(/dist/asset/darkdaisy.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.roseMole {
+  background-image: url(/dist/asset/darkrose.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#start {
+  display: flex;
+  max-width: 100px;
+  max-height: 100px;
+  justify-content: center;
+  align-content: center;
+}
+
+>>>>>>> both
 .start {
   -webkit-animation: start alternate 1s linear ease-in;
           animation: start alternate 1s linear ease-in;
@@ -217,6 +411,7 @@ img {
 .wBox4 {
   flex-basis: 40%;
   position: relative;
+<<<<<<< HEAD
   display: flex;
   padding-top: 6px;
   padding-left: 6px;
@@ -258,6 +453,41 @@ img {
 }
 
 .first_a {
+=======
+  display: flex;
+  padding-top: 6px;
+  padding-left: 6px;
+  border-left: white 4px ridge;
+}
+
+
+
+#whack {
+  height: 80px;
+  width: auto;
+  background: url(/dist/asset/round2.png);
+}
+
+
+
+.wBox5 {
+  padding-top: 6px;
+  padding-left: 6px;
+  flex-basis: calc(36%-100px);
+  width: 30%;
+  border-left: white 4px ridge;
+  overflow: hidden;
+}
+
+#wBox5 {
+  background-image: url(/dist/asset/round2.png);
+  max-height: 75%;
+  width: auto;
+  display: flex;
+  margin: auto;
+}
+
+.first_a {
   flex-basis: 50%;
   max-width: 50px;
   height: 50px;
@@ -271,11 +501,38 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
+  border: blueviolet 2px solid;
+  background-image: url(/dist/asset/cash25.png);
+}
+
+.first-b {
+>>>>>>> both
+  flex-basis: 50%;
+  max-width: 50px;
+  height: 50px;
+  margin: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  margin: auto;
+  flex-basis: 20%;
+  margin-left: -1%;
+  max-width: 50px;
+  min-width: 50px;
+  position: absolute;
+<<<<<<< HEAD
   border: #12b312 2px solid;
   background-image: url(/dist/asset/yellow25.png);
 }
 
 .first-b {
+=======
+  border: blueviolet 2px solid;
+  background-image: url(/dist/asset/lapis25.png);
+}
+
+.first-c {
+>>>>>>> both
   flex-basis: 50%;
   max-width: 50px;
   height: 50px;
@@ -289,11 +546,19 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
+<<<<<<< HEAD
   border: #12b312 2px solid;
   background-image: url(/dist/asset/lapis25.png);
 }
 
 .first-c {
+=======
+  border: blueviolet 2px solid;
+  background-image: url(/dist/asset/pearl25.png);
+}
+
+.first-d {
+>>>>>>> both
   flex-basis: 50%;
   max-width: 50px;
   height: 50px;
@@ -307,11 +572,20 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
+<<<<<<< HEAD
   border: #12b312 2px solid;
   background-image: url(/dist/asset/pearl25.png);
 }
 
 .first-d {
+=======
+  border: blueviolet 2px solid;
+  background-image: url(/dist/asset/yellow25.png);
+  transform: scale(0.65, 0.65);
+}
+
+.second-a {
+>>>>>>> both
   flex-basis: 50%;
   max-width: 50px;
   height: 50px;
@@ -325,12 +599,20 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
+<<<<<<< HEAD
   border: #12b312 2px solid;
   background-image: url(/dist/asset/cash25.png);
   transform: scale(0.65, 0.65);
 }
 
 .second-a {
+=======
+  border: blueviolet 2px solid;
+  background-image: url(/dist/asset/darksun.png);
+}
+
+.second-b {
+>>>>>>> both
   flex-basis: 50%;
   max-width: 50px;
   height: 50px;
@@ -344,6 +626,7 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
+<<<<<<< HEAD
   border: #12b312 2px solid;
   background-image: url(/dist/asset/darksun.png);
 }
@@ -366,6 +649,12 @@ img {
   background-image: url(/dist/asset/darkdaisy.png);
 }
 
+=======
+  border: blueviolet 2px solid;
+  background-image: url(/dist/asset/darkdaisy.png);
+}
+
+>>>>>>> both
 .second-c {
   flex-basis: 50%;
   max-width: 50px;
@@ -380,7 +669,11 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
+<<<<<<< HEAD
   border: #12b312 2px solid;
+=======
+  border: blueviolet 2px solid;
+>>>>>>> both
   background-image: url(/dist/asset/darktulip.png);
 }
 
@@ -398,7 +691,11 @@ img {
   max-width: 50px;
   min-width: 50px;
   position: absolute;
+<<<<<<< HEAD
   border: #12b312 2px solid;
+=======
+  border: blueviolet 2px solid;
+>>>>>>> both
   background-image: url(/dist/asset/darkrose.png);
 }
 
@@ -407,14 +704,21 @@ img {
   flex-direction: row;
   flex-wrap: wrap;
   flex-basis: 23%;
+<<<<<<< HEAD
   border: #94094a 5px dashed;
+=======
+>>>>>>> both
 }
 
 .header {
   font-family: "Flavors";
   font-size: xx-large;
   color: #bd491b;
+<<<<<<< HEAD
   text-shadow: -3px -3px 0 black, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+=======
+  text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+>>>>>>> both
 }
 
 .ground {
@@ -426,7 +730,11 @@ img {
   margin: auto;
 }
 
+<<<<<<< HEAD
 .action_box {
+=======
+.bottom {
+>>>>>>> both
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
