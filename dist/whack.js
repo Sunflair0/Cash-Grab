@@ -17,6 +17,7 @@ let plusScore = 0;
 let minusAmt = 0;
 let minusVal = -15;
 let minusScore = 0;
+let roundScore = 0;
 let result = 0;
 let min = round;
 let max = round + 1;
@@ -45,6 +46,7 @@ let mole = darkmole[round];
 let cash = darkcash[round];
 
 start.addEventListener("click", () => {
+    
     document.getElementById('start').style.visibility = "hidden";
     document.getElementsByClassName('wBox2')[0].style.visibility = "visible";
     let time = window.setInterval(() => {
@@ -64,7 +66,6 @@ start.addEventListener("click", () => {
     window.setTimeout(() => {
         window.clearInterval(whereMole);
         window.clearInterval(time);
-        document.getElementById('start').style.visibility = "visible";
         document.getElementsByClassName('wBox2')[0].style.visibility = "hidden";
         document.getElementById('score').innerText = score;
         timer = 29
@@ -99,7 +100,7 @@ const popUpsMinus = () => {
                 document.getElementById('score').innerText = score;
                 if (e.target.classList.contains(`mole${round}`)) {
                     e.target.classList.replace(`mole${round}`, "splat");
-                    score =- 15;
+                    score = score - 15;
                     minusAmt++;
                     minusScore = minusVal * minusAmt;
                 }
@@ -129,7 +130,7 @@ const popUpsPlus = () => {
                 document.getElementById('score').innerText = score;
                 if (e.target.classList.contains(`cash${round}`)) {
                     e.target.classList.replace(`cash${round}`, "smash")
-                    score =+ 50;
+                    score = score + 50;
                     plusAmt++;
                     plusScore = plusVal * plusAmt;
                 }
@@ -170,6 +171,7 @@ function statusMessage(msg) {
 }
 
 function roundEnd(){
+    roundScore = plusScore + minusScore
     document.getElementById("plusAmt").innerText = plusAmt;
     document.getElementById("plusValue").innerText = plusVal;
     document.getElementById("plusScore").innerText = plusScore;
@@ -178,7 +180,10 @@ function roundEnd(){
     document.getElementById("minusValue").innerText = minusVal;
     document.getElementById("minusScore").innerText = minusScore;
 
-    if (score < 100) {
+    document.getElementById("roundScore").innerText = roundScore;
+    
+
+    if (roundScore < 100) {
         statusMessage(`Use a heart and try again`);
 
         let tryAgain = document.getElementById('eval');
@@ -194,31 +199,28 @@ function roundEnd(){
     } else {
         statusMessage(`Advance to the next level!`);
 
-        let advance = document.createElement("button");
+        let advance = document.getElementById('eval');
+        
+        advance = document.createElement("button");
 
         document.getElementById('eval').append(advance);
 
         advance.innerText = `${trophy}`;
-        
+
         advance.addEventListener("click",roundUp);
     }
 }
 
-statusMessage(`Advance to the next level!`);
-let advance = document.createElement("button");
-document.getElementById('eval').append(advance);
-advance.innerText = `${trophy}`;
-advance.addEventListener("click",roundUp);
-
 function useHeart(){
     console.log("use heart works");
-    roundUp();
+    document.getElementById('start').style.visibility = "visible";
 }
 
 function roundGsap(){
- let tl = gsap.timeline();
-//tl.from(".roundModal", { transformOrigin: "-100%, -100%" }, { transformOrigin: "50%, 50%" });
-tl.to(".roundModal", { duration: 2, y: "165%", ease: "bounce", backgroundColor: "#000000bf", border: "5px ridge white", });}
+    let tl = gsap.timeline();
+    tl.to(".roundModal", { duration: 2, y: "165%", ease: "bounce",});
+    roundEnd();
+}
 
 function roundUp(){
     round++
@@ -228,9 +230,8 @@ function roundUp(){
     minusAmt = 0;
     minusScore = 0;
 
-    let el = document.getElementById('eval');
-    el.remove();
-
+    
+    document.getElementById('eval').style.visibility = "hidden";
     document.body.style.backgroundImage = `url(/dist/asset/round${round}.png)`;
     document.getElementById('start').style.visibility = "visible";
 
