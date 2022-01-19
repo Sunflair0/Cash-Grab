@@ -34,29 +34,28 @@ to{
     padding: 3px;
     outline:white ridge 4px;
     outline-offset: -11px;
-    
-    &:hover{
+   }    
+.color{
         animation: color infinite 1s steps(6, jump-both);
     }    
-}
 @keyframes color {
     0% {
-        border: rgb(204, 0, 255) 5px dotted; 
+        border: #cc00ff 5px dotted; 
     }
     20% {
-        border: rgb(0, 255, 242) 5px dotted; 
+        border: #00fff2 5px dotted; 
     }
     40% {
-        border: rgb(0, 255, 21) 5px dotted; 
+        border: #00ff15 5px dotted; 
     }
     60% {
-        border: rgb(217, 255, 0) 5px dotted; 
+        border: #d9ff00 5px dotted; 
     }
     80% {
-        border: rgb(255, 123, 0) 5px dotted; 
+        border: #ff7b00 5px dotted; 
     }
     100% {
-        border: rgb(255, 0, 0) 5px dotted; 
+        border: #ff0000 5px dotted; 
     }
 }
 
