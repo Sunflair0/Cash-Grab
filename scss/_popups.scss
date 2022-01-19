@@ -2,6 +2,22 @@
     background-size: contain;
     background-repeat: no-repeat;  
 }
+// #plusImg {
+//     position: absolute;
+// }
+
+#minCash1 {    
+    background-image: url(/dist/asset/minCash1.png);
+}
+#minCash2{
+    background-image: url(/dist/asset/minCash2.png);
+}
+#minCash3 {    
+    background-image: url(/dist/asset/minCash3.png);
+}
+#minCash4{
+    background-image: url(/dist/asset/minCash4.png);
+}
 
 .cash1 {    
     background-image: url(/dist/asset/darkcash.png);
@@ -9,11 +25,11 @@
 .cash2{
     background-image: url(/dist/asset/darklapis.png);
 }
-.cash3{
-    background-image: url(/dist/asset/darkyellow.png);
-}
-.cash4 {    
+.cash3 {    
     background-image: url(/dist/asset/darkpearl.png);
+}
+.cash4{
+    background-image: url(/dist/asset/darkyellow.png);
 }
 .smash {
     @include flexShell;    

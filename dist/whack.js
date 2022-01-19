@@ -41,6 +41,11 @@ let cash2 = document.querySelectorAll(".cash2");
 let cash3 = document.querySelectorAll(".cash3");
 let cash4 = document.querySelectorAll(".cash4");
 
+let minCash1 = document.querySelectorAll("#minCash1");
+let minCash2 = document.querySelectorAll("#minCash2");
+let minCash3 = document.querySelectorAll("#minCash3");
+let minCash4 = document.querySelectorAll("#minCash4");
+
 const darkmole = [mole1, mole2, mole3, mole4];
 const darkcash = [cash1, cash2, cash3, cash4];
 
@@ -73,7 +78,7 @@ start.addEventListener("click", () => {
         timer = 29
         enough();
         roundGsap();        
-    }, 25900);
+    }, 900);
 });
 
 function choice(min, max) {
@@ -228,7 +233,7 @@ function roundGsap(){
      .from(".line", {})
      .from(".theBar", {})
      .fromTo(".evalOne", {opacity: 0, scale: 0},{opacity: 1, scale: 1, ease: "power2"})
-     .from("#eval", {x:"10%"});
+     .from("#eval", {x:"-30%"});
     roundEnd();
 }
 
@@ -239,7 +244,10 @@ function roundUp(){
     plusScore = 0;
     minusAmt = 0;
     minusScore = 0;
-    
+
+
+    //document.getElementById('plusImg').src=`./asset/minCash${round}.png)`;
+    document.getElementById('plusImg').src='./asset/minCash2.png';
     document.getElementsByClassName("whiteBoxes")[0].classList.remove('color');
     document.getElementById('eval').innerText ='';
     document.getElementById('score').innerText = score;
@@ -247,7 +255,6 @@ function roundUp(){
     document.body.style.backgroundImage = `url(/dist/asset/round${round}.png)`;
     document.getElementById('start').style.visibility = "visible"; 
 
-gsap.fromTo("trigger",{opacity: 0},{duration: 3.5, opacity: 1, ease: "elastic"})
 gsap.to(".roundModal", {y:"-100%", duration: 2, ease: "power1"});    
-gsap.fromTo(".start",{opacity: 0, scale: 0},{duration: 1.5, opacity: 1, scale: 1, ease: "elastic"})
+gsap.fromTo(".start",{opacity: 0, scale: 0},{duration: 2.5, opacity: 1, scale: 1, ease: "elastic"})
 }

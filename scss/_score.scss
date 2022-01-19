@@ -58,20 +58,17 @@ to{
         border: #ff0000 5px dotted; 
     }
 }
-
 .wBox1 {
     visibility: visible;
     flex-basis: 10%;
     border: white 2px ridge; 
-}
-  
+}  
 .wBox2{
     visibility: hidden;
     flex-basis: 10%;
     padding-left: 6px;
     padding-top: 6px;
-    position: fixed;
-    
+    position: fixed;    
 }
 .wBox3 {
     flex-basis: 24%;
