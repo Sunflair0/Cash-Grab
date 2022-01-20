@@ -525,6 +525,7 @@ img {
   width: 80%;
   color: white;
   top: 10%;
+  top: -100%;
   position: fixed;
   border-style: ridge;
   border: white 5px ridge;
