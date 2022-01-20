@@ -23,7 +23,7 @@ let percent = 0;
 let min = round;
 let max = round + 1;
 let life = 5;
-let goal = 100;
+let goal = 300;
 let heart = '\u{2764}';
 let trophy = '\u{1f3c6}';
 let restart = '\u{21ba}';
@@ -93,7 +93,7 @@ start.addEventListener("click", () => {
         timer = 29
         enough();
         roundGsap();
-    }, 5900);
+    }, 30900);
 });
 
 function choice(min, max) {
@@ -106,7 +106,6 @@ const popUpsMinus = () => {
     console.log("pop-");
     {
         let clear = window.setInterval(() => {
-
             let clearHole = document.querySelectorAll(`.mole${round}`);
             clearHole.forEach((val) => {
                 val.classList.replace(`mole${round}`, "darkhole");
@@ -172,15 +171,16 @@ let resetHoles = window.setInterval(() => {
     })
 }, 1500);
 
+    const progressBar =document.getElementsByClassName('progress-bar')[0];    
 
-    const progressBar =document.getElementsByClassName('progress-bar')[0];
-
-    setInterval(() => {
+let progress = setInterval(() => {
     const width = percent || 0
     progressBar.style.setProperty('--width', width + 1)
-    },5)
+    },1000)
 
-
+    // window.setTimeout(() => {
+    //     window.clearInterval(progress);
+    // }, 50);
 
 function statusMessage(msg) {
     let container = document.querySelector("#evalMes");
@@ -209,17 +209,15 @@ function roundEnd() {
     document.getElementById("plusAmt").innerText = plusAmt;
     document.getElementById("plusValue").innerText = plusVal;
     document.getElementById("plusScore").innerText = plusScore;
-
     document.getElementById("minusAmt").innerText = minusAmt;
     document.getElementById("minusValue").innerText = minusVal;
     document.getElementById("minusScore").innerText = minusScore;
     document.getElementById("percent").innerText = percent + '%';
     document.getElementById("roundScore").innerText = roundScore;
 
-
-    if (roundScore < goal, life == 1) {        
+    if (roundScore < goal & life == 1) {        
                end();        
-    }else if(roundScore < goal, life>1){ 
+    }else if(roundScore < goal & life > 1){ 
         statusMessage(`Use a heart and try again`);
         let tryAgain = document.getElementById('eval');
         tryAgain = document.createElement("button");
