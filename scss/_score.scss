@@ -76,23 +76,18 @@ to{
     padding-top: 6px;    
     border: white 2px ridge;
     position: relative;
-
-    &:before {        
-        content: '\2665';
-        content: '\2764';
-        color: rgb(255, 0, 0);
-        font-size: x-large;
-        position: absolute;
-        bottom: 1vh;      
+    min-width: 130px;
 }
-    &:after {        
-        content: '\1F525';
-        content: '\2764';
-        color: rgb(255, 0, 0);
-        font-size: x-large;
-        position: absolute;
-        bottom: 1vh;
-    }
+.heartBox {
+    display: flex;
+    max-width: 100px;
+}
+.heart1, .heart2, .heart3, .heart4 {
+    width: 25%;
+    margin: 1px;
+    color: rgb(255, 0, 0);
+    font-size: x-large;
+    
 }
 .wBox4 {
     flex-basis: 40%;
@@ -134,36 +129,3 @@ to{
     display: flex;
     margin: auto;
 } 
-.first_a {  
-    @include wBox4;
-    background-image: url(/dist/asset/cash25.png);
-}
-.first-b {  
-     @include wBox4;
-     background-image: url(/dist/asset/lapis25.png);
- }
- .first-c {  
-     @include wBox4;
-     background-image: url(/dist/asset/pearl25.png);
- }
- .first-d {  
-     @include wBox4;
-     background-image: url(/dist/asset/yellow25.png);
-     transform: scale(.65,.65);
- }
-.second-a {  
-    @include wBox4;
-    background-image: url(/dist/asset/darksun.png);   
-}
-.second-b {  
-    @include wBox4;
-    background-image: url(/dist/asset/darkdaisy.png);
-}
-.second-c {  
-    @include wBox4;
-    background-image: url(/dist/asset/darktulip.png);
-}
-.second-d {  
-    @include wBox4;
-    background-image: url(/dist/asset/darkrose.png);
-}

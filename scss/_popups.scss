@@ -2,10 +2,6 @@
     background-size: contain;
     background-repeat: no-repeat;  
 }
-// #plusImg {
-//     position: absolute;
-// }
-
 #minCash1 {    
     background-image: url(/dist/asset/minCash1.png);
 }
@@ -64,4 +60,40 @@
 }
 .round4 {
     background-image: url(/dist/asset/round4.png); 
+}
+img {
+    max-height: 75%;
+}
+
+#first, #second{
+    max-width: 100px;
+    min-width: 80px;
+
+   
+}
+
+.antiScore {
+    max-width: 100px;
+    min-width: 80px;
+   
+    &::before{
+        content: '-15 pts';
+        color: rgb(255, 67, 67);
+        height: 20px;
+        width: 40%;
+        font-weight: 700;
+    }
+}
+.proScore {
+    max-width: 100px;
+    min-width: 80px;
+    margin-bottom: -50%;
+
+    &::before{
+        content: '50 pts';
+        height: 20px;
+        width: 50%;
+        font-weight: 700;
+        position: absolute;
+    }
 }

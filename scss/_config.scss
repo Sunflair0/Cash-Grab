@@ -48,10 +48,11 @@ body{
           cursor: pointer;
       }
 }
-*{
+*, ::before, ::after{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
  img {    
     height: auto;
