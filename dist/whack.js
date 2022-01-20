@@ -172,20 +172,12 @@ let resetHoles = window.setInterval(() => {
     })
 }, 1500);
 
-function progressBar() {
-    let elem = document.getElementById("achieve");
-    let width = 1;
-    let id = setInterval(fillBar, 15);
 
-    function fillBar() {
-        if (width >= 100) {
-            clearInterval(id);
-        } else {
-            width++;
-            elem.style.width = width + '%';
-        }
-    }
-};
+const progressBar =document.getElementsByClassName('progress-bar')[0];
+setInterval(() => {
+    const computedStyle = getComputedStyle(progressBar)
+    const width = percent},5)
+
 
 function statusMessage(msg) {
     let container = document.querySelector("#evalMes");

@@ -35,27 +35,39 @@
 .mathChar{
     font-size: medium;
 }
-.progress {
+.progress-bar  {
     padding: 2px;
     width: 50%;
     max-width: 100%;
     background: transparent;
     border: 2px solid #c4a728;
-    border-radius: 20px;
-    height: 30px;
-    margin-bottom: 2rem;
-  }
-  
-  .progress .progress-bar {
-    height: 3em;
+    
+    height: 1.5rem;
+    
+    
     width: 300px;
     border-radius: 15px;
-    background: repeating-linear-gradient(
+    //display: flex;
+      color: rgb(218, 17, 17);
+
+      &::before {
+          content: attr(data-label);
+          display: flex;
+          align-items: center;
+          width: calc(var(--width));
+          height: 1em;
+          min-width: 2rem;
+          max-width: calc(100%-1em);
+        background: repeating-linear-gradient(
       135deg,
       #4aec0a,
       #4aec0a 20px,
       #fcee2c 20px,
       #fcee2c 40px);
+      border-radius: 15px;
+          
+      }
+
   }
 
 #roundScore {
@@ -97,6 +109,6 @@
     margin-left: 40%;
 }
 .theBar {
-    width: 30%;
+    width: 50%;
     top:0;
 }
