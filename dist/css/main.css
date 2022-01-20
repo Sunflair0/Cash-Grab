@@ -130,8 +130,6 @@ img {
   }
 }
 
-<<<<<<< HEAD
-=======
 .gameIcon {
   background-size: contain;
   background-repeat: no-repeat;
@@ -247,9 +245,6 @@ img {
   background-image: url(/dist/asset/round4.png);
 }
 
-<<<<<<< HEAD
->>>>>>> both
-=======
 img {
   max-height: 75%;
 }
@@ -286,7 +281,6 @@ img {
   position: absolute;
 }
 
->>>>>>> master
 #start {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -487,187 +481,6 @@ img {
   margin: auto;
 }
 
-<<<<<<< HEAD
-.first_a {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
-  max-width: 50px;
-  height: 50px;
-  margin: auto;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: auto;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  margin-left: -1%;
-  max-width: 50px;
-  min-width: 50px;
-  position: absolute;
-  border: #12b312 2px solid;
-  background-image: url(/dist/asset/yellow25.png);
-}
-
-.first-b {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
-  max-width: 50px;
-  height: 50px;
-  margin: auto;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: auto;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  margin-left: -1%;
-  max-width: 50px;
-  min-width: 50px;
-  position: absolute;
-  border: #12b312 2px solid;
-  background-image: url(/dist/asset/lapis25.png);
-}
-
-.first-c {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
-  max-width: 50px;
-  height: 50px;
-  margin: auto;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: auto;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  margin-left: -1%;
-  max-width: 50px;
-  min-width: 50px;
-  position: absolute;
-  border: #12b312 2px solid;
-  background-image: url(/dist/asset/pearl25.png);
-}
-
-.first-d {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
-  max-width: 50px;
-  height: 50px;
-  margin: auto;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: auto;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  margin-left: -1%;
-  max-width: 50px;
-  min-width: 50px;
-  position: absolute;
-  border: #12b312 2px solid;
-  background-image: url(/dist/asset/cash25.png);
-  -webkit-transform: scale(0.65, 0.65);
-          transform: scale(0.65, 0.65);
-}
-
-.second-a {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
-  max-width: 50px;
-  height: 50px;
-  margin: auto;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: auto;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  margin-left: -1%;
-  max-width: 50px;
-  min-width: 50px;
-  position: absolute;
-  border: #12b312 2px solid;
-  background-image: url(/dist/asset/darksun.png);
-}
-
-.second-b {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
-  max-width: 50px;
-  height: 50px;
-  margin: auto;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: auto;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  margin-left: -1%;
-  max-width: 50px;
-  min-width: 50px;
-  position: absolute;
-  border: #12b312 2px solid;
-  background-image: url(/dist/asset/darkdaisy.png);
-}
-
-.second-c {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
-  max-width: 50px;
-  height: 50px;
-  margin: auto;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: auto;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  margin-left: -1%;
-  max-width: 50px;
-  min-width: 50px;
-  position: absolute;
-  border: #12b312 2px solid;
-  background-image: url(/dist/asset/darktulip.png);
-}
-
-.second-d {
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
-  max-width: 50px;
-  height: 50px;
-  margin: auto;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: auto;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-  margin-left: -1%;
-  max-width: 50px;
-  min-width: 50px;
-  position: absolute;
-  border: #12b312 2px solid;
-  background-image: url(/dist/asset/darkrose.png);
-}
-
-=======
->>>>>>> master
 .roundModal {
   background-color: #000000bf;
   height: 65%;

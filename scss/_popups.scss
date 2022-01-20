@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // .theCash {
 //     background-size: contain;
 //     background-repeat: no-repeat;
@@ -49,10 +49,22 @@
 //     background-size: contain;
 //     background-repeat: no-repeat;
 // }
-=======
+
 .gameIcon {
     background-size: contain;
     background-repeat: no-repeat;  
+}
+#minCash1 {    
+    background-image: url(/dist/asset/minCash1.png);
+}
+#minCash2{
+    background-image: url(/dist/asset/minCash2.png);
+}
+#minCash3 {    
+    background-image: url(/dist/asset/minCash3.png);
+}
+#minCash4{
+    background-image: url(/dist/asset/minCash4.png);
 }
 
 .cash1 {    
@@ -61,11 +73,11 @@
 .cash2{
     background-image: url(/dist/asset/darklapis.png);
 }
-.cash3{
-    background-image: url(/dist/asset/darkyellow.png);
-}
-.cash4 {    
+.cash3 {    
     background-image: url(/dist/asset/darkpearl.png);
+}
+.cash4{
+    background-image: url(/dist/asset/darkyellow.png);
 }
 .smash {
     @include flexShell;    
@@ -101,4 +113,41 @@
 .round4 {
     background-image: url(/dist/asset/round4.png); 
 }
->>>>>>> both
+
+img {
+    max-height: 75%;
+}
+
+#first, #second{
+    max-width: 100px;
+    min-width: 80px;
+
+   
+}
+
+.antiScore {
+    max-width: 100px;
+    min-width: 80px;
+   
+    &::before{
+        content: '-15 pts';
+        color: rgb(255, 67, 67);
+        height: 20px;
+        width: 40%;
+        font-weight: 700;
+    }
+}
+.proScore {
+    max-width: 100px;
+    min-width: 80px;
+    margin-bottom: -50%;
+
+    &::before{
+        content: '50 pts';
+        height: 20px;
+        width: 50%;
+        font-weight: 700;
+        position: absolute;
+    }
+}
+
