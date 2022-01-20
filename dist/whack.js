@@ -60,6 +60,8 @@ window.onload=hearts();
 //
 //Uncaught TypeError: Cannot set properties of undefined (setting 'innerText')
 //at HTMLButtonElement.hearts (whack.js:191:67)
+//
+//To shorten gameplay for troubleshooting, change line 98
 
 start.addEventListener("click", () => {
     document.getElementsByClassName('header')[0].style.visibility = "hidden";
@@ -83,7 +85,7 @@ start.addEventListener("click", () => {
         };
     }, 1000);
 
-    //shortened for debugging mode
+   
 
     window.setTimeout(() => {
         window.clearInterval(whereMole);
@@ -93,7 +95,7 @@ start.addEventListener("click", () => {
         timer = 29
         enough();
         roundGsap();
-    }, 30900);
+    }, 30900); //shortened for debugging mode
 });
 
 function choice(min, max) {
@@ -163,7 +165,6 @@ let resetHoles = window.setInterval(() => {
     let smash = document.querySelectorAll(".smash");
     smash.forEach((val) => {
         val.classList.replace("smash", `cash${round}`);
-
     })
     let splat = document.querySelectorAll(".splat");
     splat.forEach((val) => {
@@ -171,16 +172,13 @@ let resetHoles = window.setInterval(() => {
     })
 }, 1500);
 
+// /////progress bar
     const progressBar =document.getElementsByClassName('progress-bar')[0];    
 
 let progress = setInterval(() => {
     const width = percent || 0
     progressBar.style.setProperty('--width', width + 1)
     },1000)
-
-    // window.setTimeout(() => {
-    //     window.clearInterval(progress);
-    // }, 50);
 
 function statusMessage(msg) {
     let container = document.querySelector("#evalMes");
@@ -194,7 +192,7 @@ function statusMessage(msg) {
         document.getElementsByClassName(`heart${i}`)[0].innerText = `${heart}`
     }
 }
-
+// /////evaluation for percent to be converted and truncated
 function enough() {
     percentage = roundScore / 3;
     percentage = Math.min(100, Math.max(0, percentage));
@@ -218,11 +216,14 @@ function roundEnd() {
     if (roundScore < goal & life == 1) {        
                end();        
     }else if(roundScore < goal & life > 1){ 
+        life--  
         statusMessage(`Use a heart and try again`);
+        console.log(life);
         let tryAgain = document.getElementById('eval');
         tryAgain = document.createElement("button");
         document.getElementById('eval').append(tryAgain);
         tryAgain.innerText = `${heart}`;
+        gsap.to(`.heart${life}`,{ opacity:0, duration: 1.5,y:-50, delay:4.7});
         tryAgain.addEventListener("click", useHeart);
     } else {
         round++
@@ -236,11 +237,14 @@ function roundEnd() {
     }
 }
 
-function useHeart() {
-    life--    
+function useHeart() {    
+      
+    
     let hearts = document.getElementsByClassName(`heart${life}`)[0];   
     document.getElementsByClassName(`heart${life}`)[0].innerText = "";
     hearts.classList.remove(`heart${life}`);
+   
+    
     console.log(life);
         roundUp()
    
