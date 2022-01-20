@@ -27,35 +27,40 @@ let goal = 100;
 let heart = '\u{2764}';
 let trophy = '\u{1f3c6}';
 let restart = '\u{21ba}';
-
 let start = document.getElementById('start');
 let time = document.getElementById('time');
 let wBox2 = document.querySelectorAll(".wBox2");
 let holes = document.querySelectorAll(".darkhole");
 let whiteBoxes = document.getElementsByClassName(".whiteBoxes")[0];
-
 let mole1 = document.querySelectorAll(".mole1");
 let mole2 = document.querySelectorAll(".mole2");
 let mole3 = document.querySelectorAll(".mole3");
 let mole4 = document.querySelectorAll(".mole4");
-
 let cash1 = document.querySelectorAll(".cash1");
 let cash2 = document.querySelectorAll(".cash2");
 let cash3 = document.querySelectorAll(".cash3");
 let cash4 = document.querySelectorAll(".cash4");
-
 let minCash1 = document.querySelectorAll("#minCash1");
 let minCash2 = document.querySelectorAll("#minCash2");
 let minCash3 = document.querySelectorAll("#minCash3");
 let minCash4 = document.querySelectorAll("#minCash4");
-
 const darkmole = [mole1, mole2, mole3, mole4];
 const darkcash = [cash1, cash2, cash3, cash4];
-
 let mole = darkmole[round];
 let cash = darkcash[round];
 
+
 window.onload=hearts();
+
+// console.log(i) will give me 1 2 3 4, for the 4 hearts that are loaded. 
+// It works with the window.onload, but when hearts() is called, console.log(i) just gives me 1. 
+// That's it. I don't know why the loop is not working.   LINE 187.
+// Most everything works, but when trying to restart the game, the hearts will not re-load. 
+// console error is: 
+//
+//Uncaught TypeError: Cannot set properties of undefined (setting 'innerText')
+//at HTMLButtonElement.hearts (whack.js:191:67)
+
 start.addEventListener("click", () => {
     document.getElementsByClassName('header')[0].style.visibility = "hidden";
     document.getElementById('start').style.visibility = "hidden";
@@ -64,6 +69,9 @@ start.addEventListener("click", () => {
         document.getElementById("time").innerText = ':' + timer;
         timer--;
     }, 1000);
+
+    //choice between cash or mole
+
     let whereMole = window.setInterval(() => {
         result = choice(min, max);
         console.log(result);
@@ -74,6 +82,9 @@ start.addEventListener("click", () => {
             popUpsMinus()
         };
     }, 1000);
+
+    //shortened for debugging mode
+
     window.setTimeout(() => {
         window.clearInterval(whereMole);
         window.clearInterval(time);
@@ -82,7 +93,7 @@ start.addEventListener("click", () => {
         timer = 29
         enough();
         roundGsap();
-    }, 900);
+    }, 5900);
 });
 
 function choice(min, max) {
@@ -184,6 +195,7 @@ function statusMessage(msg) {
 //display hearts for lives
  function hearts(){   
      for (let i = 1; i < 5; i++) {
+         console.log(i);
         document.getElementsByClassName(`heart${i}`)[0].innerText = `${heart}`
     }
 }
@@ -211,8 +223,7 @@ function roundEnd() {
 
 
     if (roundScore < goal, life == 1) {        
-               end();
-        
+               end();        
     }else if(roundScore < goal, life>1){ 
         statusMessage(`Use a heart and try again`);
         let tryAgain = document.getElementById('eval');
@@ -233,8 +244,7 @@ function roundEnd() {
 }
 
 function useHeart() {
-    life--
-    
+    life--    
     let hearts = document.getElementsByClassName(`heart${life}`)[0];   
     document.getElementsByClassName(`heart${life}`)[0].innerText = "";
     hearts.classList.remove(`heart${life}`);
@@ -250,7 +260,7 @@ function end(){
     let doOver = document.getElementById('eval');
     doOver = document.createElement("button");
     document.getElementById('eval').append(doOver);
-    doOver.innerText = `${restart}`;
+    doOver.innerText = `${restart}`;    
     doOver.addEventListener("click", hearts);
 }
 

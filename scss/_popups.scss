@@ -38,16 +38,16 @@
     background-image: url(/dist/asset/splat.png);
 }
 .mole1 {
-    background-image: url(/dist/asset/darksun.png); 
+    background-image: url(/dist/asset/mole1.png); 
 }
 .mole2 {
-    background-image: url(/dist/asset/darktulip.png); 
+    background-image: url(/dist/asset/mole2.png); 
 }
 .mole3 {
-    background-image: url(/dist/asset/darkdaisy.png);   
+    background-image: url(/dist/asset/mole3.png);   
 }
 .mole4 {
-    background-image: url(/dist/asset/darkrose.png);
+    background-image: url(/dist/asset/mole4.png);
 }
 .round1 {
     background-image: url(/dist/asset/round1.png); 
@@ -67,9 +67,7 @@ img {
 
 #first, #second{
     max-width: 100px;
-    min-width: 80px;
-
-   
+    min-width: 80px;   
 }
 
 .antiScore {

@@ -252,19 +252,19 @@ img {
 }
 
 .mole1 {
-  background-image: url(/dist/asset/darksun.png);
+  background-image: url(/dist/asset/mole1.png);
 }
 
 .mole2 {
-  background-image: url(/dist/asset/darktulip.png);
+  background-image: url(/dist/asset/mole2.png);
 }
 
 .mole3 {
-  background-image: url(/dist/asset/darkdaisy.png);
+  background-image: url(/dist/asset/mole3.png);
 }
 
 .mole4 {
-  background-image: url(/dist/asset/darkrose.png);
+  background-image: url(/dist/asset/mole4.png);
 }
 
 .round1 {
@@ -432,15 +432,15 @@ img {
 
 .wBox1 {
   visibility: visible;
-  -ms-flex-preferred-size: 10%;
-      flex-basis: 10%;
+  -ms-flex-preferred-size: 15%;
+      flex-basis: 15%;
   border: white 2px ridge;
 }
 
 .wBox2 {
   visibility: hidden;
-  -ms-flex-preferred-size: 10%;
-      flex-basis: 10%;
+  -ms-flex-preferred-size: 15%;
+      flex-basis: 15%;
   padding-left: 6px;
   padding-top: 6px;
   position: fixed;
@@ -525,7 +525,6 @@ img {
   width: 80%;
   color: white;
   top: 10%;
-  top: -100%;
   position: fixed;
   border-style: ridge;
   border: white 5px ridge;
@@ -589,10 +588,10 @@ img {
 }
 
 .progress .progress-bar {
-  height: 100%;
-  width: 5%;
+  height: 3em;
+  width: 300px;
   border-radius: 15px;
-  background: repeating-linear-gradient(135deg, #be9b00, #be9b00 20px, #b7ad00 20px, #b7ad00 40px);
+  background: repeating-linear-gradient(135deg, #4aec0a, #4aec0a 20px, #fcee2c 20px, #fcee2c 40px);
 }
 
 #roundScore {
