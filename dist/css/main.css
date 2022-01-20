@@ -62,11 +62,12 @@ body button {
   cursor: pointer;
 }
 
-* {
+*, ::before, ::after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 img {
@@ -136,6 +137,22 @@ img {
   background-repeat: no-repeat;
 }
 
+#minCash1 {
+  background-image: url(/dist/asset/minCash1.png);
+}
+
+#minCash2 {
+  background-image: url(/dist/asset/minCash2.png);
+}
+
+#minCash3 {
+  background-image: url(/dist/asset/minCash3.png);
+}
+
+#minCash4 {
+  background-image: url(/dist/asset/minCash4.png);
+}
+
 .cash1 {
   background-image: url(/dist/asset/darkcash.png);
 }
@@ -145,11 +162,11 @@ img {
 }
 
 .cash3 {
-  background-image: url(/dist/asset/darkyellow.png);
+  background-image: url(/dist/asset/darkpearl.png);
 }
 
 .cash4 {
-  background-image: url(/dist/asset/darkpearl.png);
+  background-image: url(/dist/asset/darkyellow.png);
 }
 
 .smash {
@@ -230,7 +247,46 @@ img {
   background-image: url(/dist/asset/round4.png);
 }
 
+<<<<<<< HEAD
 >>>>>>> both
+=======
+img {
+  max-height: 75%;
+}
+
+#first, #second {
+  max-width: 100px;
+  min-width: 80px;
+}
+
+.antiScore {
+  max-width: 100px;
+  min-width: 80px;
+}
+
+.antiScore::before {
+  content: '-15 pts';
+  color: #ff4343;
+  height: 20px;
+  width: 40%;
+  font-weight: 700;
+}
+
+.proScore {
+  max-width: 100px;
+  min-width: 80px;
+  margin-bottom: -50%;
+}
+
+.proScore::before {
+  content: '50 pts';
+  height: 20px;
+  width: 50%;
+  font-weight: 700;
+  position: absolute;
+}
+
+>>>>>>> master
 #start {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -365,24 +421,21 @@ img {
   padding-top: 6px;
   border: white 2px ridge;
   position: relative;
+  min-width: 130px;
 }
 
-.wBox3:before {
-  content: '\2665';
-  content: '\2764';
-  color: red;
-  font-size: x-large;
-  position: absolute;
-  bottom: 1vh;
+.heartBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 100px;
 }
 
-.wBox3:after {
-  content: '\1F525';
-  content: '\2764';
+.heart1, .heart2, .heart3, .heart4 {
+  width: 25%;
+  margin: 1px;
   color: red;
   font-size: x-large;
-  position: absolute;
-  bottom: 1vh;
 }
 
 .wBox4 {
@@ -434,6 +487,7 @@ img {
   margin: auto;
 }
 
+<<<<<<< HEAD
 .first_a {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
@@ -612,6 +666,8 @@ img {
   background-image: url(/dist/asset/darkrose.png);
 }
 
+=======
+>>>>>>> master
 .roundModal {
   background-color: #000000bf;
   height: 65%;
@@ -658,6 +714,7 @@ img {
   height: 7rem;
   font-size: x-large;
   margin-top: 2rem;
+  overflow: visible;
 }
 
 #plusImg, #minusImg {

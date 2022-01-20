@@ -19,11 +19,14 @@ let minusVal = -15;
 let minusScore = 0;
 let roundScore = 0;
 let result = 0;
-let percent= 0;
+let percent = 0;
 let min = round;
 let max = round + 1;
+let life = 5;
+let goal = 100;
 let heart = '\u{2764}';
 let trophy = '\u{1f3c6}';
+let restart = '\u{21ba}';
 
 let start = document.getElementById('start');
 let time = document.getElementById('time');
@@ -41,23 +44,18 @@ let cash2 = document.querySelectorAll(".cash2");
 let cash3 = document.querySelectorAll(".cash3");
 let cash4 = document.querySelectorAll(".cash4");
 
+let minCash1 = document.querySelectorAll("#minCash1");
+let minCash2 = document.querySelectorAll("#minCash2");
+let minCash3 = document.querySelectorAll("#minCash3");
+let minCash4 = document.querySelectorAll("#minCash4");
+
 const darkmole = [mole1, mole2, mole3, mole4];
 const darkcash = [cash1, cash2, cash3, cash4];
 
 let mole = darkmole[round];
 let cash = darkcash[round];
 
-
-//  const roundEnd = () => {
-//     document.getElementById('start').style.visibility = "visible";
-//     document.getElementById('roundEnd').style.visibility = "visible";
-  
-//     let endScore = document.querySelectorAll(".darkhole");
-//     endScore.forEach((val) => {
-//         val.classList.replace("darkhole", "roundEnd");
-//     });
-//   }
-
+window.onload=hearts();
 start.addEventListener("click", () => {
     document.getElementsByClassName('header')[0].style.visibility = "hidden";
     document.getElementById('start').style.visibility = "hidden";
@@ -85,8 +83,8 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         enough();
-        roundGsap();        
-    }, 25900);
+        roundGsap();
+    }, 900);
 });
 
 function choice(min, max) {
@@ -185,16 +183,23 @@ function statusMessage(msg) {
     container.innerText = msg;
 }
 
-function enough(){
-    percentage=roundScore/3;
-    percentage = Math.min(100, Math.max(0,percentage));  
+//display hearts for lives
+ function hearts(){   
+     for (let i = 1; i < 5; i++) {
+        document.getElementsByClassName(`heart${i}`)[0].innerText = `${heart}`
+    }
+}
+
+function enough() {
+    percentage = roundScore / 3;
+    percentage = Math.min(100, Math.max(0, percentage));
     percent = percentage.toFixed(2);
 }
 
-function roundEnd(){
+function roundEnd() {
     roundScore = plusScore + minusScore;
     enough();
-    
+
     document.getElementById('eval').style.visibility = "visible";
     document.getElementById("plusAmt").innerText = plusAmt;
     document.getElementById("plusValue").innerText = plusVal;
@@ -203,64 +208,88 @@ function roundEnd(){
     document.getElementById("minusAmt").innerText = minusAmt;
     document.getElementById("minusValue").innerText = minusVal;
     document.getElementById("minusScore").innerText = minusScore;
-    document.getElementById("percent").innerText =  percent + '%';
+    document.getElementById("percent").innerText = percent + '%';
     document.getElementById("roundScore").innerText = roundScore;
-    
 
-    if (roundScore < 100) {
+
+    if (roundScore < goal, life == 1) {        
+               end();
+        
+    }else if(roundScore < goal, life>1){ 
         statusMessage(`Use a heart and try again`);
         let tryAgain = document.getElementById('eval');
         tryAgain = document.createElement("button");
         document.getElementById('eval').append(tryAgain);
         tryAgain.innerText = `${heart}`;
-        tryAgain.addEventListener("click",useHeart);
-        
+        tryAgain.addEventListener("click", useHeart);
     } else {
         round++
         statusMessage(`Advance to the next level!`);
-        let advance = document.getElementById('eval');        
+        let advance = document.getElementById('eval');
         advance = document.createElement("button");
         document.getElementById('eval').append(advance);
         advance.innerText = `${trophy}`;
-        advance.addEventListener("click",roundUp);    
+        advance.addEventListener("click", roundUp);
         document.getElementsByClassName("whiteBoxes")[0].classList.add('color');
     }
 }
 
-function useHeart(){
-    roundUp();
+function useHeart() {
+    life--
+    
+    let hearts = document.getElementsByClassName(`heart${life}`)[0];   
+    document.getElementsByClassName(`heart${life}`)[0].innerText = "";
+    hearts.classList.remove(`heart${life}`);
+    console.log(life);
+        roundUp()
+   
+};
+
+function end(){
+    console.log('the end');
+    statusMessage(`Uh oh! No more hearts.\nPush restart to play again.`);
+
+    let doOver = document.getElementById('eval');
+    doOver = document.createElement("button");
+    document.getElementById('eval').append(doOver);
+    doOver.innerText = `${restart}`;
+    doOver.addEventListener("click", hearts);
 }
 
-function roundGsap(){
-    let tl = gsap.timeline({defaults: {duration: .5, opacity: 0}})
-    tl 
-     .to(".roundModal", {opacity: 1, duration: 1.5, y: "165%", ease: "bounce",})
-     .from(".heading", {stagger: .3})
-     .from(".lineOne", {})
-     .from(".lineTwo", {})
-     .from(".line", {})
-     .from(".theBar", {})
-     .fromTo(".evalOne", {opacity: 0, scale: 0},{opacity: 1, scale: 1, ease: "power2"})
-     .from("#eval", {x:"10%"});
+function roundGsap() {
+    document.getElementById('plusImg').src = `./asset/minCash${round}.png`;
+    let tl = gsap.timeline({ defaults: { duration: .5, opacity: 0 } })
+    tl
+        .to(".roundModal", { opacity: 1, duration: 1.5, y: "165%", ease: "bounce", })
+        .from(".heading", { stagger: .3 })
+        .from(".lineOne", {})
+        .from(".lineTwo", {})
+        .from(".line", {})
+        .from(".theBar", {})
+        .fromTo(".evalOne", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, ease: "power2" })
+        .from("#eval", { x: "-30%" });
     roundEnd();
 }
 
 // /////function to roll up stat page and restart new level
-function roundUp(){    
+function roundUp() {
     score = 0;
-    plusAmt = 0;    
+    plusAmt = 0;
     plusScore = 0;
     minusAmt = 0;
     minusScore = 0;
-    
+
     document.getElementsByClassName("whiteBoxes")[0].classList.remove('color');
-    document.getElementById('eval').innerText ='';
+    document.getElementById('eval').innerText = '';
     document.getElementById('score').innerText = score;
     document.getElementById('eval').style.visibility = "hidden";
     document.body.style.backgroundImage = `url(/dist/asset/round${round}.png)`;
-    document.getElementById('start').style.visibility = "visible"; 
+    document.getElementById('start').style.visibility = "visible";
+    document.getElementById('wBox5').src = `./asset/round${round + 1}.png`;
+    document.getElementById('first').src = `./asset/minCash${round}.png`;
+    document.getElementById('second').src = `./asset/mole${round}.png`;
 
-gsap.fromTo("trigger",{opacity: 0},{duration: 3.5, opacity: 1, ease: "elastic"})
-gsap.to(".roundModal", {y:"-100%", duration: 2, ease: "power1"});    
-gsap.fromTo(".start",{opacity: 0, scale: 0},{duration: 1.5, opacity: 1, scale: 1, ease: "elastic"})
+
+    gsap.to(".roundModal", { y: "-100%", duration: 2, ease: "power1" });
+    gsap.fromTo(".start", { opacity: 0, scale: 0 }, { duration: 2.5, opacity: 1, scale: 1, ease: "elastic" })
 }
