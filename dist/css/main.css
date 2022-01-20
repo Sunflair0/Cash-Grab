@@ -579,11 +579,9 @@ img {
 
 .progress-bar {
   padding: 2px;
-  width: 50%;
   max-width: 100%;
-  background: transparent;
   border: 2px solid #c4a728;
-  height: 1.5rem;
+  height: 1.5em;
   width: 300px;
   border-radius: 15px;
   color: #da1111;
@@ -597,12 +595,12 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: calc(var(--width));
+  width: calc(var(--width,0)*1%);
   height: 1em;
-  min-width: 2rem;
-  max-width: calc(100%-1em);
-  background: repeating-linear-gradient(135deg, #4aec0a, #4aec0a 20px, #fcee2c 20px, #fcee2c 40px);
+  min-width: 1rem;
+  max-width: 100%;
   border-radius: 15px;
+  background: repeating-linear-gradient(135deg, #4aec0a, #4aec0a 20px, #fcee2c 20px, #fcee2c 40px);
 }
 
 #roundScore {
@@ -648,8 +646,8 @@ img {
 }
 
 .evalOne {
-  margin-left: 10%;
-  width: 55%;
+  margin-left: 0%;
+  width: 45%;
   top: 0;
 }
 

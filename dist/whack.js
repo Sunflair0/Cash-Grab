@@ -173,10 +173,13 @@ let resetHoles = window.setInterval(() => {
 }, 1500);
 
 
-const progressBar =document.getElementsByClassName('progress-bar')[0];
-setInterval(() => {
-    const computedStyle = getComputedStyle(progressBar)
-    const width = percent},5)
+    const progressBar =document.getElementsByClassName('progress-bar')[0];
+
+    setInterval(() => {
+    const width = percent || 0
+    progressBar.style.setProperty('--width', width + 1)
+    },5)
+
 
 
 function statusMessage(msg) {
