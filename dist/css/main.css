@@ -439,8 +439,8 @@ img {
 
 .wBox2 {
   visibility: hidden;
-  -ms-flex-preferred-size: 15%;
-      flex-basis: 15%;
+  -ms-flex-preferred-size: 1%;
+      flex-basis: 1%;
   padding-left: 6px;
   padding-top: 6px;
   position: fixed;
@@ -480,6 +480,11 @@ img {
   padding-top: 6px;
   padding-left: 6px;
   border: white 2px ridge;
+}
+
+.pscore {
+  max-width: 100px;
+  min-width: 80px;
 }
 
 #cash {

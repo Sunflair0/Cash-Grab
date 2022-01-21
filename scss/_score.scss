@@ -65,7 +65,7 @@ to{
 }  
 .wBox2{
     visibility: hidden;
-    flex-basis: 15%;
+    flex-basis: 1%;
     padding-left: 6px;
     padding-top: 6px;
     position: fixed;    
@@ -96,6 +96,10 @@ to{
     padding-top: 6px;
     padding-left: 6px;    
     border: white 2px ridge;
+}
+.pscore {
+    max-width: 100px;
+    min-width: 80px; 
 }
 
 #cash{
