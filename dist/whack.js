@@ -28,7 +28,7 @@ let percent = 0;
 let min = round;
 let max = round + 1;
 let life = 5;
-let goal = 300;
+let goal = 50;
 let heart = '\u{2764}';
 let trophy = '\u{1f3c6}';
 let restart = '\u{21ba}';
@@ -54,11 +54,11 @@ const darkcash = [cash1, cash2, cash3, cash4];
 let mole = darkmole[round];
 let cash = darkcash[round];
 
-window.onload=hearts();
+window.onload = hearts();
 
-function begin(){
+function begin() {
     life = 5;
-    round=1;
+    round = 1;
     roundUp();
 
 }
@@ -67,7 +67,7 @@ start.addEventListener("click", () => {
     document.getElementsByClassName('header')[0].style.visibility = "hidden";
     document.getElementById('start').style.visibility = "hidden";
     document.getElementsByClassName('wBox2')[0].style.visibility = "visible";
-   // document.getElementById('display').innerText= 'Level `${round}`';
+    // document.getElementById('display').innerText= 'Level `${round}`';
     let time = window.setInterval(() => {
         document.getElementById("time").innerText = ':' + timer;
         timer--;
@@ -93,7 +93,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    }, 15900); //shortened for debugging mode
+    }, 5900); //shortened for debugging mode
 });
 
 function choice(min, max) {
@@ -106,7 +106,7 @@ const popUpsMinus = () => {
     console.log("pop-");
     {
         let clear = window.setInterval(() => {
-           // if (holes) 
+            // if (holes) 
             let clearHole = document.querySelectorAll(`.mole${round}`);
             clearHole.forEach((val) => {
                 val.classList.replace(`mole${round}`, "darkhole");
@@ -174,25 +174,25 @@ let resetHoles = window.setInterval(() => {
 
 
 // /////progress bar
-    const progressBar =document.getElementsByClassName('progress-bar')[0];    
+const progressBar = document.getElementsByClassName('progress-bar')[0];
 
 let progress = setInterval(() => {
     const width = percent || 0
     progressBar.style.setProperty('--width', width + 1)
-    },1000)
+}, 1000)
 
 function statusMessage(msg) {
     let container = document.querySelector("#evalMes");
     container.innerText = msg;
 }
 //display hearts for lives
- function hearts(){   
-     totalScore =[];
-     for (let i = 1; i < 5; i++) {
-         console.log(i);
-         let hearts = document.getElementsByClassName(`heart${i}`)[0];
-         hearts.innerText = `${heart}`;
-         hearts.style.opacity =1;
+function hearts() {
+    totalScore = [];
+    for (let i = 1; i < 5; i++) {
+        console.log(i);
+        let hearts = document.getElementsByClassName(`heart${i}`)[0];
+        hearts.innerText = `${heart}`;
+        hearts.style.opacity = 1;
         hearts.style.transform = "translate(0px, 0px)";
     }
 }
@@ -207,7 +207,7 @@ function roundEnd() {
     roundScore = plusScore + minusScore;
     enough();
     totalScore.push(roundScore);
- 
+
     document.getElementById('eval').style.visibility = "visible";
     document.getElementById("plusAmt").innerText = plusAmt;
     document.getElementById("plusValue").innerText = plusVal;
@@ -219,12 +219,12 @@ function roundEnd() {
     document.getElementById("roundScore").innerText = roundScore;
     document.getElementsByClassName("whiteBoxes")[0].classList.add('color');
 
-    if (roundScore < goal & life == 1) {        
-               noHearts();        
-    }else if(roundScore < goal & life > 1){ 
+    if (roundScore < goal & life == 1) {
+        noHearts();
+    } else if (roundScore < goal & life > 1) {
         totalScore.pop(roundScore);
         console.log(totalScore);
-        life--  
+        life--
         statusMessage(`Use a heart and try again`);
         console.log(life);
         let tryAgain = document.getElementById('eval');
@@ -243,33 +243,34 @@ function roundEnd() {
     }
 }
 
- let sum = 0; 
+let sum = 0;
 let returnedSum = sumArr;
-console.log(sum);
-function sumArr(totalScore){
-  
-    for (let i=0; i<totalScore.length; i++){
-    sum = sum + totalScore[i];
+console.log(sumArr(totalScore));
+
+function sumArr(totalScore) {
+
+    for (let i = 0; i < totalScore.length; i++) {
+        sum += totalScore[i];
     }
     return sum;
 }
-function useHeart() {        
-    gsap.to(`.heart${life}`,{ opacity:0, duration: 1.5,y:-50});   
-    console.log(life);        
+function useHeart() {
+    gsap.to(`.heart${life}`, { opacity: 0, duration: 1.5, y: -50 });
+    console.log(life);
     roundUp()
 };
-function noHearts(){
+function noHearts() {
     console.log('the end');
     statusMessage(`Uh oh! No more hearts.\nPush restart to play again.`);
 
     let doOver = document.getElementById('eval');
     doOver = document.createElement("button");
     document.getElementById('eval').append(doOver);
-    doOver.innerText = `${restart}`;    
+    doOver.innerText = `${restart}`;
     doOver.addEventListener("click", begin);
 }
 function roundGsap() {
-   
+
     document.getElementById('plusImg').src = `./asset/minCash${round}.png`;
     let tl = gsap.timeline({ defaults: { duration: .5, opacity: 0 } })
     tl
@@ -281,20 +282,24 @@ function roundGsap() {
         .from(".theBar", {})
         .fromTo(".evalOne", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, ease: "power2" })
         .from("#eval", { x: "-30%" });
-    roundEnd();
+
+        console.log(round);
+
+    if (round == 4) {
+        gameEnd();
+    } else {
+        roundEnd();
+    }
 }
 // /////function to roll up stat page and restart new level
 function roundUp() {
-    sumArr();
     roundScore = 0;
     score = 0;
     plusAmt = 0;
     plusScore = 0;
     minusAmt = 0;
     minusScore = 0;
-   
 
-    //document.getElementById('display').innerText= 'Level `${round}`';
 
     document.getElementsByClassName("whiteBoxes")[0].classList.remove('color');
     document.getElementById('eval').innerText = '';
@@ -308,5 +313,10 @@ function roundUp() {
 
 
     gsap.to(".roundModal", { y: "-100%", duration: 2, ease: "power1" });
-        gsap.fromTo(".start", { opacity: 0, scale: 0 }, { duration: 2.5, opacity: 1, scale: 1, ease: "elastic" })
- }
+    gsap.fromTo(".start", { opacity: 0, scale: 0 }, { duration: 2.5, opacity: 1, scale: 1, ease: "elastic" })
+}
+function gameEnd(){
+    sumArr();
+    console.log(sumArr(totalScore));
+    console.log(sumArr);
+}
