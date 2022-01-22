@@ -49,19 +49,13 @@ const darkcash = [cash1, cash2, cash3, cash4];
 let mole = darkmole[round];
 let cash = darkcash[round];
 
-
 window.onload=hearts();
 
-// console.log(i) will give me 1 2 3 4, for the 4 hearts that are loaded. 
-// It works with the window.onload, but when hearts() is called, console.log(i) just gives me 1. 
-// That's it. I don't know why the loop is not working.   LINE 187.
-// Most everything works, but when trying to restart the game, the hearts will not re-load. 
-// console error is: 
-//
-//Uncaught TypeError: Cannot set properties of undefined (setting 'innerText')
-//at HTMLButtonElement.hearts (whack.js:191:67)
-//
-//To shorten gameplay for troubleshooting, change line 98
+function begin(){
+    life = 5;
+    roundUp();
+    hearts();     
+}
 
 start.addEventListener("click", () => {
     document.getElementsByClassName('header')[0].style.visibility = "hidden";
@@ -85,8 +79,6 @@ start.addEventListener("click", () => {
         };
     }, 1000);
 
-   
-
     window.setTimeout(() => {
         window.clearInterval(whereMole);
         window.clearInterval(time);
@@ -95,7 +87,7 @@ start.addEventListener("click", () => {
         timer = 29
         enough();
         roundGsap();
-    }, 30900); //shortened for debugging mode
+    }, 900); //shortened for debugging mode
 });
 
 function choice(min, max) {
@@ -160,7 +152,6 @@ const popUpsPlus = () => {
         })
     }
 };
-
 let resetHoles = window.setInterval(() => {
     let smash = document.querySelectorAll(".smash");
     smash.forEach((val) => {
@@ -184,12 +175,14 @@ function statusMessage(msg) {
     let container = document.querySelector("#evalMes");
     container.innerText = msg;
 }
-
 //display hearts for lives
  function hearts(){   
      for (let i = 1; i < 5; i++) {
          console.log(i);
-        document.getElementsByClassName(`heart${i}`)[0].innerText = `${heart}`
+         let hearts = document.getElementsByClassName(`heart${i}`)[0];
+         hearts.innerText = `${heart}`;
+         hearts.style.opacity =1;
+        hearts.style.transform = "translate(0px, 0px)";
     }
 }
 // /////evaluation for percent to be converted and truncated
@@ -198,7 +191,6 @@ function enough() {
     percentage = Math.min(100, Math.max(0, percentage));
     percent = percentage.toFixed(2);
 }
-
 function roundEnd() {
     roundScore = plusScore + minusScore;
     enough();
@@ -223,7 +215,6 @@ function roundEnd() {
         tryAgain = document.createElement("button");
         document.getElementById('eval').append(tryAgain);
         tryAgain.innerText = `${heart}`;
-        gsap.to(`.heart${life}`,{ opacity:0, duration: 1.5,y:-50, delay:4.7});
         tryAgain.addEventListener("click", useHeart);
     } else {
         round++
@@ -237,17 +228,10 @@ function roundEnd() {
     }
 }
 
-function useHeart() {    
-      
-    
-    let hearts = document.getElementsByClassName(`heart${life}`)[0];   
-    document.getElementsByClassName(`heart${life}`)[0].innerText = "";
-    hearts.classList.remove(`heart${life}`);
-   
-    
-    console.log(life);
-        roundUp()
-   
+function useHeart() {        
+    gsap.to(`.heart${life}`,{ opacity:0, duration: 1.5,y:-50});   
+    console.log(life);        
+    roundUp()
 };
 
 function end(){
@@ -258,7 +242,7 @@ function end(){
     doOver = document.createElement("button");
     document.getElementById('eval').append(doOver);
     doOver.innerText = `${restart}`;    
-    doOver.addEventListener("click", hearts);
+    doOver.addEventListener("click", begin);
 }
 
 function roundGsap() {
@@ -284,7 +268,6 @@ function roundUp() {
     minusAmt = 0;
     minusScore = 0;
 
-    document.getElementsByClassName("whiteBoxes")[0].classList.remove('color');
     document.getElementById('eval').innerText = '';
     document.getElementById('score').innerText = score;
     document.getElementById('eval').style.visibility = "hidden";
@@ -293,7 +276,6 @@ function roundUp() {
     document.getElementById('wBox5').src = `./asset/round${round + 1}.png`;
     document.getElementById('first').src = `./asset/minCash${round}.png`;
     document.getElementById('second').src = `./asset/mole${round}.png`;
-
 
     gsap.to(".roundModal", { y: "-100%", duration: 2, ease: "power1" });
     gsap.fromTo(".start", { opacity: 0, scale: 0 }, { duration: 2.5, opacity: 1, scale: 1, ease: "elastic" })

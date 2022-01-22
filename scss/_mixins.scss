@@ -17,8 +17,7 @@
 @mixin flexShell {
     display: flex;
     flex-direction: row;  
-    flex-wrap: wrap;
-    
+    flex-wrap: wrap;    
 }
 @mixin actionBox {
   flex-basis: 23%;

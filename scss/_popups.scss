@@ -14,7 +14,6 @@
 #minCash4{
     background-image: url(/dist/asset/minCash4.png);
 }
-
 .cash1 {    
     background-image: url(/dist/asset/darkcash.png);
 }
@@ -49,9 +48,6 @@
 .mole4 {
     background-image: url(/dist/asset/mole4.png);
 }
-.round1 {
-    background-image: url(/dist/asset/round1.png); 
-}
 .round2 {
     background-image: url(/dist/asset/round2.png); 
 }
@@ -64,34 +60,12 @@
 img {
     max-height: 75%;
 }
-
-#first, #second{
+img #first {
+    max-width: 100px;
+    min-width: 80px;  
+    padding-top: 10px; 
+}
+#second{
     max-width: 100px;
     min-width: 80px;   
-}
-
-.antiScore {
-    max-width: 100px;
-    min-width: 80px;
-   
-    &::before{
-        content: '-15 pts';
-        color: rgb(255, 67, 67);
-        height: 20px;
-        width: 40%;
-        font-weight: 700;
-    }
-}
-.proScore {
-    max-width: 100px;
-    min-width: 80px;
-    margin-bottom: -50%;
-
-    &::before{
-        content: '50 pts';
-        height: 20px;
-        width: 50%;
-        font-weight: 700;
-        position: absolute;
-    }
 }
