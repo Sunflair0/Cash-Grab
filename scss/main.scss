@@ -10,7 +10,13 @@
     @include flexShell;   
     flex-basis: 23%;  
 }
-.header {
+.header{
+    font-family: 'Flavors';
+    font-size: xx-large;
+    color: rgb(189, 73, 27);
+    text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+}
+#display {
     font-family: 'Flavors';
     font-size: xx-large;
     color: rgb(189, 73, 27);

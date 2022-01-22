@@ -18,6 +18,11 @@ let minusAmt = 0;
 let minusVal = -15;
 let minusScore = 0;
 let roundScore = 0;
+let roundScore1 = 0;
+let roundScore2 = 0;
+let roundScore3 = 0;
+let roundScore4 = 0;
+let totalScore = [0];
 let result = 0;
 let percent = 0;
 let min = round;
@@ -53,14 +58,16 @@ window.onload=hearts();
 
 function begin(){
     life = 5;
+    round=1;
     roundUp();
-    hearts();     
+
 }
 
 start.addEventListener("click", () => {
     document.getElementsByClassName('header')[0].style.visibility = "hidden";
     document.getElementById('start').style.visibility = "hidden";
     document.getElementsByClassName('wBox2')[0].style.visibility = "visible";
+   // document.getElementById('display').innerText= 'Level `${round}`';
     let time = window.setInterval(() => {
         document.getElementById("time").innerText = ':' + timer;
         timer--;
@@ -85,9 +92,8 @@ start.addEventListener("click", () => {
         document.getElementsByClassName('wBox2')[0].style.visibility = "hidden";
         document.getElementById('score').innerText = score;
         timer = 29
-        enough();
         roundGsap();
-    }, 900); //shortened for debugging mode
+    }, 15900); //shortened for debugging mode
 });
 
 function choice(min, max) {
@@ -100,6 +106,7 @@ const popUpsMinus = () => {
     console.log("pop-");
     {
         let clear = window.setInterval(() => {
+           // if (holes) 
             let clearHole = document.querySelectorAll(`.mole${round}`);
             clearHole.forEach((val) => {
                 val.classList.replace(`mole${round}`, "darkhole");
@@ -108,6 +115,8 @@ const popUpsMinus = () => {
 
         window.setTimeout(() => {
             window.clearInterval(clear);
+            document.getElementsByClassName("whiteBoxes")[0].classList.remove('color');
+            document.getElementsByClassName(`.mole${round}`)[0].classList.remove(`mole${round}`);
         }, 2000);
 
         holes.forEach((val) => {
@@ -163,6 +172,7 @@ let resetHoles = window.setInterval(() => {
     })
 }, 1500);
 
+
 // /////progress bar
     const progressBar =document.getElementsByClassName('progress-bar')[0];    
 
@@ -177,6 +187,7 @@ function statusMessage(msg) {
 }
 //display hearts for lives
  function hearts(){   
+     totalScore =[];
      for (let i = 1; i < 5; i++) {
          console.log(i);
          let hearts = document.getElementsByClassName(`heart${i}`)[0];
@@ -187,6 +198,7 @@ function statusMessage(msg) {
 }
 // /////evaluation for percent to be converted and truncated
 function enough() {
+    console.log("when do you see me");
     percentage = roundScore / 3;
     percentage = Math.min(100, Math.max(0, percentage));
     percent = percentage.toFixed(2);
@@ -194,7 +206,8 @@ function enough() {
 function roundEnd() {
     roundScore = plusScore + minusScore;
     enough();
-
+    totalScore.push(roundScore);
+ 
     document.getElementById('eval').style.visibility = "visible";
     document.getElementById("plusAmt").innerText = plusAmt;
     document.getElementById("plusValue").innerText = plusVal;
@@ -204,10 +217,13 @@ function roundEnd() {
     document.getElementById("minusScore").innerText = minusScore;
     document.getElementById("percent").innerText = percent + '%';
     document.getElementById("roundScore").innerText = roundScore;
+    document.getElementsByClassName("whiteBoxes")[0].classList.add('color');
 
     if (roundScore < goal & life == 1) {        
-               end();        
+               noHearts();        
     }else if(roundScore < goal & life > 1){ 
+        totalScore.pop(roundScore);
+        console.log(totalScore);
         life--  
         statusMessage(`Use a heart and try again`);
         console.log(life);
@@ -224,17 +240,25 @@ function roundEnd() {
         document.getElementById('eval').append(advance);
         advance.innerText = `${trophy}`;
         advance.addEventListener("click", roundUp);
-        document.getElementsByClassName("whiteBoxes")[0].classList.add('color');
     }
 }
 
+ let sum = 0; 
+let returnedSum = sumArr;
+console.log(sum);
+function sumArr(totalScore){
+  
+    for (let i=0; i<totalScore.length; i++){
+    sum = sum + totalScore[i];
+    }
+    return sum;
+}
 function useHeart() {        
     gsap.to(`.heart${life}`,{ opacity:0, duration: 1.5,y:-50});   
     console.log(life);        
     roundUp()
 };
-
-function end(){
+function noHearts(){
     console.log('the end');
     statusMessage(`Uh oh! No more hearts.\nPush restart to play again.`);
 
@@ -244,8 +268,8 @@ function end(){
     doOver.innerText = `${restart}`;    
     doOver.addEventListener("click", begin);
 }
-
 function roundGsap() {
+   
     document.getElementById('plusImg').src = `./asset/minCash${round}.png`;
     let tl = gsap.timeline({ defaults: { duration: .5, opacity: 0 } })
     tl
@@ -259,15 +283,20 @@ function roundGsap() {
         .from("#eval", { x: "-30%" });
     roundEnd();
 }
-
 // /////function to roll up stat page and restart new level
 function roundUp() {
+    sumArr();
+    roundScore = 0;
     score = 0;
     plusAmt = 0;
     plusScore = 0;
     minusAmt = 0;
     minusScore = 0;
+   
 
+    //document.getElementById('display').innerText= 'Level `${round}`';
+
+    document.getElementsByClassName("whiteBoxes")[0].classList.remove('color');
     document.getElementById('eval').innerText = '';
     document.getElementById('score').innerText = score;
     document.getElementById('eval').style.visibility = "hidden";
@@ -277,6 +306,7 @@ function roundUp() {
     document.getElementById('first').src = `./asset/minCash${round}.png`;
     document.getElementById('second').src = `./asset/mole${round}.png`;
 
+
     gsap.to(".roundModal", { y: "-100%", duration: 2, ease: "power1" });
-    gsap.fromTo(".start", { opacity: 0, scale: 0 }, { duration: 2.5, opacity: 1, scale: 1, ease: "elastic" })
-}
+        gsap.fromTo(".start", { opacity: 0, scale: 0 }, { duration: 2.5, opacity: 1, scale: 1, ease: "elastic" })
+ }
