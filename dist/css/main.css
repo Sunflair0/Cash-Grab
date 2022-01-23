@@ -150,13 +150,13 @@ img {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .darkhole {
     max-width: 180px;
   }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (max-width: 992px) {
   span {
     font-family: 'Orbitron';
     margin-top: 3vh;
@@ -168,7 +168,7 @@ img {
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 1200px) {
   span {
     font-family: 'Orbitron';
   }
@@ -457,8 +457,8 @@ img #first {
   width: 25%;
   margin: 1px;
   color: red;
-  font-size: small;
-  margin-top: 10vh;
+  font-size: x-large;
+  margin-top: 8vh;
   z-index: 10;
 }
 
@@ -724,15 +724,8 @@ img #first {
   text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
 }
 
-.choice {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  position: relative;
+td .button {
+  float: left;
   font-size: medium;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -740,39 +733,41 @@ img #first {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-left: 0;
-  border: black 2px solid;
-  border-radius: 50%;
+  margin-left: 10px;
+  border-radius: 100%;
+  border: #726b6b 2px solid;
   height: 50px;
   width: 50px;
-  background-color: #455f2b;
+  background: #c4ac5d;
+  -webkit-box-shadow: inset 5px -5px 5px 5px #7579a5;
+          box-shadow: inset 5px -5px 5px 5px #7579a5;
+  cursor: pointer;
 }
 
-.choice:checked + .choice {
-  border: red solid 5px;
+table {
+  display: block;
+  right: 0;
 }
 
-form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  border-radius: 50%;
-}
-
-form:hover {
-  background-color: red;
-}
-
-.difficulty {
+.choice {
+  height: 80px;
+  width: 200px;
+  background: black;
   position: absolute;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: large;
 }
 
+.choice::before {
+  content: "";
+  height: 80px;
+  width: 10px;
+  margin-right: 80%;
+  background: #be0f0f;
+}
+
 .choice input {
-  position: absolute;
   opacity: 0;
-  cursor: pointer;
 }
 
 #display {

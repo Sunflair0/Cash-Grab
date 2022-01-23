@@ -16,48 +16,48 @@
     color: rgb(189, 73, 27);
     text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
 }
-.choice {
-    display: flex;
-    flex-flow: column;
-    position: relative;
+td .button {     
+    
+    float: left;
     font-size: medium;
     justify-content: center;
     align-items: center;
-    margin-left: 0;
-    border: rgb(0, 0, 0) 2px solid;  
-    border-radius: 50%;
+    margin-left: 10px;    
+    border-radius: 100%;
+    border: rgb(114, 107, 107) 2px solid;
     height: 50px;
-    width: 50px;
-    background-color: rgb(69, 95, 43);
-
-
-     &:checked + .choice{
-        border: red solid 5px;
-    }
-}
-form {
-    display: flex;
+    width: 50px;    
+    background: rgb(196, 172, 93);
+    box-shadow: inset 5px -5px 5px 5px rgb(117, 121, 165);
+    cursor: pointer;
    
-    border-radius: 50%;
-    
-
- &:hover {
-        background-color: red;
-    }
-
 }
-.difficulty{
-     
+table {   
+    display: block;
+    right: 0;
+}
+.choice {    
+    height: 80px;
+    width: 200px;    
+    background: rgb(0, 0, 0);
     position:absolute;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: large;
-    
-  
+
+    &::before {
+        content: "";
+        height: 80px;
+        width: 10px;      
+        margin-right: 80%; 
+        background: rgb(190, 15, 15);
+    }
 }
+
+
 .choice input {
-    position:absolute;
+    //position:absolute;
     opacity: 0;
-    cursor: pointer;
+   
 }
 #display {
     font-family: 'Flavors';
