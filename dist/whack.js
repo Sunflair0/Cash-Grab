@@ -31,7 +31,7 @@ let start = document.getElementById('start');
 let time = document.getElementById('time');
 let wBox2 = document.querySelectorAll(".wBox2");
 let holes = document.querySelectorAll(".darkhole");
-let whiteBoxes = document.getElementsByClassName(".whiteBoxes")[0];
+let whiteBoxes = document.getElementsByClassName("whiteBoxes")[0];
 let mole1 = document.querySelectorAll(".mole1");
 let mole2 = document.querySelectorAll(".mole2");
 let mole3 = document.querySelectorAll(".mole3");
@@ -233,7 +233,7 @@ function roundEnd() {
         document.getElementById('eval').append(advance);
         advance.innerText = `${trophy}`;
         advance.addEventListener("click", roundUp);
-        document.getElementsByClassName("whiteBoxes")[0].classList.add('color');
+        whiteBoxes.classList.add('color');
     }
 }
 
@@ -284,7 +284,7 @@ function roundUp() {
     minusAmt = 0;
     minusScore = 0;
 
-    document.getElementsByClassName("whiteBoxes")[0].classList.remove('color');
+    whiteBoxes.classList.remove('color');
     document.getElementById('eval').innerText = '';
     document.getElementById('score').innerText = score;
     document.getElementById('eval').style.visibility = "hidden";
