@@ -121,8 +121,6 @@ const displayMole = () => {
     window.setTimeout(() => {
         window.clearInterval(clear);
         holes[randomHole].classList.remove(`mole${round}`);
-
-        console.log("round", round);
     whiteBoxes.classList.remove('color');
     }, 2000);
 
@@ -199,7 +197,7 @@ let resetHoles = window.setInterval(() => {
     splat.forEach((val) => {
         val.classList.replace("splat", `mole${round}`);
     })
-}, 1500);
+}, 2500);
 
 
 // /////progress bar
@@ -356,6 +354,6 @@ function gameEnd() {
     //sumArr();
     console.log("totalScore", totalScore);
     console.log(sumArr());
-
+document.getElementById('all').innerText = sumArr();
     //console.log(sumArr);
 }

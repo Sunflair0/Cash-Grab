@@ -1,4 +1,3 @@
-@charset "UTF-8";
 html {
   overflow: hidden;
 }
@@ -6,7 +5,7 @@ html {
 body {
   overflow: hidden;
   position: relative;
-  background-image: url(/dist/asset/meadow.png);
+  background-image: url(/dist/asset/round1.png);
   background-color: black;
   background-size: cover;
   background-clip: content-box;
@@ -35,11 +34,21 @@ body::-webkit-scrollbar-thumb {
   background-clip: padding-box;
   border: transparent solid 0.3rem;
 }
+body button {
+  font-size: x-large;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  background-image: linear-gradient(to top, #4aec0a 0%, #fcee2c 60%);
+  color: #f30000;
+  cursor: pointer;
+}
 
-* {
+*, ::before, ::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 img {
@@ -98,17 +107,25 @@ img {
     transform: scale(1);
   }
 }
-@media (min-width: 576px) {
-  span {
-    font-family: "Orbitron";
+@media screen and (max-width: 576px) {
+  .roundModal {
+    color: #f10b0b;
+  }
+
+  .headings {
+    font-size: xx-large;
+  }
+
+  .heart1, .heart2, .heart3, .heart4 {
+    font-size: x-large;
   }
 }
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .darkhole {
     max-width: 180px;
   }
 }
-@media (min-width: 992px) {
+@media screen and (min-width: 992px) {
   span {
     font-family: "Orbitron";
     margin-top: 3vh;
@@ -119,36 +136,49 @@ img {
     margin-bottom: 8vh;
   }
 }
-@media (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
   span {
     font-family: "Orbitron";
   }
 }
-.theCash {
+.gameIcon {
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+#minCash1 {
+  background-image: url(/dist/asset/minCash1.png);
+}
+
+#minCash2 {
+  background-image: url(/dist/asset/minCash2.png);
+}
+
+#minCash3 {
+  background-image: url(/dist/asset/minCash3.png);
+}
+
+#minCash4 {
+  background-image: url(/dist/asset/minCash4.png);
+}
+
+.cash1 {
   background-image: url(/dist/asset/darkcash.png);
 }
 
-.theLapis {
-  background-size: contain;
-  background-repeat: no-repeat;
+.cash2 {
   background-image: url(/dist/asset/darklapis.png);
 }
 
-.theYellow {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-image: url(/dist/asset/darkyellow.png);
-}
-
-.thePearl {
-  background-size: contain;
-  background-repeat: no-repeat;
+.cash3 {
   background-image: url(/dist/asset/darkpearl.png);
 }
 
-.theSmash {
+.cash4 {
+  background-image: url(/dist/asset/darkyellow.png);
+}
+
+.smash {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -180,28 +210,47 @@ img {
   background-image: url(/dist/asset/splat.png);
 }
 
-.sunMole {
-  background-image: url(/dist/asset/darksun.png);
-  background-size: contain;
-  background-repeat: no-repeat;
+.mole1 {
+  background-image: url(/dist/asset/mole1.png);
 }
 
-.tulipMole {
-  background-image: url(/dist/asset/darktulip.png);
-  background-size: contain;
-  background-repeat: no-repeat;
+.mole2 {
+  background-image: url(/dist/asset/mole2.png);
 }
 
-.daisyMole {
-  background-image: url(/dist/asset/darkdaisy.png);
-  background-size: contain;
-  background-repeat: no-repeat;
+.mole3 {
+  background-image: url(/dist/asset/mole3.png);
 }
 
-.roseMole {
-  background-image: url(/dist/asset/darkrose.png);
-  background-size: contain;
-  background-repeat: no-repeat;
+.mole4 {
+  background-image: url(/dist/asset/mole4.png);
+}
+
+.round2 {
+  background-image: url(/dist/asset/round2.png);
+}
+
+.round3 {
+  background-image: url(/dist/asset/round3.png);
+}
+
+.round4 {
+  background-image: url(/dist/asset/round4.png);
+}
+
+img {
+  max-height: 75%;
+}
+
+img #first {
+  max-width: 100px;
+  min-width: 80px;
+  padding-top: 10px;
+}
+
+#second {
+  max-width: 100px;
+  min-width: 80px;
 }
 
 #start {
@@ -210,6 +259,7 @@ img {
   max-height: 100px;
   justify-content: center;
   align-content: center;
+  cursor: pointer;
 }
 
 .start {
@@ -241,17 +291,18 @@ img {
 }
 
 .whiteBoxes {
-  max-height: 120px;
-  flex-direction: row;
   display: flex;
-  color: white;
+  flex-direction: row;
+  max-height: 120px;
   width: 100%;
-  border: white 5px dotted;
   padding: 3px;
-  outline: white ridge 4px;
+  color: #ffffff;
+  border: #ffffff 5px dotted;
+  outline: #ffffff ridge 4px;
   outline-offset: -11px;
 }
-.whiteBoxes:hover {
+
+.color {
   -webkit-animation: color infinite 1s steps(6, jump-both);
           animation: color infinite 1s steps(6, jump-both);
 }
@@ -273,7 +324,7 @@ img {
     border: #ff7b00 5px dotted;
   }
   100% {
-    border: red 5px dotted;
+    border: #ff0000 5px dotted;
   }
 }
 
@@ -294,224 +345,231 @@ img {
     border: #ff7b00 5px dotted;
   }
   100% {
-    border: red 5px dotted;
+    border: #ff0000 5px dotted;
   }
 }
 .wBox1 {
   visibility: visible;
-  flex-basis: 10%;
+  display: flex;
+  flex-basis: 22%;
   border: white 2px ridge;
 }
 
 .wBox2 {
   visibility: hidden;
-  flex-basis: 10%;
+  flex-basis: 15%;
   padding-left: 6px;
   padding-top: 6px;
   position: fixed;
 }
 
 .wBox3 {
-  flex-basis: 24%;
+  flex-basis: 25%;
   padding-left: 6px;
   padding-top: 6px;
-  border-left: white 4px ridge;
+  border: white 2px ridge;
   position: relative;
 }
-.wBox3:before {
-  content: "♥";
-  color: red;
-  font-size: x-large;
-  position: absolute;
-  bottom: 1vh;
+
+.heartBox {
+  display: flex;
+  max-width: 100px;
 }
-.wBox3:after {
-  content: "♥";
+
+.heart1, .heart2, .heart3, .heart4 {
+  display: flex;
+  width: 25%;
+  margin: 1px;
   color: red;
-  font-size: x-large;
-  position: absolute;
-  bottom: 1vh;
+  font-size: small;
 }
 
 .wBox4 {
-  flex-basis: 40%;
-  position: relative;
   display: flex;
+  flex-basis: 40%;
   padding-top: 6px;
   padding-left: 6px;
-  border-left: white 4px ridge;
+  border: white 2px ridge;
+  position: relative;
 }
 
-
-
-#whack {
-  height: 80px;
-  width: auto;
-  background: url(/dist/asset/round2.png);
+.antiScore {
+  max-width: 100px;
+  min-width: 80px;
+  margin: 0 auto;
+}
+.antiScore::before {
+  content: "-15 pts";
+  color: #ff4343;
+  height: 20px;
+  width: 40%;
+  font-weight: 700;
 }
 
+.proScore {
+  max-width: 100px;
+  min-width: 80px;
+  margin: 0 auto;
+}
+.proScore::before {
+  content: "50 pts";
+  height: 20px;
+  width: 50%;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
 
+.wBox5a {
+  display: flex;
+  height: 20px;
+  padding: 0 6px;
+  overflow: visible;
+}
+
+.wBox5b {
+  display: flex;
+  overflow: hidden;
+}
 
 .wBox5 {
+  display: flex;
+  flex-basis: 23%;
+  flex-direction: column;
   padding-top: 6px;
   padding-left: 6px;
-  flex-basis: calc(36%-100px);
-  width: 30%;
-  border-left: white 4px ridge;
+  width: 20%;
+  border: white 2px ridge;
   overflow: hidden;
 }
 
 #wBox5 {
-  background-image: url(/dist/asset/round2.png);
-  max-height: 75%;
+  display: flex;
   width: auto;
-  display: flex;
   margin: auto;
 }
 
-.first_a {
-  flex-basis: 50%;
-  max-width: 50px;
-  height: 50px;
-  margin: auto;
-  background-size: contain;
-  background-repeat: no-repeat;
+.roundModal {
+  background-color: #000000bf;
+  height: 65%;
+  width: 80%;
+  color: white;
+  top: 10%;
+  top: -100%;
+  position: fixed;
+  border-style: ridge;
+  border: white 5px ridge;
+  padding: 20px;
+  margin: 20px;
   display: flex;
-  margin: auto;
-  flex-basis: 20%;
-  margin-left: -1%;
-  max-width: 50px;
-  min-width: 50px;
-  position: absolute;
-  border: blueviolet 2px solid;
-  background-image: url(/dist/asset/cash25.png);
+  flex-direction: column;
 }
 
-.first-b {
-  flex-basis: 50%;
-  max-width: 50px;
-  height: 50px;
-  margin: auto;
-  background-size: contain;
-  background-repeat: no-repeat;
+.headings {
   display: flex;
-  margin: auto;
-  flex-basis: 20%;
-  margin-left: -1%;
-  max-width: 50px;
-  min-width: 50px;
-  position: absolute;
-  border: blueviolet 2px solid;
-  background-image: url(/dist/asset/lapis25.png);
+  justify-content: space-around;
+  align-items: center;
+  max-height: 1vh;
+  font-size: large;
+  overflow: visible;
 }
 
-.first-c {
-  flex-basis: 50%;
-  max-width: 50px;
-  height: 50px;
-  margin: auto;
-  background-size: contain;
-  background-repeat: no-repeat;
+.lineOne, .lineTwo {
   display: flex;
-  margin: auto;
-  flex-basis: 20%;
-  margin-left: -1%;
-  max-width: 50px;
-  min-width: 50px;
-  position: absolute;
-  border: blueviolet 2px solid;
-  background-image: url(/dist/asset/pearl25.png);
+  justify-content: space-around;
+  align-items: center;
+  height: 7rem;
+  font-size: x-large;
+  margin-top: 2rem;
+  overflow: visible;
 }
 
-.first-d {
-  flex-basis: 50%;
-  max-width: 50px;
-  height: 50px;
-  margin: auto;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: flex;
-  margin: auto;
-  flex-basis: 20%;
-  margin-left: -1%;
-  max-width: 50px;
-  min-width: 50px;
-  position: absolute;
-  border: blueviolet 2px solid;
-  background-image: url(/dist/asset/yellow25.png);
-  transform: scale(0.65, 0.65);
+#plusImg, #minusImg {
+  width: 100px;
+  min-width: 54px;
 }
 
-.second-a {
-  flex-basis: 50%;
-  max-width: 50px;
-  height: 50px;
-  margin: auto;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: flex;
-  margin: auto;
-  flex-basis: 20%;
-  margin-left: -1%;
-  max-width: 50px;
-  min-width: 50px;
-  position: absolute;
-  border: blueviolet 2px solid;
-  background-image: url(/dist/asset/darksun.png);
+.mathChar {
+  font-size: medium;
 }
 
-.second-b {
-  flex-basis: 50%;
-  max-width: 50px;
-  height: 50px;
-  margin: auto;
-  background-size: contain;
-  background-repeat: no-repeat;
+.progress-bar {
+  padding: 2px;
+  max-width: 100%;
+  border: 2px solid #c4a728;
+  height: 1.5em;
+  width: 300px;
+  border-radius: 15px;
+  color: #da1111;
+}
+.progress-bar::before {
+  content: attr(data-label);
   display: flex;
-  margin: auto;
-  flex-basis: 20%;
-  margin-left: -1%;
-  max-width: 50px;
-  min-width: 50px;
-  position: absolute;
-  border: blueviolet 2px solid;
-  background-image: url(/dist/asset/darkdaisy.png);
+  align-items: center;
+  width: calc(var(--width,0)*1%);
+  height: 1em;
+  min-width: 1rem;
+  max-width: 100%;
+  border-radius: 15px;
+  background: repeating-linear-gradient(135deg, #4aec0a, #4aec0a 20px, #fcee2c 20px, #fcee2c 40px);
 }
 
-.second-c {
-  flex-basis: 50%;
-  max-width: 50px;
-  height: 50px;
-  margin: auto;
-  background-size: contain;
-  background-repeat: no-repeat;
+#roundScore {
+  height: 7rem;
+  font-size: x-large;
   display: flex;
-  margin: auto;
-  flex-basis: 20%;
-  margin-left: -1%;
-  max-width: 50px;
-  min-width: 50px;
-  position: absolute;
-  border: blueviolet 2px solid;
-  background-image: url(/dist/asset/darktulip.png);
+  justify-content: right;
+  align-items: right;
 }
 
-.second-d {
-  flex-basis: 50%;
-  max-width: 50px;
-  height: 50px;
-  margin: auto;
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: flex;
-  margin: auto;
-  flex-basis: 20%;
-  margin-left: -1%;
-  max-width: 50px;
-  min-width: 50px;
+.times {
+  font-size: x-large;
   position: absolute;
-  border: blueviolet 2px solid;
-  background-image: url(/dist/asset/darkrose.png);
+}
+
+.line {
+  margin: 1% auto;
+  width: 90%;
+  border: white 1px solid;
+}
+
+.endGroup {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+}
+
+#evalMes {
+  font-family: "Dongle";
+  font-size: x-large;
+  margin-bottom: 1rem;
+}
+
+.evalOne {
+  margin-left: 0%;
+  width: 35%;
+  top: 0;
+}
+
+#percent {
+  padding-top: 2rem;
+  margin-left: 10%;
+}
+
+#eval {
+  margin-left: 40%;
+}
+
+.theBar {
+  width: 35%;
+  top: 0;
+  padding-bottom: 2rem;
+}
+
+#all {
+  color: #fcee2c;
+  display: flex;
+  flex-direction: column;
+  margin-top: -10rem;
 }
 
 .sky {
@@ -522,6 +580,13 @@ img {
 }
 
 .header {
+  font-family: "Flavors";
+  font-size: xx-large;
+  color: #bd491b;
+  text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+}
+
+#display {
   font-family: "Flavors";
   font-size: xx-large;
   color: #bd491b;

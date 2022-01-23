@@ -92,16 +92,24 @@
 }
 .evalOne {
     margin-left: 0%;
-    width: 45%;
+    width: 35%;
     top:0;
 }
 #percent {
+padding-top: 2rem;
     margin-left: 10%;
 }
 #eval {
     margin-left: 40%;
 }
 .theBar {
-    width: 50%;
+    width: 35%;
     top:0;
+padding-bottom: 2rem;
+}
+#all {
+color:#fcee2c;
+  display: flex;
+    flex-direction:column;
+    margin-top: -10rem;
 }
