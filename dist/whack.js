@@ -22,7 +22,7 @@ let roundScore1 = 0;
 let roundScore2 = 0;
 let roundScore3 = 0;
 let roundScore4 = 0;
-let totalScore = [0];
+let totalScore = [];
 let result = 0;
 let percent = 0;
 let min = round;
@@ -36,7 +36,7 @@ let start = document.getElementById('start');
 let time = document.getElementById('time');
 let wBox2 = document.querySelectorAll(".wBox2");
 let holes = document.querySelectorAll(".darkhole");
-let whiteBoxes = document.getElementsByClassName(".whiteBoxes")[0];
+let whiteBoxes = document.getElementsByClassName("whiteBoxes")[0];
 let mole1 = document.querySelectorAll(".mole1");
 let mole2 = document.querySelectorAll(".mole2");
 let mole3 = document.querySelectorAll(".mole3");
@@ -79,10 +79,10 @@ start.addEventListener("click", () => {
         result = choice(min, max);
         console.log(result);
         if (result % 2 == 0) {
-            popUpsPlus()
+            displayCash()
         }
         else {
-            popUpsMinus()
+            displayMole()
         };
     }, 1000);
 
@@ -93,7 +93,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    }, 5900); //shortened for debugging mode
+    }, 35900); //shortened for debugging mode
 });
 
 function choice(min, max) {
@@ -101,65 +101,94 @@ function choice(min, max) {
     return result;
 };
 
-const popUpsMinus = () => {
-    holes[Math.floor(Math.random() * holes.length)].classList.add(`mole${round}`);
-    console.log("pop-");
-    {
-        let clear = window.setInterval(() => {
-            // if (holes) 
-            let clearHole = document.querySelectorAll(`.mole${round}`);
-            clearHole.forEach((val) => {
-                val.classList.replace(`mole${round}`, "darkhole");
-            })
-        }, 2000);
+const displayMole = () => {
 
-        window.setTimeout(() => {
-            window.clearInterval(clear);
-            document.getElementsByClassName("whiteBoxes")[0].classList.remove('color');
-            document.getElementsByClassName(`.mole${round}`)[0].classList.remove(`mole${round}`);
-        }, 2000);
-
-        holes.forEach((val) => {
-            val.addEventListener('click', (e) => {
-                document.getElementById('score').innerText = score;
-                if (e.target.classList.contains(`mole${round}`)) {
-                    e.target.classList.replace(`mole${round}`, "splat");
-                    score = score - 15;
-                    minusAmt++;
-                    minusScore = minusVal * minusAmt;
-                }
-            })
-        })
+    let randomHole = null;
+    let isRandomHoleAvailable = false;
+    while (isRandomHoleAvailable === false) {
+        randomHole = Math.floor(Math.random() * holes.length);
+        isRandomHoleAvailable = !(holes[randomHole].classList.contains(`mole${round}`)) || !(holes[randomHole].classList.contains(`cash${round}`));
     }
+    let clear = window.setInterval(() => {
+        holes[randomHole].classList.add(`mole${round}`);
+
+        //      let clearHole = document.querySelectorAll(`.mole${round}`);
+        // clearHole.forEach((val) => {
+        //val.classList.replace(`mole${round}`, "darkhole");
+        //console.log("val.classList", val.classList)
+        // val.classList.remove(`mole${round}`); 
+    }, 2000)
+    window.setTimeout(() => {
+        window.clearInterval(clear);
+        holes[randomHole].classList.remove(`mole${round}`);
+
+        console.log("round", round);
+    whiteBoxes.classList.remove('color');
+    }, 2000);
+
+    holes.forEach((val) => {
+        val.addEventListener('click', (e) => {
+            document.getElementById('score').innerText = score;
+            if (e.target.classList.contains(`mole${round}`)) {
+                e.target.classList.replace(`mole${round}`, "splat");
+                score = score - 15;
+                minusAmt++;
+                minusScore = minusVal * minusAmt;
+            }
+        })
+    })
 };
 
-const popUpsPlus = () => {
-    holes[Math.floor(Math.random() * holes.length)].classList.add(`cash${round}`);
-    console.log("pop+");
-    {
-        let clear1 = window.setInterval(() => {
-            console.log("clear");
-            let clearHole1 = document.querySelectorAll(`.cash${round}`);
-            clearHole1.forEach((val) => {
-                val.classList.replace(`cash${round}`, "darkhole");
-            })
-        }, 2000);
-        window.setTimeout(() => {
-            window.clearInterval(clear1);
-        }, 2000);
+const displayCash = () => {
 
-        holes.forEach((val) => {
-            val.addEventListener('click', (e) => {
-                document.getElementById('score').innerText = score;
-                if (e.target.classList.contains(`cash${round}`)) {
-                    e.target.classList.replace(`cash${round}`, "smash")
-                    score = score + 50;
-                    plusAmt++;
-                    plusScore = plusVal * plusAmt;
-                }
-            })
-        })
+    let randomHole = null;
+    let isRandomHoleAvailable = false;
+    while (isRandomHoleAvailable === false) {
+        randomHole = Math.floor(Math.random() * holes.length);
+        isRandomHoleAvailable = !(holes[randomHole].classList.contains(`mole${round}`)) || !(holes[randomHole].classList.contains(`cash${round}`));
     }
+    // holes[randomHole].classList.add(`cash${round}`);
+
+
+    // let clear1 = window.setInterval(() => {
+    //     console.log("clear");
+    //     let clearHole1 = document.querySelectorAll(`.cash${round}`);
+    //     clearHole1.forEach((val) => {
+    //         //val.classList.replace(`cash${round}`, "darkhole");
+    //         val.classList.remove(`cash${round}`);//, "darkhole");
+    //     })
+    // }, 2000);
+    // window.setTimeout(() => {
+    //     window.clearInterval(clear1);
+ let clear = window.setInterval(() => {
+        holes[randomHole].classList.add(`cash${round}`);
+
+        //      let clearHole = document.querySelectorAll(`.mole${round}`);
+        // clearHole.forEach((val) => {
+        //val.classList.replace(`mole${round}`, "darkhole");
+        //console.log("val.classList", val.classList)
+        // val.classList.remove(`mole${round}`); 
+    }, 2000)
+    window.setTimeout(() => {
+        window.clearInterval(clear);
+        holes[randomHole].classList.remove(`cash${round}`);
+
+        console.log("round", round);
+    whiteBoxes.classList.remove('color');
+    }, 2000);
+
+    holes.forEach((val) => {
+        val.addEventListener('click', (e) => {
+            document.getElementById('score').innerText = score;
+            if (e.target.classList.contains(`cash${round}`)) {
+                e.target.classList.replace(`cash${round}`, "smash")
+                score = score + 50;
+                plusAmt++;
+                plusScore = plusVal * plusAmt;
+            }
+        })
+    })
+
 };
 let resetHoles = window.setInterval(() => {
     let smash = document.querySelectorAll(".smash");
@@ -198,7 +227,6 @@ function hearts() {
 }
 // /////evaluation for percent to be converted and truncated
 function enough() {
-    console.log("when do you see me");
     percentage = roundScore / 3;
     percentage = Math.min(100, Math.max(0, percentage));
     percent = percentage.toFixed(2);
@@ -208,6 +236,13 @@ function roundEnd() {
     enough();
     totalScore.push(roundScore);
 
+  let clearHole = document.querySelectorAll(`.mole${round}`);
+        clearHole.forEach((val) => {
+        // val.classList.replace(`mole${round}`, "darkhole");
+        console.log("val.classList", val.classList)
+        val.classList.remove(`mole${round}`);
+        val.classList.remove(`cash${round}`);
+})
     document.getElementById('eval').style.visibility = "visible";
     document.getElementById("plusAmt").innerText = plusAmt;
     document.getElementById("plusValue").innerText = plusVal;
@@ -217,11 +252,12 @@ function roundEnd() {
     document.getElementById("minusScore").innerText = minusScore;
     document.getElementById("percent").innerText = percent + '%';
     document.getElementById("roundScore").innerText = roundScore;
-    document.getElementsByClassName("whiteBoxes")[0].classList.add('color');
+    whiteBoxes.classList.add('color');
 
-    if (roundScore < goal & life == 1) {
+    if (roundScore < goal && life == 1) {
         noHearts();
-    } else if (roundScore < goal & life > 1) {
+    }
+    else if (roundScore < goal && life > 1) {
         totalScore.pop(roundScore);
         console.log(totalScore);
         life--
@@ -232,7 +268,8 @@ function roundEnd() {
         document.getElementById('eval').append(tryAgain);
         tryAgain.innerText = `${heart}`;
         tryAgain.addEventListener("click", useHeart);
-    } else {
+    }
+    else {
         round++
         statusMessage(`Advance to the next level!`);
         let advance = document.getElementById('eval');
@@ -243,12 +280,11 @@ function roundEnd() {
     }
 }
 
-let sum = 0;
-let returnedSum = sumArr;
-console.log(sumArr(totalScore));
+//let returnedSum = sumArr;
+//console.log(sumArr(totalScore));
 
-function sumArr(totalScore) {
-
+function sumArr() {
+    let sum = 0;
     for (let i = 0; i < totalScore.length; i++) {
         sum += totalScore[i];
     }
@@ -283,7 +319,7 @@ function roundGsap() {
         .fromTo(".evalOne", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, ease: "power2" })
         .from("#eval", { x: "-30%" });
 
-        console.log(round);
+    console.log(round);
 
     if (round == 4) {
         gameEnd();
@@ -301,7 +337,7 @@ function roundUp() {
     minusScore = 0;
 
 
-    document.getElementsByClassName("whiteBoxes")[0].classList.remove('color');
+    whiteBoxes.classList.remove('color');
     document.getElementById('eval').innerText = '';
     document.getElementById('score').innerText = score;
     document.getElementById('eval').style.visibility = "hidden";
@@ -315,8 +351,11 @@ function roundUp() {
     gsap.to(".roundModal", { y: "-100%", duration: 2, ease: "power1" });
     gsap.fromTo(".start", { opacity: 0, scale: 0 }, { duration: 2.5, opacity: 1, scale: 1, ease: "elastic" })
 }
-function gameEnd(){
-    sumArr();
-    console.log(sumArr(totalScore));
-    console.log(sumArr);
+function gameEnd() {
+
+    //sumArr();
+    console.log("totalScore", totalScore);
+    console.log(sumArr());
+
+    //console.log(sumArr);
 }
