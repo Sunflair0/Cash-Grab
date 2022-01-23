@@ -10,11 +10,54 @@
     @include flexShell;   
     flex-basis: 23%;  
 }
-.header{
+.head_font{
     font-family: 'Flavors';
     font-size: xx-large;
     color: rgb(189, 73, 27);
     text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+}
+.choice {
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    font-size: medium;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
+    border: rgb(0, 0, 0) 2px solid;  
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-color: rgb(69, 95, 43);
+
+
+     &:checked + .choice{
+        border: red solid 5px;
+    }
+}
+form {
+    display: flex;
+   
+    border-radius: 50%;
+    
+
+ &:hover {
+        background-color: red;
+    }
+
+}
+.difficulty{
+     
+    position:absolute;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+    
+  
+}
+.choice input {
+    position:absolute;
+    opacity: 0;
+    cursor: pointer;
 }
 #display {
     font-family: 'Flavors';

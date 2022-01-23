@@ -55,7 +55,27 @@
     </div>
     <div class="sky">
         <div class="header">
-            <h1>Cash Smash</h1>
+            <div class="head_font">
+                <h1>Cash Smash</h1>
+            </div>
+            <form>
+                <div class="difficulty">
+                <table>
+                    <tr>
+                        <td><label class="choice">EASY<input type="radio" name="difficult" value="easy" id="easy" 
+                                onchange="difficultyLevel()"></label><br>
+                        </td>
+                        <td><label class="choice">MED<input type="radio" name="difficult" value="med" id="med" class="choice"
+                                onchange="difficultyLevel()" checked></label><br>
+                        </td>
+                        <td><label class="choice">HARD<input type="radio" name="difficult" value="hard" id="hard" class="choice"
+                                onchange="difficultyLevel()"></label><br>
+                        </td>
+                    </tr>
+                </table>
+                
+                </div>
+            </form>
         </div>
     </div>
     <div class="ground">
@@ -91,13 +111,13 @@
             </div>
             <div class="wBox5">
                 <div class="wBox5a">Next:</div>
-                    
+
                 <div class="wBox5b round1"><img src="asset/round2.png" id="wBox5"></div>
             </div>
-        
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script>
-    <script type="text/javascript" src="whack.js" defer></script>
+
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script>
+        <script type="text/javascript" src="whack.js" defer></script>
 </body>
 
 </html>

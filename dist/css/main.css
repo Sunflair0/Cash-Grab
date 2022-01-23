@@ -717,11 +717,62 @@ img #first {
       flex-basis: 23%;
 }
 
-.header {
+.head_font {
   font-family: 'Flavors';
   font-size: xx-large;
   color: #bd491b;
   text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+}
+
+.choice {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  position: relative;
+  font-size: medium;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 0;
+  border: black 2px solid;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background-color: #455f2b;
+}
+
+.choice:checked + .choice {
+  border: red solid 5px;
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 50%;
+}
+
+form:hover {
+  background-color: red;
+}
+
+.difficulty {
+  position: absolute;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: large;
+}
+
+.choice input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
 }
 
 #display {
