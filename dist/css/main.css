@@ -444,6 +444,10 @@ img #first {
   display: -ms-flexbox;
   display: flex;
   max-width: 100px;
+  height: 100%;
+  z-index: 10;
+  -webkit-transform: translate(0%, -65%);
+          transform: translate(0%, -65%);
 }
 
 .heart1, .heart2, .heart3, .heart4 {
@@ -454,6 +458,8 @@ img #first {
   margin: 1px;
   color: red;
   font-size: small;
+  margin-top: 10vh;
+  z-index: 10;
 }
 
 .wBox4 {
@@ -542,7 +548,6 @@ img #first {
   height: 65%;
   width: 80%;
   color: white;
-  top: 10%;
   top: -100%;
   position: fixed;
   border-style: ridge;
@@ -603,7 +608,7 @@ img #first {
   height: 1.5em;
   width: 300px;
   border-radius: 15px;
-  color: #da1111;
+  margin-right: -10vw;
 }
 
 .progress-bar::before {
@@ -634,6 +639,7 @@ img #first {
   -webkit-box-align: right;
       -ms-flex-align: right;
           align-items: right;
+  margin-right: 2vw;
 }
 
 .times {
@@ -666,12 +672,12 @@ img #first {
 
 .evalOne {
   margin-left: 0%;
-  width: 45%;
+  width: 35%;
   top: 0;
 }
 
 #percent {
-  margin-left: 10%;
+  padding-top: 2rem;
 }
 
 #eval {
@@ -679,8 +685,22 @@ img #first {
 }
 
 .theBar {
-  width: 50%;
+  width: 35%;
   top: 0;
+  padding-bottom: 1rem;
+  margin-left: 20vw;
+}
+
+#all {
+  color: #fcee2c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: -10rem;
 }
 
 .sky {

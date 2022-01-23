@@ -3,7 +3,6 @@
     height: 65%;
     width: 80%;
     color:white;
-    top: 10%;
     top: -100%;     
    position: fixed;  
    border-style: ridge;
@@ -43,7 +42,8 @@
     height: 1.5em;
     width: 300px;
     border-radius: 15px;
-    color: rgb(218, 17, 17);
+    margin-right: -10vw;
+   
 
       &::before {
           content: attr(data-label);
@@ -69,6 +69,7 @@
     display: flex;
     justify-content: right;
     align-items: right;   
+    margin-right: 2vw;
 }
 
 .times {    
@@ -97,7 +98,6 @@
 }
 #percent {
 padding-top: 2rem;
-    margin-left: 10%;
 }
 #eval {
     margin-left: 40%;
@@ -105,7 +105,8 @@ padding-top: 2rem;
 .theBar {
     width: 35%;
     top:0;
-padding-bottom: 2rem;
+    padding-bottom: 1rem;
+    margin-left: 20vw;
 }
 #all {
 color:#fcee2c;

@@ -80,6 +80,9 @@
 .heartBox {
     display: flex;
     max-width: 100px;
+    height: 100%;
+    z-index: 10;
+    transform:translate(0%,-65%);
 }
 .heart1, .heart2, .heart3, .heart4 {
     display: flex;
@@ -87,6 +90,8 @@
     margin: 1px;
     color: rgb(255, 0, 0);
     font-size: small;    
+    margin-top: 10vh;
+    z-index: 10;
 }
 .wBox4 {   
     display: flex;

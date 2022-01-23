@@ -93,7 +93,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    }, 35900); //shortened for debugging mode
+    }, 5900); //shortened for debugging mode
 });
 
 function choice(min, max) {
@@ -122,7 +122,7 @@ const displayMole = () => {
         window.clearInterval(clear);
         holes[randomHole].classList.remove(`mole${round}`);
     whiteBoxes.classList.remove('color');
-    }, 2000);
+    }, 3000);
 
     holes.forEach((val) => {
         val.addEventListener('click', (e) => {
@@ -173,7 +173,7 @@ const displayCash = () => {
 
         console.log("round", round);
     whiteBoxes.classList.remove('color');
-    }, 2000);
+    }, 3000);
 
     holes.forEach((val) => {
         val.addEventListener('click', (e) => {
@@ -220,7 +220,6 @@ function hearts() {
         let hearts = document.getElementsByClassName(`heart${i}`)[0];
         hearts.innerText = `${heart}`;
         hearts.style.opacity = 1;
-        hearts.style.transform = "translate(0px, 0px)";
     }
 }
 // /////evaluation for percent to be converted and truncated
@@ -289,7 +288,7 @@ function sumArr() {
     return sum;
 }
 function useHeart() {
-    gsap.to(`.heart${life}`, { opacity: 0, duration: 1.5, y: -50 });
+    gsap.to(`.heart${life}`, { opacity: 0, duration: 2.5, y: -100, rotation: 720, scale: 0 });
     console.log(life);
     roundUp()
 };
