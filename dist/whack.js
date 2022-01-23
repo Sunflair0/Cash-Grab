@@ -27,6 +27,7 @@ let goal = 300;
 let heart = '\u{2764}';
 let trophy = '\u{1f3c6}';
 let restart = '\u{21ba}';
+let all = document.getElementById('all');
 let start = document.getElementById('start');
 let time = document.getElementById('time');
 let wBox2 = document.querySelectorAll(".wBox2");
