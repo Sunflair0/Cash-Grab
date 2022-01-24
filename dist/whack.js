@@ -32,6 +32,7 @@ let goal = 300;
 let heart = '\u{2764}';
 let trophy = '\u{1f3c6}';
 let restart = '\u{21ba}';
+let finger = '\u{261e}';
 let start = document.getElementById('start');
 let time = document.getElementById('time');
 let whiteBoxes = document.getElementsByClassName("whiteBoxes")[0];
@@ -49,22 +50,38 @@ let minCash1 = document.querySelectorAll("#minCash1");
 let minCash2 = document.querySelectorAll("#minCash2");
 let minCash3 = document.querySelectorAll("#minCash3");
 let minCash4 = document.querySelectorAll("#minCash4");
+let difficulty =document.getElementById('difficulty');
+let choiceStack = document.getElementsByClassName('choice')[0];
 const darkmole = [mole1, mole2, mole3, mole4];
 const darkcash = [cash1, cash2, cash3, cash4];
 let mole = darkmole[round];
 let cash = darkcash[round];
 let seconds;
 
-window.onload = hearts();
+window.onload = hearts(), begin(), semaChoice();
+
+function semaChoice(){
+    choiceStack.setAttribute('style','right:-20%;');
+    document.getElementById('finger').innerText = `${finger}`;
+    window.addEventListener("click", difficultyLevel);
+    let tl = gsap.timeline();
+    tl
+    .to("#finger", {x: "20%", repeat:5, yoyo:true, duration: .3, delay: 3})
+    .to("#finger", {x: "20%", repeat:5, yoyo:true, duration: .3, delay: 5});
+}
 function difficultyLevel(){
+    choiceStack.setAttribute('style','right:0;');
     if (document.getElementById('easy').checked) {
-         seconds = 2000
+         seconds = 2000;
+         difficulty.innerText = 'EASY';
     }
     if (document.getElementById('med').checked) {
-         seconds = 1000
+         seconds = 1000;
+         difficulty.innerText = 'MED';
     }
     if (document.getElementById('hard').checked) {
-         seconds = 500
+         seconds = 500;
+         difficulty.innerText = 'HARD';
     }
 }
 
@@ -149,7 +166,6 @@ const displayMole = () => {
 };
 
 const displayCash = () => {
-
     let randomHole = null;
     let isRandomHoleAvailable = false;
     while (isRandomHoleAvailable === false) {
@@ -305,7 +321,6 @@ function useHeart() {
     roundUp()
 };
 function noHearts() {
-    console.log('the end');
     statusMessage(`Uh oh! No more hearts.\nPush restart to play again.`);
 
     let doOver = document.getElementById('eval');

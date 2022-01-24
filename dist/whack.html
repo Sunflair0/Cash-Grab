@@ -53,27 +53,25 @@
             </div>
         </div>
     </div>
-    <div class="sky">
-        <div class="header">
-            <div class="head_font">
+    <div class="sky">       
+        <div class="head_font">
                 <h1>Cash Smash</h1>
             </div>
+        <div class="choiceblock"> 
+            <div id="finger"></div>
+        <div id="difficulty"></div></div>
+        <div class="header">
+            
             <form>
                 <div class="choice">
-                <table>
-                    <tr>
-                        <td><label class="button easy">EASY<input type="radio" name="difficult" value="easy" id="easy" 
-                                onchange="difficultyLevel()"></label><br>
-                        </td>
-                        <td><label class="button med">MED<input type="radio" name="difficult" value="med" id="med" class="choice"
-                                onchange="difficultyLevel()" checked></label><br>
-                        </td>
-                        <td><label class="button hard">HARD<input type="radio" name="difficult" value="hard" id="hard" class="choice"
-                                onchange="difficultyLevel()"></label><br>
-                        </td>
-                    </tr>
-                </table>
-                
+                    <ul>
+                        <li><label class="buttons easy"><input type="radio" name="difficult" value="easy" id="easy"
+                                    onchange="difficultyLevel()"></label><br>EASY</li>
+                        <li><label class="buttons med"><input type="radio" name="difficult" value="med" id="med"
+                                    onchange="difficultyLevel()" checked></label><br>MED</li>
+                        <li><label class="buttons hard"><input type="radio" name="difficult" value="hard" id="hard"
+                                    onchange="difficultyLevel()"></label><br>HARD</li>
+                    </ul>
                 </div>
             </form>
         </div>

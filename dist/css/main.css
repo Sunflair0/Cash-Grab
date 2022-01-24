@@ -717,6 +717,37 @@ img #first {
       flex-basis: 23%;
 }
 
+.choiceblock {
+  border: yellowgreen 2px solid;
+  right: 0;
+  position: absolute;
+}
+
+#finger {
+  font-size: 60px;
+  width: 60px;
+  height: 60px;
+  background-color: black;
+  color: silver;
+}
+
+#difficulty {
+  font-weight: 700;
+  background-color: black;
+  height: 25px;
+  width: 45px;
+  color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .head_font {
   font-family: 'Flavors';
   font-size: xx-large;
@@ -724,46 +755,85 @@ img #first {
   text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
 }
 
-td .button {
+ul .buttons {
   float: left;
   font-size: medium;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-left: 10px;
+  margin: 15%;
   border-radius: 100%;
-  border: #726b6b 2px solid;
-  height: 50px;
-  width: 50px;
-  background: #c4ac5d;
-  -webkit-box-shadow: inset 5px -5px 5px 5px #7579a5;
-          box-shadow: inset 5px -5px 5px 5px #7579a5;
+  border-top: #535353 1px solid;
+  height: 33px;
+  width: 33px;
+  background: #8a8a8a;
+  -webkit-box-shadow: inset 2px -5px 5px 1px #cbd5e9;
+          box-shadow: inset 2px -5px 5px 1px #cbd5e9;
   cursor: pointer;
 }
 
-table {
-  display: block;
-  right: 0;
+ul .buttons:checked {
+  background: yellowgreen;
+}
+
+ul .buttons::before {
+  content: "";
+  position: fixed;
+  float: left;
+  height: 23px;
+  width: 23px;
+  border-radius: 100%;
+  border: #4b4b4b solid 1px;
+  margin: 5px -5px 10px 5px;
+  background: #d8d5d5;
+  -webkit-box-shadow: 1px -2px 7px 0px black, -1px 7px 15px #aaa6a6, inset 1px -2px 7px 0px #86878f, inset 0px -2px 10px 0 black;
+          box-shadow: 1px -2px 7px 0px black, -1px 7px 15px #aaa6a6, inset 1px -2px 7px 0px #86878f, inset 0px -2px 10px 0 black;
+}
+
+.clear-float {
+  clear: both;
+}
+
+ul {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .choice {
-  height: 80px;
-  width: 200px;
+  color: white;
+  height: 200px;
+  width: 70px;
+  top: 0%;
   background: black;
   position: absolute;
+  right: -200%;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: large;
+  font-size: small;
+  border-left: black 5px solid;
 }
 
 .choice::before {
   content: "";
-  height: 80px;
-  width: 10px;
-  margin-right: 80%;
-  background: #be0f0f;
+  height: 100%;
+  width: 100%;
+}
+
+.easy {
+  height: 133px;
+  width: 133px;
+}
+
+.med::hover + :checked {
+  background: #cfcc18;
+  border: 3px solid #cfcc18;
+  height: 33px;
+  width: 33px;
+}
+
+.hard::hover {
+  background-color: maroon;
+  border: 3px solid maroon;
+  height: 33px;
+  width: 33px;
 }
 
 .choice input {
