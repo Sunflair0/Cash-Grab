@@ -1,0 +1,152 @@
+.sky {
+    @include flexShell;   
+    flex-basis: 23%;  
+}
+.head_font{
+    font-family: 'Flavors';
+    font-size: xx-large;
+    color: rgb(189, 73, 27);
+    text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+}
+.header {
+    font-weight: 700;
+}
+.choiceblock {
+    display: flex;
+    height: 60px;
+    flex-direction: column;
+    right: 0;
+    position:absolute;
+    margin-top: -30px;
+}
+#level {
+    font-weight: 700;
+    font-size: 100;
+    width: 80px;
+    height: 60px;
+    background-color: rgb(0, 0, 0);
+    color: silver;
+    margin-top: 0px;
+    margin-right: 0%;
+    padding: 5px 0 0 20px;
+    cursor: pointer;
+    transition: .3s ease all;
+    border: orange 2px solid;
+}
+#padlock {
+    display: flex;
+    height: 30px;
+    width: 20px;
+    margin-top: 0px;    
+    margin-right: 40%;
+    position: fixed;
+}
+#finger {
+    font-size: 60px;
+    width: 80px;
+    height: 63px;
+    color: silver;
+    margin-top: -60px;        
+}
+li .buttons{        
+    //display: flex;
+    float: left;
+    font-size: medium;    
+    margin: 0 5%;
+    margin-top: 30%;
+    border-radius: 100%;
+    border-top: rgb(32, 19, 19) 1px solid;
+    height: 33px;
+    width: 33px;    
+    background: rgb(66, 66, 66);
+    box-shadow: 
+    inset 2px -5px 5px 1px rgb(95, 95, 95);   
+    cursor: pointer;
+
+    &::before {
+        content: "";
+        position: fixed;
+        float: left;
+        height: 23px;
+        width: 23px;
+        border-radius: 100%;
+        border: rgb(46, 29, 29) solid 1px;   
+        margin: 5px -5px 10px 5px; 
+        background: rgba(252, 246, 246, 0.418); 
+        box-shadow: 
+            1px -2px 7px 0px rgb(0, 0, 0),
+            -1px  7px 15px rgb(155, 144, 144),
+            inset 1px -2px 7px 0px rgb(9, 12, 34),
+            inset 0px -2px 10px 0 rgb(34, 23, 23);        
+    }  
+}
+.clear-float{
+    clear:both;
+}
+ul {   
+    flex-direction: column;
+}
+.close {
+    margin-left: 0%;
+    color: rgb(255, 255, 255);        
+    position: relative;
+    height: 20px;
+    width: 20px;        
+    cursor: pointer;
+}
+.choice {    
+    //display: flex;
+    color: white;    
+    //height: 220px;    
+    width: 80px;    
+    top: 30px;
+    background: rgb(0, 0, 0);
+    position:absolute;
+    //margin-right:20%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: small;   
+    right: 0%;
+    transition: .5s ease all;
+
+        // &::before {
+        // content: '';
+        // color: rgb(255, 255, 255);
+        // z-index: 10;
+        // position: relative;
+        // height: 20px;
+        // width: 20px; 
+        // z-index: 1;
+        // }
+}
+.easy:checked + .buttons{
+    background: #13f713;
+}  
+.med:checked + .buttons{
+    background: #cfcc18;
+}
+.hard:checked + .buttons{
+    background: #ff1717;
+}
+
+//button labels
+li:nth-child(2){
+    color: #70fd70;
+}
+li:nth-child(3){
+    color: #f1ef45;
+}
+li:nth-child(4){
+    color: #fd5555;
+}
+.choice input {
+    opacity: 0;     
+    margin-right: -20%;
+    
+    //position: fixed;
+}
+#display {
+    font-family: 'Flavors';
+    font-size: xx-large;
+    color: rgb(189, 73, 27);
+    text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+}

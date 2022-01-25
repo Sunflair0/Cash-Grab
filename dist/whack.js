@@ -29,13 +29,17 @@ let min = round;
 let max = round + 1;
 let life = 5;
 let goal = 300;
+let hand = '\u{261e}';
+let lock = '\u{1f512}';
+let unlock= '\u{1f513}';
 let heart = '\u{2764}';
 let trophy = '\u{1f3c6}';
 let restart = '\u{21ba}';
-let finger = '\u{261e}';
+
 let start = document.getElementById('start');
 let time = document.getElementById('time');
 let whiteBoxes = document.getElementsByClassName("whiteBoxes")[0];
+let close = document.getElementsByClassName('close')[0];
 let wBox2 = document.querySelectorAll(".wBox2");
 let holes = document.querySelectorAll(".darkhole");
 let mole1 = document.querySelectorAll(".mole1");
@@ -50,49 +54,69 @@ let minCash1 = document.querySelectorAll("#minCash1");
 let minCash2 = document.querySelectorAll("#minCash2");
 let minCash3 = document.querySelectorAll("#minCash3");
 let minCash4 = document.querySelectorAll("#minCash4");
-let difficulty =document.getElementById('difficulty');
+let level =document.getElementById('level');
+let padlock =document.getElementById('padlock');
+let finger =document.getElementById('finger');
 let choiceStack = document.getElementsByClassName('choice')[0];
+let choiceBlock = document.getElementById('choiceBlock');
 const darkmole = [mole1, mole2, mole3, mole4];
 const darkcash = [cash1, cash2, cash3, cash4];
 let mole = darkmole[round];
 let cash = darkcash[round];
 let seconds;
 
-window.onload = hearts(), begin(), semaChoice();
+window.onload = hearts(), begin(), levelChoice();
 
-function semaChoice(){
+function levelChoice(){
+    choiceBlock.classList.add('choice');
     choiceStack.setAttribute('style','right:-20%;');
-    document.getElementById('finger').innerText = `${finger}`;
-    window.addEventListener("click", difficultyLevel);
+    level.innerText = 'CLICK';    
+    finger.innerText = `${hand}`;
+    padlock.innerText = `${unlock}`;
+    finger.addEventListener("click", difficultyLevel);
     let tl = gsap.timeline();
     tl
     .to("#finger", {x: "20%", repeat:5, yoyo:true, duration: .3, delay: 3})
     .to("#finger", {x: "20%", repeat:5, yoyo:true, duration: .3, delay: 5});
 }
 function difficultyLevel(){
-    choiceStack.setAttribute('style','right:0;');
+    choiceStack.setAttribute('style','right: 0%;');
+    level.setAttribute('style','height:30px;');
+    finger.innerText = ''; 
+    close.addEventListener("click", doneLevel);
+    level.innerText = `${unlock}`;
+
     if (document.getElementById('easy').checked) {
          seconds = 2000;
-         difficulty.innerText = 'EASY';
+         level.innerText = 'EASY';
+         level.style.color ='#5dca5d';
     }
     if (document.getElementById('med').checked) {
          seconds = 1000;
-         difficulty.innerText = 'MED';
+         level.innerText = 'MED';
+         level.style.color ='#f3f365';
     }
     if (document.getElementById('hard').checked) {
          seconds = 500;
-         difficulty.innerText = 'HARD';
+         level.innerText = 'HARD';
+         level.style.color ='#fd7575';
     }
 }
+ function doneLevel() {
+     choiceStack.setAttribute('style','right:-20%;');
+     choiceBlock.setAttribute('style','height:30px;');
+ }
 
 function begin() {
     life = 5;
     round = 1;
     roundUp();
-    difficultyLevel();
 }
 
 start.addEventListener("click", () => {
+    choiceBlock.classList.remove('choice');
+    padlock.innerText = `${lock}`;
+
     document.getElementsByClassName('header')[0].style.visibility = "hidden";
     start.style.visibility = "hidden";
     document.getElementsByClassName('wBox2')[0].style.visibility = "visible";

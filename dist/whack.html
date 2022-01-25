@@ -53,28 +53,30 @@
             </div>
         </div>
     </div>
-    <div class="sky">       
-        <div class="head_font">
-                <h1>Cash Smash</h1>
-            </div>
-        <div class="choiceblock"> 
-            <div id="finger"></div>
-        <div id="difficulty"></div></div>
-        <div class="header">
-            
+    <div class="sky">
+
+        <div class="choiceblock" id="choiceBlock">
+            <div id="level"></div>
+            <div id="padlock"></div>
+            <div id="finger"></div>            
+        </div>
+        <div class="head_font">            
+            <div class="header" id="header"></div>
+        </div>
             <form>
                 <div class="choice">
-                    <ul>
-                        <li><label class="buttons easy"><input type="radio" name="difficult" value="easy" id="easy"
-                                    onchange="difficultyLevel()"></label><br>EASY</li>
-                        <li><label class="buttons med"><input type="radio" name="difficult" value="med" id="med"
-                                    onchange="difficultyLevel()" checked></label><br>MED</li>
-                        <li><label class="buttons hard"><input type="radio" name="difficult" value="hard" id="hard"
-                                    onchange="difficultyLevel()"></label><br>HARD</li>
+                    <ul><li class="close" onchange="doneLevel()">&#9949</li>
+                        <li><input type="radio" class='easy' name="difficult" value="easy" id="easy"
+                                onchange="difficultyLevel()"><label for="easy" class="buttons"></label>EASY</li>
+                        <li><input  type="radio" class='med' name="difficult" value="med" id="med"
+                                onchange="difficultyLevel()" checked><label for="med" class="buttons"></label>MED</li>
+                        <li><input type="radio" class='hard' name="difficult" value="hard" id="hard"
+                                onchange="difficultyLevel()"><label for="hard" class="buttons"> </label>HARD
+                        </li>                        
                     </ul>
                 </div>
             </form>
-        </div>
+        
     </div>
     <div class="ground">
         <div class="gameIcon darkhole"></div>
