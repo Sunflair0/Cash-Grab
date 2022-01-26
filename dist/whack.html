@@ -49,13 +49,34 @@
                 <div class="progress-bar" style="--width: 20" data-label="Goal = 300" id="achieve"></div>
                 <div id="percent"></div>
                 <div id="roundScore"></div>
+                <div id="all"></div>
             </div>
         </div>
     </div>
     <div class="sky">
-        <div class="header">
-            <h1>Cash Smash</h1>
+
+        <div class="choiceblock" id="choiceBlock">
+            <div id="level"></div>
+            <div id="padlock"></div>
+            <div id="finger"></div>            
         </div>
+        <div class="head_font">            
+            <div class="header" id="header"></div>
+        </div>
+            <form>
+                <div class="choice">
+                    <ul><li class="close" onchange="doneLevel()">&#9949</li>
+                        <li><input type="radio" class='easy' name="difficult" value="easy" id="easy"
+                                onchange="difficultyLevel()" ><label for="easy" class="buttons"></label>EASY</li>
+                        <li><input  type="radio" class='med' name="difficult" value="med" id="med"
+                                onchange="difficultyLevel()" checked><label for="med" class="buttons"></label>MED </li>
+                        <li><input type="radio" class='hard' name="difficult" value="hard" id="hard"
+                                onchange="difficultyLevel()" ><label for="hard" class="buttons"> </label>HARD
+                        </li>                        
+                    </ul>
+                </div>
+            </form>
+        
     </div>
     <div class="ground">
         <div class="gameIcon darkhole"></div>
@@ -77,10 +98,10 @@
             <div class="wBox2">Seconds<br><span id="time">:30</span></div>
             <div class="wBox3">Score:<br><span id="score">0</span>
                 <div class="heartBox">
-                    <div class="heart1">g</div>
-                    <div class="heart2">g</div>
-                    <div class="heart3">g</div>
-                    <div class="heart4">g</div>
+                    <div class="heart1"></div>
+                    <div class="heart2"></div>
+                    <div class="heart3"></div>
+                    <div class="heart4"></div>
                 </div>
             </div>
             <div class="wBox4">
@@ -88,13 +109,15 @@
                 </div>
                 <div class="antiScore"><img src="asset/mole1.png" id="second"> </div>
             </div>
-            <div class="wBox5">Next:<br>
-                <div class="round1"></div><img src="asset/round2.png" id="wBox5">
+            <div class="wBox5">
+                <div class="wBox5a">Next:</div>
+
+                <div class="wBox5b round1"><img src="asset/round2.png" id="wBox5"></div>
             </div>
+
         </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script>
-    <script type="text/javascript" src="whack.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script>
+        <script type="text/javascript" src="whack.js" defer></script>
 </body>
 
 </html>

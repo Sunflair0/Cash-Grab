@@ -18,21 +18,29 @@ let minusAmt = 0;
 let minusVal = -15;
 let minusScore = 0;
 let roundScore = 0;
+let roundScore1 = 0;
+let roundScore2 = 0;
+let roundScore3 = 0;
+let roundScore4 = 0;
+let totalScore = [];
 let result = 0;
 let percent = 0;
 let min = round;
 let max = round + 1;
 let life = 5;
-let goal = 300;
+let goal = 0;
+let hand = '\u{261e}';
+let lock = '\u{1f512}';
+let unlock= '\u{1f513}';
 let heart = '\u{2764}';
 let trophy = '\u{1f3c6}';
 let restart = '\u{21ba}';
-let all = document.getElementById('all');
 let start = document.getElementById('start');
 let time = document.getElementById('time');
+let whiteBoxes = document.getElementsByClassName("whiteBoxes")[0];
+let close = document.getElementsByClassName('close')[0];
 let wBox2 = document.querySelectorAll(".wBox2");
 let holes = document.querySelectorAll(".darkhole");
-let whiteBoxes = document.getElementsByClassName("whiteBoxes")[0];
 let mole1 = document.querySelectorAll(".mole1");
 let mole2 = document.querySelectorAll(".mole2");
 let mole3 = document.querySelectorAll(".mole3");
@@ -45,28 +53,78 @@ let minCash1 = document.querySelectorAll("#minCash1");
 let minCash2 = document.querySelectorAll("#minCash2");
 let minCash3 = document.querySelectorAll("#minCash3");
 let minCash4 = document.querySelectorAll("#minCash4");
+let header = document.getElementById('header');
+let level =document.getElementById('level');
+let padlock =document.getElementById('padlock');
+let finger =document.getElementById('finger');
+let choiceStack = document.getElementsByClassName('choice')[0];
+let choiceBlock = document.getElementById('choiceBlock');
 const darkmole = [mole1, mole2, mole3, mole4];
 const darkcash = [cash1, cash2, cash3, cash4];
 let mole = darkmole[round];
 let cash = darkcash[round];
+let seconds;
 
+window.onload = hearts(), begin(), levelChoice();
 
-window.onload=hearts();
+function levelChoice(){
+    choiceBlock.classList.add('choice');
+    choiceStack.setAttribute('style','right:-20%;');  
+    finger.innerText = `${hand}`;
+    padlock.innerText = `${unlock}`;
+    finger.addEventListener("click", difficultyLevel);
+    let tl = gsap.timeline();
+    tl
+    .to("#finger", {x: "20%", repeat:5, yoyo:true, duration: .3, delay: 3})
+    .to("#finger", {x: "20%", repeat:5, yoyo:true, duration: .3, delay: 5});
+}
+function difficultyLevel(){
+    choiceStack.setAttribute('style','right: 0%;');
+    level.setAttribute('style','height:30px;');
+    finger.innerText = ''; 
+    close.addEventListener("click", doneLevel);   
 
-// console.log(i) will give me 1 2 3 4, for the 4 hearts that are loaded. 
-// It works with the window.onload, but when hearts() is called, console.log(i) just gives me 1. 
-// That's it. I don't know why the loop is not working.   LINE 187.
-// Most everything works, but when trying to restart the game, the hearts will not re-load. 
-// console error is: 
-//
-//Uncaught TypeError: Cannot set properties of undefined (setting 'innerText')
-//at HTMLButtonElement.hearts (whack.js:191:67)
-//
-//To shorten gameplay for troubleshooting, change line 98
+    if (document.getElementById('easy').checked) {
+         seconds = 2000;
+         level.innerText = 'EASY';
+         level.style.color ='#5dca5d';
+         level.style.border ='#5dca5d 2px solid';
+
+    }
+    if (document.getElementById('med').checked) {
+         seconds = 1000;
+         level.innerText = 'MED';
+         level.style.color ='#f3f365';
+         level.style.border ='#f3f365 2px solid';
+    }
+    if (document.getElementById('hard').checked) {
+         seconds = 500;
+         level.innerText = 'HARD';
+         level.style.color ='#fd7575';
+         level.style.border ='#fd7575 2px solid';
+    }
+}
+ function doneLevel() {
+     choiceStack.setAttribute('style','right:-20%;');
+     choiceBlock.setAttribute('style','height:30px;');    
+     finger.innerText = '';     
+ }
+
+function begin() {
+    life = 5;
+    round = 1;
+    roundUp();
+    level.innerText = 'MED';  
+    header.innerText = "Cash Smash";
+}
 
 start.addEventListener("click", () => {
-    document.getElementsByClassName('header')[0].style.visibility = "hidden";
-    document.getElementById('start').style.visibility = "hidden";
+    doneLevel();
+    padlock.innerText = `${lock}`;
+    header.innerText= `Level ${round}`;
+    finger.removeEventListener("click", difficultyLevel);
+    choiceStack.setAttribute('style','right:-20%;');
+    start.style.visibility = "hidden";
     document.getElementsByClassName('wBox2')[0].style.visibility = "visible";
     let time = window.setInterval(() => {
         document.getElementById("time").innerText = ':' + timer;
@@ -74,19 +132,16 @@ start.addEventListener("click", () => {
     }, 1000);
 
     //choice between cash or mole
-
     let whereMole = window.setInterval(() => {
         result = choice(min, max);
         console.log(result);
         if (result % 2 == 0) {
-            popUpsPlus()
+            displayCash()
         }
         else {
-            popUpsMinus()
+            displayMole()
         };
     }, 1000);
-
-   
 
     window.setTimeout(() => {
         window.clearInterval(whereMole);
@@ -94,9 +149,8 @@ start.addEventListener("click", () => {
         document.getElementsByClassName('wBox2')[0].style.visibility = "hidden";
         document.getElementById('score').innerText = score;
         timer = 29
-        enough();
         roundGsap();
-    }, 30900); //shortened for debugging mode
+    }, 5900); //shortened for debugging mode
 });
 
 function choice(min, max) {
@@ -104,64 +158,92 @@ function choice(min, max) {
     return result;
 };
 
-const popUpsMinus = () => {
-    holes[Math.floor(Math.random() * holes.length)].classList.add(`mole${round}`);
-    console.log("pop-");
-    {
-        let clear = window.setInterval(() => {
-            let clearHole = document.querySelectorAll(`.mole${round}`);
-            clearHole.forEach((val) => {
-                val.classList.replace(`mole${round}`, "darkhole");
-            })
-        }, 2000);
+const displayMole = () => {
 
-        window.setTimeout(() => {
-            window.clearInterval(clear);
-        }, 2000);
-
-        holes.forEach((val) => {
-            val.addEventListener('click', (e) => {
-                document.getElementById('score').innerText = score;
-                if (e.target.classList.contains(`mole${round}`)) {
-                    e.target.classList.replace(`mole${round}`, "splat");
-                    score = score - 15;
-                    minusAmt++;
-                    minusScore = minusVal * minusAmt;
-                }
-            })
-        })
+    let randomHole = null;
+    let isRandomHoleAvailable = false;
+    while (isRandomHoleAvailable === false) {
+        randomHole = Math.floor(Math.random() * holes.length);
+        isRandomHoleAvailable = !(holes[randomHole].classList.contains(`mole${round}`)) || !(holes[randomHole].classList.contains(`cash${round}`));
     }
+    let clear = window.setInterval(() => {
+        holes[randomHole].classList.add(`mole${round}`);
+
+        //      let clearHole = document.querySelectorAll(`.mole${round}`);
+        // clearHole.forEach((val) => {
+        //val.classList.replace(`mole${round}`, "darkhole");
+        //console.log("val.classList", val.classList)
+        // val.classList.remove(`mole${round}`); 
+    }, 2000)
+    window.setTimeout(() => {
+        window.clearInterval(clear);
+        holes[randomHole].classList.remove(`mole${round}`);
+      
+    }, 3000);
+
+    holes.forEach((val) => {
+        val.addEventListener('click', (e) => {
+            document.getElementById('score').innerText = score;
+            if (e.target.classList.contains(`mole${round}`)) {
+                e.target.classList.replace(`mole${round}`, "splat");
+                score = score - 15;
+                minusAmt++;
+                minusScore = minusVal * minusAmt;
+            }
+        })
+    })
 };
 
-const popUpsPlus = () => {
-    holes[Math.floor(Math.random() * holes.length)].classList.add(`cash${round}`);
-    console.log("pop+");
-    {
-        let clear1 = window.setInterval(() => {
-            console.log("clear");
-            let clearHole1 = document.querySelectorAll(`.cash${round}`);
-            clearHole1.forEach((val) => {
-                val.classList.replace(`cash${round}`, "darkhole");
-            })
-        }, 2000);
-        window.setTimeout(() => {
-            window.clearInterval(clear1);
-        }, 2000);
-
-        holes.forEach((val) => {
-            val.addEventListener('click', (e) => {
-                document.getElementById('score').innerText = score;
-                if (e.target.classList.contains(`cash${round}`)) {
-                    e.target.classList.replace(`cash${round}`, "smash")
-                    score = score + 50;
-                    plusAmt++;
-                    plusScore = plusVal * plusAmt;
-                }
-            })
-        })
+const displayCash = () => {
+    let randomHole = null;
+    let isRandomHoleAvailable = false;
+    while (isRandomHoleAvailable === false) {
+        randomHole = Math.floor(Math.random() * holes.length);
+        isRandomHoleAvailable = !(holes[randomHole].classList.contains(`mole${round}`)) || !(holes[randomHole].classList.contains(`cash${round}`));
     }
-};
+    // holes[randomHole].classList.add(`cash${round}`);
 
+
+    // let clear1 = window.setInterval(() => {
+    //     console.log("clear");
+    //     let clearHole1 = document.querySelectorAll(`.cash${round}`);
+    //     clearHole1.forEach((val) => {
+    //         //val.classList.replace(`cash${round}`, "darkhole");
+    //         val.classList.remove(`cash${round}`);//, "darkhole");
+    //     })
+    // }, 2000);
+    // window.setTimeout(() => {
+    //     window.clearInterval(clear1);
+    let clear = window.setInterval(() => {
+        holes[randomHole].classList.add(`cash${round}`);
+
+        //      let clearHole = document.querySelectorAll(`.mole${round}`);
+        // clearHole.forEach((val) => {
+        //val.classList.replace(`mole${round}`, "darkhole");
+        //console.log("val.classList", val.classList)
+        // val.classList.remove(`mole${round}`); 
+    }, 2000)
+    window.setTimeout(() => {
+        window.clearInterval(clear);
+        holes[randomHole].classList.remove(`cash${round}`);
+
+        console.log("round", round);
+      
+    }, 3000);
+
+    holes.forEach((val) => {
+        val.addEventListener('click', (e) => {
+            document.getElementById('score').innerText = score;
+            if (e.target.classList.contains(`cash${round}`)) {
+                e.target.classList.replace(`cash${round}`, "smash")
+                score = score + 50;
+                plusAmt++;
+                plusScore = plusVal * plusAmt;
+            }
+        })
+    })
+
+};
 let resetHoles = window.setInterval(() => {
     let smash = document.querySelectorAll(".smash");
     smash.forEach((val) => {
@@ -171,27 +253,31 @@ let resetHoles = window.setInterval(() => {
     splat.forEach((val) => {
         val.classList.replace("splat", `mole${round}`);
     })
-}, 1500);
+}, 2500);
+
 
 // /////progress bar
-    const progressBar =document.getElementsByClassName('progress-bar')[0];    
+const progressBar = document.getElementsByClassName('progress-bar')[0];
 
 let progress = setInterval(() => {
     const width = percent || 0
     progressBar.style.setProperty('--width', width + 1)
-    },1000)
+}, 1000)
 
 function statusMessage(msg) {
     let container = document.querySelector("#evalMes");
     container.innerText = msg;
 }
-
 //display hearts for lives
- function hearts(){   
-     for (let i = 1; i < 5; i++) {
-         console.log(i);
-        document.getElementsByClassName(`heart${i}`)[0].innerText = `${heart}`
+function hearts() {
+    totalScore = [];
+    for (let i = 1; i < 5; i++) {
+        console.log(i);
+        let hearts = document.getElementsByClassName(`heart${i}`)[0];
+        hearts.innerText = `${heart}`;
+        hearts.style.opacity = 1;
     }
+    begin();
 }
 // /////evaluation for percent to be converted and truncated
 function enough() {
@@ -199,11 +285,18 @@ function enough() {
     percentage = Math.min(100, Math.max(0, percentage));
     percent = percentage.toFixed(2);
 }
-
 function roundEnd() {
     roundScore = plusScore + minusScore;
     enough();
+    totalScore.push(roundScore);
 
+    let clearHole = document.querySelectorAll(`.mole${round}`);
+    clearHole.forEach((val) => {
+       
+        console.log("val.classList", val.classList)
+        val.classList.remove(`mole${round}`);
+        val.classList.remove(`cash${round}`);
+    })
     document.getElementById('eval').style.visibility = "visible";
     document.getElementById("plusAmt").innerText = plusAmt;
     document.getElementById("plusValue").innerText = plusVal;
@@ -213,20 +306,24 @@ function roundEnd() {
     document.getElementById("minusScore").innerText = minusScore;
     document.getElementById("percent").innerText = percent + '%';
     document.getElementById("roundScore").innerText = roundScore;
+    whiteBoxes.classList.add('color');
 
-    if (roundScore < goal & life == 1) {        
-               end();        
-    }else if(roundScore < goal & life > 1){ 
-        life--  
+    if (roundScore < goal && life == 1) {
+        noHearts();
+    }
+    else if (roundScore < goal && life > 1) {
+        totalScore.pop(roundScore);
+        console.log(totalScore);
+        life--
         statusMessage(`Use a heart and try again`);
         console.log(life);
         let tryAgain = document.getElementById('eval');
         tryAgain = document.createElement("button");
         document.getElementById('eval').append(tryAgain);
         tryAgain.innerText = `${heart}`;
-        gsap.to(`.heart${life}`,{ opacity:0, duration: 1.5,y:-50, delay:4.7});
         tryAgain.addEventListener("click", useHeart);
-    } else {
+    }
+    else {
         round++
         statusMessage(`Advance to the next level!`);
         let advance = document.getElementById('eval');
@@ -234,35 +331,49 @@ function roundEnd() {
         document.getElementById('eval').append(advance);
         advance.innerText = `${trophy}`;
         advance.addEventListener("click", roundUp);
-        whiteBoxes.classList.add('color');
     }
 }
 
-function useHeart() {    
-      
-    
-    let hearts = document.getElementsByClassName(`heart${life}`)[0];   
-    document.getElementsByClassName(`heart${life}`)[0].innerText = "";
-    hearts.classList.remove(`heart${life}`);
-   
-    
-    console.log(life);
-        roundUp()
-   
-};
+//let returnedSum = sumArr;
+//console.log(sumArr(totalScore));
 
-function end(){
-    console.log('the end');
+function sumArr() {
+    let sum = 0;
+    for (let i = 0; i < totalScore.length; i++) {
+        sum += totalScore[i];
+    }
+    return sum;
+}
+function useHeart() {
+    gsap.to(`.heart${life}`, { opacity: 0, duration: 2.5, y: -100, rotation: 720, scale: 0 });
+    console.log(life);
+    roundUp()
+};
+function noHearts() {
     statusMessage(`Uh oh! No more hearts.\nPush restart to play again.`);
 
     let doOver = document.getElementById('eval');
     doOver = document.createElement("button");
     document.getElementById('eval').append(doOver);
-    doOver.innerText = `${restart}`;    
-    doOver.addEventListener("click", hearts);
+    doOver.innerText = `${restart}`;
+    doOver.addEventListener("click", begin);
 }
 
+// /////stat modal drop
 function roundGsap() {
+    let clearHole = document.querySelectorAll(`.mole${round}`);
+    clearHole.forEach((val) => {
+        console.log("val.classList", val.classList)
+        val.classList.remove(`mole${round}`)
+    });
+
+    let clearHole1 = document.querySelectorAll(`.cash${round}`);
+    clearHole1.forEach((val) => {
+        console.log("val.classList", val.classList)
+        val.classList.remove(`cash${round}`)
+    });
+
+
     document.getElementById('plusImg').src = `./asset/minCash${round}.png`;
     let tl = gsap.timeline({ defaults: { duration: .5, opacity: 0 } })
     tl
@@ -274,28 +385,43 @@ function roundGsap() {
         .from(".theBar", {})
         .fromTo(".evalOne", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, ease: "power2" })
         .from("#eval", { x: "-30%" });
-    roundEnd();
-}
 
+    console.log(round);
+
+    if (round == 4) {
+        gameEnd();
+    } else {
+        roundEnd();
+    }
+}
 // /////function to roll up stat page and restart new level
 function roundUp() {
+    roundScore = 0;
     score = 0;
     plusAmt = 0;
     plusScore = 0;
     minusAmt = 0;
     minusScore = 0;
 
-    whiteBoxes.classList.remove('color');
+    header.innerText= `Level ${round}`;
     document.getElementById('eval').innerText = '';
-    document.getElementById('score').innerText = score;
+    document.getElementById('score').innerText = score;    
     document.getElementById('eval').style.visibility = "hidden";
     document.body.style.backgroundImage = `url(/dist/asset/round${round}.png)`;
     document.getElementById('start').style.visibility = "visible";
     document.getElementById('wBox5').src = `./asset/round${round + 1}.png`;
     document.getElementById('first').src = `./asset/minCash${round}.png`;
     document.getElementById('second').src = `./asset/mole${round}.png`;
+    whiteBoxes.classList.remove('color');
 
-
-    gsap.to(".roundModal", { y: "-100%", duration: 2, ease: "power1" });
+    gsap.to(".roundModal", { y: "-100%", duration: 2.5, ease: "power1" });
     gsap.fromTo(".start", { opacity: 0, scale: 0 }, { duration: 2.5, opacity: 1, scale: 1, ease: "elastic" })
+}
+function gameEnd() {
+
+    //sumArr();
+    console.log("totalScore", totalScore);
+    console.log(sumArr());
+    document.getElementById('all').innerText = sumArr();
+    //console.log(sumArr);
 }

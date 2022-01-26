@@ -11,28 +11,27 @@
     animation: start alternate 1s linear ease-in;
 }
 @keyframes start{
-from {
-    transform: scale(1);
+    from {
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.5);
+    }
 }
-to{
-    transform: scale(1.5);
-}
-}
-
 #score, #time {
     width: 200px;   
     text-align: center;
     font-size: xx-large;   
 }
 .whiteBoxes {
-    max-height: 120px;
-    flex-direction: row;
     display: flex;
-    color: white; 
+    flex-direction: row;
+    max-height: 120px;
     width: 100%;
-    border: rgb(255, 255, 255) 5px dotted; 
     padding: 3px;
-    outline:white ridge 4px;
+    color: #ffffff;    
+    border: #ffffff 5px dotted;     
+    outline:#ffffff ridge 4px;
     outline-offset: -11px;
    }    
 .color{
@@ -60,76 +59,107 @@ to{
 }
 .wBox1 {
     visibility: visible;
-    flex-basis: 15%;
+    display: flex;
+    flex-basis: 22%;    
     border: white 2px ridge; 
 }  
 .wBox2{
     visibility: hidden;
-    flex-basis: 1%;
+    flex-basis: 15%;
     padding-left: 6px;
     padding-top: 6px;
     position: fixed;    
 }
 .wBox3 {
-    flex-basis: 24%;
+    flex-basis: 25%;
     padding-left: 6px;
     padding-top: 6px;    
     border: white 2px ridge;
     position: relative;
-    min-width: 130px;
 }
 .heartBox {
     display: flex;
     max-width: 100px;
+    height: 100%;
+    z-index: 10;
+    transform:translate(0%,-65%);
 }
 .heart1, .heart2, .heart3, .heart4 {
+    display: flex;
     width: 25%;
     margin: 1px;
     color: rgb(255, 0, 0);
-    font-size: x-large;
-    
+    font-size:  x-large;     
+    margin-top: 8vh;
+    z-index: 10;
 }
-.wBox4 {
-    flex-basis: 40%;
-    position: relative;
+.wBox4 {   
     display: flex;
+    flex-basis: 40%;
     padding-top: 6px;
     padding-left: 6px;    
     border: white 2px ridge;
-}
-.pscore {
-    max-width: 100px;
-    min-width: 80px; 
+    position: relative;
 }
 
-#cash{
-    height: 60px;
-    width: auto;
-    background: url(/dist/asset/cash.png);
+.antiScore {
+    max-width: 100px;
+    min-width: 80px;
+    margin: 0 auto;
+   
+    &::before{
+        content: '-15 pts';
+        color: rgb(255, 67, 67);
+        height: 20px;
+        width: 40%;
+        font-weight: 700;
+    }
 }
-#whack{
+.proScore {
+    max-width: 100px;
+    min-width: 80px;
+    margin: 0 auto;
+
+    &::before{
+        content: '50 pts';
+        height: 20px;
+        width: 50%;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+}
+// #whack{
     
-    height: 80px;
-    width: auto;
-    background: url(/dist/asset/round1.png);
+//     height: 80px;
+//     width: auto;
+//     background: url(/dist/asset/round1.png);
+// }
+// #sun{
+//     height: 80px;
+//     background: url(/dist/asset/darksun.png);
+// }
+.wBox5a {
+    display: flex;
+    height: 20px;
+    padding: 0 6px;
+    overflow: visible;
 }
-#sun{
-    height: 80px;
-    background: url(/dist/asset/darksun.png);
+.wBox5b {
+    display: flex;     
+    overflow: hidden;
 }
 .wBox5 {
-    
+    display: flex;
+    flex-basis: 23%;
+    flex-direction: column;
     padding-top: 6px;
-    padding-left: 6px;
-    flex-basis: calc(36%-100px);
-    width: 30%;
+    padding-left: 6px;    
+    width: 20%;
     border: white 2px ridge;
     overflow: hidden;
 }
 #wBox5 {
-    background-image: url(/dist/asset/round1.png);
-    max-height: 75%;  
-    width: auto;
     display: flex;
+    width: auto;    
     margin: auto;
 } 

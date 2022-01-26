@@ -5,17 +5,9 @@
 @import 'popups';
 @import 'score';
 @import 'roundset';
+@import 'skylevel';
 
-.sky {
-    @include flexShell;   
-    flex-basis: 23%;  
-}
-.header {
-    font-family: 'Flavors';
-    font-size: xx-large;
-    color: rgb(189, 73, 27);
-    text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
-}
+
 .ground {
     @include flexShell;
     flex-basis: 62.5%;
