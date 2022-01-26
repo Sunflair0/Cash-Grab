@@ -717,22 +717,13 @@ img #first {
       flex-basis: 23%;
 }
 
-.head_font {
+.head_font, .header {
   font-family: 'Flavors';
-  font-size: xx-large;
+  font-size: 70px;
   color: #bd491b;
   text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
-}
-
-.header {
-  font-weight: 700;
-}
-
-#display {
-  font-family: 'Flavors';
-  font-size: xx-large;
-  color: #bd491b;
-  text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+  -webkit-transform: all ease 2s;
+          transform: all ease 2s;
 }
 
 .choiceblock {

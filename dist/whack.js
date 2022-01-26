@@ -28,7 +28,7 @@ let percent = 0;
 let min = round;
 let max = round + 1;
 let life = 5;
-let goal = 300;
+let goal = 0;
 let hand = '\u{261e}';
 let lock = '\u{1f512}';
 let unlock= '\u{1f513}';
@@ -54,6 +54,7 @@ let minCash1 = document.querySelectorAll("#minCash1");
 let minCash2 = document.querySelectorAll("#minCash2");
 let minCash3 = document.querySelectorAll("#minCash3");
 let minCash4 = document.querySelectorAll("#minCash4");
+let header = document.getElementById('header');
 let level =document.getElementById('level');
 let padlock =document.getElementById('padlock');
 let finger =document.getElementById('finger');
@@ -115,19 +116,17 @@ function begin() {
     round = 1;
     roundUp();
     level.innerText = 'MED';  
+    header.innerText = "Cash Smash";
 }
 
 start.addEventListener("click", () => {
     doneLevel();
     padlock.innerText = `${lock}`;
+    header.innerText= `Level ${round}`;
     finger.removeEventListener("click", difficultyLevel);
     choiceStack.setAttribute('style','right:-20%;');
-    
-
-    document.getElementsByClassName('header')[0].style.visibility = "hidden";
     start.style.visibility = "hidden";
     document.getElementsByClassName('wBox2')[0].style.visibility = "visible";
-    // document.getElementById('display').innerText= 'Level `${round}`';
     let time = window.setInterval(() => {
         document.getElementById("time").innerText = ':' + timer;
         timer--;
@@ -405,8 +404,9 @@ function roundUp() {
     minusAmt = 0;
     minusScore = 0;
 
+    header.innerText= `Level ${round}`;
     document.getElementById('eval').innerText = '';
-    document.getElementById('score').innerText = score;
+    document.getElementById('score').innerText = score;    
     document.getElementById('eval').style.visibility = "hidden";
     document.body.style.backgroundImage = `url(/dist/asset/round${round}.png)`;
     document.getElementById('start').style.visibility = "visible";
