@@ -26,34 +26,34 @@
     margin-top: -30px;
 }
 #level {
-    font-weight: 700;
-    font-size: 100;
+     font-weight: 700;
+     font-size: 16px;
     width: 80px;
     height: 60px;
     background-color: rgb(0, 0, 0);
     color: silver;
-    margin-top: 0px;
-    margin-right: 0%;
-    padding: 5px 0 0 20px;
+    padding: 9px 0 0px 25px;
+    border: solid 2px #f3f365;
     cursor: pointer;
     transition: .3s ease all;
-    border: orange 2px solid;
 }
 #padlock {
     display: flex;
-    padding: 2px;
-    height: 20px;
-    width: 20px;
-    margin-top: 0px;    
-    margin-right: 40%;
+    //padding: 2px;
+    height: 30px;
+    width: 25px;
+    //margin-top: 0px;    
+    //margin:auto;
     position: fixed;
+    font-size: 20px;
 }
 #finger {
+    margin-top: -60px;
     font-size: 60px;
     width: 80px;
-    height: 63px;
-    color: silver;
-    margin-top: -60px;        
+    height: 60px;
+    color: silver;       
+    
 }
 li .buttons{        
     display: flex;
@@ -88,6 +88,7 @@ li .buttons{
             inset 0px -2px 10px 0 rgb(255, 255, 255);        
     }  
 }
+
 .easy + .buttons {
    &::before {
        content: "";                

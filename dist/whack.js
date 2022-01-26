@@ -69,8 +69,7 @@ window.onload = hearts(), begin(), levelChoice();
 
 function levelChoice(){
     choiceBlock.classList.add('choice');
-    choiceStack.setAttribute('style','right:-20%;');
-    level.innerText = 'CLICK';    
+    choiceStack.setAttribute('style','right:-20%;');  
     finger.innerText = `${hand}`;
     padlock.innerText = `${unlock}`;
     finger.addEventListener("click", difficultyLevel);
@@ -83,39 +82,47 @@ function difficultyLevel(){
     choiceStack.setAttribute('style','right: 0%;');
     level.setAttribute('style','height:30px;');
     finger.innerText = ''; 
-    close.addEventListener("click", doneLevel);
-    level.innerText = `${unlock}`;
+    close.addEventListener("click", doneLevel);   
 
     if (document.getElementById('easy').checked) {
          seconds = 2000;
          level.innerText = 'EASY';
          level.style.color ='#5dca5d';
+         level.style.border ='#5dca5d 2px solid';
+
     }
     if (document.getElementById('med').checked) {
          seconds = 1000;
          level.innerText = 'MED';
          level.style.color ='#f3f365';
+         level.style.border ='#f3f365 2px solid';
     }
     if (document.getElementById('hard').checked) {
          seconds = 500;
          level.innerText = 'HARD';
          level.style.color ='#fd7575';
+         level.style.border ='#fd7575 2px solid';
     }
 }
  function doneLevel() {
      choiceStack.setAttribute('style','right:-20%;');
-     choiceBlock.setAttribute('style','height:30px;');
+     choiceBlock.setAttribute('style','height:30px;');    
+     finger.innerText = '';     
  }
 
 function begin() {
     life = 5;
     round = 1;
     roundUp();
+    level.innerText = 'MED';  
 }
 
 start.addEventListener("click", () => {
-    choiceBlock.classList.remove('choice');
+    doneLevel();
     padlock.innerText = `${lock}`;
+    finger.removeEventListener("click", difficultyLevel);
+    choiceStack.setAttribute('style','right:-20%;');
+    
 
     document.getElementsByClassName('header')[0].style.visibility = "hidden";
     start.style.visibility = "hidden";
