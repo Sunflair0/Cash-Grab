@@ -1,16 +1,21 @@
-.roundModal {
+.roundModal, .introModal, .scoreModal {
     background-color: #000000bf;
     height: 65%;
     width: 80%;
     color:white;
     top: -100%;     
-   position: fixed;  
-   border-style: ridge;
-   border:rgb(255, 255, 255) 5px ridge;
-   padding: 20px;
-   margin: 20px;    
-   display: flex;
-   flex-direction: column;}
+    position: fixed;  
+    border-style: ridge;
+    border:rgb(255, 255, 255) 5px ridge;
+    padding: 20px;
+    margin: 20px;    
+    display: flex;
+    flex-direction: column;
+}
+.introModal {
+    background-color: #000000dc;
+    padding: auto;
+}
 .headings {
     display: flex;
     justify-content: space-around;
@@ -35,15 +40,14 @@
 .mathChar{
     font-size: medium;
 }
-.progress-bar  {
+.progress-bar {
     padding: 2px;    
     max-width: 100%;
     border: 2px solid #c4a728;
     height: 1.5em;
     width: 300px;
     border-radius: 15px;
-    margin-right: -10vw;
-   
+    margin-right: -10vw;   
 
       &::before {
           content: attr(data-label);
@@ -95,7 +99,7 @@
     top:0;
 }
 #percent {
-padding-top: 2rem;
+    padding-top: 2rem;
 }
 #eval {
     margin-left: 40%;
@@ -107,8 +111,8 @@ padding-top: 2rem;
     margin-left: 20vw;
 }
 #all {
-color:#fcee2c;
-  display: flex;
+    color:#fcee2c;
+    display: flex;
     flex-direction:column;
     margin-top: -10rem;
 }

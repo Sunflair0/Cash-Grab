@@ -5,15 +5,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cash Smash</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Orbitron&family=Flavors&display=swap"
+    <title>CashSmash</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dongle&family=Ubuntu&family=Orbitron&family=Flavors&display=swap&family=Mukta"
         rel="stylesheet" />
     <link rel="icon" href="/dist/asset/favicon-16x16.png" type="image/png">
     <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css">
 </head>
 
 <body>
-
+    <div class="introModal">
+        <div class="intro">
+            <p></p>
+            <p>Welcome to CashSmash where you grab the goods and not the helpful moles.</p>
+            <p>The moles will dig through the dirt and throw up a prize for you to grab.</p>
+            <p>Occationally they will peek out the hole to check on you.
+            <p><span id="bop">DON'T BOP THEM!!</span></p>
+            <p>They will hold a grudge and deduct from your score.</p>
+            <p>The goal is <span id=threeH>300</span> points per round. If you don't get it, you have 4 chances to
+                advance.</p>
+            <button id='stop' value="Got it!" class="stop">&#128077&#127998
+            </button>
+        </div>
+    </div>
     <div class="roundModal">
         <div class="headings">
             <div class="heading">Targets</div>
@@ -54,29 +68,28 @@
         </div>
     </div>
     <div class="sky">
-
         <div class="choiceblock" id="choiceBlock">
             <div id="level"></div>
             <div id="padlock"></div>
-            <div id="finger"></div>            
+            <div id="finger"></div>
         </div>
-        <div class="head_font">            
+        <div class="head_font">
             <div class="header" id="header"></div>
         </div>
-            <form>
-                <div class="choice">
-                    <ul><li class="close" onchange="doneLevel()">&#9949</li>
-                        <li><input type="radio" class='easy' name="difficult" value="easy" id="easy"
-                                onchange="difficultyLevel()" ><label for="easy" class="buttons"></label>EASY</li>
-                        <li><input  type="radio" class='med' name="difficult" value="med" id="med"
-                                onchange="difficultyLevel()" checked><label for="med" class="buttons"></label>MED </li>
-                        <li><input type="radio" class='hard' name="difficult" value="hard" id="hard"
-                                onchange="difficultyLevel()" ><label for="hard" class="buttons"> </label>HARD
-                        </li>                        
-                    </ul>
-                </div>
-            </form>
-        
+        <form id=formChoice>
+            <div class="choice">
+                <ul>
+                    <li class="close" onchange="doneLevel()">&#9949</li>
+                    <li><input type="radio" class='easy' name="difficult" value="easy" id="easy"
+                            onchange="difficultyLevel()"><label for="easy" class="buttons"></label>EASY</li>
+                    <li><input type="radio" class='med' name="difficult" value="med" id="med"
+                            onchange="difficultyLevel()" checked><label for="med" class="buttons"></label>MED </li>
+                    <li><input type="radio" class='hard' name="difficult" value="hard" id="hard"
+                            onchange="difficultyLevel()"><label for="hard" class="buttons"> </label>HARD
+                    </li>
+                </ul>
+            </div>
+        </form>
     </div>
     <div class="ground">
         <div class="gameIcon darkhole"></div>
@@ -114,10 +127,21 @@
 
                 <div class="wBox5b round1"><img src="asset/round2.png" id="wBox5"></div>
             </div>
-
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script>
-        <script type="text/javascript" src="whack.js" defer></script>
+    </div>
+    <div class="scoreModal">
+        <div class="rounds">
+            <div class="round_one" id="round_one"></div>
+            <div class="round_two" id="round_two"></div>
+            <div class="round_three" id="round_three"></div>
+            <div class="round_four" id="round_four"></div>
+            <div class="totalScore" id="totalScore"></div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CSSRulePlugin3.min.js" defer></script>
+    <script type="text/javascript" src="whack.js" defer></script>
 </body>
 
 </html>

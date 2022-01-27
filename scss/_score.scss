@@ -1,5 +1,4 @@
-#start {
-    
+#start {    
     display: flex;
     max-width:100px;
     max-height: 100px;
@@ -19,6 +18,7 @@
     }
 }
 #score, #time {
+    font-family: 'Orbitron';
     width: 200px;   
     text-align: center;
     font-size: xx-large;   
@@ -34,7 +34,7 @@
     outline:#ffffff ridge 4px;
     outline-offset: -11px;
    }    
-.color{
+.color {
         animation: color infinite 1s steps(6, jump-both);
     }    
 @keyframes color {
@@ -101,7 +101,6 @@
     border: white 2px ridge;
     position: relative;
 }
-
 .antiScore {
     max-width: 100px;
     min-width: 80px;
@@ -128,16 +127,6 @@
         margin-bottom: 5px;
     }
 }
-// #whack{
-    
-//     height: 80px;
-//     width: auto;
-//     background: url(/dist/asset/round1.png);
-// }
-// #sun{
-//     height: 80px;
-//     background: url(/dist/asset/darksun.png);
-// }
 .wBox5a {
     display: flex;
     height: 20px;

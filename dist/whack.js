@@ -31,9 +31,9 @@ let life = 5;
 let goal = 0;
 let hand = '\u{261e}';
 let lock = '\u{1f512}';
-let unlock= '\u{1f513}';
 let heart = '\u{2764}';
 let trophy = '\u{1f3c6}';
+let unlock = '\u{1f513}';
 let restart = '\u{21ba}';
 
 let start = document.getElementById('start');
@@ -50,10 +50,12 @@ let cash1 = document.querySelectorAll(".cash1");
 let cash2 = document.querySelectorAll(".cash2");
 let cash3 = document.querySelectorAll(".cash3");
 let cash4 = document.querySelectorAll(".cash4");
+let cash5 = document.querySelectorAll(".cash5");
 let minCash1 = document.querySelectorAll("#minCash1");
 let minCash2 = document.querySelectorAll("#minCash2");
 let minCash3 = document.querySelectorAll("#minCash3");
 let minCash4 = document.querySelectorAll("#minCash4");
+let minCash5 = document.querySelectorAll("#minCash5");
 let header = document.getElementById('header');
 let level =document.getElementById('level');
 let padlock =document.getElementById('padlock');
@@ -66,7 +68,49 @@ let mole = darkmole[round];
 let cash = darkcash[round];
 let seconds;
 
-window.onload = hearts(), begin(), levelChoice();
+window.onload = intro();
+
+function intro(){
+    let rule = CSSRulePlugin.getRule("p:after");
+
+    document.getElementsByClassName('choiceblock')[0].style.visibility = "hidden";
+    document.getElementsByClassName('choice')[0].style.visibility = "hidden";
+    start.style.visibility = "hidden";
+    let stop1 = document.getElementById('stop');
+
+     stop1.addEventListener("click", stop);
+
+    let tl = gsap.timeline()
+    tl
+    .fromTo(".introModal", { opacity: 0, x:'-200%', y:'165%' },{ opacity: 1, duration: 2, x: 0, y:'165%',  ease: "circ" }) 
+    .to(rule, {cssRule: {scaleY: 0,}, duration: 2.7,  stagger: .5}, "-=0")
+    // .to(".heartBox", {opacity: 1, stagger: 1, ease: "bounce" , duration: .7})      
+     
+    
+}
+ function stop(){
+    document.getElementsByClassName('choiceblock')[0].style.visibility = "visible";
+    document.getElementsByClassName('choice')[0].style.visibility = "visible";
+    let tl = gsap.timeline()
+    tl
+    
+   .to(".introModal", {opacity: 0, x:'200%', y:"165%", duration: 1, ease: "circ",delay: ".5"});
+    hearts()
+    begin()
+    levelChoice()
+ }
+ function scoreBoard(){
+    let tl = gsap.timeline({ defaults: { opacity: 0, duration: 2, ease: "circ"} })
+    tl
+    .to(".roundModal", { })
+    .to(".scoreModal", {opacity: 1 })
+    // .to(".lineOne", { })
+    //  .to(".lineTwo", { })
+    //  .to(".theBar", { })
+    //  .to(".evalOne", { })
+    //  .to(".heading", { })
+    //  .to(".heading", { })
+ }
 
 function levelChoice(){
     choiceBlock.classList.add('choice');
@@ -79,6 +123,7 @@ function levelChoice(){
     .to("#finger", {x: "20%", repeat:5, yoyo:true, duration: .3, delay: 3})
     .to("#finger", {x: "20%", repeat:5, yoyo:true, duration: .3, delay: 5});
 }
+
 function difficultyLevel(){
     choiceStack.setAttribute('style','right: 0%;');
     level.setAttribute('style','height:30px;');
@@ -110,7 +155,6 @@ function difficultyLevel(){
      choiceBlock.setAttribute('style','height:30px;');    
      finger.innerText = '';     
  }
-
 function begin() {
     life = 5;
     round = 1;
@@ -151,7 +195,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    }, 5900); //shortened for debugging mode
+    }, 900); //shortened for debugging mode
 });
 
 function choice(min, max) {
@@ -160,7 +204,6 @@ function choice(min, max) {
 };
 
 const displayMole = () => {
-
     let randomHole = null;
     let isRandomHoleAvailable = false;
     while (isRandomHoleAvailable === false) {
@@ -281,14 +324,14 @@ function hearts() {
     begin();
 }
 // /////evaluation for percent to be converted and truncated
-function enough() {
+function goalReached() {
     percentage = roundScore / 3;
     percentage = Math.min(100, Math.max(0, percentage));
     percent = percentage.toFixed(2);
 }
 function roundEnd() {
     roundScore = plusScore + minusScore;
-    enough();
+    goalReached();
     totalScore.push(roundScore);
 
     let clearHole = document.querySelectorAll(`.mole${round}`);
@@ -342,6 +385,7 @@ function sumArr() {
     let sum = 0;
     for (let i = 0; i < totalScore.length; i++) {
         sum += totalScore[i];
+       // document.getElementById('totalScore').innerText = (sumArr(totalScore));
     }
     return sum;
 }
@@ -374,7 +418,6 @@ function roundGsap() {
         val.classList.remove(`cash${round}`)
     });
 
-
     document.getElementById('plusImg').src = `./asset/minCash${round}.png`;
     let tl = gsap.timeline({ defaults: { duration: .5, opacity: 0 } })
     tl
@@ -389,14 +432,14 @@ function roundGsap() {
 
     console.log(round);
 
-    if (round == 4) {
-        gameEnd();
-    } else {
-        roundEnd();
-    }
+   roundEnd();
 }
 // /////function to roll up stat page and restart new level
 function roundUp() {
+    if (round == 5) {
+        gameEnd();
+    } else {
+        
     roundScore = 0;
     score = 0;
     plusAmt = 0;
@@ -417,12 +460,19 @@ function roundUp() {
 
     gsap.to(".roundModal", { y: "-100%", duration: 2.5, ease: "power1" });
     gsap.fromTo(".start", { opacity: 0, scale: 0 }, { duration: 2.5, opacity: 1, scale: 1, ease: "elastic" })
+    }
 }
 function gameEnd() {
+    header.innerText= 'Final';
+console.log("sup",totalScore, sumArr(totalScore), (sumArr(totalScore)));
+    sumArr();
+    scoreBoard();
 
-    //sumArr();
     console.log("totalScore", totalScore);
     console.log(sumArr());
     document.getElementById('all').innerText = sumArr();
+
+    
+    
     //console.log(sumArr);
 }

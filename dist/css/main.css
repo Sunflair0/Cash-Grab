@@ -52,6 +52,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 body button {
+  outline: white 1.5px solid;
+  outline-offset: -4px;
+  border: none;
   font-size: x-large;
   height: 45px;
   width: 45px;
@@ -157,7 +160,7 @@ img {
 }
 
 @media screen and (max-width: 992px) {
-  span {
+  #score, #time {
     font-family: 'Orbitron';
     margin-top: 3vh;
   }
@@ -169,7 +172,7 @@ img {
 }
 
 @media screen and (max-width: 1200px) {
-  span {
+  #score, #time {
     font-family: 'Orbitron';
   }
 }
@@ -191,7 +194,7 @@ img {
   background-image: url(/dist/asset/minCash3.png);
 }
 
-#minCash4 {
+#minCash4, #minCash5 {
   background-image: url(/dist/asset/minCash4.png);
 }
 
@@ -207,7 +210,7 @@ img {
   background-image: url(/dist/asset/darkpearl.png);
 }
 
-.cash4 {
+.cash4, .cash5 {
   background-image: url(/dist/asset/darkyellow.png);
 }
 
@@ -342,6 +345,7 @@ img #first {
 }
 
 #score, #time {
+  font-family: 'Orbitron';
   width: 200px;
   text-align: center;
   font-size: xx-large;
@@ -543,7 +547,7 @@ img #first {
   margin: auto;
 }
 
-.roundModal {
+.roundModal, .introModal, .scoreModal {
   background-color: #000000bf;
   height: 65%;
   width: 80%;
@@ -561,6 +565,11 @@ img #first {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.introModal {
+  background-color: #000000dc;
+  padding: auto;
 }
 
 .headings {
@@ -738,6 +747,22 @@ img #first {
   right: 0;
   position: absolute;
   margin-top: -30px;
+}
+
+.stop {
+  color: black;
+  padding: 5px 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 20px;
+  max-width: 10vw;
+  min-width: 2vw;
+  height: 4vh;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 2%;
 }
 
 #level {
@@ -919,6 +944,67 @@ li:nth-child(4) {
   margin-right: -15%;
 }
 
+p {
+  font-family: "Mukta";
+  font-size: .9rem;
+  margin-bottom: 1rem;
+  color: #fcddb6;
+  text-indent: 7%;
+  line-height: 1;
+}
+
+p::first-letter {
+  font-size: xx-large;
+  font-family: 'Flavors';
+}
+
+p:after {
+  content: '';
+  display: block;
+  background: black;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  z-index: 1;
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+}
+
+#bop {
+  font-family: "Ubuntu";
+  color: #fd3b3b;
+  padding: 1rem;
+  font-weight: 700;
+  display: table;
+  margin: 0 auto;
+  text-align: center;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  -webkit-animation: bop infinite 2.5s steps(2);
+          animation: bop infinite 2.5s steps(2);
+  width: 100%;
+}
+
+#bop::first-letter {
+  font-family: "Ubuntu";
+}
+
+@-webkit-keyframes bop {
+  to {
+    color: #ebdbdb;
+  }
+}
+
+@keyframes bop {
+  to {
+    color: #ebdbdb;
+  }
+}
+
+#threeH {
+  color: #91ff00;
+}
+
 .ground {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -951,10 +1037,5 @@ li:nth-child(4) {
   padding: 3px;
   border: white 4px ridge;
   background: black;
-}
-
-span {
-  font-family: 'Orbitron';
-  margin-top: 2vh;
 }
 /*# sourceMappingURL=main.css.map */

@@ -7,6 +7,54 @@
 @import 'roundset';
 @import 'skylevel';
 
+p {
+    font-family: "Mukta";
+    font-size: .9rem;
+    margin-bottom: 1rem;
+    color:rgb(252, 221, 182);
+    text-indent: 7%;
+    line-height: 1;
+
+        &::first-letter {
+        font-size: xx-large;
+        font-family: 'Flavors';
+    }
+    &:after{
+        content: '';
+        display: block;
+        background: black;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 200%;
+        z-index: 1;
+        transform-origin: 0 100% ;
+    }
+}
+#bop {   
+    font-family: "Ubuntu";
+    color: rgb(253, 59, 59);
+    padding: 1rem;
+    font-weight: 700;
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    animation: bop infinite 2.5s steps(2);
+    width: 100%;
+
+    &::first-letter{
+        font-family: "Ubuntu";
+    }
+}
+@keyframes bop {
+    to{
+        color: rgb(235, 219, 219);
+    }    
+}
+#threeH{
+    color: rgb(145, 255, 0);
+}
 
 .ground {
     @include flexShell;
@@ -14,7 +62,6 @@
     width: 95%; 
     margin: auto;    
 }
-
 .bottom {
     @include flexShell;
     flex-basis: auto;  
@@ -22,8 +69,4 @@
     padding: 3px;    
     border: white 4px ridge;
     background: rgb(0, 0, 0);   
-}
-span {
-    font-family: 'Orbitron';
-    margin-top: 2vh;
 }

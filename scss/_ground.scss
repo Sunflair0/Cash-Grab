@@ -13,14 +13,9 @@
     margin: 20px;    
     visibility: hidden;
 }
-
-
-  
-
 .roundEnd{
     animation: end 2s ease forwards;
 }
-
 @keyframes end {
     from {
         transform: scale(0);

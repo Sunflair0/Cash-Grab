@@ -38,6 +38,9 @@ body{
             }
       }
       & button {
+        outline: white 1.5px solid;
+        outline-offset: -4px;
+        border: none;
           font-size:x-large;
           height: 45px;
           width: 45px;
