@@ -20,11 +20,11 @@
     flex-wrap: wrap;    
 }
 @mixin actionBox {
-  flex-basis: 23%;
-  max-width: 180px;
-  height: 100px;
+  flex-basis: 32%;
+  max-width: 240px;
+  height: 90px;
   margin: auto;
-  margin-top: 10vh; 
+  margin-top: 12vh; 
   background-position: center; 
   background-size: contain;
   background-repeat: no-repeat;

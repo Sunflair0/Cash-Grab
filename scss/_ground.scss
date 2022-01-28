@@ -14,9 +14,9 @@
     visibility: hidden;
 }
 .roundEnd{
-    animation: end 2s ease forwards;
+    animation: buttonBounce 2s ease forwards;
 }
-@keyframes end {
+@keyframes buttonBounce {
     from {
         transform: scale(0);
     }

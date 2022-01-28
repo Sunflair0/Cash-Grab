@@ -52,10 +52,13 @@ p {
         color: rgb(235, 219, 219);
     }    
 }
-#threeH{
+#ccc{
     color: rgb(145, 255, 0);
 }
-
+.sky {
+    @include flexShell;   
+    flex-basis: 43%;  
+}
 .ground {
     @include flexShell;
     flex-basis: 62.5%;

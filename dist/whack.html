@@ -14,19 +14,28 @@
 </head>
 
 <body>
-    <div class="introModal">
-        <div class="intro">
-            <p></p>
-            <p>Welcome to CashSmash where you grab the goods and not the helpful moles.</p>
-            <p>The moles will dig through the dirt and throw up a prize for you to grab.</p>
-            <p>Occationally they will peek out the hole to check on you.
-            <p><span id="bop">DON'T BOP THEM!!</span></p>
-            <p>They will hold a grudge and deduct from your score.</p>
-            <p>The goal is <span id=threeH>300</span> points per round. If you don't get it, you have 4 chances to
-                advance.</p>
-            <button id='stop' value="Got it!" class="stop">&#128077&#127998
-            </button>
-        </div>
+    <div class="introModal">          
+        
+        <div class="moleShow">
+            <div class="moleHold"><img src="asset/cool.png" id="coolmole1" alt="coolmole"></div>
+          <div class="cashShow">  
+            <div class="cashShow1"><img src="asset/minCash1.png" id="min1" alt="cash img"></div>
+            <div class="cashShow2"><img src="asset/minCash2.png" id="min2" alt="cash img"></div>
+            <div class="cashShow3"><img src="asset/minCash3.png" id="min3" alt="cash img"></div>
+            <div class="cashShow4"><img src="asset/minCash4.png" id="min4" alt="cash img"></div>
+      </div>
+    </div>
+    <p></p>
+    <p>Welcome to CashSmash where you grab the goods and not the helpful moles.</p>
+    <p>The moles will dig through the dirt and throw up a prize for you to grab.</p>
+    <p>Occationally they will peek out the hole to check on you.
+    <p><span id="bop">DON'T BOP THEM!!</span></p>
+    <p>They will hold a grudge and deduct from your score.</p>
+    <p>The goal is <span id=ccc>300</span> points per round. If you don't get it, you have 4 chances
+        to
+        advance.</p>
+    <button id='xIntro' class="xIntro">&#128077&#127998
+    </button>    
     </div>
     <div class="roundModal">
         <div class="headings">
@@ -76,25 +85,20 @@
         <div class="head_font">
             <div class="header" id="header"></div>
         </div>
-        <form id=formChoice>
-            <div class="choice">
-                <ul>
-                    <li class="close" onchange="doneLevel()">&#9949</li>
-                    <li><input type="radio" class='easy' name="difficult" value="easy" id="easy"
-                            onchange="difficultyLevel()"><label for="easy" class="buttons"></label>EASY</li>
-                    <li><input type="radio" class='med' name="difficult" value="med" id="med"
-                            onchange="difficultyLevel()" checked><label for="med" class="buttons"></label>MED </li>
-                    <li><input type="radio" class='hard' name="difficult" value="hard" id="hard"
-                            onchange="difficultyLevel()"><label for="hard" class="buttons"> </label>HARD
-                    </li>
-                </ul>
-            </div>
-        </form>
+        <div class="choice">
+            <ul>
+                <li class="close">&#9949</li>
+                <li><input type="radio" class='easy' name="difficult" value="easy" id="easy"><label for="easy"
+                        class="buttons"></label>EASY</li>
+                <li><input type="radio" class='med' name="difficult" value="med" id="med" checked><label for="med"
+                        class="buttons"></label>MED </li>
+                <li><input type="radio" class='hard' name="difficult" value="hard" id="hard"><label for="hard"
+                        class="buttons"> </label>HARD
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="ground">
-        <div class="gameIcon darkhole"></div>
-        <div class="gameIcon darkhole"></div>
-        <div class="gameIcon darkhole"></div>
         <div class="gameIcon darkhole"></div>
         <div class="gameIcon darkhole"></div>
         <div class="gameIcon darkhole"></div>
@@ -129,7 +133,7 @@
             </div>
         </div>
     </div>
-    <div class="scoreModal">
+    <div class="tsModal">
         <div class="rounds">
             <div class="round_one" id="round_one"></div>
             <div class="round_two" id="round_two"></div>
@@ -138,7 +142,22 @@
             <div class="totalScore" id="totalScore"></div>
         </div>
     </div>
-    
+    <div class="scoreModal">
+        <div class="scores">
+            <div class="score"></div>
+            <div class="score"></div>
+            <div class="score"></div>
+            <div class="score"></div>
+            <div class="score"></div>
+            <div class="score"></div>
+            <div class="score"></div>
+            <div class="score"></div>
+            <div class="score"></div>
+            <div class="score"></div>
+        </div>
+    </div>
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CSSRulePlugin3.min.js" defer></script>
     <script type="text/javascript" src="whack.js" defer></script>

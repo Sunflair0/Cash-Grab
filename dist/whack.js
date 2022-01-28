@@ -40,6 +40,10 @@ let start = document.getElementById('start');
 let time = document.getElementById('time');
 let whiteBoxes = document.getElementsByClassName("whiteBoxes")[0];
 let close = document.getElementsByClassName('close')[0];
+let easy = document.getElementById('easy');
+let med = document.getElementById('med');
+let hard = document.getElementById('hard');
+
 let wBox2 = document.querySelectorAll(".wBox2");
 let holes = document.querySelectorAll(".darkhole");
 let mole1 = document.querySelectorAll(".mole1");
@@ -56,6 +60,7 @@ let minCash2 = document.querySelectorAll("#minCash2");
 let minCash3 = document.querySelectorAll("#minCash3");
 let minCash4 = document.querySelectorAll("#minCash4");
 let minCash5 = document.querySelectorAll("#minCash5");
+let coolmole = document.getElementById("coolmole");
 let header = document.getElementById('header');
 let level =document.getElementById('level');
 let padlock =document.getElementById('padlock');
@@ -70,25 +75,37 @@ let seconds;
 
 window.onload = intro();
 
-function intro(){
+function intro(){  
     let rule = CSSRulePlugin.getRule("p:after");
 
     document.getElementsByClassName('choiceblock')[0].style.visibility = "hidden";
     document.getElementsByClassName('choice')[0].style.visibility = "hidden";
     start.style.visibility = "hidden";
-    let stop1 = document.getElementById('stop');
+    let xIntro1 = document.getElementById('xIntro');
+    
 
-     stop1.addEventListener("click", stop);
+    xIntro1.addEventListener("click", xIntro);
 
     let tl = gsap.timeline()
     tl
+    
     .fromTo(".introModal", { opacity: 0, x:'-200%', y:'165%' },{ opacity: 1, duration: 2, x: 0, y:'165%',  ease: "circ" }) 
-    .to(rule, {cssRule: {scaleY: 0,}, duration: 2.7,  stagger: .5}, "-=0")
-    // .to(".heartBox", {opacity: 1, stagger: 1, ease: "bounce" , duration: .7})      
-     
+    //.to("#coolmole1", {duration: 2.5,opacity: 1, duration: 2})
+    .to(rule, {cssRule: {scaleY: 0,}, duration: 2.7}, "-=0")
+    .fromTo(".moleHold", {opacity: 0, x: '-100%',},{ opacity: 1, x: 0, duration: 2, })
+    
+    .fromTo(".cashShow1", {opacity: 0, x: '-100%',},{ opacity: 1, x: 0, duration: 2, })
+    .fromTo(".cashShow1", {opacity: 1, x: 50,},{ opacity: 0, x:' 100%', duration: 2, })
+    .fromTo(".cashShow2", {opacity: 0, x: '-100%',},{ opacity: 1, x: 0, duration: 2, })
+    .fromTo(".cashShow2", {opacity: 1, x: 0,},{ opacity: 0, x:' 100%', duration: 2, })
+    .fromTo(".cashShow3", {opacity: 0, x: '-100%',},{ opacity: 1, x: 0, duration: 2, })
+    .fromTo(".cashShow3", {opacity: 1, x: 0,},{ opacity: 0, x:' 100%', duration: 2, })
+    .fromTo(".cashShow4", {opacity: 0, x: '-100%',},{ opacity: 1, x: 0, duration: 2, })
+    .fromTo(".cashShow4", {opacity: 1, x: 0,},{ opacity: 0, x:' 100%', duration: 2, })
+    
     
 }
- function stop(){
+ function xIntro(){
     document.getElementsByClassName('choiceblock')[0].style.visibility = "visible";
     document.getElementsByClassName('choice')[0].style.visibility = "visible";
     let tl = gsap.timeline()
@@ -100,16 +117,10 @@ function intro(){
     levelChoice()
  }
  function scoreBoard(){
-    let tl = gsap.timeline({ defaults: { opacity: 0, duration: 2, ease: "circ"} })
+    let tl = gsap.timeline({})
     tl
-    .to(".roundModal", { })
-    .to(".scoreModal", {opacity: 1 })
-    // .to(".lineOne", { })
-    //  .to(".lineTwo", { })
-    //  .to(".theBar", { })
-    //  .to(".evalOne", { })
-    //  .to(".heading", { })
-    //  .to(".heading", { })
+    .to(".roundModal", {opacity: 0, duration: 2, ease: "circ"})
+    .to(".tsModal", {opacity: 1 })
  }
 
 function levelChoice(){
@@ -123,19 +134,21 @@ function levelChoice(){
     .to("#finger", {x: "20%", repeat:5, yoyo:true, duration: .3, delay: 3})
     .to("#finger", {x: "20%", repeat:5, yoyo:true, duration: .3, delay: 5});
 }
-
+    
 function difficultyLevel(){
     choiceStack.setAttribute('style','right: 0%;');
     level.setAttribute('style','height:30px;');
-    finger.innerText = ''; 
-    close.addEventListener("click", doneLevel);   
+    finger.innerText = '';   
+    close.addEventListener("click", doneChoosing);   
+    easy.addEventListener("click", difficultyLevel);  
+    med.addEventListener("click", difficultyLevel);  
+    hard.addEventListener("click", difficultyLevel);  
 
     if (document.getElementById('easy').checked) {
          seconds = 2000;
          level.innerText = 'EASY';
          level.style.color ='#5dca5d';
          level.style.border ='#5dca5d 2px solid';
-
     }
     if (document.getElementById('med').checked) {
          seconds = 1000;
@@ -150,9 +163,11 @@ function difficultyLevel(){
          level.style.border ='#fd7575 2px solid';
     }
 }
- function doneLevel() {
+ function doneChoosing() {
+     let level=document.getElementById("level");
      choiceStack.setAttribute('style','right:-20%;');
      choiceBlock.setAttribute('style','height:30px;');    
+     level.setAttribute('style','height:30px;'); 
      finger.innerText = '';     
  }
 function begin() {
@@ -164,7 +179,7 @@ function begin() {
 }
 
 start.addEventListener("click", () => {
-    doneLevel();
+    doneChoosing();
     padlock.innerText = `${lock}`;
     header.innerText= `Level ${round}`;
     finger.removeEventListener("click", difficultyLevel);
@@ -195,7 +210,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    }, 900); //shortened for debugging mode
+    }, 5900); //shortened for debugging mode
 });
 
 function choice(min, max) {

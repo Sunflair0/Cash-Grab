@@ -14,6 +14,7 @@
 #minCash4, #minCash5{
     background-image: url(/dist/asset/minCash4.png);
 }
+
 .cash1 {    
     background-image: url(/dist/asset/darkcash.png);
 }
@@ -57,15 +58,41 @@
 .round4 {
     background-image: url(/dist/asset/round4.png); 
 }
-img {
+img #first, .cashShow {
     max-height: 75%;
 }
-img #first {
+ #first {
     max-width: 100px;
     min-width: 80px;  
-    padding-top: 10px; 
+
 }
 #second{
     max-width: 100px;
     min-width: 80px;   
 }
+.cashShows {
+    display: flex;
+    max-width: 72px;
+    position: relative;       
+    bottom: 3%;
+    width: 30%;
+}
+#coolmole1 {
+    display: flex;
+    margin: auto;
+}
+.moleShow {
+    display: flex;
+    position: relative;   
+}
+.moleHold {
+    display: flex;
+    position: relative;   
+}
+.cashShow1, .cashShow2,  
+.cashShow3, .cashShow4 {
+     flex-basis: 25%;
+     position: absolute; 
+     left: 70%;
+     opacity: 0;
+}  
