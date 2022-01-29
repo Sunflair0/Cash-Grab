@@ -60,7 +60,7 @@ let minCash2 = document.querySelectorAll("#minCash2");
 let minCash3 = document.querySelectorAll("#minCash3");
 let minCash4 = document.querySelectorAll("#minCash4");
 let minCash5 = document.querySelectorAll("#minCash5");
-let coolmole = document.getElementById("coolmole");
+let coolmole = document.getElementById("coolmole1");
 let header = document.getElementById('header');
 let level =document.getElementById('level');
 let padlock =document.getElementById('padlock');
@@ -83,27 +83,36 @@ function intro(){
     start.style.visibility = "hidden";
     let xIntro1 = document.getElementById('xIntro');
     
-
+    document.getElementById('min1').src = `./asset/minCash1.png`;
+    document.getElementById('min2').src = `./asset/minCash2.png`;
+    document.getElementById('min3').src = `./asset/minCash3.png`;
+    document.getElementById('min4').src = `./asset/minCash4.png`;
     xIntro1.addEventListener("click", xIntro);
 
-    let tl = gsap.timeline()
-    tl
-    
-    .fromTo(".introModal", { opacity: 0, x:'-200%', y:'165%' },{ opacity: 1, duration: 2, x: 0, y:'165%',  ease: "circ" }) 
-    //.to("#coolmole1", {duration: 2.5,opacity: 1, duration: 2})
+   let intro = gsap.timeline();
+    intro    
+    .fromTo(".introModal", { opacity: 0, x:'-200%', y:'165%' },{ opacity: 1, duration: 1.5, x: 0, y:'165%',  ease: "circ" }) 
     .to(rule, {cssRule: {scaleY: 0,}, duration: 2.7}, "-=0")
-    .fromTo(".moleHold", {opacity: 0, x: '-100%',},{ opacity: 1, x: 0, duration: 2, })
-    
-    .fromTo(".cashShow1", {opacity: 0, x: '-100%',},{ opacity: 1, x: 0, duration: 2, })
-    .fromTo(".cashShow1", {opacity: 1, x: 50,},{ opacity: 0, x:' 100%', duration: 2, })
-    .fromTo(".cashShow2", {opacity: 0, x: '-100%',},{ opacity: 1, x: 0, duration: 2, })
-    .fromTo(".cashShow2", {opacity: 1, x: 0,},{ opacity: 0, x:' 100%', duration: 2, })
-    .fromTo(".cashShow3", {opacity: 0, x: '-100%',},{ opacity: 1, x: 0, duration: 2, })
-    .fromTo(".cashShow3", {opacity: 1, x: 0,},{ opacity: 0, x:' 100%', duration: 2, })
-    .fromTo(".cashShow4", {opacity: 0, x: '-100%',},{ opacity: 1, x: 0, duration: 2, })
-    .fromTo(".cashShow4", {opacity: 1, x: 0,},{ opacity: 0, x:' 100%', duration: 2, })
-    
-    
+    .fromTo(".moleHold", {opacity: 0, x: '-100%',},{ opacity: 1, x: 0, duration: 1, });
+   
+   let t2 = gsap.timeline({repeat: -1});
+    t2   
+    .from("#min1", {opacity: 1, x: '-500%', duration: 2})
+    .to("#min1", {opacity: 0, x: "100%", duration: 2, delay: 1.3 })    
+    .from("#min2", {opacity: 1, x: '-500%', duration: 2})
+    .to("#min2", {opacity: 0, x: "100%", duration: 2, delay: 1.3 })   
+    .from("#min3", {opacity: 1, x: '-500%', duration: 2})
+    .to("#min3", {opacity: 0, x: "100%", duration: 2, delay: 1.3 })   
+    .from("#min4", {opacity: 1, x: '-500%', duration: 2})
+    .to("#min4", {opacity: 0, x: "100%", duration: 2, delay: 1.3 })  
+    .tweenFromTo("hold","end",); 
+
+    let master = gsap.timeline();
+    master.add(intro)
+    .add(t2);
+
+    master.play();
+
 }
  function xIntro(){
     document.getElementsByClassName('choiceblock')[0].style.visibility = "visible";

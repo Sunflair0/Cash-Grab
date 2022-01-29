@@ -14,7 +14,6 @@
 #minCash4, #minCash5{
     background-image: url(/dist/asset/minCash4.png);
 }
-
 .cash1 {    
     background-image: url(/dist/asset/darkcash.png);
 }
@@ -58,7 +57,7 @@
 .round4 {
     background-image: url(/dist/asset/round4.png); 
 }
-img #first, .cashShow {
+img{
     max-height: 75%;
 }
  #first {
@@ -70,29 +69,50 @@ img #first, .cashShow {
     max-width: 100px;
     min-width: 80px;   
 }
+.cashShow{
+    display: flex;
+     height: 15%;     
+     position: fixed;  
+     top: 46%;
+     border: 5px rgb(184, 5, 5) solid;    
+}
+ .moleShow {
+    display: flex;
+    position: relative;     
+    margin-top: 12%;   
+    border: 5px rgb(184, 5, 115) solid;
+    position: fixed; 
+    padding-top: 10%;
+}
 .cashShows {
     display: flex;
-    max-width: 72px;
-    position: relative;       
-    bottom: 3%;
-    width: 30%;
-}
-#coolmole1 {
-    display: flex;
-    margin: auto;
-}
-.moleShow {
-    display: flex;
-    position: relative;   
+    position: relative;        
+    border: 5px rgb(32, 5, 184) solid;
+    position: fixed; 
 }
 .moleHold {
     display: flex;
     position: relative;   
+        height: 100%;
+   //align-items: center;
+   
+   transform: translate(-50%,-50%);
+   border: 5px rgb(5, 184, 29) solid;
 }
-.cashShow1, .cashShow2,  
-.cashShow3, .cashShow4 {
-     flex-basis: 25%;
-     position: absolute; 
-     left: 70%;
-     opacity: 0;
-}  
+.textBox {
+    display: flex;
+    flex-direction: row;         
+   align-items: center;
+   border: 5px red solid;
+}
+.textShow {
+    display: flex;
+    flex-direction: column;
+    //position: relative;     
+  align-items: center;
+   border: 5px rgb(194, 148, 148) solid;
+}
+#coolmole1 img {
+
+    margin-bottom: -20%;
+}

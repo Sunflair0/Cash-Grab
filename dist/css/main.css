@@ -288,7 +288,7 @@ img {
   background-image: url(/dist/asset/round4.png);
 }
 
-img #first, .cashShow {
+img {
   max-height: 75%;
 }
 
@@ -302,21 +302,14 @@ img #first, .cashShow {
   min-width: 80px;
 }
 
-.cashShows {
+.cashShow {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-width: 72px;
-  position: relative;
-  bottom: 3%;
-  width: 30%;
-}
-
-#coolmole1 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: auto;
+  height: 15%;
+  position: fixed;
+  top: 46%;
+  border: 5px #b80505 solid;
 }
 
 .moleShow {
@@ -324,6 +317,19 @@ img #first, .cashShow {
   display: -ms-flexbox;
   display: flex;
   position: relative;
+  margin-top: 12%;
+  border: 5px #b80573 solid;
+  position: fixed;
+  padding-top: 10%;
+}
+
+.cashShows {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  border: 5px #2005b8 solid;
+  position: fixed;
 }
 
 .moleHold {
@@ -331,15 +337,42 @@ img #first, .cashShow {
   display: -ms-flexbox;
   display: flex;
   position: relative;
+  height: 100%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border: 5px #05b81d solid;
 }
 
-.cashShow1, .cashShow2,
-.cashShow3, .cashShow4 {
-  -ms-flex-preferred-size: 25%;
-      flex-basis: 25%;
-  position: absolute;
-  left: 70%;
-  opacity: 0;
+.textBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 5px red solid;
+}
+
+.textShow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 5px #c29494 solid;
+}
+
+#coolmole1 img {
+  margin-bottom: -20%;
 }
 
 #start {
@@ -600,6 +633,9 @@ img #first, .cashShow {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
