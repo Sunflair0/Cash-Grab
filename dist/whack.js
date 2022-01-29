@@ -97,14 +97,14 @@ function intro(){
    
    let t2 = gsap.timeline({repeat: -1});
     t2   
-    .from("#min1", {opacity: 1, x: '-500%', duration: 2})
-    .to("#min1", {opacity: 0, x: "100%", duration: 2, delay: 1.3 })    
-    .from("#min2", {opacity: 1, x: '-500%', duration: 2})
-    .to("#min2", {opacity: 0, x: "100%", duration: 2, delay: 1.3 })   
-    .from("#min3", {opacity: 1, x: '-500%', duration: 2})
-    .to("#min3", {opacity: 0, x: "100%", duration: 2, delay: 1.3 })   
-    .from("#min4", {opacity: 1, x: '-500%', duration: 2})
-    .to("#min4", {opacity: 0, x: "100%", duration: 2, delay: 1.3 })  
+    .from("#min1", {opacity: 1, x: '-100%', duration: 2})
+    .to("#min1", {opacity: 0, x: "0%", duration: 2, delay: 1.3 })    
+    .from("#min2", {opacity: 1, x: '-100%', duration: 2})
+    .to("#min2", {opacity: 0, x: "0%", duration: 2, delay: 1.3 })   
+    .from("#min3", {opacity: 1, x: '-100%', duration: 2})
+    .to("#min3", {opacity: 0, x: "0%", duration: 2, delay: 1.3 })   
+    .from("#min4", {opacity: 1, x: '-100%', duration: 2})
+    .to("#min4", {opacity: 0, x: "0%", duration: 2, delay: 1.3 })  
     .tweenFromTo("hold","end",); 
 
     let master = gsap.timeline();

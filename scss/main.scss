@@ -9,11 +9,11 @@
 
 p {
     font-family: "Mukta";
-    font-size: .9rem;
-    margin-bottom: 1rem;
+    font-size: .8rem;
+    margin-bottom: .5rem;
     color:rgb(252, 221, 182);
     text-indent: 7%;
-    line-height: 1;
+    line-height: 1rem;
 
         &::first-letter {
         font-size: xx-large;
@@ -34,14 +34,16 @@ p {
 #bop {   
     font-family: "Ubuntu";
     color: rgb(253, 59, 59);
-    padding: 1rem;
+    padding: .5rem;
     font-weight: 700;
     display: table;
     margin: 0 auto;
+    font-size: .5rem;
     text-align: center;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     animation: bop infinite 2.5s steps(2);
-    width: 100%;
+    width: 45%;
+
 
     &::first-letter{
         font-family: "Ubuntu";
