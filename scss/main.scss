@@ -13,7 +13,7 @@ p {
     margin-bottom: .5rem;
     color:rgb(252, 221, 182);
     text-indent: 7%;
-    line-height: 1rem;
+    line-height: 1.5rem;
 
         &::first-letter {
         font-size: xx-large;
@@ -38,7 +38,7 @@ p {
     font-weight: 700;
     display: table;
     margin: 0 auto;
-    font-size: .5rem;
+    font-size: 1rem;
     text-align: center;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     animation: bop infinite 2.5s steps(2);

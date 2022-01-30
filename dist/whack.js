@@ -17,11 +17,6 @@ let plusScore = 0;
 let minusAmt = 0;
 let minusVal = -15;
 let minusScore = 0;
-let roundScore = 0;
-let roundScore1 = 0;
-let roundScore2 = 0;
-let roundScore3 = 0;
-let roundScore4 = 0;
 let totalScore = [];
 let result = 0;
 let percent = 0;
@@ -89,10 +84,11 @@ function intro(){
     document.getElementById('min4').src = `./asset/minCash4.png`;
     xIntro1.addEventListener("click", xIntro);
 
-   let intro = gsap.timeline();
-    intro    
-    .fromTo(".introModal", { opacity: 0, x:'-200%', y:'165%' },{ opacity: 1, duration: 1.5, x: 0, y:'165%',  ease: "circ" }) 
-    .to(rule, {cssRule: {scaleY: 0,}, duration: 2.7}, "-=0")
+   let t1 = gsap.timeline();
+    t1    
+    .fromTo(".introModal", { opacity: 0, x:'-200%', y:'165%' },{ opacity: .8, duration: 1.5, x: 0, y:'165%',  ease: "circ" }) 
+    
+    .to(rule, {cssRule: {scaleY: 0,}, duration: 2.7})
     .fromTo(".moleHold", {opacity: 0, x: '-100%',},{ opacity: 1, x: 0, duration: 1, });
    
    let t2 = gsap.timeline({repeat: -1});
@@ -108,11 +104,9 @@ function intro(){
     .tweenFromTo("hold","end",); 
 
     let master = gsap.timeline();
-    master.add(intro)
+    master
+    .add(t1)
     .add(t2);
-
-    master.play();
-
 }
  function xIntro(){
     document.getElementsByClassName('choiceblock')[0].style.visibility = "visible";
@@ -121,15 +115,19 @@ function intro(){
     tl
     
    .to(".introModal", {opacity: 0, x:'200%', y:"165%", duration: 1, ease: "circ",delay: ".5"});
+
     hearts()
     begin()
     levelChoice()
  }
+ function scoreArr(){
+       
+ }
  function scoreBoard(){
-    let tl = gsap.timeline({})
+    let tl = gsap.timeline({}) 
     tl
-    .to(".roundModal", {opacity: 0, duration: 2, ease: "circ"})
-    .to(".tsModal", {opacity: 1 })
+    .to(".roundModal", {opacity: 0, duration: 2, ease: "circ", x: "0%"})
+    .fromTo(".quarter", {opacity: 0,  stagger: .3 },{opacity: 1, duration: 2,ease: "circ" })    
  }
 
 function levelChoice(){
@@ -349,14 +347,14 @@ function hearts() {
 }
 // /////evaluation for percent to be converted and truncated
 function goalReached() {
-    percentage = roundScore / 3;
+    percentage = quarterScore / 3;
     percentage = Math.min(100, Math.max(0, percentage));
     percent = percentage.toFixed(2);
 }
 function roundEnd() {
-    roundScore = plusScore + minusScore;
+    quarterScore = plusScore + minusScore;
     goalReached();
-    totalScore.push(roundScore);
+    totalScore.push(quarterScore);
 
     let clearHole = document.querySelectorAll(`.mole${round}`);
     clearHole.forEach((val) => {
@@ -373,14 +371,14 @@ function roundEnd() {
     document.getElementById("minusValue").innerText = minusVal;
     document.getElementById("minusScore").innerText = minusScore;
     document.getElementById("percent").innerText = percent + '%';
-    document.getElementById("roundScore").innerText = roundScore;
+    document.getElementById("quarterScore").innerText = quarterScore;
     whiteBoxes.classList.add('color');
 
-    if (roundScore < goal && life == 1) {
+    if (quarterScore < goal && life == 1) {
         noHearts();
     }
-    else if (roundScore < goal && life > 1) {
-        totalScore.pop(roundScore);
+    else if (quarterScore < goal && life > 1) {
+        totalScore.pop(quarterScore);
         console.log(totalScore);
         life--
         statusMessage(`Use a heart and try again`);
@@ -464,7 +462,7 @@ function roundUp() {
         gameEnd();
     } else {
         
-    roundScore = 0;
+    quarterScore = 0;
     score = 0;
     plusAmt = 0;
     plusScore = 0;
@@ -490,13 +488,25 @@ function gameEnd() {
     header.innerText= 'Final';
 console.log("sup",totalScore, sumArr(totalScore), (sumArr(totalScore)));
     sumArr();
-    scoreBoard();
+    document.getElementById("quarter_one").innerText = totalScore[0];
+    document.getElementById("quarter_two").innerText = totalScore[1];
+    document.getElementById("quarter_three").innerText = totalScore[2];
+    document.getElementById("quarter_four").innerText = totalScore[3];
+    document.getElementById("totalScore").innerText = sumArr(totalScore);
+ 
+   
 
     console.log("totalScore", totalScore);
     console.log(sumArr());
     document.getElementById('all').innerText = sumArr();
 
-    
+    let tl = gsap.timeline({defaults: { duration: .5, opacity: 0 } }) 
+    tl
+   
+    .to(".tsModal", { opacity: 1, duration: 1.5, y: "165%", ease: "bounce", })
+    .from(".quarter", { stagger: .5 })
     
     //console.log(sumArr);
+
+    scoreBoard();
 }

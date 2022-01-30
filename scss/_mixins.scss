@@ -30,3 +30,8 @@
   background-repeat: no-repeat;
   border-radius: 20%;
 }
+@mixin gridplus {
+  background-color: black;
+  //grid-row: span 2;
+  
+}

@@ -307,7 +307,6 @@ img {
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  border: 5px #b80573 solid;
   height: 100%;
   width: 100%;
 }
@@ -342,13 +341,16 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 20%;
   position: fixed;
-  -webkit-transform: translate(0%, 105%);
-          transform: translate(0%, 105%);
+  -webkit-transform: translate(0%, -30%);
+          transform: translate(0%, -30%);
   margin: 10px 0;
-  border: 5px #05b81d solid;
-  left: 15%;
+  left: 30%;
 }
 
 .textBox {
@@ -375,9 +377,7 @@ img {
       -ms-flex-direction: column;
           flex-direction: column;
   font-size: auto;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  position: relative;
 }
 
 #coolmole1 img {
@@ -629,7 +629,54 @@ img {
   margin: auto;
 }
 
-.roundModal, .introModal, .scoreModal {
+.roundModal {
+  background-color: #000000bf;
+  height: 65%;
+  width: 80%;
+  color: white;
+  top: -100%;
+  position: fixed;
+  border: white 5px ridge;
+  padding: 20px;
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.introModal {
+  background-color: #000000bf;
+  height: 65%;
+  width: 80%;
+  color: white;
+  position: fixed;
+  border-style: ridge;
+  border: #ffffff 5px ridge;
+  padding: 20px;
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #000000;
+  opacity: 0;
+  top: -100%;
+}
+
+.scoreModal {
   background-color: #000000bf;
   height: 65%;
   width: 80%;
@@ -637,7 +684,7 @@ img {
   top: -100%;
   position: fixed;
   border-style: ridge;
-  border: white 5px ridge;
+  border: #ffffff 5px ridge;
   padding: 20px;
   margin: 20px;
   display: -webkit-box;
@@ -652,8 +699,131 @@ img {
           flex-direction: column;
 }
 
-.introModal {
-  background-color: #000000dc;
+.tsModal {
+  background-color: #000000bf;
+  height: 65%;
+  width: 80%;
+  color: white;
+  top: -100%;
+  position: fixed;
+  border-style: ridge;
+  border: white 5px ridge;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  -ms-grid-rows: (1fr)[6];
+      grid-template-rows: repeat(6, 1fr);
+}
+
+.quarter1 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-area: 1/1/2/2;
+  background-color: black;
+}
+
+.quarter2 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 1/2/2/3;
+  background-color: black;
+}
+
+.quarter3 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-area: 1/3/2/4;
+  background-color: black;
+}
+
+.quarter4 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-area: 1/4/2/5;
+  background-color: black;
+}
+
+.quarter5 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 1;
+  grid-area: 1/5/2/6;
+  background-color: black;
+}
+
+.quarter6 {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-area: 2/1/3/6;
+  border-bottom: #ffffff 5px ridge;
+}
+
+.playerScore1 {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-area: 3/1/4/2;
+}
+
+.playerScore2 {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 3/2/4/3;
+}
+
+.playerScore3 {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-area: 3/3/4/4;
+}
+
+.playerScore4 {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-area: 3/4/4/5;
+}
+
+.playerScore5 {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 1;
+  grid-area: 3/5/4/6;
+}
+
+.quarter7 {
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-area: 4/1/6/6;
+  background-color: #000000bf;
+  grid-row: span 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .headings {
@@ -666,8 +836,13 @@ img {
       -ms-flex-align: center;
           align-items: center;
   max-height: 1vh;
+  width: 100%;
   font-size: large;
   overflow: visible;
+}
+
+.quarter {
+  margin: auto;
 }
 
 .lineOne, .lineTwo {
@@ -720,7 +895,7 @@ img {
   background: repeating-linear-gradient(135deg, #4aec0a, #4aec0a 20px, #fcee2c 20px, #fcee2c 40px);
 }
 
-#roundScore {
+#quarterScore {
   height: 7rem;
   font-size: x-large;
   display: -webkit-box;
@@ -819,19 +994,18 @@ img {
   margin-top: -30px;
 }
 
-.xIntro {
+button .xIntro {
   color: black;
-  padding: 0 10px 5px;
   text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   display: inline-block;
   font-size: 16px;
   border-radius: 20px;
   max-width: 10vw;
-  min-width: 3vw;
+  min-width: 6vw;
   height: 6vh;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
   margin-top: 2%;
 }
 
@@ -1020,7 +1194,7 @@ p {
   margin-bottom: .5rem;
   color: #fcddb6;
   text-indent: 7%;
-  line-height: 1rem;
+  line-height: 1.5rem;
 }
 
 p::first-letter {
@@ -1048,7 +1222,7 @@ p:after {
   font-weight: 700;
   display: table;
   margin: 0 auto;
-  font-size: .5rem;
+  font-size: 1rem;
   text-align: center;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   -webkit-animation: bop infinite 2.5s steps(2);
