@@ -30,6 +30,7 @@ let heart = '\u{2764}';
 let trophy = '\u{1f3c6}';
 let unlock = '\u{1f513}';
 let restart = '\u{21ba}';
+let fire = '\u{1f525}'
 let again = '\u{1f3ac}';
 
 let start = document.getElementById('start');
@@ -130,7 +131,7 @@ function intro(){
  }
  function reStart(){
 
-    gsap.to(".tsModal", {opacity: 0, duration: 1, ease: "circ",});
+    gsap.to(".tsModal", {opacity: 0, duration: 1, ease: "circ", y:'-200%'});
     choiceBlock.setAttribute('style','height:60px;');  
 
     hearts()
@@ -390,7 +391,15 @@ function roundEnd() {
         tryAgain.innerText = `${heart}`;
         tryAgain.addEventListener("click", useHeart);
     }
-    else {
+    else if (round== 4){
+        statusMessage(`Congratulations, you made it! Push the button for your results. `);
+        let advance = document.getElementById('eval');
+        advance = document.createElement("button");
+        document.getElementById('eval').append(advance);
+        advance.innerText = `${fire}`;
+        advance.addEventListener("click", gameEnd);
+    }    
+    else{
         round++
         statusMessage(`Advance to the next level!`);
         let advance = document.getElementById('eval');
@@ -447,11 +456,7 @@ function roundGsap() {
    roundEnd();
 }
 // /////function to roll up stat page and restart new level
-function roundUp() {
-    if (round == 5) {
-        gameEnd();
-    } else {
-        
+function roundUp() {        
     quarterScore = 0;
     score = 0;
     plusAmt = 0;
@@ -472,7 +477,7 @@ function roundUp() {
 
     gsap.to(".roundModal", { y: "-100%", duration: 2.5, ease: "power1" });
     gsap.fromTo(".start", { opacity: 0, scale: 0 }, { duration: 2.5, opacity: 1, scale: 1, ease: "elastic" })
-    }
+    
 }
 function gameEnd() {
     header.innerText= 'Final';
@@ -488,10 +493,14 @@ function gameEnd() {
     final
    
     .to(".roundModal", {opacity: 0, duration: 1, ease: "circ",})
+    .to(".roundModal", {y: '-200%'})
     .to(".tsModal", { opacity: 1, duration: 1.5, y: "175%", ease: "bounce", })
+    .to(".scoreCap", {opacity: 1, duration: 2, ease: "circ"})
     .from(".quarter", { stagger: .5 })    
-    .to(".scoreCap", {opacity: 1, duration: 4, ease: "circ"})
-    .fromTo(".score", {opacity: 0,  stagger: 1 },{opacity: 1, duration: 2,ease: "circ" });
+    .fromTo(".scoreModal", {opacity: 0},{opacity: 1, duration: 2, ease: "circ" })
+    .fromTo(".score", {opacity: 0,  stagger: 5 },{opacity: 1, duration: 2,ease: "circ" })
+    .fromTo("#message", { opacity: 0, scale: 0, x: "0%", y: "30%"   }, { opacity: 1, scale: 1, ease: "power2" })
+    .fromTo("#eval2", {  opacity: 0, x: "0%", },{  opacity: 1, x: "50%", ease: "back", duration: 1 });
 
     scoreBoard();
 }
@@ -543,11 +552,7 @@ function scoreBoard(){
     }
     let game = gsap.timeline({ defaults: { duration: .5, opacity: 0 } })
     game
-        .to(".scoreModal", { opacity: 1, duration: 1.5, ease: "bounce", })
-        .from(".score", { stagger: .3, duration: 4 })
-        .fromTo("#message", { opacity: 0, scale: 0, x: "0%", y: "30%"   }, { opacity: 1, scale: 1, ease: "power2" })
-        .fromTo("#eval2", {  opacity: 0, x: "0%", },{  opacity: 1, x: "50%", ease: "power2", duration: 1 });
-    
+            
         document.getElementById('message').innerText= `Try to beat your score`;
         let playAgain = document.getElementById('eval2'); 
         playAgain = document.createElement("button");

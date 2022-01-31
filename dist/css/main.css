@@ -693,6 +693,7 @@ img {
           flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  opacity: 0;
 }
 
 .score, .score2 {
