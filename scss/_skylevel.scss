@@ -15,7 +15,6 @@
 }
 button .xIntro {   
     color: black;
-    //padding: 0 0 20px 0;
     text-align: center;    
     justify-content: center;
     display: inline-block;
@@ -24,7 +23,6 @@ button .xIntro {
     max-width: 10vw;
     min-width: 6vw;
     height: 6vh;
-    //width: fit-content;
     margin-top: 2%;
 }    
 #level {
@@ -128,6 +126,7 @@ ul {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: small;       
     right: 0%;
+    
     transition: .5s ease all;
 }
 .easy:checked + .buttons{

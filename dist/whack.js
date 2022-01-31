@@ -130,7 +130,8 @@ function intro(){
  }
  function reStart(){
 
-    gsap.to(".roundModal", {opacity: 0, duration: 1, ease: "circ",});
+    gsap.to(".tsModal", {opacity: 0, duration: 1, ease: "circ",});
+    choiceBlock.setAttribute('style','height:60px;');  
 
     hearts()
     begin()
