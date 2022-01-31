@@ -30,6 +30,7 @@ let heart = '\u{2764}';
 let trophy = '\u{1f3c6}';
 let unlock = '\u{1f513}';
 let restart = '\u{21ba}';
+let again = '\u{1f3ac}';
 
 let start = document.getElementById('start');
 let time = document.getElementById('time');
@@ -84,33 +85,40 @@ function intro(){
     document.getElementById('min4').src = `./asset/minCash4.png`;
     xIntro1.addEventListener("click", xIntro);
 
-   let t1 = gsap.timeline();
-    t1    
-    .fromTo(".introModal", { opacity: 0, x:'-200%', y:'165%' },{ opacity: .8, duration: 1.5, x: 0, y:'165%',  ease: "circ" }) 
+   let intro = gsap.timeline({ defaults: { duration: 1.5} })
+    intro    
+    // /////modal slide in
+    .fromTo(".introModal", { opacity: 0, x:'-200%', y:'165%' },{ opacity: .87, duration: 1.5, x: 0, ease: "circ" }) 
     
-    .to(rule, {cssRule: {scaleY: 0,}, duration: 2.7})
-    .fromTo(".moleHold", {opacity: 0, x: '-100%',},{ opacity: 1, x: 0, duration: 1, });
+    // /////text reveal
+    .to(rule, {cssRule: {scaleY: 0}, duration: 4}, "-=.5")
+    // /////mole slide in
+    .fromTo(".moleHold", {opacity: 0, x: '-100%',},{ opacity: 1, x: 0, duration: 2},"-=1.5");
    
+   // /////cash carousel 
    let t2 = gsap.timeline({repeat: -1});
     t2   
-    .from("#min1", {opacity: 1, x: '-100%', duration: 2})
-    .to("#min1", {opacity: 0, x: "0%", duration: 2, delay: 1.3 })    
-    .from("#min2", {opacity: 1, x: '-100%', duration: 2})
-    .to("#min2", {opacity: 0, x: "0%", duration: 2, delay: 1.3 })   
-    .from("#min3", {opacity: 1, x: '-100%', duration: 2})
-    .to("#min3", {opacity: 0, x: "0%", duration: 2, delay: 1.3 })   
-    .from("#min4", {opacity: 1, x: '-100%', duration: 2})
-    .to("#min4", {opacity: 0, x: "0%", duration: 2, delay: 1.3 })  
+    .from("#min1", {opacity: 0, x: '-50%', duration: 1})
+    .to("#min1", {opacity: 0, x: "0%", duration: 1, delay: 1.3 })    
+    .from("#min2", {opacity: 0, x: '-50%', duration: 1})
+    .to("#min2", {opacity: 0, x: "0%", duration: 1, delay: 1.3 })   
+    .from("#min3", {opacity: 0, x: '-50%', duration: 1})
+    .to("#min3", {opacity: 0, x: "0%", duration: 1, delay: 1.3 })   
+    .from("#min4", {opacity: 0, x: '-50%', duration: 1})
+    .to("#min4", {opacity: 0, x: "0%", duration: 1, delay: 1.3 })  
     .tweenFromTo("hold","end",); 
 
+    // /////combining both timelines
     let master = gsap.timeline();
     master
-    .add(t1)
+    .add(intro)
     .add(t2);
 }
  function xIntro(){
     document.getElementsByClassName('choiceblock')[0].style.visibility = "visible";
     document.getElementsByClassName('choice')[0].style.visibility = "visible";
+
+    // /////intromodal leaving
     let tl = gsap.timeline()
     tl
     
@@ -120,22 +128,21 @@ function intro(){
     begin()
     levelChoice()
  }
- function scoreArr(){
-       
- }
- function scoreBoard(){
-    let tl = gsap.timeline({}) 
-    tl
-    .to(".roundModal", {opacity: 0, duration: 2, ease: "circ", x: "0%"})
-    .fromTo(".quarter", {opacity: 0,  stagger: .3 },{opacity: 1, duration: 2,ease: "circ" })    
- }
+ function reStart(){
 
+    gsap.to(".roundModal", {opacity: 0, duration: 1, ease: "circ",});
+
+    hearts()
+    begin()
+    levelChoice()
+ }
 function levelChoice(){
     choiceBlock.classList.add('choice');
     choiceStack.setAttribute('style','right:-20%;');  
     finger.innerText = `${hand}`;
     padlock.innerText = `${unlock}`;
     finger.addEventListener("click", difficultyLevel);
+   
     let tl = gsap.timeline();
     tl
     .to("#finger", {x: "20%", repeat:5, yoyo:true, duration: .3, delay: 3})
@@ -170,11 +177,9 @@ function difficultyLevel(){
          level.style.border ='#fd7575 2px solid';
     }
 }
- function doneChoosing() {
-     let level=document.getElementById("level");
+ function doneChoosing() {    
      choiceStack.setAttribute('style','right:-20%;');
-     choiceBlock.setAttribute('style','height:30px;');    
-     level.setAttribute('style','height:30px;'); 
+     choiceBlock.setAttribute('style','height:30px;');           
      finger.innerText = '';     
  }
 function begin() {
@@ -182,7 +187,7 @@ function begin() {
     round = 1;
     roundUp();
     level.innerText = 'MED';  
-    header.innerText = "Cash Smash";
+    header.innerText = "CashSmash";    
 }
 
 start.addEventListener("click", () => {
@@ -190,7 +195,6 @@ start.addEventListener("click", () => {
     padlock.innerText = `${lock}`;
     header.innerText= `Level ${round}`;
     finger.removeEventListener("click", difficultyLevel);
-    choiceStack.setAttribute('style','right:-20%;');
     start.style.visibility = "hidden";
     document.getElementsByClassName('wBox2')[0].style.visibility = "visible";
     let time = window.setInterval(() => {
@@ -217,7 +221,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    }, 5900); //shortened for debugging mode
+    },900); //shortened for debugging mode
 });
 
 function choice(min, max) {
@@ -321,7 +325,6 @@ let resetHoles = window.setInterval(() => {
     })
 }, 2500);
 
-
 // /////progress bar
 const progressBar = document.getElementsByClassName('progress-bar')[0];
 
@@ -338,7 +341,6 @@ function statusMessage(msg) {
 function hearts() {
     totalScore = [];
     for (let i = 1; i < 5; i++) {
-        console.log(i);
         let hearts = document.getElementsByClassName(`heart${i}`)[0];
         hearts.innerText = `${heart}`;
         hearts.style.opacity = 1;
@@ -379,10 +381,8 @@ function roundEnd() {
     }
     else if (quarterScore < goal && life > 1) {
         totalScore.pop(quarterScore);
-        console.log(totalScore);
         life--
         statusMessage(`Use a heart and try again`);
-        console.log(life);
         let tryAgain = document.getElementById('eval');
         tryAgain = document.createElement("button");
         document.getElementById('eval').append(tryAgain);
@@ -399,15 +399,10 @@ function roundEnd() {
         advance.addEventListener("click", roundUp);
     }
 }
-
-//let returnedSum = sumArr;
-//console.log(sumArr(totalScore));
-
 function sumArr() {
     let sum = 0;
     for (let i = 0; i < totalScore.length; i++) {
         sum += totalScore[i];
-       // document.getElementById('totalScore').innerText = (sumArr(totalScore));
     }
     return sum;
 }
@@ -418,7 +413,6 @@ function useHeart() {
 };
 function noHearts() {
     statusMessage(`Uh oh! No more hearts.\nPush restart to play again.`);
-
     let doOver = document.getElementById('eval');
     doOver = document.createElement("button");
     document.getElementById('eval').append(doOver);
@@ -433,17 +427,15 @@ function roundGsap() {
         console.log("val.classList", val.classList)
         val.classList.remove(`mole${round}`)
     });
-
     let clearHole1 = document.querySelectorAll(`.cash${round}`);
     clearHole1.forEach((val) => {
         console.log("val.classList", val.classList)
         val.classList.remove(`cash${round}`)
     });
-
     document.getElementById('plusImg').src = `./asset/minCash${round}.png`;
     let tl = gsap.timeline({ defaults: { duration: .5, opacity: 0 } })
     tl
-        .to(".roundModal", { opacity: 1, duration: 1.5, y: "165%", ease: "bounce", })
+        .to(".roundModal", { opacity: 1, duration: 1.5, y: "185%", ease: "bounce", })
         .from(".heading", { stagger: .3 })
         .from(".lineOne", {})
         .from(".lineTwo", {})
@@ -451,9 +443,6 @@ function roundGsap() {
         .from(".theBar", {})
         .fromTo(".evalOne", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, ease: "power2" })
         .from("#eval", { x: "-30%" });
-
-    console.log(round);
-
    roundEnd();
 }
 // /////function to roll up stat page and restart new level
@@ -486,27 +475,82 @@ function roundUp() {
 }
 function gameEnd() {
     header.innerText= 'Final';
-console.log("sup",totalScore, sumArr(totalScore), (sumArr(totalScore)));
     sumArr();
     document.getElementById("quarter_one").innerText = totalScore[0];
     document.getElementById("quarter_two").innerText = totalScore[1];
     document.getElementById("quarter_three").innerText = totalScore[2];
     document.getElementById("quarter_four").innerText = totalScore[3];
-    document.getElementById("totalScore").innerText = sumArr(totalScore);
- 
-   
-
-    console.log("totalScore", totalScore);
-    console.log(sumArr());
+    document.getElementById("totalScore").innerText = sumArr(totalScore);   
     document.getElementById('all').innerText = sumArr();
 
-    let tl = gsap.timeline({defaults: { duration: .5, opacity: 0 } }) 
-    tl
+    let final = gsap.timeline({defaults: { duration: .5, opacity: 0 } }) 
+    final
    
-    .to(".tsModal", { opacity: 1, duration: 1.5, y: "165%", ease: "bounce", })
-    .from(".quarter", { stagger: .5 })
-    
-    //console.log(sumArr);
+    .to(".roundModal", {opacity: 0, duration: 1, ease: "circ",})
+    .to(".tsModal", { opacity: 1, duration: 1.5, y: "175%", ease: "bounce", })
+    .from(".quarter", { stagger: .5 })    
+    .to(".scoreCap", {opacity: 1, duration: 4, ease: "circ"})
+    .fromTo(".score", {opacity: 0,  stagger: 1 },{opacity: 1, duration: 2,ease: "circ" });
 
     scoreBoard();
+}
+
+function scoreBoard(){
+    console.log("scoreboard");
+     
+    let i = 10;
+    let ii = 0;
+    let iii = 0;
+    let iv = 0;
+    let v = 0;
+    let vi = 110;
+    let vii = 0;
+    let viii = 0;
+    let ix = 0;
+    let x = 0;
+
+    if (totalScore >= i){
+        totalScore=i;
+        document.getElementById("x").innerText=`$(i)`;
+    }else if(totalScore>= ii){
+        totalScore=ii;
+        document.getElementById("x").innerText=`$(ii)`;
+    }else if(totalScore>= iii){
+        totalScore=iii;
+        document.getElementById("x").innerText=`$(iii)`;
+    }else if(totalScore>= iv){
+        totalScore=iv;
+        document.getElementById("x").innerText=`$(iv)`;
+    }else if(totalScore>= v){
+        totalScore=v;
+        document.getElementById("x").innerText=`$(v)`;
+    }else if(totalScore>= vi){
+        totalScore=vi;
+        document.getElementById("x").innerText=`$(vi)`;
+    }else if(totalScore>= vii){
+        totalScore=vii;
+        document.getElementById("x").innerText=`$(vii)`;
+    }else if(totalScore>= viii){
+        totalScore=viii;
+        document.getElementById("x").innerText=`$(viii)`;
+    }else if(totalScore>= ix){
+        totalScore=ix;
+        document.getElementById("x").innerText=`$(ix)`;
+    }else if(totalScore>= x){
+        totalScore=x;
+        document.getElementById("x").innerText=`$(x)`;
+    }
+    let game = gsap.timeline({ defaults: { duration: .5, opacity: 0 } })
+    game
+        .to(".scoreModal", { opacity: 1, duration: 1.5, ease: "bounce", })
+        .from(".score", { stagger: .3, duration: 4 })
+        .fromTo("#message", { opacity: 0, scale: 0, x: "0%", y: "30%"   }, { opacity: 1, scale: 1, ease: "power2" })
+        .fromTo("#eval2", {  opacity: 0, x: "0%", },{  opacity: 1, x: "50%", ease: "power2", duration: 1 });
+    
+        document.getElementById('message').innerText= `Try to beat your score`;
+        let playAgain = document.getElementById('eval2'); 
+        playAgain = document.createElement("button");
+        document.getElementById('eval2').append(playAgain);
+        playAgain.innerText = `${again}`;
+        playAgain.addEventListener("click", reStart);
 }

@@ -17,7 +17,7 @@ body{
     justify-content: center;
     align-items: center;
     overflow-x: hidden;
-    transition: transform .2s;  
+    transition: transform 1s;  
     
     &::-webkit-scrollbar {
         width: 25px;    
@@ -38,14 +38,14 @@ body{
             }
       }
       & button {
-        outline: white 1.5px solid;
+        outline: white 1.5px double;
         outline-offset: -4px;
-        border: white 2px solid;
-          font-size:x-large;
+        border: white 2px double;
+          font-size:large;
           height: 45px;
           width: 45px;
           border-radius: 50%;
-          background-image: linear-gradient(to top, #4aec0a 0%, #fcee2c 60%);
+          background-image: linear-gradient(to top, #4aec0a 0%, #e7d801 70%);
           color:rgb(243, 0, 0);
           cursor: pointer;
       }

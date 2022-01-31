@@ -32,6 +32,8 @@
 }
 @mixin gridplus {
   background-color: black;
+  grid-row: span 1;
+  border-bottom:#ffffff 3px ridge;
   //grid-row: span 2;
   
 }

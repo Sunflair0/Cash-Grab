@@ -63,55 +63,45 @@ img{
  #first {
     max-width: 100px;
     min-width: 80px;  
-
 }
 #second{
     max-width: 100px;
     min-width: 80px;   
 }
-
  .moleShow {
     display: flex;
     position: relative;     
     height: 100%;
     width: 100%;
-    //padding-top: 10%;
 }
 .moleBox {
     display: flex;
-    height: 100%;
-    // border: 5px rgb(184, 157, 5) solid;
-    // position: relative; 
+    height: 100%; 
 }
 .cashShows {
     display: flex;
     position: relative;        
-    // border: 5px rgb(32, 5, 184) solid;
     width: 5%;   
 }
 .cashShow{
     display: flex;
-     width: 10%;     
-     position: fixed;  
-     //transform: translate(-120%,15%);
-     //top: 10%;
-     max-height: 75px;
-     top:38%;   
-     left: 16%; 
-    //  border: 5px rgb(184, 5, 5) solid;    
-}
+    width: 10%;     
+    position: fixed;  
+    max-height: 75px;
+    top: 9%;   
+    left: 43%; }
 .moleHold {
-    display: flex;
+   display: flex;
    flex-direction: column; 
-        width: 20%;
-        position: fixed; 
-   transform: translate(0%,-30%);
+   width: 100%;
+   position: fixed; 
+   transform: translate(0%,-20%);
    margin:10px 0;
-   left: 30%;
+   left: 40%;
 }
 .textBox {
-    display: flex;
-    flex-direction: column;         
+   display: flex;
+   flex-direction: column;         
    align-items: center;
    position: relative; 
    height: 100%;
@@ -121,7 +111,7 @@ img{
     flex-direction: column;
     font-size: auto;
     position: relative;     
-//    border: 5px rgb(194, 148, 148) solid;
+    top: 20%;
 }
 #coolmole1 img {
     width: 75%;
