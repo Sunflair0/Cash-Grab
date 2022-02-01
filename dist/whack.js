@@ -32,6 +32,16 @@ let unlock = '\u{1f513}';
 let restart = '\u{21ba}';
 let fire = '\u{1f525}'
 let again = '\u{1f3ac}';
+let i = 0;
+let ii = 0;
+let iii = 0;
+let iv = 0;
+let v = 0;
+let vi = 0;
+let vii = 0;
+let viii = 0;
+let ix = 0;
+let x = 0;
 
 let start = document.getElementById('start');
 let time = document.getElementById('time');
@@ -68,7 +78,7 @@ const darkmole = [mole1, mole2, mole3, mole4];
 const darkcash = [cash1, cash2, cash3, cash4];
 let mole = darkmole[round];
 let cash = darkcash[round];
-let seconds;
+let seconds, sum;
 
 window.onload = intro();
 
@@ -223,7 +233,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    },900); //shortened for debugging mode
+    },7900); //shortened for debugging mode
 });
 
 function choice(min, max) {
@@ -482,6 +492,7 @@ function roundUp() {
 function gameEnd() {
     header.innerText= 'Final';
     sumArr();
+    scoreBoard();
     document.getElementById("quarter_one").innerText = totalScore[0];
     document.getElementById("quarter_two").innerText = totalScore[1];
     document.getElementById("quarter_three").innerText = totalScore[2];
@@ -502,61 +513,94 @@ function gameEnd() {
     .fromTo("#message", { opacity: 0, scale: 0, x: "0%", y: "30%"   }, { opacity: 1, scale: 1, ease: "power2" })
     .fromTo("#eval2", {  opacity: 0, x: "0%", },{  opacity: 1, x: "50%", ease: "back", duration: 1 });
 
-    scoreBoard();
-}
-
-function scoreBoard(){
-    console.log("scoreboard");
-     
-    let i = 10;
-    let ii = 0;
-    let iii = 0;
-    let iv = 0;
-    let v = 0;
-    let vi = 110;
-    let vii = 0;
-    let viii = 0;
-    let ix = 0;
-    let x = 0;
-
-    if (totalScore >= i){
-        totalScore=i;
-        document.getElementById("x").innerText=`$(i)`;
-    }else if(totalScore>= ii){
-        totalScore=ii;
-        document.getElementById("x").innerText=`$(ii)`;
-    }else if(totalScore>= iii){
-        totalScore=iii;
-        document.getElementById("x").innerText=`$(iii)`;
-    }else if(totalScore>= iv){
-        totalScore=iv;
-        document.getElementById("x").innerText=`$(iv)`;
-    }else if(totalScore>= v){
-        totalScore=v;
-        document.getElementById("x").innerText=`$(v)`;
-    }else if(totalScore>= vi){
-        totalScore=vi;
-        document.getElementById("x").innerText=`$(vi)`;
-    }else if(totalScore>= vii){
-        totalScore=vii;
-        document.getElementById("x").innerText=`$(vii)`;
-    }else if(totalScore>= viii){
-        totalScore=viii;
-        document.getElementById("x").innerText=`$(viii)`;
-    }else if(totalScore>= ix){
-        totalScore=ix;
-        document.getElementById("x").innerText=`$(ix)`;
-    }else if(totalScore>= x){
-        totalScore=x;
-        document.getElementById("x").innerText=`$(x)`;
-    }
-    let game = gsap.timeline({ defaults: { duration: .5, opacity: 0 } })
-    game
-            
-        document.getElementById('message').innerText= `Try to beat your score`;
+    document.getElementById('message').innerText= `Try to beat your score`;
         let playAgain = document.getElementById('eval2'); 
         playAgain = document.createElement("button");
         document.getElementById('eval2').append(playAgain);
         playAgain.innerText = `${again}`;
         playAgain.addEventListener("click", reStart);
+
+   
+}
+
+function scoreBoard(){
+  
+   let sum = sumArr(totalScore);
+
+    if (sum >= i){
+        x=ix;
+        ix=viii;
+        viii=vii;
+        vii=vi;
+        vi=v;
+        v=iv;
+        iv=iii;
+        iii=ii;
+        ii=i;
+        i=sum;
+    }else if(sum >= ii){
+        x=ix;
+        ix=viii;
+        viii=vii;
+        vii=vi;
+        vi=v;
+        v=iv;
+        iv=iii;
+        iii=ii;
+        ii=sum;        
+    }else if(sum >= iii){
+        x=ix;
+        ix=viii;
+        viii=vii;
+        vii=vi;
+        vi=v;
+        v=iv;
+        iv=iii;
+        iii=sum;        
+    }else if(sum >= iv){
+        x=ix;
+        ix=viii;
+        viii=vii;
+        vii=vi;
+        vi=v;
+        v=iv;
+        iv=sum;        
+    }else if(sum >= v){
+        x=ix;
+        ix=viii;
+        viii=vii;
+        vii=vi;
+        vi=v;
+        v=sum;        
+    }else if(sum >= vi){
+        x=ix;
+        ix=viii;
+        viii=vii;
+        vii=vi;
+        vi=sum;        
+    }else if(sum >= vii){
+        x=ix;
+        ix=viii;
+        viii=vii;
+        vii=sum;        
+    }else if(sum >= viii){
+        x=ix;
+        ix=viii;
+        viii=sum;        
+    }else if(sum >= ix){
+        x=ix;
+        ix=sum;                
+    }else if(sum >= x){
+        x=sum;
+    }
+    document.getElementById("i").innerText=i;
+    document.getElementById("ii").innerText=ii;
+    document.getElementById("iii").innerText=iii;
+    document.getElementById("iv").innerText=iv;
+    document.getElementById("v").innerText=v;
+    document.getElementById("vi").innerText=vi;
+    document.getElementById("vii").innerText=vii;
+    document.getElementById("viii").innerText=viii;
+    document.getElementById("ix").innerText=ix;
+    document.getElementById("x").innerText=x;
 }
