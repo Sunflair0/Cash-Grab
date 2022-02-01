@@ -18,6 +18,7 @@ let minusAmt = 0;
 let minusVal = -15;
 let minusScore = 0;
 let totalScore = [];
+let newArr=[];
 let result = 0;
 let percent = 0;
 let min = round;
@@ -50,7 +51,6 @@ let close = document.getElementsByClassName('close')[0];
 let easy = document.getElementById('easy');
 let med = document.getElementById('med');
 let hard = document.getElementById('hard');
-
 let wBox2 = document.querySelectorAll(".wBox2");
 let holes = document.querySelectorAll(".darkhole");
 let mole1 = document.querySelectorAll(".mole1");
@@ -128,7 +128,7 @@ function intro(){
  function xIntro(){
     document.getElementsByClassName('choiceblock')[0].style.visibility = "visible";
     document.getElementsByClassName('choice')[0].style.visibility = "visible";
-
+    
     // /////intromodal leaving
     let tl = gsap.timeline()
     tl
@@ -136,25 +136,27 @@ function intro(){
    .to(".introModal", {opacity: 0, x:'200%', y:"165%", duration: 1, ease: "circ",delay: ".5"});
 
     hearts()
-    begin()
     levelChoice()
  }
  function reStart(){
 
     gsap.to(".tsModal", {opacity: 0, duration: 1, ease: "circ", y:'-200%'});
     choiceBlock.setAttribute('style','height:60px;');  
+    totalScore.push("med");
 
     hearts()
-    begin()
     levelChoice()
  }
 function levelChoice(){
     choiceBlock.classList.add('choice');
-    choiceStack.setAttribute('style','right:-20%;');  
+    choiceStack.setAttribute('style','right:-20%;'); 
+    choiceBlock.appendChild(finger); 
     finger.innerText = `${hand}`;
-    padlock.innerText = `${unlock}`;
+    finger.setAttribute('style','top:-30px;'); 
+    
     finger.addEventListener("click", difficultyLevel);
-   
+    padlock.innerText = `${unlock}`;
+
     let tl = gsap.timeline();
     tl
     .to("#finger", {x: "20%", repeat:5, yoyo:true, duration: .3, delay: 3})
@@ -175,24 +177,47 @@ function difficultyLevel(){
          level.innerText = 'EASY';
          level.style.color ='#5dca5d';
          level.style.border ='#5dca5d 2px solid';
+         totalScore.pop();
+         totalScore.push("easy");
     }
     if (document.getElementById('med').checked) {
          seconds = 1000;
          level.innerText = 'MED';
          level.style.color ='#f3f365';
          level.style.border ='#f3f365 2px solid';
+         totalScore.pop();
+         totalScore.push("med");
     }
     if (document.getElementById('hard').checked) {
          seconds = 500;
          level.innerText = 'HARD';
          level.style.color ='#fd7575';
          level.style.border ='#fd7575 2px solid';
+         totalScore.pop();
+         totalScore.push("hard");
     }
 }
  function doneChoosing() {    
      choiceStack.setAttribute('style','right:-20%;');
      choiceBlock.setAttribute('style','height:30px;');           
-     finger.innerText = '';     
+       
+     switch(totalScore[0]) {
+        case "easy":
+            level.innerText = 'EASY';
+            level.style.color ='#5dca5d';
+            level.style.border ='#5dca5d 2px solid';
+        break;
+        case "med":
+            level.innerText = 'MED';
+            level.style.color ='#f3f365';
+            level.style.border ='#f3f365 2px solid';
+        break;
+        case "hard":
+            level.innerText = 'HARD';
+            level.style.color ='#fd7575';
+            level.style.border ='#fd7575 2px solid';
+        break;
+        }
  }
 function begin() {
     life = 5;
@@ -206,7 +231,8 @@ start.addEventListener("click", () => {
     doneChoosing();
     padlock.innerText = `${lock}`;
     header.innerText= `Level ${round}`;
-    finger.removeEventListener("click", difficultyLevel);
+     finger.remove();   
+    // finger.removeEventListener("click", difficultyLevel);
     start.style.visibility = "hidden";
     document.getElementsByClassName('wBox2')[0].style.visibility = "visible";
     let time = window.setInterval(() => {
@@ -233,7 +259,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    },7900); //shortened for debugging mode
+    },900); //shortened for debugging mode
 });
 
 function choice(min, max) {
@@ -351,7 +377,7 @@ function statusMessage(msg) {
 }
 //display hearts for lives
 function hearts() {
-    totalScore = [];
+    totalScore = ["med"];
     for (let i = 1; i < 5; i++) {
         let hearts = document.getElementsByClassName(`heart${i}`)[0];
         hearts.innerText = `${heart}`;
@@ -493,11 +519,14 @@ function gameEnd() {
     header.innerText= 'Final';
     sumArr();
     scoreBoard();
-    document.getElementById("quarter_one").innerText = totalScore[0];
-    document.getElementById("quarter_two").innerText = totalScore[1];
-    document.getElementById("quarter_three").innerText = totalScore[2];
-    document.getElementById("quarter_four").innerText = totalScore[3];
-    document.getElementById("totalScore").innerText = sumArr(totalScore);   
+    document.getElementById("quarter_one").innerText = totalScore[1];
+    document.getElementById("quarter_two").innerText = totalScore[2];
+    document.getElementById("quarter_three").innerText = totalScore[3];
+    document.getElementById("quarter_four").innerText = totalScore[4];
+    document.getElementById("color").innerText=totalScore[0];
+    color();
+    totalScore.shift();
+    document.getElementById("totalScore").innerText = sumArr(newArr);   
     document.getElementById('all').innerText = sumArr();
 
     let final = gsap.timeline({defaults: { duration: .5, opacity: 0 } }) 
@@ -518,13 +547,32 @@ function gameEnd() {
         playAgain = document.createElement("button");
         document.getElementById('eval2').append(playAgain);
         playAgain.innerText = `${again}`;
-        playAgain.addEventListener("click", reStart);
-
-   
+        playAgain.addEventListener("click", reStart);   
+}
+function color(){    
+switch(totalScore[0]) {
+    case "easy":
+        document.getElementsByClassName("score2")[0].style.color ='#5dca5d';
+        document.getElementsByClassName("score")[0].style.color ='#5dca5d';
+        document.getElementsByClassName("level_color")[0].style.color ='#5dca5d';
+        document.getElementById('color').innerText = 'EASY';
+    break;
+    case "med":
+        document.getElementsByClassName("score2")[0].style.color ='#f3f365';
+        document.getElementsByClassName("score")[0].style.color ='#f3f365';
+        document.getElementsByClassName("level_color")[0].style.color ='#f3f365';
+        document.getElementById('color').innerText = 'MED';
+    break;
+    case "hard":
+        document.getElementsByClassName("score2")[0].style.color ='#fd7575';
+        document.getElementsByClassName("score")[0].style.color ='#fd7575';
+        document.getElementsByClassName("level_color")[0].style.color ='#fd7575';
+        document.getElementById('color').innerText = 'HARD';
+    break;
+    }
 }
 
-function scoreBoard(){
-  
+function scoreBoard(){  
    let sum = sumArr(totalScore);
 
     if (sum >= i){

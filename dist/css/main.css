@@ -696,23 +696,11 @@ img {
   opacity: 0;
 }
 
-.score, .score2 {
+.score, .score2, .level_color {
   margin-bottom: 5%;
 }
 
-.sb_Alpha {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.sb_Beta {
+.sb_Alpha, .sb_Beta, .sb_Gamma {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -898,12 +886,6 @@ img {
       -ms-flex-align: right;
           align-items: right;
   margin-right: 2vw;
-}
-
-.sb_AlphaHalf, .sb_BetaHalf {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .times {

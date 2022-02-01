@@ -39,19 +39,14 @@
     justify-content: space-around;
     opacity: 0;
 }
-.score, .score2 {
+.score, .score2, .level_color {
     margin-bottom: 5%;
 }
- .sb_Alpha {
+ .sb_Alpha,.sb_Beta, .sb_Gamma  {
     display: flex;        
     flex-basis: 50%;
     flex-direction: column;
-}
-.sb_Beta {
-    display: flex;   
-    flex-basis: 50%;
-    flex-direction: column;
-    align-items: center;   
+    align-items: center;
 }
 .tsModal {
     background-color: hsla(0, 0%, 0%, 0.8);
@@ -165,9 +160,6 @@
     justify-content: right;
     align-items: right;   
     margin-right: 2vw;
-}
-.sb_AlphaHalf, .sb_BetaHalf {
-display: flex;
 }
 .times {    
     font-size: x-large;
