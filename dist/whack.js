@@ -78,7 +78,8 @@ const darkmole = [mole1, mole2, mole3, mole4];
 const darkcash = [cash1, cash2, cash3, cash4];
 let mole = darkmole[round];
 let cash = darkcash[round];
-let seconds, sum;
+let seconds;
+let sum;
 
 window.onload = intro();
 
@@ -259,7 +260,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    },900); //shortened for debugging mode
+    },10900); //shortened for debugging mode
 });
 
 function choice(min, max) {
@@ -517,16 +518,19 @@ function roundUp() {
 }
 function gameEnd() {
     header.innerText= 'Final';
+     color();
+     document.getElementById("color").innerText=totalScore[0];
+    totalScore.shift();
+    document.getElementById("totalScore").innerText = sumArr(newArr);  
+
     sumArr();
     scoreBoard();
-    document.getElementById("quarter_one").innerText = totalScore[1];
-    document.getElementById("quarter_two").innerText = totalScore[2];
-    document.getElementById("quarter_three").innerText = totalScore[3];
-    document.getElementById("quarter_four").innerText = totalScore[4];
-    document.getElementById("color").innerText=totalScore[0];
-    color();
-    totalScore.shift();
-    document.getElementById("totalScore").innerText = sumArr(newArr);   
+    document.getElementById("quarter_one").innerText = totalScore[0];
+    document.getElementById("quarter_two").innerText = totalScore[1];
+    document.getElementById("quarter_three").innerText = totalScore[2];
+    document.getElementById("quarter_four").innerText = totalScore[3];
+    
+    
     document.getElementById('all').innerText = sumArr();
 
     let final = gsap.timeline({defaults: { duration: .5, opacity: 0 } }) 
@@ -573,7 +577,7 @@ switch(totalScore[0]) {
 }
 
 function scoreBoard(){  
-   let sum = sumArr(totalScore);
+ sum = sumArr(totalScore);
 
     if (sum >= i){
         x=ix;
