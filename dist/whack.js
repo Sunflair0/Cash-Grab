@@ -105,11 +105,10 @@ function intro(){
     // /////text reveal
     .to(rule, {cssRule: {scaleY: 0}, duration: 4}, "-=.5")
     // /////mole slide in
-    .fromTo(".moleHold", {opacity: 0, x: '-100%',},{ opacity: 1, x: 0, duration: 2},"-=1.5");
+    .fromTo(".moleHold", {opacity: 0, x: '-100%',},{ opacity: 1, x: 0, duration: 2},"-=3.5");
    
-   // /////cash carousel 
-   let t2 = gsap.timeline({repeat: -1});
-    t2   
+   let cashCarousel = gsap.timeline({repeat: -1});
+    cashCarousel   
     .from("#min1", {opacity: 0, x: '-50%', duration: 1})
     .to("#min1", {opacity: 0, x: "0%", duration: 1, delay: 1.3 })    
     .from("#min2", {opacity: 0, x: '-50%', duration: 1})
@@ -124,7 +123,7 @@ function intro(){
     let master = gsap.timeline();
     master
     .add(intro)
-    .add(t2);
+    .add(cashCarousel);
 }
  function xIntro(){
     document.getElementsByClassName('choiceblock')[0].style.visibility = "visible";
@@ -132,15 +131,13 @@ function intro(){
     
     // /////intromodal leaving
     let tl = gsap.timeline()
-    tl
-    
+    tl    
    .to(".introModal", {opacity: 0, x:'200%', y:"165%", duration: 1, ease: "circ",delay: ".5"});
 
     hearts()
     levelChoice()
  }
  function reStart(){
-
     gsap.to(".tsModal", {opacity: 0, duration: 1, ease: "circ", y:'-200%'});
     choiceBlock.setAttribute('style','height:60px;');  
     totalScore.push("med");
@@ -153,8 +150,7 @@ function levelChoice(){
     choiceStack.setAttribute('style','right:-20%;'); 
     choiceBlock.appendChild(finger); 
     finger.innerText = `${hand}`;
-    finger.setAttribute('style','top:-30px;'); 
-    
+    finger.setAttribute('style','top: -30px;');     
     finger.addEventListener("click", difficultyLevel);
     padlock.innerText = `${unlock}`;
 
@@ -227,7 +223,6 @@ function begin() {
     level.innerText = 'MED';  
     header.innerText = "CashSmash";    
 }
-
 start.addEventListener("click", () => {
     doneChoosing();
     padlock.innerText = `${lock}`;
@@ -260,7 +255,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    },10900); //shortened for debugging mode
+    },900); //shortened for debugging mode
 });
 
 function choice(min, max) {
@@ -518,33 +513,31 @@ function roundUp() {
 }
 function gameEnd() {
     header.innerText= 'Final';
-     color();
-     document.getElementById("color").innerText=totalScore[0];
+    levelColor();
+    document.getElementById("color").innerText=totalScore[0];
     totalScore.shift();
     document.getElementById("totalScore").innerText = sumArr(newArr);  
-
     sumArr();
     scoreBoard();
     document.getElementById("quarter_one").innerText = totalScore[0];
     document.getElementById("quarter_two").innerText = totalScore[1];
     document.getElementById("quarter_three").innerText = totalScore[2];
     document.getElementById("quarter_four").innerText = totalScore[3];
-    
-    
     document.getElementById('all').innerText = sumArr();
 
-    let final = gsap.timeline({defaults: { duration: .5, opacity: 0 } }) 
-    final
-   
-    .to(".roundModal", {opacity: 0, duration: 1, ease: "circ",})
+    let final = gsap.timeline() 
+    final   
+    .to(".roundModal", {opacity: 0, duration: .5, ease: "circ",})
     .to(".roundModal", {y: '-200%'})
-    .to(".tsModal", { opacity: 1, duration: 1.5, y: "175%", ease: "bounce", })
-    .to(".scoreCap", {opacity: 1, duration: 2, ease: "circ"})
-    .from(".quarter", { stagger: .5 })    
-    .fromTo(".scoreModal", {opacity: 0},{opacity: 1, duration: 2, ease: "circ" })
-    .fromTo(".score", {opacity: 0,  stagger: 5 },{opacity: 1, duration: 2,ease: "circ" })
-    .fromTo("#message", { opacity: 0, scale: 0, x: "0%", y: "30%"   }, { opacity: 1, scale: 1, ease: "power2" })
-    .fromTo("#eval2", {  opacity: 0, x: "0%", },{  opacity: 1, x: "50%", ease: "back", duration: 1 });
+    .to(".tsModal", { opacity: 1, duration: 1.3, y: "175%", ease: "bounce", }, "-=.5")
+    .to(".scoreCap", {opacity: 1, duration: 1.5, ease: "circ"})
+    .fromTo(".quarter", {opacity: 0, scale: 0 },{opacity: 1,  scale: 1.3,duration: .3,ease: "circ",  stagger: .4 })  
+    .fromTo(".scoreModal", {opacity: 0},{opacity: 1, duration: 1, ease: "circ" }, "+=.5")
+    .fromTo(".score2", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 })
+    .fromTo(".score", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 }, "<")
+    .fromTo("#color", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 }, "<")
+    .fromTo("#message", { opacity: 0, scale: 0, x: "10%", y: "30%"   }, { opacity: 1, scale: 1, ease: "power2", duration: 1 }, "-=1")
+    .fromTo("#eval2", {  opacity: 0, x: "0%", },{  opacity: 1, x: "25%", duration: 1, y: "-15%", ease: "back"},"-=1");
 
     document.getElementById('message').innerText= `Try to beat your score`;
         let playAgain = document.getElementById('eval2'); 
@@ -553,7 +546,7 @@ function gameEnd() {
         playAgain.innerText = `${again}`;
         playAgain.addEventListener("click", reStart);   
 }
-function color(){    
+function levelColor(){    
 switch(totalScore[0]) {
     case "easy":
         document.getElementsByClassName("score2")[0].style.color ='#5dca5d';
@@ -575,7 +568,6 @@ switch(totalScore[0]) {
     break;
     }
 }
-
 function scoreBoard(){  
  sum = sumArr(totalScore);
 
