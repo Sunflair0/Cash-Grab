@@ -78,8 +78,8 @@ window.onload = intro();
 function intro(){  
     let rule = CSSRulePlugin.getRule("p:after");
 
-    document.getElementsByClassName('choiceblock')[0].style.visibility = "hidden";
-    document.getElementsByClassName('choice')[0].style.visibility = "hidden";
+    // document.getElementsByClassName('choiceblock')[0].style.visibility = "hidden";
+    // document.getElementsByClassName('choice')[0].style.visibility = "hidden";
     start.style.visibility = "hidden";
     let xIntro1 = document.getElementById('xIntro');
     
@@ -121,6 +121,7 @@ function intro(){
     document.getElementsByClassName('choiceblock')[0].style.visibility = "visible";
     document.getElementsByClassName('choice')[0].style.visibility = "visible";
     totalScore.push("med");
+    level.innerText = 'MED';
 
     // /////intromodal leaving
     let tl = gsap.timeline()
@@ -134,7 +135,7 @@ function intro(){
     gsap.to(".tsModal", {opacity: 0, duration: 1, ease: "circ", y:'-165%'});
     choiceBlock.setAttribute('style','height:60px;');  
     finger.setAttribute('style','top:30px')
-   
+    rScores=[];   
 
     hearts()
     levelChoice()
@@ -248,7 +249,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    },900); //shortened for debugging mode
+    },10900); //shortened for debugging mode
 });
 
 function choice(min, max) {
@@ -438,7 +439,9 @@ function sumArr() {
     let sum = 0;
     for (let i = 0; i < rScores.length; i++) {
         sum += rScores[i];
-    }
+        
+    }console.log(rScores, sum);
+
     return sum;
 }
 function useHeart() {
@@ -508,8 +511,7 @@ function gameEnd() {
     header.innerText= 'Final';
     levelColor();
     document.getElementById("color").innerText=totalScore[0];
-    let rScores =totalScore.splice(1,5);
-    // totalScore.shift();
+    rScores =totalScore.splice(1,5);
     document.getElementById("totalScore").innerText = sumArr(newArr);  
     sumArr();
     scoreBoard();
@@ -542,6 +544,7 @@ function gameEnd() {
         playAgain.innerText = `${again}`;
         playAgain.addEventListener("click", reStart);   
 }
+// /////color display for scoreboard
 function levelColor(){    
 switch(totalScore[0]) {
     case "easy":

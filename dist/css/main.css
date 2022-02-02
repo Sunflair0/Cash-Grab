@@ -971,6 +971,7 @@ button .evalOne2 {
   right: 0;
   position: absolute;
   margin-top: -30px;
+  visibility: hidden;
 }
 
 button .xIntro {
@@ -1020,7 +1021,7 @@ button .xIntro {
   margin-top: -60px;
   font-size: 60px;
   width: 80px;
-  height: 50px;
+  height: 60px;
   color: silver;
   -webkit-transform: translate(0%, 0px);
           transform: translate(0%, 0px);
@@ -1104,6 +1105,7 @@ ul {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: small;
   right: 0%;
+  visibility: hidden;
   -webkit-transition: .5s ease all;
   transition: .5s ease all;
 }

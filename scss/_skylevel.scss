@@ -12,6 +12,7 @@
     right: 0;
     position:absolute;
     margin-top: -30px;
+    visibility: hidden;
 }
 button .xIntro {   
     color: black;
@@ -51,7 +52,7 @@ button .xIntro {
     margin-top: -60px;
     font-size: 60px;
     width: 80px;
-    height: 50px;
+    height: 60px;
     color: silver; 
     transform: translate(0%, 0px);         
 }
@@ -130,6 +131,7 @@ ul {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: small;       
     right: 0%;    
+    visibility: hidden;
     transition: .5s ease all;
 }
 .easy:checked + .buttons{
