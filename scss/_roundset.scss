@@ -1,33 +1,43 @@
+.introModal {
+    display: flex;
+    align-items: center;   
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.749);
+    border:#ffffff 5px ridge;
+    height: 75%;
+    width: 80%;
+    color:white;    
+    position: fixed;  
+    padding: 20px;
+    margin: 20px;    
+    // second BG needed for text mask
+    background-color: #000000;
+    opacity: 0;    
+    top: -122%;  
+}
 .roundModal {
+    display: flex;
+    flex-direction: column;
+    border:rgb(255, 255, 255) 5px ridge;
     background-color: #000000de;
     height: 75%;
     width: 80%;
     color:white;
-    top: -100%;     
+    position: fixed;  
+    top: -122%;       
+    padding: 20px;
+    margin: 20px;        
+    // height: fit-content;
+}
+.tsModal {
+    background-color: hsla(0, 0%, 0%, 0.8);
+    height: 75%;
+    width: 80%;
+    color:white;
+    top: -122%;    
     position: fixed;  
     border:rgb(255, 255, 255) 5px ridge;
-    padding: 20px;
-    margin: 20px;    
-    display: flex;
-    flex-direction: column;
-    height: fit-content;
-}
-.introModal {
-    background-color: rgba(0, 0, 0, 0.749);
-    height: 75%;
-    width: auto;
-    color:white;    
-    position: fixed;  
-    border-style: ridge;
-    border:#ffffff 5px ridge;
-    padding: 20px;
-    margin: 20px;    
-    display: flex;
-    align-items: center;   
-    flex-direction: column;
-    background-color: #000000;
-    opacity: 0;    
-    top: -122%;  
+    justify-content:center;    
 }
 .scoreModal {   
     border:#ffffff 5px ridge;
@@ -56,23 +66,11 @@
 .sbColor {
     color:rgb(252, 221, 182);
 }
-.tsModal {
-    background-color: hsla(0, 0%, 0%, 0.8);
-    height: 65%;
-    width: 80%;
-    color:white;
-    top: -100%;     
-    position: fixed;  
-    border-style: ridge;
-    border:rgb(255, 255, 255) 5px ridge;
-    justify-content:center;    
-}
 .grid_container { 
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows:  1fr;
-}
- 
+} 
 .scoreCap {
     @include gridplus;
     grid-area: 1/1/2/7;

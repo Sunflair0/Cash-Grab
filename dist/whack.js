@@ -9,6 +9,7 @@
 // }
 
 let score = 0;
+let game = 0;
 let timer = 29;
 let round = 1;
 let plusAmt = 0;
@@ -18,7 +19,8 @@ let minusAmt = 0;
 let minusVal = -15;
 let minusScore = 0;
 let totalScore = [];
-let newArr=[];
+let rScores = [];
+let newArr = [];
 let result = 0;
 let percent = 0;
 let min = round;
@@ -33,16 +35,6 @@ let unlock = '\u{1f513}';
 let restart = '\u{21ba}';
 let fire = '\u{1f525}'
 let again = '\u{1f3ac}';
-let i = 0;
-let ii = 0;
-let iii = 0;
-let iv = 0;
-let v = 0;
-let vi = 0;
-let vii = 0;
-let viii = 0;
-let ix = 0;
-let x = 0;
 
 let start = document.getElementById('start');
 let time = document.getElementById('time');
@@ -128,7 +120,8 @@ function intro(){
  function xIntro(){
     document.getElementsByClassName('choiceblock')[0].style.visibility = "visible";
     document.getElementsByClassName('choice')[0].style.visibility = "visible";
-    
+    totalScore.push("med");
+
     // /////intromodal leaving
     let tl = gsap.timeline()
     tl    
@@ -138,9 +131,10 @@ function intro(){
     levelChoice()
  }
  function reStart(){
-    gsap.to(".tsModal", {opacity: 0, duration: 1, ease: "circ", y:'-200%'});
+    gsap.to(".tsModal", {opacity: 0, duration: 1, ease: "circ", y:'-165%'});
     choiceBlock.setAttribute('style','height:60px;');  
-    totalScore.push("med");
+    finger.setAttribute('style','top:30px')
+   
 
     hearts()
     levelChoice()
@@ -154,8 +148,8 @@ function levelChoice(){
     finger.addEventListener("click", difficultyLevel);
     padlock.innerText = `${unlock}`;
 
-    let tl = gsap.timeline();
-    tl
+    let point = gsap.timeline();
+    point
     .to("#finger", {x: "20%", repeat:5, yoyo:true, duration: .3, delay: 3})
     .to("#finger", {x: "20%", repeat:5, yoyo:true, duration: .3, delay: 5});
 }
@@ -220,7 +214,6 @@ function begin() {
     life = 5;
     round = 1;
     roundUp();
-    level.innerText = 'MED';  
     header.innerText = "CashSmash";    
 }
 start.addEventListener("click", () => {
@@ -373,7 +366,7 @@ function statusMessage(msg) {
 }
 //display hearts for lives
 function hearts() {
-    totalScore = ["med"];
+    
     for (let i = 1; i < 5; i++) {
         let hearts = document.getElementsByClassName(`heart${i}`)[0];
         hearts.innerText = `${heart}`;
@@ -443,8 +436,8 @@ function roundEnd() {
 }
 function sumArr() {
     let sum = 0;
-    for (let i = 0; i < totalScore.length; i++) {
-        sum += totalScore[i];
+    for (let i = 0; i < rScores.length; i++) {
+        sum += rScores[i];
     }
     return sum;
 }
@@ -477,7 +470,7 @@ function roundGsap() {
     document.getElementById('plusImg').src = `./asset/minCash${round}.png`;
     let tl = gsap.timeline({ defaults: { duration: .5, opacity: 0 } })
     tl
-        .to(".roundModal", { opacity: 1, duration: 1.5, y: "185%", ease: "bounce", })
+        .to(".roundModal", { opacity: 1, duration: 1.5, y: "165%", ease: "bounce", })
         .from(".heading", { stagger: .3 })
         .from(".lineOne", {})
         .from(".lineTwo", {})
@@ -515,21 +508,24 @@ function gameEnd() {
     header.innerText= 'Final';
     levelColor();
     document.getElementById("color").innerText=totalScore[0];
-    totalScore.shift();
+    let rScores =totalScore.splice(1,5);
+    // totalScore.shift();
     document.getElementById("totalScore").innerText = sumArr(newArr);  
     sumArr();
     scoreBoard();
-    document.getElementById("quarter_one").innerText = totalScore[0];
-    document.getElementById("quarter_two").innerText = totalScore[1];
-    document.getElementById("quarter_three").innerText = totalScore[2];
-    document.getElementById("quarter_four").innerText = totalScore[3];
+    
+    document.getElementById("quarter_one").innerText = rScores[0];
+    document.getElementById("quarter_two").innerText = rScores[1];
+    document.getElementById("quarter_three").innerText = rScores[2];
+    document.getElementById("quarter_four").innerText = rScores[3];
     document.getElementById('all').innerText = sumArr();
+    
 
     let final = gsap.timeline() 
     final   
     .to(".roundModal", {opacity: 0, duration: .5, ease: "circ",})
     .to(".roundModal", {y: '-200%'})
-    .to(".tsModal", { opacity: 1, duration: 1.3, y: "175%", ease: "bounce", }, "-=.5")
+    .to(".tsModal", { opacity: 1, duration: 1.3, y: "165%", ease: "bounce", }, "-=.5")
     .to(".scoreCap", {opacity: 1, duration: 1.5, ease: "circ"})
     .fromTo(".quarter", {opacity: 0, scale: 0 },{opacity: 1,  scale: 1.3,duration: .3,ease: "circ",  stagger: .4 })  
     .fromTo(".scoreModal", {opacity: 0},{opacity: 1, duration: 1, ease: "circ" }, "+=.5")
@@ -569,7 +565,19 @@ switch(totalScore[0]) {
     }
 }
 function scoreBoard(){  
- sum = sumArr(totalScore);
+ sum = sumArr(rScores);
+ game++
+//  gameCount()
+let i = 0;
+let ii = 0;
+let iii = 0;
+let iv = 0;
+let v = 0;
+let vi = 0;
+let vii = 0;
+let viii = 0;
+let ix = 0;
+let x = 0;
 
     if (sum >= i){
         x=ix;
@@ -647,4 +655,13 @@ function scoreBoard(){
     document.getElementById("viii").innerText=viii;
     document.getElementById("ix").innerText=ix;
     document.getElementById("x").innerText=x;
+}
+function gameCount(){
+    
+
+let sGame=[];
+sGame =`sbg${game}` 
+
+sGame.push($`seconds`,sumArr())
+ console.log(sGame,`sbg${game}`  )
 }
