@@ -3,8 +3,7 @@
     font-size: 70px;
     color: rgb(189, 73, 27);
     text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
-    transform: all ease 2s;
-    
+    transform: all ease 2s;    
 }
 .choiceblock {
     display: flex;
@@ -14,12 +13,12 @@
     position:absolute;
     margin-top: 0px;
     visibility: hidden;
+    transition: .3s ease all;
 }
 button .xIntro {   
     color: black;
     text-align: center;    
     justify-content: center;
-    // display: inline-block;
     font-size: 16px;
     border-radius: 20px;
     max-width: 10vw;
@@ -38,8 +37,8 @@ button .xIntro {
     padding: 9px 0 0px 25px;
     border: solid 2px #f3f365;
     transform: translate(0,0px);
-    cursor: pointer;   
     transition: .3s ease all;
+    cursor: pointer;      
 }
 #padlock {
     display: flex;
