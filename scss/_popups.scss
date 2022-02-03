@@ -11,7 +11,7 @@
 #minCash3 {    
     background-image: url(/dist/asset/minCash3.png);
 }
-#minCash4{
+#minCash4, #minCash5{
     background-image: url(/dist/asset/minCash4.png);
 }
 .cash1 {    
@@ -23,7 +23,7 @@
 .cash3 {    
     background-image: url(/dist/asset/darkpearl.png);
 }
-.cash4{
+.cash4, .cash5{
     background-image: url(/dist/asset/darkyellow.png);
 }
 .smash {
@@ -57,15 +57,63 @@
 .round4 {
     background-image: url(/dist/asset/round4.png); 
 }
-img {
+img{
     max-height: 75%;
 }
-img #first {
+ #first {
     max-width: 100px;
     min-width: 80px;  
-    padding-top: 10px; 
 }
 #second{
     max-width: 100px;
     min-width: 80px;   
+}
+ .moleShow {
+    display: flex;
+    position: relative;     
+    height: 100%;
+    width: 100%;
+}
+.moleBox {
+    display: flex;
+    height: 100%; 
+}
+.cashShows {
+    display: flex;
+    position: relative;        
+    width: 5%;   
+}
+.cashShow{
+    display: flex;
+    width: 10%;     
+    position: fixed;  
+    max-height: 75px;
+    top: 9%;   
+    left: 43%; }
+.moleHold {
+   display: flex;
+   flex-direction: column; 
+   width: 100%;
+   position: fixed; 
+   transform: translate(0%,-20%);
+   margin:10px 0;
+   left: 40%;
+}
+.textBox {
+   display: flex;
+   flex-direction: column;         
+   align-items: center;
+   position: relative; 
+   height: 100%;
+}
+.textShow {
+    display: flex;
+    flex-direction: column;
+    font-size: auto;
+    position: relative;     
+    top: 20%;
+}
+#coolmole1 img {
+    width: 75%;
+    bottom: -40%;
 }

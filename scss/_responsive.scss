@@ -15,7 +15,7 @@
 }
 @media screen and (max-width: 992px) {
 
-    span {
+    #score, #time {
         font-family: 'Orbitron';
         margin-top: 3vh;
     }
@@ -25,7 +25,7 @@
     }
 }
 @media screen and (max-width: 1200px) {
-    span {
+    #score, #time {
         font-family: 'Orbitron';
     }
 }  
