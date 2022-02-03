@@ -970,7 +970,7 @@ button .evalOne2 {
           flex-direction: column;
   right: 0;
   position: absolute;
-  margin-top: -30px;
+  margin-top: 0px;
   visibility: hidden;
 }
 
@@ -1002,6 +1002,8 @@ button .xIntro {
   color: silver;
   padding: 9px 0 0px 25px;
   border: solid 2px #f3f365;
+  -webkit-transform: translate(0, 0px);
+          transform: translate(0, 0px);
   cursor: pointer;
   -webkit-transition: .3s ease all;
   transition: .3s ease all;
@@ -1023,6 +1025,7 @@ button .xIntro {
   width: 80px;
   height: 60px;
   color: silver;
+  z-index: 2;
   -webkit-transform: translate(0%, 0px);
           transform: translate(0%, 0px);
 }
@@ -1104,8 +1107,8 @@ ul {
   position: absolute;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: small;
-  right: 0%;
-  visibility: hidden;
+  right: -20%;
+  z-index: 10;
   -webkit-transition: .5s ease all;
   transition: .5s ease all;
 }

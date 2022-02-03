@@ -35,7 +35,6 @@ let unlock = '\u{1f513}';
 let restart = '\u{21ba}';
 let fire = '\u{1f525}'
 let again = '\u{1f3ac}';
-
 let start = document.getElementById('start');
 let time = document.getElementById('time');
 let whiteBoxes = document.getElementsByClassName("whiteBoxes")[0];
@@ -65,7 +64,6 @@ let level =document.getElementById('level');
 let padlock =document.getElementById('padlock');
 let finger =document.getElementById('finger');
 let choiceStack = document.getElementsByClassName('choice')[0];
-let choiceBlock = document.getElementById('choiceBlock');
 const darkmole = [mole1, mole2, mole3, mole4];
 const darkcash = [cash1, cash2, cash3, cash4];
 let mole = darkmole[round];
@@ -77,9 +75,6 @@ window.onload = intro();
 
 function intro(){  
     let rule = CSSRulePlugin.getRule("p:after");
-
-    // document.getElementsByClassName('choiceblock')[0].style.visibility = "hidden";
-    // document.getElementsByClassName('choice')[0].style.visibility = "hidden";
     start.style.visibility = "hidden";
     let xIntro1 = document.getElementById('xIntro');
     
@@ -119,35 +114,29 @@ function intro(){
 }
  function xIntro(){
     document.getElementsByClassName('choiceblock')[0].style.visibility = "visible";
-    document.getElementsByClassName('choice')[0].style.visibility = "visible";
     totalScore.push("med");
     level.innerText = 'MED';
+finger.innerText = `${hand}`;
 
     // /////intromodal leaving
     let tl = gsap.timeline()
     tl    
    .to(".introModal", {opacity: 0, x:'200%', y:"165%", duration: 1, ease: "circ",delay: ".5"});
-
+    level.setAttribute('style','transform:translate(0,0px'); 
     hearts()
     levelChoice()
  }
  function reStart(){
     gsap.to(".tsModal", {opacity: 0, duration: 1, ease: "circ", y:'-165%'});
-    choiceBlock.setAttribute('style','height:60px;');  
-    finger.setAttribute('style','top:30px')
-    rScores=[];   
-
     hearts()
     levelChoice()
  }
 function levelChoice(){
-    choiceBlock.classList.add('choice');
-    choiceStack.setAttribute('style','right:-20%;'); 
-    choiceBlock.appendChild(finger); 
-    finger.innerText = `${hand}`;
-    finger.setAttribute('style','top: -30px;');     
-    finger.addEventListener("click", difficultyLevel);
+        
     padlock.innerText = `${unlock}`;
+
+    finger.setAttribute('style','top: -60px;');     
+    finger.addEventListener("click", difficultyLevel);
 
     let point = gsap.timeline();
     point
@@ -157,7 +146,8 @@ function levelChoice(){
     
 function difficultyLevel(){
     choiceStack.setAttribute('style','right: 0%;');
-    level.setAttribute('style','height:30px;');
+    finger.style.transform="translate(0,30px)";    
+    level.setAttribute('style','height:30px;');  
     finger.innerText = '';   
     close.addEventListener("click", doneChoosing);   
     easy.addEventListener("click", difficultyLevel);  
@@ -191,7 +181,7 @@ function difficultyLevel(){
 }
  function doneChoosing() {    
      choiceStack.setAttribute('style','right:-20%;');
-     choiceBlock.setAttribute('style','height:30px;');           
+     document.getElementsByClassName('choiceblock')[0].style.height='30px';           
        
      switch(totalScore[0]) {
         case "easy":
@@ -214,6 +204,7 @@ function difficultyLevel(){
 function begin() {
     life = 5;
     round = 1;
+    rScores=[]; 
     roundUp();
     header.innerText = "CashSmash";    
 }
@@ -221,8 +212,8 @@ start.addEventListener("click", () => {
     doneChoosing();
     padlock.innerText = `${lock}`;
     header.innerText= `Level ${round}`;
-     finger.remove();   
-    // finger.removeEventListener("click", difficultyLevel);
+    finger.style.display='none';   
+    finger.removeEventListener("click", difficultyLevel);
     start.style.visibility = "hidden";
     document.getElementsByClassName('wBox2')[0].style.visibility = "visible";
     let time = window.setInterval(() => {
@@ -249,7 +240,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    },10900); //shortened for debugging mode
+    },900); //shortened for debugging mode
 });
 
 function choice(min, max) {
