@@ -971,6 +971,8 @@ img {
   position: absolute;
   margin-top: 0px;
   visibility: hidden;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
 }
 
 button .xIntro {
@@ -999,9 +1001,9 @@ button .xIntro {
   border: solid 2px #f3f365;
   -webkit-transform: translate(0, 0px);
           transform: translate(0, 0px);
-  cursor: pointer;
   -webkit-transition: .3s ease all;
   transition: .3s ease all;
+  cursor: pointer;
 }
 
 #padlock {

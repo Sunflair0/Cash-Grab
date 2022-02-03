@@ -76,8 +76,7 @@ window.onload = intro();
 function intro(){  
     let rule = CSSRulePlugin.getRule("p:after");
     start.style.visibility = "hidden";
-    let xIntro1 = document.getElementById('xIntro');
-    
+    let xIntro1 = document.getElementById('xIntro');    
     document.getElementById('min1').src = `./asset/minCash1.png`;
     document.getElementById('min2').src = `./asset/minCash2.png`;
     document.getElementById('min3').src = `./asset/minCash3.png`;
@@ -116,7 +115,7 @@ function intro(){
     document.getElementsByClassName('choiceblock')[0].style.visibility = "visible";
     totalScore.push("med");
     level.innerText = 'MED';
-finger.innerText = `${hand}`;
+    finger.innerText = `${hand}`;
 
     // /////intromodal leaving
     let tl = gsap.timeline()
@@ -131,11 +130,9 @@ finger.innerText = `${hand}`;
     hearts()
     levelChoice()
  }
-function levelChoice(){
-        
+function levelChoice(){        
     padlock.innerText = `${unlock}`;
     level.style.cursor= 'pointer';
-
     finger.setAttribute('style','top: -60px;');     
     finger.addEventListener("click", difficultyLevel);
 
@@ -242,7 +239,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    },1100); //shortened for debugging mode
+    },10100); //shortened for debugging mode
 });
 
 function choice(min, max) {
