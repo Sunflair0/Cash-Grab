@@ -134,6 +134,7 @@ finger.innerText = `${hand}`;
 function levelChoice(){
         
     padlock.innerText = `${unlock}`;
+    level.style.cursor= 'pointer';
 
     finger.setAttribute('style','top: -60px;');     
     finger.addEventListener("click", difficultyLevel);
@@ -211,6 +212,7 @@ function begin() {
 start.addEventListener("click", () => {
     doneChoosing();
     padlock.innerText = `${lock}`;
+    level.style.cursor= 'default';
     header.innerText= `Level ${round}`;
     finger.style.display='none';   
     finger.removeEventListener("click", difficultyLevel);
@@ -240,7 +242,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    },900); //shortened for debugging mode
+    },1100); //shortened for debugging mode
 });
 
 function choice(min, max) {
@@ -255,20 +257,20 @@ const displayMole = () => {
         randomHole = Math.floor(Math.random() * holes.length);
         isRandomHoleAvailable = !(holes[randomHole].classList.contains(`mole${round}`)) || !(holes[randomHole].classList.contains(`cash${round}`));
     }
-    let clear = window.setInterval(() => {
-        holes[randomHole].classList.add(`mole${round}`);
+    // let clear = window.setInterval(() => {
+    //     holes[randomHole].classList.add(`mole${round}`);
 
-        //      let clearHole = document.querySelectorAll(`.mole${round}`);
-        // clearHole.forEach((val) => {
-        //val.classList.replace(`mole${round}`, "darkhole");
-        //console.log("val.classList", val.classList)
-        // val.classList.remove(`mole${round}`); 
-    }, 2000)
-    window.setTimeout(() => {
-        window.clearInterval(clear);
-        holes[randomHole].classList.remove(`mole${round}`);
+    //     //      let clearHole = document.querySelectorAll(`.mole${round}`);
+    //     // clearHole.forEach((val) => {
+    //     //val.classList.replace(`mole${round}`, "darkhole");
+    //     //console.log("val.classList", val.classList)
+    //     // val.classList.remove(`mole${round}`); 
+    // }, 2000)
+    // window.setTimeout(() => {
+    //     window.clearInterval(clear);
+    //     holes[randomHole].classList.remove(`mole${round}`);
       
-    }, 3000);
+    // }, 3000);
 
     holes.forEach((val) => {
         val.addEventListener('click', (e) => {
@@ -311,14 +313,14 @@ const displayCash = () => {
         //val.classList.replace(`mole${round}`, "darkhole");
         //console.log("val.classList", val.classList)
         // val.classList.remove(`mole${round}`); 
-    }, 2000)
+    }, 1500)
     window.setTimeout(() => {
         window.clearInterval(clear);
         holes[randomHole].classList.remove(`cash${round}`);
 
         console.log("round", round);
       
-    }, 3000);
+    }, 2000);
 
     holes.forEach((val) => {
         val.addEventListener('click', (e) => {
@@ -342,7 +344,7 @@ let resetHoles = window.setInterval(() => {
     splat.forEach((val) => {
         val.classList.replace("splat", `mole${round}`);
     })
-}, 2500);
+}, 2000);
 
 // /////progress bar
 const progressBar = document.getElementsByClassName('progress-bar')[0];
@@ -520,13 +522,14 @@ function gameEnd() {
     .to(".roundModal", {y: '-200%'})
     .to(".tsModal", { opacity: 1, duration: 1.3, y: "165%", ease: "bounce", }, "-=.5")
     .to(".scoreCap", {opacity: 1, duration: 1.5, ease: "circ"})
-    .fromTo(".quarter", {opacity: 0, scale: 0 },{opacity: 1,  scale: 1.3,duration: .3,ease: "circ",  stagger: .4 })  
+    .fromTo(".pScore0", {opacity: 0, scale: 0 },{opacity: 1,  scale: 1,duration: .3,ease: "circ" })  
+    .fromTo(".quarter", {opacity: 0, scale: 0 },{opacity: 1,  scale: 1,duration: .3,ease: "circ",  stagger: .4 })  
     .fromTo(".scoreModal", {opacity: 0},{opacity: 1, duration: 1, ease: "circ" }, "+=.5")
     .fromTo(".score2", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 })
     .fromTo(".score", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 }, "<")
     .fromTo("#color", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 }, "<")
-    .fromTo("#message", { opacity: 0, scale: 0, x: "10%", y: "30%"   }, { opacity: 1, scale: 1, ease: "power2", duration: 1 }, "-=1")
-    .fromTo("#eval2", {  opacity: 0, x: "0%", },{  opacity: 1, x: "25%", duration: 1, y: "-15%", ease: "back"},"-=1");
+    .fromTo("#message", { opacity: 0, scale: 0, x: "10%", y: "30%"   }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
+    .fromTo("#eval2", {  opacity: 0, x: "0%", },{  opacity: 1, x: "500%", duration: 1, y: "0%", ease: "back"},"-=1");
 
     document.getElementById('message').innerText= `Try to beat your score`;
         let playAgain = document.getElementById('eval2'); 

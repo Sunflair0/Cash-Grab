@@ -38,15 +38,14 @@ body{
             }
       }
       & button {
-        outline: white 1.5px double;
+        outline: white 1.5px solid;
         outline-offset: -4px;
-        border: white 2px double;
+        border: white 2px solid;
           font-size:large;
           height: 45px;
           width: 45px;
           border-radius: 50%;
           background-image: linear-gradient(to top, #4aec0a 0%, #e7d801 70%);
-          color:rgb(243, 0, 0);
           cursor: pointer;
       }
 }

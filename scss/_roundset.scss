@@ -79,12 +79,13 @@
     padding: 5% 10px; 
     background-color: black;
 }
-.quarter0,.quarter1, .quarter2, .quarter3, .quarter4, 
+.quarter1, .quarter2, .quarter3, .quarter4, 
 .pScore0,.pScore1, .pScore2, .pScore3, .pScore4 {
     display:flex;
     flex-basis:16%;
     justify-content: space-around;
 }
+
 .quarter5, .pScore5 {
     display:flex;
     flex-basis:20%;
@@ -183,9 +184,10 @@
     width: 35%;
     top:0;
 }
-button .evalOne2 {
-    display: inline;
+#eval2 {
+    border: none;
 }
+
 #percent {
     padding-top: 2rem;
 }

@@ -4,6 +4,7 @@
     color: rgb(189, 73, 27);
     text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
     transform: all ease 2s;
+    
 }
 .choiceblock {
     display: flex;
@@ -12,23 +13,21 @@
     right: 0;
     position:absolute;
     margin-top: 0px;
-     visibility: hidden;
+    visibility: hidden;
 }
 button .xIntro {   
     color: black;
     text-align: center;    
     justify-content: center;
-    display: inline-block;
+    // display: inline-block;
     font-size: 16px;
     border-radius: 20px;
     max-width: 10vw;
     min-width: 6vw;
-    height: 6vh;
+    max-height: 10vw;
+    min-height: 6vh;
     margin-top: 2%;
 }    
-#eval2 {
-    display: inline-block;
-}
 #level {
     font-weight: 700;
     font-size: 16px;
@@ -39,8 +38,7 @@ button .xIntro {
     padding: 9px 0 0px 25px;
     border: solid 2px #f3f365;
     transform: translate(0,0px);
-    cursor: pointer;
-   
+    cursor: pointer;   
     transition: .3s ease all;
 }
 #padlock {

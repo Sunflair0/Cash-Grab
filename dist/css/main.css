@@ -52,16 +52,15 @@ body::-webkit-scrollbar-thumb {
 }
 
 body button {
-  outline: white 1.5px double;
+  outline: white 1.5px solid;
   outline-offset: -4px;
-  border: white 2px double;
+  border: white 2px solid;
   font-size: large;
   height: 45px;
   width: 45px;
   border-radius: 50%;
   background-image: -webkit-gradient(linear, left bottom, left top, from(#4aec0a), color-stop(70%, #e7d801));
   background-image: linear-gradient(to top, #4aec0a 0%, #e7d801 70%);
-  color: #f30000;
   cursor: pointer;
 }
 
@@ -766,7 +765,7 @@ img {
   background-color: black;
 }
 
-.quarter0, .quarter1, .quarter2, .quarter3, .quarter4,
+.quarter1, .quarter2, .quarter3, .quarter4,
 .pScore0, .pScore1, .pScore2, .pScore3, .pScore4 {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -919,8 +918,8 @@ img {
   top: 0;
 }
 
-button .evalOne2 {
-  display: inline;
+#eval2 {
+  border: none;
 }
 
 #percent {
@@ -980,17 +979,13 @@ button .xIntro {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  display: inline-block;
   font-size: 16px;
   border-radius: 20px;
   max-width: 10vw;
   min-width: 6vw;
-  height: 6vh;
+  max-height: 10vw;
+  min-height: 6vh;
   margin-top: 2%;
-}
-
-#eval2 {
-  display: inline-block;
 }
 
 #level {
