@@ -686,9 +686,9 @@ img {
 }
 
 .scoreModal {
-  border: #ffffff 5px ridge;
+  border: white 5px ridge;
   padding: 10px 20px;
-  margin: 5px 20px;
+  margin: 2% 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -749,9 +749,6 @@ img {
 }
 
 .scoreCap {
-  background-color: black;
-  grid-row: span 1;
-  border-bottom: #ffffff 3px ridge;
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   -ms-grid-column: 1;
@@ -762,11 +759,27 @@ img {
   display: flex;
   height: 100%;
   padding: 5% 10px;
+  grid-row: span 1;
+  border-bottom: #ffffff 3px ridge;
   background-color: black;
 }
 
+.scoreCap2 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 6;
+  grid-area: 1/1/2/7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  padding: 5% 10px;
+  grid-row: span 1;
+}
+
 .quarter1, .quarter2, .quarter3, .quarter4,
-.pScore0, .pScore1, .pScore2, .pScore3, .pScore4 {
+.pScore1, .pScore2, .pScore3, .pScore4 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -787,6 +800,11 @@ img {
           justify-content: space-evenly;
 }
 
+.quarter {
+  -webkit-transform: translate(-40px, 0px);
+          transform: translate(-40px, 0px);
+}
+
 .pScores {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -795,9 +813,7 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  padding: 5% 10px;
+  padding: 5% 0px;
 }
 
 .headings {
