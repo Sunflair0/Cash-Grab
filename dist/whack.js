@@ -126,14 +126,17 @@ function intro(){
     levelChoice()
  }
  function reStart(){
-    gsap.to(".tsModal", {opacity: 0, duration: 1, ease: "circ", y:'-165%'});
+    gsap.to(".tsModal", {opacity: 0, duration: 1, ease: "circ", y:'-165%'});    
+    padlock.innerText = `${unlock}`;
+    level.style.cursor= 'pointer';
+    level.addEventListener("click", difficultyLevel);
     hearts()
-    levelChoice()
  }
 function levelChoice(){        
     padlock.innerText = `${unlock}`;
     level.style.cursor= 'pointer';
     finger.setAttribute('style','top: -60px;');     
+    
     finger.addEventListener("click", difficultyLevel);
 
     let point = gsap.timeline();
