@@ -1,19 +1,62 @@
-@media screen and (max-width: 576px) {
+@media only screen and (max-width: 576px) {
+    p {
+        font-size: .7rem;
+        margin-bottom: .3rem;
+        line-height: 1.2rem;
+    }
+    #bop {   
+        font-size: 1rem;
+    }
+    #plusImg, #minusImg, #coolmole1 {
+        width: 80%;
+        min-width: 75px;
+    }
+    .cashShow {
+    width: 25%;
+    max-height: 75px;
+    top: 9%;
+    left: 43%; 
+    }
+    .textShow {    
+        top: 12%;
+    }    
     .roundModal {        
         color:rgb(241, 11, 11);}
     .headings {
-        font-size: xx-large;        
+        font-size: x-large;        
     }
     .heart1, .heart2, .heart3, .heart4 {
-        font-size: x-large;    
+        font-size: xx-large;    
+    }
+    .head_font, .header{
+        font-size: 70px;
+        margin: 0 5px;
+    }
+    #level {
+        font-size: 16px;
+        padding: 9px 0 0px 25px;
+    }
+    #padlock {
+        display: flex;
+        height: 30px;
+    }
+    #finger {
+        margin-top: -60px;
+        font-size: 60px;
+        width: 80px;     
+    }
+    .choice {    
+        display: flex;
+        color: white;    
+        width: 80px;  
     }
 }
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     .darkhole {
             max-width: 180px;
     }
 }
-@media screen and (max-width: 992px) {
+@media only screen and (max-width: 992px) {
 
     #score, #time {
         font-family: 'Orbitron';

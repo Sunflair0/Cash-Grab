@@ -136,7 +136,6 @@ function levelChoice(){
     padlock.innerText = `${unlock}`;
     level.style.cursor= 'pointer';
     finger.setAttribute('style','top: -60px;');     
-    
     finger.addEventListener("click", difficultyLevel);
 
     let point = gsap.timeline();
@@ -181,7 +180,7 @@ function difficultyLevel(){
     }
 }
  function doneChoosing() {    
-     choiceStack.setAttribute('style','right:-20%;');
+     choiceStack.setAttribute('style','right:-40%;');
      document.getElementsByClassName('choiceblock')[0].style.height='30px';           
        
      switch(totalScore[0]) {

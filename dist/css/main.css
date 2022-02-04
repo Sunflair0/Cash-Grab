@@ -59,6 +59,7 @@ body button {
   height: 45px;
   width: 45px;
   border-radius: 50%;
+  overflow: visible;
   background-image: -webkit-gradient(linear, left bottom, left top, from(#4aec0a), color-stop(70%, #e7d801));
   background-image: linear-gradient(to top, #4aec0a 0%, #e7d801 70%);
   cursor: pointer;
@@ -94,7 +95,6 @@ img {
   max-width: 240px;
   height: 90px;
   margin: auto;
-  margin-top: 12vh;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -140,25 +140,72 @@ img {
   }
 }
 
-@media screen and (max-width: 576px) {
+@media only screen and (max-width: 576px) {
+  p {
+    font-size: .7rem;
+    margin-bottom: .3rem;
+    line-height: 1.2rem;
+  }
+  #bop {
+    font-size: 1rem;
+  }
+  #plusImg, #minusImg, #coolmole1 {
+    width: 80%;
+    min-width: 75px;
+  }
+  .cashShow {
+    width: 25%;
+    max-height: 75px;
+    top: 9%;
+    left: 43%;
+  }
+  .textShow {
+    top: 12%;
+  }
   .roundModal {
     color: #f10b0b;
   }
   .headings {
-    font-size: xx-large;
+    font-size: x-large;
   }
   .heart1, .heart2, .heart3, .heart4 {
-    font-size: x-large;
+    font-size: xx-large;
+  }
+  .head_font, .header {
+    font-size: 70px;
+    margin: 0 5px;
+  }
+  #level {
+    font-size: 16px;
+    padding: 9px 0 0px 25px;
+  }
+  #padlock {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 30px;
+  }
+  #finger {
+    margin-top: -60px;
+    font-size: 60px;
+    width: 80px;
+  }
+  .choice {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    color: white;
+    width: 80px;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .darkhole {
     max-width: 180px;
   }
 }
 
-@media screen and (max-width: 992px) {
+@media only screen and (max-width: 992px) {
   #score, #time {
     font-family: 'Orbitron';
     margin-top: 3vh;
@@ -228,7 +275,6 @@ img {
   max-width: 240px;
   height: 90px;
   margin: auto;
-  margin-top: 12vh;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -251,7 +297,6 @@ img {
   max-width: 240px;
   height: 90px;
   margin: auto;
-  margin-top: 12vh;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -329,10 +374,10 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 10%;
+  width: 25%;
   position: fixed;
   max-height: 75px;
-  top: 9%;
+  top: 5%;
   left: 43%;
 }
 
@@ -377,7 +422,7 @@ img {
           flex-direction: column;
   font-size: auto;
   position: relative;
-  top: 20%;
+  top: 12%;
 }
 
 #coolmole1 img {
@@ -543,7 +588,7 @@ img {
   width: 25%;
   margin: 1px;
   color: red;
-  font-size: x-large;
+  font-size: medium;
   margin-top: 8vh;
   z-index: 10;
 }
@@ -630,30 +675,37 @@ img {
 }
 
 .introModal {
+  position: fixed;
+  color: white;
+  border: white 5px ridge;
+  background-color: #000000bf;
+  height: 75%;
+  width: 80%;
+  top: -122%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.749);
-  border: #ffffff 5px ridge;
-  height: 75%;
-  width: 80%;
-  color: white;
-  position: fixed;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 20px;
   margin: 20px;
   background-color: #000000;
   opacity: 0;
-  top: -122%;
 }
 
 .roundModal {
+  position: fixed;
+  color: white;
+  border: white 5px ridge;
+  background-color: #000000bf;
+  height: 75%;
+  width: 80%;
+  top: -122%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -661,32 +713,25 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: white 5px ridge;
-  background-color: #000000de;
-  height: 75%;
-  width: 80%;
-  color: white;
-  position: fixed;
-  top: -122%;
   padding: 20px;
   margin: 20px;
 }
 
 .tsModal {
-  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  color: white;
+  border: white 5px ridge;
+  background-color: #000000bf;
   height: 75%;
   width: 80%;
-  color: white;
   top: -122%;
-  position: fixed;
-  border: white 5px ridge;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
 .scoreModal {
-  border: white 5px ridge;
+  border: #ffffff 5px ridge;
   padding: 10px 20px;
   margin: 2% 40px;
   display: -webkit-box;
@@ -847,7 +892,7 @@ img {
 }
 
 #plusImg, #minusImg, #coolmole1 {
-  width: 100px;
+  width: 70px;
   min-width: 54px;
 }
 
@@ -867,6 +912,7 @@ img {
 
 .progress-bar::before {
   content: attr(data-label);
+  display: inline;
   padding-left: 3%;
   color: #f30000;
   display: -webkit-box;
@@ -967,9 +1013,9 @@ img {
 
 .head_font, .header {
   font-family: 'Flavors';
-  font-size: 70px;
+  font-size: 40px;
   overflow: visible;
-  margin: 0 5px;
+  margin: 15% 5px;
   color: #bd491b;
   text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
   -webkit-transform: all ease 2s;
@@ -1010,12 +1056,12 @@ button .xIntro {
 
 #level {
   font-weight: 700;
-  font-size: 16px;
-  width: 80px;
+  font-size: 14px;
+  width: 65px;
   height: 60px;
   background-color: black;
   color: silver;
-  padding: 9px 0 0px 25px;
+  padding: 9px 0 0px 20px;
   border: solid 2px #f3f365;
   -webkit-transform: translate(0, 0px);
           transform: translate(0, 0px);
@@ -1028,16 +1074,16 @@ button .xIntro {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 30px;
-  width: 25px;
+  height: 23px;
+  width: 20px;
   position: fixed;
   font-size: 20px;
 }
 
 #finger {
-  margin-top: -60px;
-  font-size: 60px;
-  width: 80px;
+  margin-top: -45px;
+  font-size: 42px;
+  width: 65px;
   height: 60px;
   color: silver;
   z-index: 2;
@@ -1116,13 +1162,13 @@ ul {
   display: -ms-flexbox;
   display: flex;
   color: white;
-  width: 80px;
-  top: 30px;
+  width: 64px;
+  top: 27px;
   background: #0e0c0c;
   position: absolute;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: small;
-  right: -20%;
+  right: -40%;
   z-index: 10;
   -webkit-transition: .5s ease all;
   transition: .5s ease all;
@@ -1227,11 +1273,10 @@ p:after {
   color: #fd3b3b;
   padding: .5rem;
   font-weight: 700;
-  display: table;
+  display: table-row;
   margin: 0 auto;
-  font-size: 1rem;
+  font-size: .8rem;
   text-align: center;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   -webkit-animation: bop infinite 2.5s steps(2);
           animation: bop infinite 2.5s steps(2);
   width: 45%;
@@ -1267,8 +1312,8 @@ p:after {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -ms-flex-preferred-size: 43%;
-      flex-basis: 43%;
+  -ms-flex-preferred-size: 33%;
+      flex-basis: 33%;
 }
 
 .ground {

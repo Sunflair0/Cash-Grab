@@ -45,6 +45,7 @@ body{
           height: 45px;
           width: 45px;
           border-radius: 50%;
+          overflow: visible;
           background-image: linear-gradient(to top, #4aec0a 0%, #e7d801 70%);
           cursor: pointer;
       }

@@ -42,8 +42,8 @@ body button {
   background-image: linear-gradient(to top, #4aec0a 0%, #fcee2c 60%);
   color: #f30000;
   cursor: pointer;
+  overflow: visible;
 }
-
 *, ::before, ::after {
   box-sizing: border-box;
   margin: 0;
@@ -107,7 +107,7 @@ img {
     transform: scale(1);
   }
 }
-@media screen and (max-width: 576px) {
+@media only screen and (max-width: 576px) {
   .roundModal {
     color: #f10b0b;
   }

@@ -24,7 +24,6 @@
   max-width: 240px;
   height: 90px;
   margin: auto;
-  margin-top: 12vh; 
   background-position: center; 
   background-size: contain;
   background-repeat: no-repeat;
@@ -36,4 +35,18 @@
   height: 100%;
   padding: 5% 10px; 
   grid-row: span 1;
+}
+@mixin modalplus {  
+  position: fixed; 
+  color:white;
+  border:white 5px ridge;
+  background-color: #000000bf;
+  height: 75%;
+  width: 80%;
+  top: -122%; 
+}
+@mixin sb {
+  display: flex;        
+  flex-basis: 50%;
+  flex-direction: column;
 }
