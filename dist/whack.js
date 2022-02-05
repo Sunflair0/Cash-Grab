@@ -120,7 +120,7 @@ function intro(){
     // /////intromodal leaving
     let tl = gsap.timeline()
     tl    
-   .to(".introModal", {opacity: 0, x:'200%', y:"165%", duration: 1, ease: "circ",delay: ".5"});
+        .to(".introModal", {opacity: 0, x:'200%', y:"165%", duration: 1, ease: "circ",delay: ".5"});
     level.setAttribute('style','transform:translate(0,0px'); 
     hearts()
     levelChoice()
@@ -157,9 +157,7 @@ function difficultyLevel(){
 
     if (document.getElementById('easy').checked) {
          seconds = 2000;
-         level.innerText = 'EASY';
-         level.style.color ='#5dca5d';
-         level.style.border ='#5dca5d 2px solid';
+         setEasyStyle();
          totalScore.pop();
          totalScore.push("easy");
     }
@@ -180,26 +178,31 @@ function difficultyLevel(){
          totalScore.push("hard");
     }
 }
- function doneChoosing() {    
+
+function setEasyStyle(){
+    level.innerText = 'EASY';
+    level.style.color ='#5dca5d';
+    level.style.border ='#5dca5d 2px solid';
+}
+
+function doneChoosing() {    
      choiceStack.setAttribute('style','right:-20%;');
      document.getElementsByClassName('choiceblock')[0].style.height='30px';           
        
      switch(totalScore[0]) {
         case "easy":
-            level.innerText = 'EASY';
-            level.style.color ='#5dca5d';
-            level.style.border ='#5dca5d 2px solid';
-        break;
+            setEasyStyle();
+            break;
         case "med":
             level.innerText = 'MED';
             level.style.color ='#f3f365';
             level.style.border ='#f3f365 2px solid';
-        break;
+            break;
         case "hard":
             level.innerText = 'HARD';
             level.style.color ='#fd7575';
             level.style.border ='#fd7575 2px solid';
-        break;
+            break;
         }
  }
 function begin() {
@@ -209,6 +212,7 @@ function begin() {
     roundUp();
     header.innerText = "CashSmash";    
 }
+
 start.addEventListener("click", () => {
     doneChoosing();
     padlock.innerText = `${lock}`;
@@ -257,6 +261,8 @@ const displayMole = () => {
         randomHole = Math.floor(Math.random() * holes.length);
         isRandomHoleAvailable = !(holes[randomHole].classList.contains(`mole${round}`)) || !(holes[randomHole].classList.contains(`cash${round}`));
     }
+    holes[randomHole].classList.add(`mole${round}`);
+
     // let clear = window.setInterval(() => {
     //     holes[randomHole].classList.add(`mole${round}`);
 
@@ -266,23 +272,23 @@ const displayMole = () => {
     //     //console.log("val.classList", val.classList)
     //     // val.classList.remove(`mole${round}`); 
     // }, 2000)
-    // window.setTimeout(() => {
-    //     window.clearInterval(clear);
-    //     holes[randomHole].classList.remove(`mole${round}`);
+    window.setTimeout(() => {
+        //window.clearInterval(clear);
+        holes[randomHole].classList.remove(`mole${round}`);
       
-    // }, 3000);
+    }, 3000);
 
-    holes.forEach((val) => {
-        val.addEventListener('click', (e) => {
-            document.getElementById('score').innerText = score;
-            if (e.target.classList.contains(`mole${round}`)) {
-                e.target.classList.replace(`mole${round}`, "splat");
-                score = score - 15;
-                minusAmt++;
-                minusScore = minusVal * minusAmt;
-            }
-        })
-    })
+    // holes.forEach((val) => {
+    //     val.addEventListener('click', (e) => {
+    //         document.getElementById('score').innerText = score;
+    //         if (e.target.classList.contains(`mole${round}`)) {
+    //             e.target.classList.replace(`mole${round}`, "splat");
+    //             score = score - 15;
+    //             minusAmt++;
+    //             minusScore = minusVal * minusAmt;
+    //         }
+    //     })
+    // })
 };
 
 const displayCash = () => {
@@ -292,7 +298,7 @@ const displayCash = () => {
         randomHole = Math.floor(Math.random() * holes.length);
         isRandomHoleAvailable = !(holes[randomHole].classList.contains(`mole${round}`)) || !(holes[randomHole].classList.contains(`cash${round}`));
     }
-    // holes[randomHole].classList.add(`cash${round}`);
+    holes[randomHole].classList.add(`cash${round}`);
 
 
     // let clear1 = window.setInterval(() => {
@@ -305,46 +311,64 @@ const displayCash = () => {
     // }, 2000);
     // window.setTimeout(() => {
     //     window.clearInterval(clear1);
-    let clear = window.setInterval(() => {
-        holes[randomHole].classList.add(`cash${round}`);
+    // let clear = window.setInterval(() => {
+    //     holes[randomHole].classList.add(`cash${round}`);
 
-        //      let clearHole = document.querySelectorAll(`.mole${round}`);
-        // clearHole.forEach((val) => {
-        //val.classList.replace(`mole${round}`, "darkhole");
-        //console.log("val.classList", val.classList)
-        // val.classList.remove(`mole${round}`); 
-    }, 1500)
+    //     //      let clearHole = document.querySelectorAll(`.mole${round}`);
+    //     // clearHole.forEach((val) => {
+    //     //val.classList.replace(`mole${round}`, "darkhole");
+    //     //console.log("val.classList", val.classList)
+    //     // val.classList.remove(`mole${round}`); 
+    // }, 1500)
     window.setTimeout(() => {
-        window.clearInterval(clear);
+        //window.clearInterval(clear);
         holes[randomHole].classList.remove(`cash${round}`);
-
         console.log("round", round);
       
     }, 2000);
 
-    holes.forEach((val) => {
-        val.addEventListener('click', (e) => {
-            document.getElementById('score').innerText = score;
-            if (e.target.classList.contains(`cash${round}`)) {
-                e.target.classList.replace(`cash${round}`, "smash")
-                score = score + 50;
-                plusAmt++;
-                plusScore = plusVal * plusAmt;
-            }
-        })
-    })
+    // holes.forEach((val) => {
+    //     val.addEventListener('click', (e) => {
+    //         document.getElementById('score').innerText = score;
+    //         if (e.target.classList.contains(`cash${round}`)) {
+    //             e.target.classList.replace(`cash${round}`, "smash")
+    //             score = score + 50;
+    //             plusAmt++;
+    //             plusScore = plusVal * plusAmt;
+    //         }
+    //     })
+    // })
 
 };
-let resetHoles = window.setInterval(() => {
-    let smash = document.querySelectorAll(".smash");
-    smash.forEach((val) => {
-        val.classList.replace("smash", `cash${round}`);
+
+holes.forEach((val) => {
+    val.addEventListener('click', (e) => {
+
+        //console.log("Hole clicked");
+        if (e.target.classList.contains(`mole${round}`)) {
+            e.target.classList.replace(`mole${round}`, "splat");
+            setTimeout(()=> {
+                e.target.classList.remove("splat");
+            }, 500);
+            score = score - 15;
+            minusAmt++;
+            minusScore = minusVal * minusAmt;
+        }
+        else if (e.target.classList.contains(`cash${round}`)) {
+            e.target.classList.replace(`cash${round}`, "smash")
+            setTimeout(()=> {
+                e.target.classList.remove("smash");
+            }, 500);
+            score = score + 50;
+            plusAmt++;
+            plusScore = plusVal * plusAmt;
+        }
+        else {
+            //console.log("YOu don'tget anything for hitting an empty hole")
+        }
+        document.getElementById('score').innerText = score;
     })
-    let splat = document.querySelectorAll(".splat");
-    splat.forEach((val) => {
-        val.classList.replace("splat", `mole${round}`);
-    })
-}, 2000);
+})
 
 // /////progress bar
 const progressBar = document.getElementsByClassName('progress-bar')[0];
@@ -379,12 +403,12 @@ function roundEnd() {
     goalReached();
     totalScore.push(quarterScore);
 
-    let clearHole = document.querySelectorAll(`.mole${round}`);
-    clearHole.forEach((val) => {
-       
+    holes.forEach((val) => {       
         console.log("val.classList", val.classList)
         val.classList.remove(`mole${round}`);
         val.classList.remove(`cash${round}`);
+        val.classList.remove(`smash`);
+        val.classList.remove(`splat`);
     })
     document.getElementById('eval').style.visibility = "visible";
     document.getElementById("plusAmt").innerText = plusAmt;
@@ -662,3 +686,41 @@ sGame =`sbg${game}`
 sGame.push($`seconds`,sumArr())
  console.log(sGame,`sbg${game}`  )
 }
+
+////////////////////////////////
+//IIFE - Immediately Invoked Function Expression
+
+let myGame = (() => {
+
+    // Private Variables
+
+    // Private Functions
+    function sayHi(){
+        console.log("HI");
+    }
+
+    // Public Function
+    return {
+        
+        sayHi, // = sayHi: sayHi,
+    }
+
+})();
+
+myGame.sayHi()
+
+// let person = {
+//   name: "Duane",
+//   eyes: "Hazel"
+// }
+
+// person.sayHi=function(){console.log("hi" + this.name)}
+
+// let person = {
+//   name: "Duane",
+//   eyes: "Hazel",
+//   sayHi: function(){ console.log("Hi " + this.name + "!")},
+//   sayHello: () => { console.log("Hello " + this.name); }
+// }
+// person.sayHi()   -> "Hi Duane"
+// person.sayHello() => "Hello" -- arrow/anonymous function doesn't know "this"
