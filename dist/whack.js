@@ -19,8 +19,11 @@ let minusAmt = 0;
 let minusVal = -15;
 let minusScore = 0;
 let totalScore = [];
+let sbArr = [];
 let rScores = [];
 let newArr = [];
+let summore =[];
+let color =[];
 let result = 0;
 let percent = 0;
 let min = round;
@@ -42,6 +45,16 @@ let close = document.getElementsByClassName('close')[0];
 let easy = document.getElementById('easy');
 let med = document.getElementById('med');
 let hard = document.getElementById('hard');
+let i = ["",0];
+let ii = ["",0];
+let iii = ["",0];
+let iv = ["",0];
+let v = ["",0];
+let vi = ["",0];
+let vii = ["",0];
+let viii = ["",0];
+let ix = ["",0];
+let x = ["",0];
 let wBox2 = document.querySelectorAll(".wBox2");
 let holes = document.querySelectorAll(".darkhole");
 let mole1 = document.querySelectorAll(".mole1");
@@ -69,7 +82,6 @@ const darkcash = [cash1, cash2, cash3, cash4];
 let mole = darkmole[round];
 let cash = darkcash[round];
 let seconds;
-let sum;
 
 window.onload = intro();
 
@@ -501,19 +513,15 @@ function roundUp() {
 }
 function gameEnd() {
     header.innerText= 'Final';
-    levelColor();
-    document.getElementById("color").innerText=totalScore[0];
-    rScores =totalScore.splice(1,5);
+    rScores =totalScore.splice(1,5);    
     document.getElementById("totalScore").innerText = sumArr(newArr);  
-    sumArr();
-    scoreBoard();
-    
+    sumArr();    
+    scoreBoard();    
     document.getElementById("quarter_one").innerText = rScores[0];
     document.getElementById("quarter_two").innerText = rScores[1];
     document.getElementById("quarter_three").innerText = rScores[2];
     document.getElementById("quarter_four").innerText = rScores[3];
-    document.getElementById('all').innerText = sumArr();
-    
+    document.getElementById('all').innerText = sumArr();    
 
     let final = gsap.timeline() 
     final   
@@ -526,7 +534,7 @@ function gameEnd() {
     .fromTo(".scoreModal", {opacity: 0},{opacity: 1, duration: 1, ease: "circ" }, "+=.5")
     .fromTo(".score2", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 })
     .fromTo(".score", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 }, "<")
-    .fromTo("#color", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 }, "<")
+    .fromTo(".level_color", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 }, "<")
     .fromTo("#message", { opacity: 0, scale: 0, x: "10%", y: "30%"   }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
     .fromTo("#eval2", {  opacity: 0, x: "0%", },{  opacity: 1, x: "500%", duration: 1, y: "0%", ease: "back"},"-=1");
 
@@ -561,21 +569,18 @@ switch(totalScore[0]) {
     }
 }
 function scoreBoard(){  
- sum = sumArr(rScores);
+ summore = [];
+ tSum = sumArr(rScores);
+ summore.push(totalScore[0]);
+ summore.push(tSum);
+ console.log(summore);
+
+
  game++
 //  gameCount()
-let i = 0;
-let ii = 0;
-let iii = 0;
-let iv = 0;
-let v = 0;
-let vi = 0;
-let vii = 0;
-let viii = 0;
-let ix = 0;
-let x = 0;
 
-    if (sum >= i){
+
+    if (summore[1] >= i[1]){
         x=ix;
         ix=viii;
         viii=vii;
@@ -585,8 +590,8 @@ let x = 0;
         iv=iii;
         iii=ii;
         ii=i;
-        i=sum;
-    }else if(sum >= ii){
+        i=summore;
+    }else if(summore[1] >= ii[1]){
         x=ix;
         ix=viii;
         viii=vii;
@@ -595,8 +600,8 @@ let x = 0;
         v=iv;
         iv=iii;
         iii=ii;
-        ii=sum;        
-    }else if(sum >= iii){
+        ii=summore;       
+    }else if(summore[1] >= iii[1]){
         x=ix;
         ix=viii;
         viii=vii;
@@ -604,53 +609,113 @@ let x = 0;
         vi=v;
         v=iv;
         iv=iii;
-        iii=sum;        
-    }else if(sum >= iv){
+        iii=summore;        
+    }else if(summore[1] >= iv[1]){
         x=ix;
         ix=viii;
         viii=vii;
         vii=vi;
         vi=v;
         v=iv;
-        iv=sum;        
-    }else if(sum >= v){
+        iv=summore;        
+    }else if(summore[1] >= v[1]){
         x=ix;
         ix=viii;
         viii=vii;
         vii=vi;
         vi=v;
-        v=sum;        
-    }else if(sum >= vi){
+        v=summore;   
+    }else if(summore[1] >= vi[1]){
         x=ix;
         ix=viii;
         viii=vii;
         vii=vi;
-        vi=sum;        
-    }else if(sum >= vii){
+        vi=summore;
+    }else if(summore[1] >= vii[1]){
         x=ix;
         ix=viii;
         viii=vii;
-        vii=sum;        
-    }else if(sum >= viii){
+        vii=summore;
+    }else if(summore[1] >= viii[1]){
         x=ix;
         ix=viii;
-        viii=sum;        
-    }else if(sum >= ix){
+        viii=summore;
+    }else if(summore[1] >= ix[1]){
         x=ix;
-        ix=sum;                
-    }else if(sum >= x){
-        x=sum;
+        ix=summore;    
+    }else if(summore[1] >= x[1]){
+        x=summore;
     }
-    document.getElementById("i").innerText=i;
-    document.getElementById("ii").innerText=ii;
-    document.getElementById("iii").innerText=iii;
-    document.getElementById("iv").innerText=iv;
-    document.getElementById("v").innerText=v;
-    document.getElementById("vi").innerText=vi;
-    document.getElementById("vii").innerText=vii;
-    document.getElementById("viii").innerText=viii;
-    document.getElementById("ix").innerText=ix;
-    document.getElementById("x").innerText=x;
+    console.log(i,summore[1])
+    document.getElementById("i").innerText=i[1];
+    document.getElementById("colori").innerText=i[0];
+    color = i[0];
+    levelColor();
+    document.getElementById("ii").innerText=ii[1];
+    document.getElementById("colorii").innerText=ii[0]
+    color = ii[0];
+    levelColor();
+    document.getElementById("iii").innerText=iii[1];
+    document.getElementById("coloriii").innerText=iii[0];
+    color = iii[0];
+    levelColor();
+    document.getElementById("iv").innerText=iv[1];
+    document.getElementById("coloriv").innerText=iv[0];
+    color = iv[0];
+    levelColor();
+    document.getElementById("v").innerText=v[1];
+    document.getElementById("colorv").innerText=v[0];
+    color = v[0];
+    levelColor();
+    document.getElementById("vi").innerText=vi[1];
+    document.getElementById("colorvi").innerText=vi[0];
+    color = vi[0];
+    levelColor();
+    document.getElementById("vii").innerText=vii[1];
+    document.getElementById("colorvii").innerText=vii[0];
+    color = vii[0];
+    levelColor();
+    document.getElementById("viii").innerText=viii[1];
+    document.getElementById("colorviii").innerText=viii[0];
+    color = viii[0];
+    levelColor();
+    document.getElementById("ix").innerText=ix[1];
+    document.getElementById("colorix").innerText=ix[0];
+    color = ix[0];
+    levelColor();
+    document.getElementById("x").innerText=x[1];
+    document.getElementById("colorx").innerText=x[0];
+    color = x[0];
+    levelColor();
+
+levelColor();
+    
+}
+function levelColor(){
+    switch(color){
+        case "'easy'":
+            document.getElementsByClassName("score2")[0].style.color ='#5dca5d';
+            document.getElementsByClassName("score")[0].style.color ='#5dca5d';
+            document.getElementsByClassName("level_color")[0].style.color ='#5dca5d';
+            document.getElementsByClassName('level_color')[0].innerText = 'EASY';
+        break;
+        case "'med'":
+            document.getElementsByClassName("score2")[0].style.color ='#f3f365';
+            document.getElementsByClassName("score")[0].style.color ='#f3f365';
+            document.getElementsByClassName("level_color")[0].style.color ='#f3f365';
+            document.getElementsByClassName('level_color')[0].innerText = 'MED';
+        break;
+        case "'hard'":
+            document.getElementsByClassName("score2")[0].style.color ='#fd7575';
+            document.getElementsByClassName("score")[0].style.color ='#fd7575';
+            document.getElementsByClassName("level_color")[0].style.color ='#fd7575';
+            document.getElementsByClassName('level_color')[0].innerText = 'HARD';
+        break;
+        case "''":
+            document.getElementsByClassName('level_color')[0].innerText = '-';
+            document.getElementsByClassName("level_color")[0].style.color ='pink';
+        break;
+    }
 }
 function gameCount(){
     

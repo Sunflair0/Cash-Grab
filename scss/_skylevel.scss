@@ -198,23 +198,24 @@ ul {
 //button labels
 li:nth-child(2){
     color: #70fd70;
-    margin-left: 10px;
-    overflow: visible;
+    margin-left: 15px;
+    //overflow: visible;
     margin-right: 7px;   
 }
 li:nth-child(3){
     color: #f1ef45;
     margin-left: 10px;
     margin-right: 7px;
-    overflow: visible;
+    //overflow: visible;
 }
 li:nth-child(4){
     color: #fd5555;
     margin-left: 10px;
     margin-right: 7px;
-    overflow: visible;
+    //overflow: visible;
     padding-bottom: 5px;
 }
-.choice input {
-    opacity: 0;     
+ul input {
+    color: transparent;   
+    opacity: 0;
 }
