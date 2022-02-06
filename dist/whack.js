@@ -18,7 +18,12 @@ let plusScore = 0;
 let minusAmt = 0;
 let minusVal = -15;
 let minusScore = 0;
-let totalScore = [];
+let masterArr = [];
+let gamePlay = {
+    level: '',
+    score: '',
+    name: ''
+};
 let rScores = [];
 let newArr = [];
 let result = 0;
@@ -87,7 +92,6 @@ function intro(){
     intro    
     // /////modal slide in
     .fromTo(".introModal", { opacity: 0, x:'-200%', y:'165%' },{ opacity: .87, duration: 1.5, x: 0, ease: "circ" }) 
-    
     // /////text reveal
     .to(rule, {cssRule: {scaleY: 0}, duration: 4}, "-=.5")
     // /////mole slide in
@@ -113,7 +117,7 @@ function intro(){
 }
  function xIntro(){
     document.getElementsByClassName('choiceblock')[0].style.visibility = "visible";
-    totalScore.push("med");
+    gamePlay.level ="MED";
     level.innerText = 'MED';
     finger.innerText = `${hand}`;
 
@@ -135,7 +139,7 @@ function intro(){
 function levelChoice(){        
     padlock.innerText = `${unlock}`;
     level.style.cursor= 'pointer';
-    finger.setAttribute('style','top: -60px;');     
+    finger.setAttribute('style','top: -80px;');     
     
     finger.addEventListener("click", difficultyLevel);
 
@@ -155,53 +159,53 @@ function difficultyLevel(){
     med.addEventListener("click", difficultyLevel);  
     hard.addEventListener("click", difficultyLevel);  
 
-    if (document.getElementById('easy').checked) {
-         seconds = 2000;
-         setEasyStyle();
-         totalScore.pop();
-         totalScore.push("easy");
+    if (document.getElementById('easy').checked) {         
+        setEasyStyle();
+        gamePlay.level="";
+        gamePlay.level="EASY";
     }
     if (document.getElementById('med').checked) {
-         seconds = 1000;
-         level.innerText = 'MED';
-         level.style.color ='#f3f365';
-         level.style.border ='#f3f365 2px solid';
-         totalScore.pop();
-         totalScore.push("med");
+        setMedStyle();
+        gamePlay.level="";
+        gamePlay.level="MED";
     }
     if (document.getElementById('hard').checked) {
-         seconds = 500;
-         level.innerText = 'HARD';
-         level.style.color ='#fd7575';
-         level.style.border ='#fd7575 2px solid';
-         totalScore.pop();
-         totalScore.push("hard");
+        setHardStyle();
+        gamePlay.level="";
+        gamePlay.level="HARD";
     }
 }
-
 function setEasyStyle(){
+    seconds = 2000;
     level.innerText = 'EASY';
     level.style.color ='#5dca5d';
     level.style.border ='#5dca5d 2px solid';
 }
-
+function setMedStyle(){
+    seconds = 1000;
+    level.innerText = 'MED';
+    level.style.color ='#f3f365';
+    level.style.border ='#f3f365 2px solid';
+}
+function setHardStyle(){
+    seconds = 500;
+    level.innerText = 'HARD';
+    level.style.color ='#fd7575';
+    level.style.border ='#fd7575 2px solid';
+}
 function doneChoosing() {    
-     choiceStack.setAttribute('style','right:-20%;');
+     choiceStack.setAttribute('style','right:-40%;');
      document.getElementsByClassName('choiceblock')[0].style.height='30px';           
        
-     switch(totalScore[0]) {
-        case "easy":
+     switch(gamePlay[0]) {
+        case "EASY":
             setEasyStyle();
             break;
-        case "med":
-            level.innerText = 'MED';
-            level.style.color ='#f3f365';
-            level.style.border ='#f3f365 2px solid';
+        case "MED":
+            setMedStyle()
             break;
-        case "hard":
-            level.innerText = 'HARD';
-            level.style.color ='#fd7575';
-            level.style.border ='#fd7575 2px solid';
+        case "HARD":
+            setHardStyle()
             break;
         }
  }
@@ -253,7 +257,6 @@ function choice(min, max) {
     let result = (Math.floor(Math.random() * (max - min + 1)) + 2);
     return result;
 };
-
 const displayMole = () => {
     let randomHole = null;
     let isRandomHoleAvailable = false;
@@ -263,32 +266,9 @@ const displayMole = () => {
     }
     holes[randomHole].classList.add(`mole${round}`);
 
-    // let clear = window.setInterval(() => {
-    //     holes[randomHole].classList.add(`mole${round}`);
-
-    //     //      let clearHole = document.querySelectorAll(`.mole${round}`);
-    //     // clearHole.forEach((val) => {
-    //     //val.classList.replace(`mole${round}`, "darkhole");
-    //     //console.log("val.classList", val.classList)
-    //     // val.classList.remove(`mole${round}`); 
-    // }, 2000)
     window.setTimeout(() => {
-        //window.clearInterval(clear);
         holes[randomHole].classList.remove(`mole${round}`);
-      
     }, 3000);
-
-    // holes.forEach((val) => {
-    //     val.addEventListener('click', (e) => {
-    //         document.getElementById('score').innerText = score;
-    //         if (e.target.classList.contains(`mole${round}`)) {
-    //             e.target.classList.replace(`mole${round}`, "splat");
-    //             score = score - 15;
-    //             minusAmt++;
-    //             minusScore = minusVal * minusAmt;
-    //         }
-    //     })
-    // })
 };
 
 const displayCash = () => {
@@ -300,55 +280,20 @@ const displayCash = () => {
     }
     holes[randomHole].classList.add(`cash${round}`);
 
-
-    // let clear1 = window.setInterval(() => {
-    //     console.log("clear");
-    //     let clearHole1 = document.querySelectorAll(`.cash${round}`);
-    //     clearHole1.forEach((val) => {
-    //         //val.classList.replace(`cash${round}`, "darkhole");
-    //         val.classList.remove(`cash${round}`);//, "darkhole");
-    //     })
-    // }, 2000);
-    // window.setTimeout(() => {
-    //     window.clearInterval(clear1);
-    // let clear = window.setInterval(() => {
-    //     holes[randomHole].classList.add(`cash${round}`);
-
-    //     //      let clearHole = document.querySelectorAll(`.mole${round}`);
-    //     // clearHole.forEach((val) => {
-    //     //val.classList.replace(`mole${round}`, "darkhole");
-    //     //console.log("val.classList", val.classList)
-    //     // val.classList.remove(`mole${round}`); 
-    // }, 1500)
     window.setTimeout(() => {
-        //window.clearInterval(clear);
         holes[randomHole].classList.remove(`cash${round}`);
         console.log("round", round);
-      
     }, 2000);
-
-    // holes.forEach((val) => {
-    //     val.addEventListener('click', (e) => {
-    //         document.getElementById('score').innerText = score;
-    //         if (e.target.classList.contains(`cash${round}`)) {
-    //             e.target.classList.replace(`cash${round}`, "smash")
-    //             score = score + 50;
-    //             plusAmt++;
-    //             plusScore = plusVal * plusAmt;
-    //         }
-    //     })
-    // })
-
 };
 
 holes.forEach((val) => {
     val.addEventListener('click', (e) => {
 
-        //console.log("Hole clicked");
+        console.log("Hole clicked");
         if (e.target.classList.contains(`mole${round}`)) {
-            e.target.classList.replace(`mole${round}`, "splat");
+            e.target.classList.replace(`mole${round}`, "bop");
             setTimeout(()=> {
-                e.target.classList.remove("splat");
+                e.target.classList.remove("bop");
             }, 500);
             score = score - 15;
             minusAmt++;
@@ -364,7 +309,7 @@ holes.forEach((val) => {
             plusScore = plusVal * plusAmt;
         }
         else {
-            //console.log("YOu don'tget anything for hitting an empty hole")
+            console.log("You don'tget anything for hitting an empty hole!")
         }
         document.getElementById('score').innerText = score;
     })
@@ -401,14 +346,14 @@ function goalReached() {
 function roundEnd() {
     quarterScore = plusScore + minusScore;
     goalReached();
-    totalScore.push(quarterScore);
+    rScores.push(quarterScore);
 
     holes.forEach((val) => {       
         console.log("val.classList", val.classList)
         val.classList.remove(`mole${round}`);
         val.classList.remove(`cash${round}`);
         val.classList.remove(`smash`);
-        val.classList.remove(`splat`);
+        val.classList.remove(`bop`);
     })
     document.getElementById('eval').style.visibility = "visible";
     document.getElementById("plusAmt").innerText = plusAmt;
@@ -425,7 +370,7 @@ function roundEnd() {
         noHearts();
     }
     else if (quarterScore < goal && life > 1) {
-        totalScore.pop(quarterScore);
+        rScores.pop(quarterScore);
         life--
         statusMessage(`Use a heart and try again`);
         let tryAgain = document.getElementById('eval');
@@ -458,7 +403,7 @@ function sumArr() {
         sum += rScores[i];
         
     }console.log(rScores, sum);
-
+    gamePlay.score=sum;
     return sum;
 }
 function useHeart() {
@@ -527,11 +472,12 @@ function roundUp() {
 function gameEnd() {
     header.innerText= 'Final';
     levelColor();
-    document.getElementById("color").innerText=totalScore[0];
-    rScores =totalScore.splice(1,5);
+    document.getElementsByClassName("color").innerText=gamePlay[0];
     document.getElementById("totalScore").innerText = sumArr(newArr);  
+    masterArr.push(gamePlay(game));
     sumArr();
-    scoreBoard();
+    sortMasterArr();
+    postSB();
     
     document.getElementById("quarter_one").innerText = rScores[0];
     document.getElementById("quarter_two").innerText = rScores[1];
@@ -551,9 +497,9 @@ function gameEnd() {
     .fromTo(".scoreModal", {opacity: 0},{opacity: 1, duration: 1, ease: "circ" }, "+=.5")
     .fromTo(".score2", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 })
     .fromTo(".score", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 }, "<")
-    .fromTo("#color", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 }, "<")
+    .fromTo(".lvColor", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 }, "<")
     .fromTo("#message", { opacity: 0, scale: 0, x: "10%", y: "30%"   }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
-    .fromTo("#eval2", {  opacity: 0, x: "0%", },{  opacity: 1, x: "500%", duration: 1, y: "0%", ease: "back"},"-=1");
+    .fromTo("#eval2", {  opacity: 0, x: "0%", },{  opacity: 1, x: "500%", duration: 1, y: "0%", ease:"back", rotation: 720},"-=1");
 
     document.getElementById('message').innerText= `Try to beat your score`;
         let playAgain = document.getElementById('eval2'); 
@@ -564,7 +510,7 @@ function gameEnd() {
 }
 // /////color display for scoreboard
 function levelColor(){    
-switch(totalScore[0]) {
+switch(gamePlay[0]) {
     case "easy":
         document.getElementsByClassName("score2")[0].style.color ='#5dca5d';
         document.getElementsByClassName("score")[0].style.color ='#5dca5d';
@@ -585,107 +531,36 @@ switch(totalScore[0]) {
     break;
     }
 }
-function scoreBoard(){  
- sum = sumArr(rScores);
- game++
-//  gameCount()
-let i = 0;
-let ii = 0;
-let iii = 0;
-let iv = 0;
-let v = 0;
-let vi = 0;
-let vii = 0;
-let viii = 0;
-let ix = 0;
-let x = 0;
+function sortMasterArr(){
+    masterArr.sort(function(a,b) {
+    return a[1] - b[1];
+})}
 
-    if (sum >= i){
-        x=ix;
-        ix=viii;
-        viii=vii;
-        vii=vi;
-        vi=v;
-        v=iv;
-        iv=iii;
-        iii=ii;
-        ii=i;
-        i=sum;
-    }else if(sum >= ii){
-        x=ix;
-        ix=viii;
-        viii=vii;
-        vii=vi;
-        vi=v;
-        v=iv;
-        iv=iii;
-        iii=ii;
-        ii=sum;        
-    }else if(sum >= iii){
-        x=ix;
-        ix=viii;
-        viii=vii;
-        vii=vi;
-        vi=v;
-        v=iv;
-        iv=iii;
-        iii=sum;        
-    }else if(sum >= iv){
-        x=ix;
-        ix=viii;
-        viii=vii;
-        vii=vi;
-        vi=v;
-        v=iv;
-        iv=sum;        
-    }else if(sum >= v){
-        x=ix;
-        ix=viii;
-        viii=vii;
-        vii=vi;
-        vi=v;
-        v=sum;        
-    }else if(sum >= vi){
-        x=ix;
-        ix=viii;
-        viii=vii;
-        vii=vi;
-        vi=sum;        
-    }else if(sum >= vii){
-        x=ix;
-        ix=viii;
-        viii=vii;
-        vii=sum;        
-    }else if(sum >= viii){
-        x=ix;
-        ix=viii;
-        viii=sum;        
-    }else if(sum >= ix){
-        x=ix;
-        ix=sum;                
-    }else if(sum >= x){
-        x=sum;
+// ) sortMasterArr(masterArr,score){
+//         return masterArr.sort((a,b) => (a[score] > b[score])
+//         ? -1:1);  
+// };
+function postSB(){
+    game++
+    for (let i =0; i <sortMasterArr.length; i++){
+        let scoreArr= document.getElementsByClassName['score'];
+        let levelArr= document.getElementsByClassName['lColor'];
+
+        scoreArr[i].innerText =sortMasterArr[i].score;
+        levelArr[i].innerText =sortMasterArr[i].lColor;
     }
-    document.getElementById("i").innerText=i;
-    document.getElementById("ii").innerText=ii;
-    document.getElementById("iii").innerText=iii;
-    document.getElementById("iv").innerText=iv;
-    document.getElementById("v").innerText=v;
-    document.getElementById("vi").innerText=vi;
-    document.getElementById("vii").innerText=vii;
-    document.getElementById("viii").innerText=viii;
-    document.getElementById("ix").innerText=ix;
-    document.getElementById("x").innerText=x;
 }
-function gameCount(){
+
+
+// function gameCount(){
     
 
-let sGame=[];
-sGame =`sbg${game}` 
+// let sGame=[];
+// sGame =`sbg${game}` 
 
-sGame.push($`seconds`,sumArr())
- console.log(sGame,`sbg${game}`  )
-}
+// sGame.push($`seconds`,sumArr())
+//  console.log(sGame,`sbg${game}`  )
+// }
 
 ////////////////////////////////
 //IIFE - Immediately Invoked Function Expression

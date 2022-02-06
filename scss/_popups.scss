@@ -31,10 +31,10 @@
     @include actionBox;
     background-image: url(/dist/asset/smash.png);
 }
-.splat {
+.bop {
     @include flexShell;    
     @include actionBox;
-    background-image: url(/dist/asset/splat.png);
+    background-image: url(/dist/asset/bop.png);
 }
 .mole1 {
     background-image: url(/dist/asset/mole1.png); 

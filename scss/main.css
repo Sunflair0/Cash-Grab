@@ -194,7 +194,7 @@ img {
   background-image: url(/dist/asset/smash.png);
 }
 
-.splat {
+.bop {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -207,7 +207,7 @@ img {
   background-size: contain;
   background-repeat: no-repeat;
   border-radius: 20%;
-  background-image: url(/dist/asset/splat.png);
+  background-image: url(/dist/asset/bop.png);
 }
 
 .mole1 {

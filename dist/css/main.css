@@ -56,6 +56,7 @@ body button {
   outline-offset: -4px;
   border: white 2px solid;
   font-size: large;
+  color: red;
   height: 45px;
   width: 45px;
   border-radius: 50%;
@@ -236,7 +237,7 @@ img {
   background-image: url(/dist/asset/smash.png);
 }
 
-.splat {
+.bop {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -256,7 +257,7 @@ img {
   background-size: contain;
   background-repeat: no-repeat;
   border-radius: 20%;
-  background-image: url(/dist/asset/splat.png);
+  background-image: url(/dist/asset/bop.png);
 }
 
 .mole1 {
@@ -677,7 +678,7 @@ img {
   height: 75%;
   width: 80%;
   color: white;
-  top: -122%;
+  top: 0%;
   position: fixed;
   border: white 5px ridge;
   -webkit-box-pack: center;
@@ -701,10 +702,10 @@ img {
           flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  opacity: 0;
+  opacity: 1;
 }
 
-.score, .score2, .level_color {
+.score, .score2, .lvColor {
   margin-bottom: 5%;
 }
 
@@ -749,11 +750,6 @@ img {
 }
 
 .scoreCap {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 6;
-  grid-area: 1/1/2/7;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -765,11 +761,6 @@ img {
 }
 
 .scoreCap2 {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 6;
-  grid-area: 1/1/2/7;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
