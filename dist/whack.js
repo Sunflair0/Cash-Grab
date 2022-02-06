@@ -498,7 +498,7 @@ function gameEnd() {
     .fromTo(".score2", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 })
     .fromTo(".score", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 }, "<")
     .fromTo(".lvColor", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 }, "<")
-    .fromTo("#message", { opacity: 0, scale: 0, x: "10%", y: "30%"   }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
+    .fromTo("#message", { opacity: 0, scale: 0, x: "10%", y: "30%"}, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
     .fromTo("#eval2", {  opacity: 0, x: "0%", },{  opacity: 1, x: "500%", duration: 1, y: "0%", ease:"back", rotation: 720},"-=1");
 
     document.getElementById('message').innerText= `Try to beat your score`;

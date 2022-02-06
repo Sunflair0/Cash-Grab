@@ -710,6 +710,7 @@ img {
 }
 
 .sb_Beta, .sb_Gamma {
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -750,6 +751,11 @@ img {
 }
 
 .scoreCap {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 6;
+  grid-area: 1/1/2/7;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -761,12 +767,23 @@ img {
 }
 
 .scoreCap2 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 6;
+  grid-area: 1/1/2/7;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   height: 100%;
   padding: 5% 10px;
   grid-row: span 1;
+}
+
+.quarter0 {
+  max-width: 8%;
+  height: 50px;
+  overflow-wrap: break-word;
 }
 
 .quarter1, .quarter2, .quarter3, .quarter4,

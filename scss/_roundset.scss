@@ -33,7 +33,7 @@
     height: 75%;
     width: 80%;
     color:white;
-    top: -122%;    
+    top: 0%;    
     position: fixed;  
     border:rgb(255, 255, 255) 5px ridge;
     justify-content:center;    
@@ -46,12 +46,13 @@
     align-items: center;   
     flex-direction: row;
     justify-content: space-around;
-    opacity: 0;
+    opacity: 1;
 }
-.score, .score2, .level_color {
+.score, .score2, .lvColor {
     margin-bottom: 5%;
 }
  .sb_Beta, .sb_Gamma  {
+     height: 100%;
     display: flex;        
     flex-basis: 50%;
     flex-direction: column;
@@ -71,12 +72,19 @@
     grid-template-rows:  1fr;
 } 
 .scoreCap {
-    @include gridplus;
+    @include gridplus;    
     border-bottom:#ffffff 3px ridge;
     background-color: black;
 }
 .scoreCap2 {
     @include gridplus;
+}
+.quarter0 {
+    max-width: 8%;
+    height: 50px;
+    overflow-wrap: break-word;
+    // display: flex;
+
 }
 .quarter1, .quarter2, .quarter3, .quarter4, 
 .pScore1, .pScore2, .pScore3, .pScore4 {
