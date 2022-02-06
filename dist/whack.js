@@ -483,8 +483,7 @@ function gameEnd() {
     document.getElementById("quarter_two").innerText = rScores[1];
     document.getElementById("quarter_three").innerText = rScores[2];
     document.getElementById("quarter_four").innerText = rScores[3];
-    document.getElementById('all').innerText = sumArr();
-    
+    document.getElementById('all').innerText = sumArr();    
 
     let final = gsap.timeline() 
     final   
@@ -531,14 +530,14 @@ switch(gamePlay[0]) {
     break;
     }
 }
-function sortMasterArr(){
-    masterArr.sort(function(a,b) {
-    return a[1] - b[1];
-})}
+function sortMasterArr(masterArr,score){
+    masterArr.sort((a,b) => (a[score] > b[score]) 
+    ? -1:1); 
+}
 
-// ) sortMasterArr(masterArr,score){
-//         return masterArr.sort((a,b) => (a[score] > b[score])
-//         ? -1:1);  
+
+//         return masterArr.sort((a,b)
+//          
 // };
 function postSB(){
     game++

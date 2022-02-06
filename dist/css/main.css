@@ -678,7 +678,7 @@ img {
   height: 75%;
   width: 80%;
   color: white;
-  top: 0%;
+  top: -122%;
   position: fixed;
   border: white 5px ridge;
   -webkit-box-pack: center;
@@ -689,7 +689,7 @@ img {
 .scoreModal {
   border: white 5px ridge;
   padding: 10px 20px;
-  margin: 2% 40px;
+  margin: 0% 20%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -702,20 +702,20 @@ img {
           flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  opacity: 1;
+  opacity: 0;
 }
 
-.score, .score2, .lvColor {
+.rank, .lvColor, .score, .winner {
   margin-bottom: 5%;
 }
 
-.sb_Beta, .sb_Gamma {
-  height: 100%;
+.sb_Beta, .sb_Gamma, .sb_Delta {
+  height: 110%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -729,8 +729,8 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
