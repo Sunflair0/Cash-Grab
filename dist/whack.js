@@ -471,7 +471,8 @@ function gameEnd() {
     levelColor();
     document.getElementsByClassName("color").innerText=gamePlay[0];
     document.getElementById("totalScore").innerText = sumArr(newArr);  
-    masterArr.push(gamePlay);
+    let x =masterArr.push(gamePlay);
+console.log(x);
     sumArr();
     masterArr.sort(sortMasterArr);
     postSB();
