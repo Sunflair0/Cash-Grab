@@ -37,3 +37,9 @@
   padding: 5% 10px; 
   grid-row: span 1;
 }
+@mixin sbPlus {
+  display: flex;    
+  font-size: 1.2rem; 
+  flex-basis: 25%;
+  flex-direction: column;
+}

@@ -250,7 +250,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    },10100); //shortened for debugging mode
+    },1100); //shortened for debugging mode
 });
 
 function choice(min, max) {
@@ -349,7 +349,6 @@ function roundEnd() {
     rScores.push(quarterScore);
 
     holes.forEach((val) => {       
-        console.log("val.classList", val.classList)
         val.classList.remove(`mole${round}`);
         val.classList.remove(`cash${round}`);
         val.classList.remove(`smash`);
@@ -424,12 +423,10 @@ function noHearts() {
 function roundGsap() {
     let clearHole = document.querySelectorAll(`.mole${round}`);
     clearHole.forEach((val) => {
-        console.log("val.classList", val.classList)
         val.classList.remove(`mole${round}`)
     });
     let clearHole1 = document.querySelectorAll(`.cash${round}`);
     clearHole1.forEach((val) => {
-        console.log("val.classList", val.classList)
         val.classList.remove(`cash${round}`)
     });
     document.getElementById('plusImg').src = `./asset/minCash${round}.png`;
@@ -474,9 +471,9 @@ function gameEnd() {
     levelColor();
     document.getElementsByClassName("color").innerText=gamePlay[0];
     document.getElementById("totalScore").innerText = sumArr(newArr);  
-    masterArr.push(gamePlay(game));
+    masterArr.push(gamePlay);
     sumArr();
-    sortMasterArr();
+    masterArr.sort(sortMasterArr);
     postSB();
     
     document.getElementById("quarter_one").innerText = rScores[0];
@@ -494,10 +491,11 @@ function gameEnd() {
     .fromTo(".pScore0", {opacity: 0, scale: 0 },{opacity: 1,  scale: 1,duration: .3,ease: "circ" })  
     .fromTo(".quarter", {opacity: 0, scale: 0 },{opacity: 1,  scale: 1,duration: .3,ease: "circ",  stagger: .4 })  
     .fromTo(".scoreModal", {opacity: 0},{opacity: 1, duration: 1, ease: "circ" }, "+=.5")
-    .fromTo(".score2", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 })
-    .fromTo(".score", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 }, "<")
+    .fromTo(".rank", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 })
     .fromTo(".lvColor", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 }, "<")
-    .fromTo("#message", { opacity: 0, scale: 0, x: "10%", y: "30%"}, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
+    .fromTo(".score", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 }, "<")
+    .fromTo(".winner", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 }, "<")
+    .fromTo("#message", { opacity: 0, scale: 0, x: "10%", y: "30%"   }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
     .fromTo("#eval2", {  opacity: 0, x: "0%", },{  opacity: 1, x: "500%", duration: 1, y: "0%", ease:"back", rotation: 720},"-=1");
 
     document.getElementById('message').innerText= `Try to beat your score`;
@@ -530,23 +528,30 @@ switch(gamePlay[0]) {
     break;
     }
 }
-function sortMasterArr(masterArr,score){
-    masterArr.sort((a,b) => (a[score] > b[score]) 
-    ? -1:1); 
-}
+function sortMasterArr(a,b) {
+    if(a.score - b.score) {
+        return -1;
+    }   
+    else if(a.score - b.score) {
+        return 1;
+    } 
+    else {
+        return 0;
+    }
+    };
 
-
-//         return masterArr.sort((a,b)
+// ) sortMasterArr(masterArr,score){
+//         return masterArr.sort((a,b) => (a[score] > b[score])
 //          
 // };
 function postSB(){
     game++
-    for (let i =0; i <sortMasterArr.length; i++){
-        let scoreArr= document.getElementsByClassName['score'];
-        let levelArr= document.getElementsByClassName['lColor'];
-
-        scoreArr[i].innerText =sortMasterArr[i].score;
-        levelArr[i].innerText =sortMasterArr[i].lColor;
+    for (let i =0; i <masterArr.length; i++){
+        let scoreArr= document.getElementsByClassName('score');
+        let levelArr= document.getElementsByClassName('lvColor');
+console.log(i)
+        scoreArr[i].innerText =masterArr[i].score;
+        levelArr[i].innerText =masterArr[i].level;
     }
 }
 
