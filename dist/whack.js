@@ -468,7 +468,9 @@ function roundUp() {
 }
 function gameEnd() {
     header.innerText= 'Final';
+console.log("one");
     levelColor();
+console.log("three");
     document.getElementsByClassName("color").innerText=gamePlay[0];
     document.getElementById("totalScore").innerText = sumArr(newArr);  
     let x =masterArr.push(gamePlay);
@@ -508,24 +510,25 @@ console.log(x);
 }
 // /////color display for scoreboard
 function levelColor(){    
-switch(gamePlay[0]) {
-    case "easy":
-        document.getElementsByClassName("score2")[0].style.color ='#5dca5d';
+switch(gamePlay.level) {
+    case "EASY":
+console.log("two");
+        document.getElementsByClassName("rank")[0].style.color ='#5dca5d';
         document.getElementsByClassName("score")[0].style.color ='#5dca5d';
-        document.getElementsByClassName("level_color")[0].style.color ='#5dca5d';
-        document.getElementById('color').innerText = 'EASY';
+        document.getElementsByClassName("lvColor")[0].style.color ='#5dca5d';
+        document.getElementsByClassName('lvColor')[0].innerText = 'EASY';
     break;
-    case "med":
-        document.getElementsByClassName("score2")[0].style.color ='#f3f365';
+    case "MED":
+        document.getElementsByClassName("rank")[0].style.color ='#f3f365';
         document.getElementsByClassName("score")[0].style.color ='#f3f365';
-        document.getElementsByClassName("level_color")[0].style.color ='#f3f365';
-        document.getElementById('color').innerText = 'MED';
+        document.getElementsByClassName("lvColor")[0].style.color ='#f3f365';
+        document.getElementsByClassName('lvColor')[0].innerText = 'MED';
     break;
-    case "hard":
-        document.getElementsByClassName("score2")[0].style.color ='#fd7575';
+    case "HARD":
+        document.getElementsByClassName("rank")[0].style.color ='#fd7575';
         document.getElementsByClassName("score")[0].style.color ='#fd7575';
-        document.getElementsByClassName("level_color")[0].style.color ='#fd7575';
-        document.getElementById('color').innerText = 'HARD';
+        document.getElementsByClassName("lvColor")[0].style.color ='#fd7575';
+        document.getElementsByClassName('lvColor')[0].innerText = 'HARD';
     break;
     }
 }
@@ -548,6 +551,7 @@ function sortMasterArr(a,b) {
 function postSB(){
     game++
     for (let i =0; i <masterArr.length; i++){
+    levelColor()
         let scoreArr= document.getElementsByClassName('score');
         let levelArr= document.getElementsByClassName('lvColor');
 console.log(i)
