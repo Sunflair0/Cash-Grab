@@ -678,7 +678,7 @@ img {
   height: 75%;
   width: 80%;
   color: white;
-  top: 0%;
+  top: -122%;
   position: fixed;
   border: white 5px ridge;
   -webkit-box-pack: center;
@@ -703,7 +703,7 @@ img {
       -ms-flex-direction: row;
           flex-direction: row;
   height: 47%;
-  opacity: 1;
+  opacity: 0;
 }
 
 .rank, .lvColor, .score, .winner {
@@ -714,7 +714,6 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 1.2rem;
   -ms-flex-preferred-size: 25%;
       flex-basis: 25%;
   -webkit-box-orient: vertical;
@@ -740,7 +739,6 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 1.2rem;
   -ms-flex-preferred-size: 25%;
       flex-basis: 25%;
   -webkit-box-orient: vertical;
@@ -761,7 +759,6 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 1.2rem;
   -ms-flex-preferred-size: 25%;
       flex-basis: 25%;
   -webkit-box-orient: vertical;
@@ -782,7 +779,6 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 1.2rem;
   -ms-flex-preferred-size: 25%;
       flex-basis: 25%;
   -webkit-box-orient: vertical;
@@ -845,8 +841,6 @@ img {
   display: flex;
   -ms-flex-wrap: column;
       flex-wrap: column;
-  max-width: 70px;
-  margin-right: -3%;
   height: 50px;
 }
 

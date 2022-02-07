@@ -1,6 +1,26 @@
 // window.addEventListener("scroll", preventMotion, false);
 // window.addEventListener("touchmove", preventMotion, false);
 
+let gameLocalStorage = (() => {
+
+    let masterArrName = "localStorageMasterArrayName";
+
+    // lsName
+    function getMasterArr(){
+        // BUG when used first time.  How to check if value in localstorage
+        return JSON.parse(localStorage.getItem(masterArrName)) || []
+    }
+
+    function setMasterArr(masterArr){
+            localStorage.setItem(masterArrName, JSON.stringify(masterArr))
+    }
+
+    return{
+        getMasterArr,  // Because I'm using same name, don't need :value
+        setMasterArr: setMasterArr // Same as above
+    }
+
+})();
 // function preventMotion(event)
 // {
 //     window.scrollTo(0, 0);
@@ -18,10 +38,12 @@ let plusScore = 0;
 let minusAmt = 0;
 let minusVal = -15;
 let minusScore = 0;
-let masterArr = [];
+//const lsName = "localStorageMasterArrayName";
+//let masterArr = JSON.parse(localStorage.getItem(lsName)) || [];
+let masterArr = gameLocalStorage.getMasterArr()
 let gamePlay = {
     level: '',
-    score: '',
+    score: 0,
     name: ''
 };
 let rScores = [];
@@ -148,32 +170,54 @@ function levelChoice(){
     .to("#finger", {x: "20%", repeat:5, yoyo:true, duration: .3, delay: 3})
     .to("#finger", {x: "20%", repeat:5, yoyo:true, duration: .3, delay: 5});
 }
-    
+
+close.addEventListener("click", doneChoosing);   
+easy.addEventListener("click", difficultyLevel);  
+med.addEventListener("click", difficultyLevel);  
+hard.addEventListener("click", difficultyLevel);  
+
+function doneChoosing() {    
+    choiceStack.setAttribute('style','right:-40%;');
+    document.getElementsByClassName('choiceblock')[0].style.height='30px';           
+      
+//     switch(gamePlay.level) {
+//        case "EASY":
+//            setEasyStyle();
+//            break;
+//        case "MED":
+//            setMedStyle()
+//            break;
+//        case "HARD":
+//            setHardStyle()
+//            break;
+//        default:
+//            alert("SHOULD NEVER SEE THIS!!!");
+//    }
+}
+
 function difficultyLevel(){
     choiceStack.setAttribute('style','right: 0%;');
     finger.style.transform="translate(0,30px)";    
     level.setAttribute('style','height:30px;');  
     finger.innerText = '';   
-    close.addEventListener("click", doneChoosing);   
-    easy.addEventListener("click", difficultyLevel);  
-    med.addEventListener("click", difficultyLevel);  
-    hard.addEventListener("click", difficultyLevel);  
 
     if (document.getElementById('easy').checked) {         
         setEasyStyle();
-        gamePlay.level="";
         gamePlay.level="EASY";
     }
     if (document.getElementById('med').checked) {
         setMedStyle();
-        gamePlay.level="";
         gamePlay.level="MED";
     }
     if (document.getElementById('hard').checked) {
         setHardStyle();
-        gamePlay.level="";
         gamePlay.level="HARD";
     }
+
+    console.log("difficultyLevel gamePlay:", gamePlay);
+    console.log("difficultyLevel masterArr", JSON.stringify(masterArr))
+
+
 }
 function setEasyStyle(){
     seconds = 2000;
@@ -193,22 +237,6 @@ function setHardStyle(){
     level.style.color ='#fd7575';
     level.style.border ='#fd7575 2px solid';
 }
-function doneChoosing() {    
-     choiceStack.setAttribute('style','right:-40%;');
-     document.getElementsByClassName('choiceblock')[0].style.height='30px';           
-       
-     switch(gamePlay[0]) {
-        case "EASY":
-            setEasyStyle();
-            break;
-        case "MED":
-            setMedStyle()
-            break;
-        case "HARD":
-            setHardStyle()
-            break;
-        }
- }
 function begin() {
     life = 5;
     round = 1;
@@ -250,14 +278,14 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    },1100); //shortened for debugging mode
+    },5100); //shortened for debugging mode
 });
 
 function choice(min, max) {
     let result = (Math.floor(Math.random() * (max - min + 1)) + 2);
     return result;
 };
-const displayMole = () => {
+function displayMole(){
     let randomHole = null;
     let isRandomHoleAvailable = false;
     while (isRandomHoleAvailable === false) {
@@ -271,7 +299,7 @@ const displayMole = () => {
     }, 3000);
 };
 
-const displayCash = () => {
+function displayCash(){
     let randomHole = null;
     let isRandomHoleAvailable = false;
     while (isRandomHoleAvailable === false) {
@@ -468,16 +496,28 @@ function roundUp() {
 }
 function gameEnd() {
     header.innerText= 'Final';
-console.log("one");
-    levelColor();
-console.log("three");
-    document.getElementsByClassName("color").innerText=gamePlay[0];
-    document.getElementById("totalScore").innerText = sumArr(newArr);  
-    let x =masterArr.push(gamePlay);
-console.log(x);
+
+    document.getElementById("totalScore").innerText = sumArr(newArr);
+
+    console.log("gamePlay", gamePlay);
+
+    //  This is BAD because it stores by reference (same object)
+    //let x = masterArr.push(gamePlay);
+
+    // This will store a unique object for the array
+    masterArr.push({
+        level: gamePlay.level,
+        score: gamePlay.score,
+        name: gamePlay.name
+    });
+    
     sumArr();
-    masterArr.sort(sortMasterArr);
-    postSB();
+    
+    masterArr = sortArrayDescending(masterArr, "score");
+    gameLocalStorage.setMasterArr(masterArr);
+    //localStorage.setItem(lsName, JSON.stringify(masterArr));
+
+    postSB(masterArr);
     
     document.getElementById("quarter_one").innerText = rScores[0];
     document.getElementById("quarter_two").innerText = rScores[1];
@@ -509,27 +549,31 @@ console.log(x);
         playAgain.addEventListener("click", reStart);   
 }
 // /////color display for scoreboard
-function levelColor(){    
-switch(gamePlay.level) {
-    case "EASY":
-console.log("two");
-        document.getElementsByClassName("rank")[0].style.color ='#5dca5d';
-        document.getElementsByClassName("score")[0].style.color ='#5dca5d';
-        document.getElementsByClassName("lvColor")[0].style.color ='#5dca5d';
-        document.getElementsByClassName('lvColor')[0].innerText = 'EASY';
-    break;
-    case "MED":
-        document.getElementsByClassName("rank")[0].style.color ='#f3f365';
-        document.getElementsByClassName("score")[0].style.color ='#f3f365';
-        document.getElementsByClassName("lvColor")[0].style.color ='#f3f365';
-        document.getElementsByClassName('lvColor')[0].innerText = 'MED';
-    break;
-    case "HARD":
-        document.getElementsByClassName("rank")[0].style.color ='#fd7575';
-        document.getElementsByClassName("score")[0].style.color ='#fd7575';
-        document.getElementsByClassName("lvColor")[0].style.color ='#fd7575';
-        document.getElementsByClassName('lvColor')[0].innerText = 'HARD';
-    break;
+function setLevelColor(currentPlace, currentLevel){    
+    switch(currentLevel) {
+        case "EASY":
+            console.log("two");
+            document.getElementsByClassName("rank")[currentPlace].style.color ='#5dca5d';
+            document.getElementsByClassName("score")[currentPlace].style.color ='#5dca5d';
+            document.getElementsByClassName("lvColor")[currentPlace].style.color ='#5dca5d';
+            document.getElementsByClassName('lvColor')[currentPlace].innerText = 'EASY';
+        break;
+        case "MED":
+            document.getElementsByClassName("rank")[currentPlace].style.color ='#f3f365';
+            document.getElementsByClassName("score")[currentPlace].style.color ='#f3f365';
+            document.getElementsByClassName("lvColor")[currentPlace].style.color ='#f3f365';
+            document.getElementsByClassName('lvColor')[currentPlace].innerText = 'MED';
+        break;
+        case "HARD":
+            document.getElementsByClassName("rank")[currentPlace].style.color ='#fd7575';
+            document.getElementsByClassName("score")[currentPlace].style.color ='#fd7575';
+            document.getElementsByClassName("lvColor")[currentPlace].style.color ='#fd7575';
+            document.getElementsByClassName('lvColor')[currentPlace].innerText = 'HARD';
+        break;
+
+        default:
+            alert("Should never see this!!")
+        break;
     }
 }
 function sortMasterArr(a,b) {
@@ -542,21 +586,31 @@ function sortMasterArr(a,b) {
     else {
         return 0;
     }
-    };
+};
+
+function sortArrayDescending(arrayToSort, fieldToSortOn){
+    return arrayToSort.sort( (a,b) => (a[fieldToSortOn] > b[fieldToSortOn]) ? -1 : 1);
+}
 
 // ) sortMasterArr(masterArr,score){
 //         return masterArr.sort((a,b) => (a[score] > b[score])
 //          
 // };
-function postSB(){
+function postSB(arrayOfWinners){
     game++
-    for (let i =0; i <masterArr.length; i++){
-    levelColor()
-        let scoreArr= document.getElementsByClassName('score');
-        let levelArr= document.getElementsByClassName('lvColor');
-console.log(i)
-        scoreArr[i].innerText =masterArr[i].score;
-        levelArr[i].innerText =masterArr[i].level;
+
+    let scoreArr = document.getElementsByClassName('score');
+    let levelArr = document.getElementsByClassName('lvColor');
+
+    for (let currentPlace =0; currentPlace < arrayOfWinners.length && currentPlace < 10 ; currentPlace++){
+
+        let currentWinner = arrayOfWinners[currentPlace];
+
+        scoreArr[currentPlace].innerText = currentWinner.score;
+        levelArr[currentPlace].innerText = currentWinner.level;
+        console.log(currentPlace, currentWinner)
+
+        setLevelColor(currentPlace, currentWinner.level)
     }
 }
 
@@ -574,18 +628,25 @@ console.log(i)
 ////////////////////////////////
 //IIFE - Immediately Invoked Function Expression
 
+
+
 let myGame = (() => {
 
     // Private Variables
 
     // Private Functions
-    function sayHi(){
-        console.log("HI");
+    function intro(){
+        console.log("setup game");
     }
 
+    intro();
+
     // Public Function
-    return {
-        
+    function sayHi(){
+        console.log("HI")
+    }
+
+    return {        
         sayHi, // = sayHi: sayHi,
     }
 
