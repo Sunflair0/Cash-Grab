@@ -51,7 +51,7 @@
     height: 47%;
     opacity: 0;
 }
-.rank, .lvColor, .score, .winner {
+.rank, .lvColor, .score, .name {
     margin-bottom: 10%;
 }
 .sb_Alpha  {
@@ -75,6 +75,10 @@
 .sb_Delta  {
     @include sbPlus;
     grid-area: 1/4/11/6;
+}
+.sb_Epsilon {
+    @include sbPlus;
+    grid-area: 1/5/11/8;
 }
 .sbColor {
     color:rgb(252, 221, 182);

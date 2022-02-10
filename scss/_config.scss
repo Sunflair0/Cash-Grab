@@ -38,9 +38,13 @@ body{
             }
       }
       & button {
-        outline: white 1.5px solid;
+        outline: rgba(255, 255, 255, 0.548) 2.5px solid;
         outline-offset: -4px;
-        border: white 2px solid;
+        border: rgba(255, 255, 255, 0.637) 4px solid;
+        border-top-color: rgb(179, 179, 179);
+        border-left-color: rgb(179, 179, 179) ;
+        border-right-color: rgba(116, 116, 116, 0.89);
+        border-bottom-color: rgba(116, 116, 116, 0.89);
           font-size:large;
           color: red;
           height: 45px;

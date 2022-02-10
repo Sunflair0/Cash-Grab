@@ -6,16 +6,16 @@ let gameLocalStorage = (() => {
     let masterArrName = "localStorageMasterArrayName";
 
     // lsName
-    function getMasterArr(){
+    function getMasterArr() {
         // BUG when used first time.  How to check if value in localstorage
         return JSON.parse(localStorage.getItem(masterArrName)) || []
     }
 
-    function setMasterArr(masterArr){
-            localStorage.setItem(masterArrName, JSON.stringify(masterArr))
+    function setMasterArr(masterArr) {
+        // localStorage.setItem(masterArrName, JSON.stringify(masterArr))
     }
 
-    return{
+    return {
         getMasterArr,  // Because I'm using same name, don't need :value
         setMasterArr: setMasterArr // Same as above
     }
@@ -29,6 +29,8 @@ let gameLocalStorage = (() => {
 // }
 
 let score = 0;
+let hit = 0;
+let miss = 0;
 let game = 0;
 let timer = 29;
 let round = 1;
@@ -41,11 +43,7 @@ let minusScore = 0;
 //const lsName = "localStorageMasterArrayName";
 //let masterArr = JSON.parse(localStorage.getItem(lsName)) || [];
 let masterArr = gameLocalStorage.getMasterArr()
-let gamePlay = {
-    level: '',
-    score: 0,
-    name: ''
-};
+let gamePlay = {};
 let rScores = [];
 let newArr = [];
 let result = 0;
@@ -62,6 +60,8 @@ let unlock = '\u{1f513}';
 let restart = '\u{21ba}';
 let fire = '\u{1f525}'
 let again = '\u{1f3ac}';
+let shortName;
+let timeDate;
 let start = document.getElementById('start');
 let time = document.getElementById('time');
 let whiteBoxes = document.getElementsByClassName("whiteBoxes")[0];
@@ -87,10 +87,11 @@ let minCash4 = document.querySelectorAll("#minCash4");
 let minCash5 = document.querySelectorAll("#minCash5");
 let coolmole = document.getElementById("coolmole1");
 let header = document.getElementById('header');
-let level =document.getElementById('level');
-let padlock =document.getElementById('padlock');
-let finger =document.getElementById('finger');
+let level = document.getElementById('level');
+let padlock = document.getElementById('padlock');
+let finger = document.getElementById('finger');
 let choiceStack = document.getElementsByClassName('choice')[0];
+let nameArr = document.getElementsByClassName('Name');
 const darkmole = [mole1, mole2, mole3, mole4];
 const darkcash = [cash1, cash2, cash3, cash4];
 let mole = darkmole[round];
@@ -98,159 +99,148 @@ let cash = darkcash[round];
 let seconds;
 let sum;
 
-window.onload = intro();
+window.onload =
+    window.localStorage.clear();
+intro();
 
-function intro(){  
+function intro() {
     let rule = CSSRulePlugin.getRule("p:after");
     start.style.visibility = "hidden";
-    let xIntro1 = document.getElementById('xIntro');    
+    let xIntro1 = document.getElementById('xIntro');
     document.getElementById('min1').src = `./asset/minCash1.png`;
     document.getElementById('min2').src = `./asset/minCash2.png`;
     document.getElementById('min3').src = `./asset/minCash3.png`;
     document.getElementById('min4').src = `./asset/minCash4.png`;
     xIntro1.addEventListener("click", xIntro);
 
-   let intro = gsap.timeline({ defaults: { duration: 1.5} })
-    intro    
-    // /////modal slide in
-    .fromTo(".introModal", { opacity: 0, x:'-200%', y:'165%' },{ opacity: .87, duration: 1.5, x: 0, ease: "circ" }) 
-    // /////text reveal
-    .to(rule, {cssRule: {scaleY: 0}, duration: 4}, "-=.5")
-    // /////mole slide in
-    .fromTo(".moleHold", {opacity: 0, x: '-100%',},{ opacity: 1, x: 0, duration: 2},"-=3.5");
-   
-   let cashCarousel = gsap.timeline({repeat: -1});
-    cashCarousel   
-    .from("#min1", {opacity: 0, x: '-50%', duration: 1})
-    .to("#min1", {opacity: 0, x: "0%", duration: 1, delay: 1.3 })    
-    .from("#min2", {opacity: 0, x: '-50%', duration: 1})
-    .to("#min2", {opacity: 0, x: "0%", duration: 1, delay: 1.3 })   
-    .from("#min3", {opacity: 0, x: '-50%', duration: 1})
-    .to("#min3", {opacity: 0, x: "0%", duration: 1, delay: 1.3 })   
-    .from("#min4", {opacity: 0, x: '-50%', duration: 1})
-    .to("#min4", {opacity: 0, x: "0%", duration: 1, delay: 1.3 })  
-    .tweenFromTo("hold","end",); 
+    let intro = gsap.timeline({ defaults: { duration: 1.5 } })
+    intro
+        // /////modal slide in
+        .fromTo(".introModal", { opacity: 0, x: '-200%', y: '165%' }, { opacity: .87, duration: 1.5, x: 0, ease: "circ" })
+        // /////text reveal
+        .to(rule, { cssRule: { scaleY: 0 }, duration: 4 }, "-=.5")
+        // /////mole slide in
+        .fromTo(".moleHold", { opacity: 0, x: '-100%', }, { opacity: 1, x: 0, duration: 2 }, "-=3.5");
+
+    let cashCarousel = gsap.timeline({ repeat: -1 });
+    cashCarousel
+        .from("#min1", { opacity: 0, x: '-50%', duration: 1 })
+        .to("#min1", { opacity: 0, x: "0%", duration: 1, delay: 1.3 })
+        .from("#min2", { opacity: 0, x: '-50%', duration: 1 })
+        .to("#min2", { opacity: 0, x: "0%", duration: 1, delay: 1.3 })
+        .from("#min3", { opacity: 0, x: '-50%', duration: 1 })
+        .to("#min3", { opacity: 0, x: "0%", duration: 1, delay: 1.3 })
+        .from("#min4", { opacity: 0, x: '-50%', duration: 1 })
+        .to("#min4", { opacity: 0, x: "0%", duration: 1, delay: 1.3 })
+        .tweenFromTo("hold", "end",);
 
     // /////combining both timelines
     let master = gsap.timeline();
     master
-    .add(intro)
-    .add(cashCarousel);
+        .add(intro)
+        .add(cashCarousel);
 }
- function xIntro(){
+function xIntro() {
     document.getElementsByClassName('choiceblock')[0].style.visibility = "visible";
-    gamePlay.level ="MED";
+    gamePlay.level = "MED";
     level.innerText = 'MED';
     finger.innerText = `${hand}`;
 
     // /////intromodal leaving
     let tl = gsap.timeline()
-    tl    
-        .to(".introModal", {opacity: 0, x:'200%', y:"165%", duration: 1, ease: "circ",delay: ".5"});
-    level.setAttribute('style','transform:translate(0,0px'); 
+    tl
+        .to(".introModal", { opacity: 0, x: '200%', y: "165%", duration: 1, ease: "circ", delay: ".5" });
+    level.setAttribute('style', 'transform:translate(0,0px');
     hearts()
     levelChoice()
- }
- function reStart(){
-    gsap.to(".tsModal", {opacity: 0, duration: 1, ease: "circ", y:'-165%'});    
+}
+function reStart() {
+    gsap.to(".tsModal", { opacity: 0, duration: 1, ease: "circ", y: '-165%' });
     padlock.innerText = `${unlock}`;
-    level.style.cursor= 'pointer';
+    level.style.cursor = 'pointer';
     level.addEventListener("click", difficultyLevel);
     hearts()
- }
-function levelChoice(){        
+}
+function levelChoice() {
     padlock.innerText = `${unlock}`;
-    level.style.cursor= 'pointer';
-    finger.setAttribute('style','top: -80px;');     
-    
+    level.style.cursor = 'pointer';
+    finger.setAttribute('style', 'top: -80px;');
     finger.addEventListener("click", difficultyLevel);
 
     let point = gsap.timeline();
     point
-    .to("#finger", {x: "20%", repeat:5, yoyo:true, duration: .3, delay: 3})
-    .to("#finger", {x: "20%", repeat:5, yoyo:true, duration: .3, delay: 5});
+        .to("#finger", { x: "20%", repeat: 5, yoyo: true, duration: .3, delay: 3 })
+        .to("#finger", { x: "20%", repeat: 5, yoyo: true, duration: .3, delay: 5 });
 }
 
-close.addEventListener("click", doneChoosing);   
-easy.addEventListener("click", difficultyLevel);  
-med.addEventListener("click", difficultyLevel);  
-hard.addEventListener("click", difficultyLevel);  
+close.addEventListener("click", doneChoosing);
+easy.addEventListener("click", difficultyLevel);
+med.addEventListener("click", difficultyLevel);
+hard.addEventListener("click", difficultyLevel);
 
-function doneChoosing() {    
-    choiceStack.setAttribute('style','right:-40%;');
-    document.getElementsByClassName('choiceblock')[0].style.height='30px';           
-      
-//     switch(gamePlay.level) {
-//        case "EASY":
-//            setEasyStyle();
-//            break;
-//        case "MED":
-//            setMedStyle()
-//            break;
-//        case "HARD":
-//            setHardStyle()
-//            break;
-//        default:
-//            alert("SHOULD NEVER SEE THIS!!!");
-//    }
+function doneChoosing() {
+    choiceStack.setAttribute('style', 'right:-100%;');
+    document.getElementsByClassName('choiceblock')[0].style.height = '30px';
 }
 
-function difficultyLevel(){
-    choiceStack.setAttribute('style','right: 0%;');
-    finger.style.transform="translate(0,30px)";    
-    level.setAttribute('style','height:30px;');  
-    finger.innerText = '';   
+function difficultyLevel() {
+    choiceStack.setAttribute('style', 'right: 0%;');
+    finger.style.transform = "translate(0,30px)";
+    level.setAttribute('style', 'height:30px;');
+    finger.innerText = '';
 
-    if (document.getElementById('easy').checked) {         
+    if (document.getElementById('easy').checked) {
         setEasyStyle();
-        gamePlay.level="EASY";
+        gamePlay.level = "EASY";
     }
     if (document.getElementById('med').checked) {
         setMedStyle();
-        gamePlay.level="MED";
+        gamePlay.level = "MED";
     }
     if (document.getElementById('hard').checked) {
         setHardStyle();
-        gamePlay.level="HARD";
+        gamePlay.level = "HARD";
     }
-
     console.log("difficultyLevel gamePlay:", gamePlay);
     console.log("difficultyLevel masterArr", JSON.stringify(masterArr))
-
-
 }
-function setEasyStyle(){
+function setEasyStyle() {
     seconds = 2000;
     level.innerText = 'EASY';
-    level.style.color ='#5dca5d';
-    level.style.border ='#5dca5d 2px solid';
+    level.style.color = '#5dca5d';
+    level.style.border = '#5dca5d 2px solid';
+    choiceStack.style.border = '#5dca5d 2px solid';
+    choiceStack.style.borderTop = '0';
 }
-function setMedStyle(){
+function setMedStyle() {
     seconds = 1000;
     level.innerText = 'MED';
-    level.style.color ='#f3f365';
-    level.style.border ='#f3f365 2px solid';
+    level.style.color = '#f3f365';
+    level.style.border = '#f3f365 2px solid';
+    choiceStack.style.border = '#f3f365 2px solid';
+    choiceStack.style.borderTop = '0';
 }
-function setHardStyle(){
+function setHardStyle() {
     seconds = 500;
     level.innerText = 'HARD';
-    level.style.color ='#fd7575';
-    level.style.border ='#fd7575 2px solid';
+    level.style.color = '#fd7575';
+    level.style.border = '#fd7575 2px solid';
+    choiceStack.style.border = '#fd7575 2px solid';
+    choiceStack.style.borderTop = '0';
 }
 function begin() {
     life = 5;
     round = 1;
-    rScores=[]; 
+    rScores = [];
     roundUp();
-    header.innerText = "CashSmash";    
+    header.innerText = "CashSmash";
 }
-
 start.addEventListener("click", () => {
     doneChoosing();
     padlock.innerText = `${lock}`;
-    level.style.cursor= 'default';
-    header.innerText= `Level ${round}`;
-    finger.style.display='none';   
+    level.style.cursor = 'default';
+    header.innerText = `Level ${round}`;
+    finger.style.display = 'none';
     finger.removeEventListener("click", difficultyLevel);
     start.style.visibility = "hidden";
     document.getElementsByClassName('wBox2')[0].style.visibility = "visible";
@@ -262,7 +252,6 @@ start.addEventListener("click", () => {
     //choice between cash or mole
     let whereMole = window.setInterval(() => {
         result = choice(min, max);
-        console.log(result);
         if (result % 2 == 0) {
             displayCash()
         }
@@ -278,14 +267,14 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    },5100); //shortened for debugging mode
+    }, 5100); //shortened for debugging mode
 });
 
 function choice(min, max) {
     let result = (Math.floor(Math.random() * (max - min + 1)) + 2);
     return result;
 };
-function displayMole(){
+function displayMole() {
     let randomHole = null;
     let isRandomHoleAvailable = false;
     while (isRandomHoleAvailable === false) {
@@ -293,13 +282,12 @@ function displayMole(){
         isRandomHoleAvailable = !(holes[randomHole].classList.contains(`mole${round}`)) || !(holes[randomHole].classList.contains(`cash${round}`));
     }
     holes[randomHole].classList.add(`mole${round}`);
-
     window.setTimeout(() => {
         holes[randomHole].classList.remove(`mole${round}`);
     }, 3000);
 };
 
-function displayCash(){
+function displayCash() {
     let randomHole = null;
     let isRandomHoleAvailable = false;
     while (isRandomHoleAvailable === false) {
@@ -307,20 +295,17 @@ function displayCash(){
         isRandomHoleAvailable = !(holes[randomHole].classList.contains(`mole${round}`)) || !(holes[randomHole].classList.contains(`cash${round}`));
     }
     holes[randomHole].classList.add(`cash${round}`);
-
     window.setTimeout(() => {
         holes[randomHole].classList.remove(`cash${round}`);
-        console.log("round", round);
     }, 2000);
 };
 
 holes.forEach((val) => {
     val.addEventListener('click', (e) => {
-
-        console.log("Hole clicked");
+        hit++
         if (e.target.classList.contains(`mole${round}`)) {
             e.target.classList.replace(`mole${round}`, "bop");
-            setTimeout(()=> {
+            setTimeout(() => {
                 e.target.classList.remove("bop");
             }, 500);
             score = score - 15;
@@ -328,8 +313,9 @@ holes.forEach((val) => {
             minusScore = minusVal * minusAmt;
         }
         else if (e.target.classList.contains(`cash${round}`)) {
+            hit++
             e.target.classList.replace(`cash${round}`, "smash")
-            setTimeout(()=> {
+            setTimeout(() => {
                 e.target.classList.remove("smash");
             }, 500);
             score = score + 50;
@@ -337,7 +323,7 @@ holes.forEach((val) => {
             plusScore = plusVal * plusAmt;
         }
         else {
-            console.log("You don'tget anything for hitting an empty hole!")
+            miss++
         }
         document.getElementById('score').innerText = score;
     })
@@ -357,7 +343,7 @@ function statusMessage(msg) {
 }
 //display hearts for lives
 function hearts() {
-    
+
     for (let i = 1; i < 5; i++) {
         let hearts = document.getElementsByClassName(`heart${i}`)[0];
         hearts.innerText = `${heart}`;
@@ -376,7 +362,7 @@ function roundEnd() {
     goalReached();
     rScores.push(quarterScore);
 
-    holes.forEach((val) => {       
+    holes.forEach((val) => {
         val.classList.remove(`mole${round}`);
         val.classList.remove(`cash${round}`);
         val.classList.remove(`smash`);
@@ -406,15 +392,15 @@ function roundEnd() {
         tryAgain.innerText = `${heart}`;
         tryAgain.addEventListener("click", useHeart);
     }
-    else if (round== 4){
+    else if (round == 4) {
         statusMessage(`Congratulations, you made it! Push the button for your results. `);
         let advance = document.getElementById('eval');
         advance = document.createElement("button");
         document.getElementById('eval').append(advance);
         advance.innerText = `${fire}`;
         advance.addEventListener("click", gameEnd);
-    }    
-    else{
+    }
+    else {
         round++
         statusMessage(`Advance to the next level!`);
         let advance = document.getElementById('eval');
@@ -428,9 +414,8 @@ function sumArr() {
     let sum = 0;
     for (let i = 0; i < rScores.length; i++) {
         sum += rScores[i];
-        
-    }console.log(rScores, sum);
-    gamePlay.score=sum;
+    }
+    gamePlay.score = sum;
     return sum;
 }
 function useHeart() {
@@ -468,10 +453,10 @@ function roundGsap() {
         .from(".theBar", {})
         .fromTo(".evalOne", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, ease: "power2" })
         .from("#eval", { x: "-30%" });
-   roundEnd();
+    roundEnd();
 }
 // /////function to roll up stat page and restart new level
-function roundUp() {        
+function roundUp() {
     quarterScore = 0;
     score = 0;
     plusAmt = 0;
@@ -479,9 +464,9 @@ function roundUp() {
     minusAmt = 0;
     minusScore = 0;
 
-    header.innerText= `Level ${round}`;
+    header.innerText = `Level ${round}`;
     document.getElementById('eval').innerText = '';
-    document.getElementById('score').innerText = score;    
+    document.getElementById('score').innerText = score;
     document.getElementById('eval').style.visibility = "hidden";
     document.body.style.backgroundImage = `url(/dist/asset/round${round}.png)`;
     document.getElementById('start').style.visibility = "visible";
@@ -492,131 +477,155 @@ function roundUp() {
 
     gsap.to(".roundModal", { y: "-100%", duration: 2.5, ease: "power1" });
     gsap.fromTo(".start", { opacity: 0, scale: 0 }, { duration: 2.5, opacity: 1, scale: 1, ease: "elastic" })
-    
+
 }
 function gameEnd() {
-    header.innerText= 'Final';
+    header.innerText = 'Final';
 
     document.getElementById("totalScore").innerText = sumArr(newArr);
 
-    console.log("gamePlay", gamePlay);
-
-    //  This is BAD because it stores by reference (same object)
-    //let x = masterArr.push(gamePlay);
-
-    // This will store a unique object for the array
     masterArr.push({
         level: gamePlay.level,
+        active: gamePlay.active = true,
         score: gamePlay.score,
-        name: gamePlay.name
     });
-    
     sumArr();
-    
+
     masterArr = sortArrayDescending(masterArr, "score");
     gameLocalStorage.setMasterArr(masterArr);
     //localStorage.setItem(lsName, JSON.stringify(masterArr));
 
     postSB(masterArr);
-    
+
     document.getElementById("quarter_one").innerText = rScores[0];
     document.getElementById("quarter_two").innerText = rScores[1];
     document.getElementById("quarter_three").innerText = rScores[2];
     document.getElementById("quarter_four").innerText = rScores[3];
-    document.getElementById('all').innerText = sumArr();    
+    document.getElementById('all').innerText = sumArr();
 
-    let final = gsap.timeline() 
-    final   
-    .to(".roundModal", {opacity: 0, duration: .5, ease: "circ",})
-    .to(".roundModal", {y: '-200%'})
-    .to(".tsModal", { opacity: 1, duration: 1.3, y: "165%", ease: "bounce", }, "-=.5")
-    .to(".scoreCap", {opacity: 1, duration: 1.5, ease: "circ"})
-    .fromTo(".pScore0", {opacity: 0, scale: 0 },{opacity: 1,  scale: 1,duration: .3,ease: "circ" })  
-    .fromTo(".quarter", {opacity: 0, scale: 0 },{opacity: 1,  scale: 1,duration: .3,ease: "circ",  stagger: .4 })  
-    .fromTo(".scoreModal", {opacity: 0},{opacity: 1, duration: 1, ease: "circ" }, "+=.5")
-    .fromTo(".rank", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 })
-    .fromTo(".lvColor", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 }, "<")
-    .fromTo(".score", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 }, "<")
-    .fromTo(".winner", {opacity: 0 },{opacity: 1, duration: 2,ease: "circ",  stagger: .4 }, "<")
-    .fromTo("#message", { opacity: 0, scale: 0, x: "10%", y: "30%"   }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
-    .fromTo("#eval2", {  opacity: 0, x: "0%", },{  opacity: 1, x: "500%", duration: 1, y: "0%", ease:"back", rotation: 720},"-=1");
+    let final = gsap.timeline()
+    final
+        .to(".roundModal", { opacity: 0, duration: .5, ease: "circ", })
+        .to(".roundModal", { y: '-200%' })
+        .to(".tsModal", { opacity: 1, duration: 1.3, y: "165%", ease: "bounce", }, "-=.5")
+        .to(".scoreCap", { opacity: 1, duration: 1.5, ease: "circ" })
+        .fromTo(".pScore0", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: .3, ease: "circ" })
+        .fromTo(".quarter", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: .3, ease: "circ", stagger: .4 })
+        .fromTo(".scoreModal", { opacity: 0 }, { opacity: 1, duration: 1, ease: "circ" }, "+=.5")
+        .fromTo(".rank", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 })
+        .fromTo(".lvColor", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
+        .fromTo(".score", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
+        .fromTo(".name", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
+        .fromTo("#message", { opacity: 0, scale: 0, x: "10%", y: "30%" }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
+        .fromTo("#eval2", { opacity: 0, x: "0%", }, { opacity: 1, x: "500%", duration: 1, y: "0%", ease: "back", rotation: 720 }, "-=1");
 
-    document.getElementById('message').innerText= `Try to beat your score`;
-        let playAgain = document.getElementById('eval2'); 
-        playAgain = document.createElement("button");
-        document.getElementById('eval2').append(playAgain);
-        playAgain.innerText = `${again}`;
-        playAgain.addEventListener("click", reStart);   
+    document.getElementById('message').innerText = `Try to beat your score`;
+    let playAgain = document.getElementById('eval2');
+    playAgain = document.createElement("button");
+    document.getElementById('eval2').append(playAgain);
+    playAgain.innerText = `${again}`;
+    playAgain.addEventListener("click", reStart);
 }
 // /////color display for scoreboard
-function setLevelColor(currentPlace, currentLevel){    
-    switch(currentLevel) {
+function setLevelColor(currentPlace, currentLevel) {
+    switch (currentLevel) {
         case "EASY":
-            console.log("two");
-            document.getElementsByClassName("rank")[currentPlace].style.color ='#5dca5d';
-            document.getElementsByClassName("score")[currentPlace].style.color ='#5dca5d';
-            document.getElementsByClassName("lvColor")[currentPlace].style.color ='#5dca5d';
+            document.getElementsByClassName("rank")[currentPlace].style.color = '#5dca5d';
+            document.getElementsByClassName("lvColor")[currentPlace].style.color = '#5dca5d';
             document.getElementsByClassName('lvColor')[currentPlace].innerText = 'EASY';
-        break;
+            document.getElementsByClassName("score")[currentPlace].style.color = '#5dca5d';
+            document.getElementsByClassName("name")[currentPlace].style.color = '#5dca5d';
+            document.getElementsByClassName("timeDate")[currentPlace].style.color = '#5dca5d';
+            break;
         case "MED":
-            document.getElementsByClassName("rank")[currentPlace].style.color ='#f3f365';
-            document.getElementsByClassName("score")[currentPlace].style.color ='#f3f365';
-            document.getElementsByClassName("lvColor")[currentPlace].style.color ='#f3f365';
+            document.getElementsByClassName("rank")[currentPlace].style.color = '#f3f365';
+            document.getElementsByClassName("lvColor")[currentPlace].style.color = '#f3f365';
             document.getElementsByClassName('lvColor')[currentPlace].innerText = 'MED';
-        break;
+            document.getElementsByClassName("score")[currentPlace].style.color = '#f3f365';
+            document.getElementsByClassName("name")[currentPlace].style.color = '#f3f365';
+            document.getElementsByClassName("timeDate")[currentPlace].style.color = '#f3f365';
+
+            break;
         case "HARD":
-            document.getElementsByClassName("rank")[currentPlace].style.color ='#fd7575';
-            document.getElementsByClassName("score")[currentPlace].style.color ='#fd7575';
-            document.getElementsByClassName("lvColor")[currentPlace].style.color ='#fd7575';
+            document.getElementsByClassName("rank")[currentPlace].style.color = '#fd7575';
+            document.getElementsByClassName("lvColor")[currentPlace].style.color = '#fd7575';
             document.getElementsByClassName('lvColor')[currentPlace].innerText = 'HARD';
-        break;
+            document.getElementsByClassName("score")[currentPlace].style.color = '#fd7575';
+            document.getElementsByClassName("name")[currentPlace].style.color = '#fd7575';
+            document.getElementsByClassName("timeDate")[currentPlace].style.color = '#fd7575';
 
+            break;
         default:
-            alert("Should never see this!!")
-        break;
+            alert("Should never see this!!");
+            break;
     }
 }
-function sortMasterArr(a,b) {
-    if(a.score - b.score) {
-        return -1;
-    }   
-    else if(a.score - b.score) {
-        return 1;
-    } 
-    else {
-        return 0;
-    }
-};
-
-function sortArrayDescending(arrayToSort, fieldToSortOn){
-    return arrayToSort.sort( (a,b) => (a[fieldToSortOn] > b[fieldToSortOn]) ? -1 : 1);
+function sortArrayDescending(arrayToSort, fieldToSortOn) {
+    return arrayToSort.sort((a, b) => (a[fieldToSortOn] > b[fieldToSortOn]) ? -1 : 1);
 }
-
-// ) sortMasterArr(masterArr,score){
-//         return masterArr.sort((a,b) => (a[score] > b[score])
-//          
-// };
-function postSB(arrayOfWinners){
+function postSB(arrayOfPlayers) {
     game++
 
-    let scoreArr = document.getElementsByClassName('score');
     let levelArr = document.getElementsByClassName('lvColor');
+    let scoreArr = document.getElementsByClassName('score');
+   
+    let timeDateArr = document.getElementsByClassName('timeDate');
 
-    for (let currentPlace =0; currentPlace < arrayOfWinners.length && currentPlace < 10 ; currentPlace++){
+    for (let currentPlace = 0; currentPlace < arrayOfPlayers.length && currentPlace < 10; currentPlace++) {
 
-        let currentWinner = arrayOfWinners[currentPlace];
+        let currentPlayers = arrayOfPlayers[currentPlace];
 
-        scoreArr[currentPlace].innerText = currentWinner.score;
-        levelArr[currentPlace].innerText = currentWinner.level;
-        console.log(currentPlace, currentWinner)
+        levelArr[currentPlace].innerText = currentPlayers.level;
+        scoreArr[currentPlace].innerText = currentPlayers.score;
 
-        setLevelColor(currentPlace, currentWinner.level)
+        console.log(currentPlace, currentPlayers)
+        console.log(gamePlay, masterArr);
+
+        topTen(currentPlace);
+        console.log(gamePlay, masterArr);
+
+        timeDateArr[currentPlace].innerText = currentPlayers.timeDate;
+
+        setLevelColor(currentPlace, currentPlayers.level)
     }
+}
+function topTen(currentPlace) {
+    console.log(gamePlay, masterArr);
+    if (currentPlace <= 9 && gamePlay["active"] == true) {
+        sName = prompt("Well done, you! Make your mark next to your score (limit 9 characters).");
+        limitChar(sName,currentPlace);
+        console.log(gamePlay, masterArr);
+        getDate();
+
+       masterArr[currentPlace].active= false;       
+       masterArr[currentPlace].timeDate= timeDateArr;
+    }
+};
+function limitChar(sName,currentPlace) {
+    let nameArr = document.getElementsByClassName('name');
+
+    if (sName.length >= 9) {
+        shortName = sName.substring(0, 9);
+        console.log(sName,currentPlace);
+        nameArr[currentPlace].innerText = shortName;
+        masterArr[currentPlace].name= shortName;
+
+        return shortName;
+    }
+}
+function getDate() {
+    let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    let currTime = new Date();
+    let month = currTime.getMonth();
+
+    timeDateArr = currTime.getHours() + ':' + currTime.getMinutes() + ':' + currTime.getSeconds() + ' ' + months[month] + '.' + currTime.getDate() + '.' + currTime.getFullYear();
+
+
 }
 
 
 // function gameCount(){
-    
+
 
 // let sGame=[];
 // sGame =`sbg${game}` 
@@ -635,18 +644,18 @@ let myGame = (() => {
     // Private Variables
 
     // Private Functions
-    function intro(){
+    function intro() {
         console.log("setup game");
     }
 
     intro();
 
     // Public Function
-    function sayHi(){
+    function sayHi() {
         console.log("HI")
     }
 
-    return {        
+    return {
         sayHi, // = sayHi: sayHi,
     }
 

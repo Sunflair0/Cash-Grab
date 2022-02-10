@@ -52,9 +52,13 @@ body::-webkit-scrollbar-thumb {
 }
 
 body button {
-  outline: white 1.5px solid;
+  outline: rgba(255, 255, 255, 0.548) 2.5px solid;
   outline-offset: -4px;
-  border: white 2px solid;
+  border: rgba(255, 255, 255, 0.637) 4px solid;
+  border-top-color: #b3b3b3;
+  border-left-color: #b3b3b3;
+  border-right-color: rgba(116, 116, 116, 0.89);
+  border-bottom-color: rgba(116, 116, 116, 0.89);
   font-size: large;
   color: red;
   height: 45px;
@@ -706,7 +710,7 @@ img {
   opacity: 0;
 }
 
-.rank, .lvColor, .score, .winner {
+.rank, .lvColor, .score, .name {
   margin-bottom: 10%;
 }
 
@@ -790,6 +794,23 @@ img {
   -ms-grid-column: 4;
   -ms-grid-column-span: 2;
   grid-area: 1/4/11/6;
+}
+
+.sb_Epsilon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 10;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 3;
+  grid-area: 1/5/11/8;
 }
 
 .sbColor {
@@ -1188,7 +1209,9 @@ ul {
   position: absolute;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: small;
-  right: -20%;
+  border: 2px solid black;
+  border-top: 0;
+  right: -100%;
   z-index: 10;
   -webkit-transition: .5s ease all;
   transition: .5s ease all;

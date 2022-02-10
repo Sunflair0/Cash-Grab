@@ -131,8 +131,10 @@ ul {
     background: rgb(14, 12, 12);
     position: absolute;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: small;       
-    right: -20%;    
+    font-size: small;      
+    border: 2px solid black;
+    border-top: 0; 
+    right: -100%;    
     z-index: 10;
     transition: .5s ease all;
 }
