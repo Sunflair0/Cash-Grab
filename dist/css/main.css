@@ -145,7 +145,10 @@ img {
   }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (min-width: 576px) {
+  .head_font, .header {
+    font-size: 70px;
+  }
   .roundModal {
     color: #f10b0b;
   }
@@ -157,13 +160,22 @@ img {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
+  .roundModal {
+    color: #f10b0b;
+  }
+  .headings {
+    font-size: xx-large;
+  }
+  .heart1, .heart2, .heart3, .heart4 {
+    font-size: xx-large;
+  }
   .darkhole {
     max-width: 180px;
   }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (min-width: 992px) {
   #score, #time {
     font-family: 'Orbitron';
     margin-top: 3vh;
@@ -175,7 +187,7 @@ img {
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (min-width: 1200px) {
   #score, #time {
     font-family: 'Orbitron';
   }
@@ -548,8 +560,8 @@ img {
   width: 25%;
   margin: 1px;
   color: red;
-  font-size: x-large;
-  margin-top: 8vh;
+  font-size: large;
+  margin-top: 7vh;
   z-index: 10;
 }
 
@@ -1054,7 +1066,7 @@ img {
 
 .head_font, .header {
   font-family: 'Flavors';
-  font-size: 70px;
+  font-size: 40px;
   overflow: visible;
   margin: 0 5px;
   color: #bd491b;
@@ -1147,6 +1159,9 @@ li .buttons {
   height: 24px;
   width: 25px;
   background: #494949;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   -webkit-box-shadow: inset 2px -3px 3px 1px #cac8c8, inset 2px -5px 5px 1px #949494, inset 2px -7px 10px 1px #8d8c8c;
           box-shadow: inset 2px -3px 3px 1px #cac8c8, inset 2px -5px 5px 1px #949494, inset 2px -7px 10px 1px #8d8c8c;
   cursor: pointer;
@@ -1282,6 +1297,9 @@ li:nth-child(4) {
 
 .choice input {
   opacity: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 p {

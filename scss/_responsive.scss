@@ -1,6 +1,10 @@
-@media screen and (max-width: 576px) {
+@include media-sm {
+    .head_font, .header{
+        font-size: 70px;
+    }
     .roundModal {        
-        color:rgb(241, 11, 11);}
+        color:rgb(241, 11, 11);
+    }
     .headings {
         font-size: xx-large;        
     }
@@ -8,13 +12,21 @@
         font-size: x-large;    
     }
 }
-@media screen and (max-width: 768px) {
+@include media-md {
+    .roundModal {        
+        color:rgb(241, 11, 11);
+    }
+    .headings {
+        font-size: xx-large;        
+    }
+    .heart1, .heart2, .heart3, .heart4 {
+        font-size: xx-large;    
+    }
     .darkhole {
             max-width: 180px;
     }
 }
-@media screen and (max-width: 992px) {
-
+@include media-lg {
     #score, #time {
         font-family: 'Orbitron';
         margin-top: 3vh;
@@ -24,7 +36,7 @@
         margin-bottom: 8vh;
     }
 }
-@media screen and (max-width: 1200px) {
+@include media-xl {
     #score, #time {
         font-family: 'Orbitron';
     }

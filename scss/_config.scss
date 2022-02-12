@@ -64,4 +64,24 @@ body{
     height: auto;
     width: 100%;
     object-fit: cover;   
+}
+ @mixin media-sm {
+    @media screen and (min-width: 576px) {
+        @content;
+    }
+}
+ @mixin media-md {
+     @media screen and (min-width: 768px) {
+         @content;
+     }
  }
+ @mixin media-lg {
+    @media screen and (min-width: 992px) {
+        @content;
+    }
+}
+@mixin media-xl {
+    @media screen and (min-width: 1200px) {
+        @content;
+    }
+}

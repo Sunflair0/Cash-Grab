@@ -91,13 +91,14 @@ let level = document.getElementById('level');
 let padlock = document.getElementById('padlock');
 let finger = document.getElementById('finger');
 let choiceStack = document.getElementsByClassName('choice')[0];
-let nameArr = document.getElementsByClassName('Name');
+let nameArr = document.getElementsByClassName('name');
 const darkmole = [mole1, mole2, mole3, mole4];
 const darkcash = [cash1, cash2, cash3, cash4];
 let mole = darkmole[round];
 let cash = darkcash[round];
 let seconds;
 let sum;
+let stackStyle = '';
 
 window.onload =
     window.localStorage.clear();
@@ -182,7 +183,6 @@ function doneChoosing() {
     choiceStack.setAttribute('style', 'right:-100%;');
     document.getElementsByClassName('choiceblock')[0].style.height = '30px';
 }
-
 function difficultyLevel() {
     choiceStack.setAttribute('style', 'right: 0%;');
     finger.style.transform = "translate(0,30px)";
@@ -190,42 +190,33 @@ function difficultyLevel() {
     finger.innerText = '';
 
     if (document.getElementById('easy').checked) {
-        setEasyStyle();
+        seconds = 2000;
+        level.innerText = 'EASY';
+        stackStyle = '#5dca5d';
+        setStyle();
         gamePlay.level = "EASY";
     }
     if (document.getElementById('med').checked) {
-        setMedStyle();
+        seconds = 1000;
+        level.innerText = 'MED';
+        stackStyle = '#f3f365';
+        setStyle();
         gamePlay.level = "MED";
     }
     if (document.getElementById('hard').checked) {
-        setHardStyle();
+        seconds = 500;
+        level.innerText = 'HARD';
+        stackStyle = '#fd7575';
+        setStyle();
         gamePlay.level = "HARD";
     }
     console.log("difficultyLevel gamePlay:", gamePlay);
     console.log("difficultyLevel masterArr", JSON.stringify(masterArr))
 }
-function setEasyStyle() {
-    seconds = 2000;
-    level.innerText = 'EASY';
-    level.style.color = '#5dca5d';
-    level.style.border = '#5dca5d 2px solid';
-    choiceStack.style.border = '#5dca5d 2px solid';
-    choiceStack.style.borderTop = '0';
-}
-function setMedStyle() {
-    seconds = 1000;
-    level.innerText = 'MED';
-    level.style.color = '#f3f365';
-    level.style.border = '#f3f365 2px solid';
-    choiceStack.style.border = '#f3f365 2px solid';
-    choiceStack.style.borderTop = '0';
-}
-function setHardStyle() {
-    seconds = 500;
-    level.innerText = 'HARD';
-    level.style.color = '#fd7575';
-    level.style.border = '#fd7575 2px solid';
-    choiceStack.style.border = '#fd7575 2px solid';
+function setStyle() {    
+    level.style.color = `${stackStyle}`;
+    level.style.border = `${stackStyle} 2px solid`;
+    choiceStack.style.border = `${stackStyle} 2px solid`;
     choiceStack.style.borderTop = '0';
 }
 function begin() {
@@ -544,7 +535,6 @@ function setLevelColor(currentPlace, currentLevel) {
             document.getElementsByClassName("score")[currentPlace].style.color = '#f3f365';
             document.getElementsByClassName("name")[currentPlace].style.color = '#f3f365';
             document.getElementsByClassName("timeDate")[currentPlace].style.color = '#f3f365';
-
             break;
         case "HARD":
             document.getElementsByClassName("rank")[currentPlace].style.color = '#fd7575';
@@ -553,7 +543,6 @@ function setLevelColor(currentPlace, currentLevel) {
             document.getElementsByClassName("score")[currentPlace].style.color = '#fd7575';
             document.getElementsByClassName("name")[currentPlace].style.color = '#fd7575';
             document.getElementsByClassName("timeDate")[currentPlace].style.color = '#fd7575';
-
             break;
         default:
             alert("Should never see this!!");
@@ -567,21 +556,19 @@ function postSB(arrayOfPlayers) {
     game++
 
     let levelArr = document.getElementsByClassName('lvColor');
-    let scoreArr = document.getElementsByClassName('score');
-   
+    let scoreArr = document.getElementsByClassName('score');   
     let timeDateArr = document.getElementsByClassName('timeDate');
 
     for (let currentPlace = 0; currentPlace < arrayOfPlayers.length && currentPlace < 10; currentPlace++) {
 
         let currentPlayers = arrayOfPlayers[currentPlace];
-
         levelArr[currentPlace].innerText = currentPlayers.level;
         scoreArr[currentPlace].innerText = currentPlayers.score;
 
         console.log(currentPlace, currentPlayers)
         console.log(gamePlay, masterArr);
 
-        topTen(currentPlace);
+        topTen(currentPlace,currentPlayers);
         console.log(gamePlay, masterArr);
 
         timeDateArr[currentPlace].innerText = currentPlayers.timeDate;
@@ -589,27 +576,23 @@ function postSB(arrayOfPlayers) {
         setLevelColor(currentPlace, currentPlayers.level)
     }
 }
-function topTen(currentPlace) {
-    console.log(gamePlay, masterArr);
+function topTen(currentPlace,currentPlayers) {
+    let nameArr = document.getElementsByClassName('name');
     if (currentPlace <= 9 && gamePlay["active"] == true) {
-        sName = prompt("Well done, you! Make your mark next to your score (limit 9 characters).");
+        sName = prompt("Well done, you! Make your mark next to your score (limit 3 characters).");
         limitChar(sName,currentPlace);
         console.log(gamePlay, masterArr);
+        nameArr[currentPlace].innerText = masterArr[currentPlace].name;
         getDate();
-
+        
        masterArr[currentPlace].active= false;       
        masterArr[currentPlace].timeDate= timeDateArr;
     }
 };
-function limitChar(sName,currentPlace) {
-    let nameArr = document.getElementsByClassName('name');
-
-    if (sName.length >= 9) {
-        shortName = sName.substring(0, 9);
-        console.log(sName,currentPlace);
-        nameArr[currentPlace].innerText = shortName;
-        masterArr[currentPlace].name= shortName;
-
+function limitChar(sName,currentPlace) {    
+    if (sName.length >= 3) {
+        shortName = sName.substring(0, 3);        
+        masterArr[currentPlace].name= shortName;  
         return shortName;
     }
 }
@@ -619,8 +602,6 @@ function getDate() {
     let month = currTime.getMonth();
 
     timeDateArr = currTime.getHours() + ':' + currTime.getMinutes() + ':' + currTime.getSeconds() + ' ' + months[month] + '.' + currTime.getDate() + '.' + currTime.getFullYear();
-
-
 }
 
 
