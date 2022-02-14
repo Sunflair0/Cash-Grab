@@ -1,17 +1,14 @@
-@include media-sm {
-    .head_font, .header{
-        font-size: 70px;
-    }
-    .roundModal {        
-        color:rgb(241, 11, 11);
-    }
-    .headings {
-        font-size: xx-large;        
-    }
-    .heart1, .heart2, .heart3, .heart4 {
-        font-size: x-large;    
-    }
-}
+// @include media-sm {
+//     .roundModal {        
+//         color:rgb(241, 11, 11);
+//     }
+//     .headings {
+//         font-size: xx-large;        
+//     }
+//     .heart1, .heart2, .heart3, .heart4 {
+//         font-size: x-large;    
+//     }
+// }
 @include media-md {
     .roundModal {        
         color:rgb(241, 11, 11);
@@ -20,7 +17,7 @@
         font-size: xx-large;        
     }
     .heart1, .heart2, .heart3, .heart4 {
-        font-size: xx-large;    
+        font-size: x-large;    
     }
     .darkhole {
             max-width: 180px;
