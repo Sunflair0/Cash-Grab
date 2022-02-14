@@ -100,7 +100,7 @@ let stackStyle = '';
 
 window.onload =
     // window.localStorage.clear();
-intro();
+    intro();
 
 function intro() {
     let rule = CSSRulePlugin.getRule("p:after");
@@ -153,25 +153,22 @@ function xIntro() {
     hearts()
     levelChoice()
 }
-function reStart() {
+function gameAgain() {
     gsap.to(".tsModal", { opacity: 0, duration: 1, ease: "circ", y: '-165%' });
-    padlock.innerText = `${unlock}`;
-    level.style.cursor = 'pointer';
-    level.addEventListener("click", difficultyLevel);
-    hearts();
+    hearts()
+    levelChoice();
 }
 function levelChoice() {
     padlock.innerText = `${unlock}`;
-    level.style.cursor = 'pointer';
     finger.setAttribute('style', 'top: -80px;');
     finger.addEventListener("click", difficultyLevel);
+    finger.style.cursor = 'pointer';
 
     let point = gsap.timeline();
     point
         .to("#finger", { x: "20%", repeat: 5, yoyo: true, duration: .3, delay: 3 })
         .to("#finger", { x: "20%", repeat: 5, yoyo: true, duration: .3, delay: 5 });
 }
-
 close.addEventListener("click", doneChoosing);
 easy.addEventListener("click", difficultyLevel);
 med.addEventListener("click", difficultyLevel);
@@ -211,7 +208,7 @@ function difficultyLevel() {
     console.log("difficultyLevel gamePlay:", gamePlay);
     console.log("difficultyLevel masterArr", JSON.stringify(masterArr))
 }
-function setStyle() {    
+function setStyle() {
     level.style.color = `${stackStyle}`;
     level.style.border = `${stackStyle} 2px solid`;
     choiceStack.style.border = `${stackStyle} 2px solid`;
@@ -221,8 +218,9 @@ function begin() {
     life = 5;
     round = 1;
     rScores = [];
-    roundUp();
     header.innerText = "CashSmash";
+    roundUp();
+    levelChoice();
 }
 start.addEventListener("click", () => {
     doneChoosing();
@@ -335,7 +333,7 @@ function statusMessage(msg) {
 function hearts() {
     for (let i = 1; i < 5; i++) {
         let hearts = document.getElementsByClassName(`heart${i}`)[0];
-        hearts.setAttribute('style','y:0','scale:1');
+        hearts.setAttribute('style', 'y:0', 'scale:1');
         hearts.innerText = `${heart}`;
         hearts.style.opacity = 1;
     }
@@ -418,7 +416,7 @@ function noHearts() {
     doOver = document.createElement("button");
     document.getElementById('eval').append(doOver);
     doOver.innerText = `${restart}`;
-    doOver.addEventListener("click", begin);
+    doOver.addEventListener("click", hearts);
 }
 
 // /////stat modal drop
@@ -470,13 +468,9 @@ function roundUp() {
 }
 function gameEnd() {
     header.innerText = 'Final';
-
     gamePlay.score = sumArr();
-
     document.getElementById("totalScore").innerText = gamePlay.score;
-
     postSB(masterArr);
-
     document.getElementById("quarter_one").innerText = rScores[0];
     document.getElementById("quarter_two").innerText = rScores[1];
     document.getElementById("quarter_three").innerText = rScores[2];
@@ -504,7 +498,7 @@ function gameEnd() {
     playAgain = document.createElement("button");
     document.getElementById('eval2').append(playAgain);
     playAgain.innerText = `${again}`;
-    playAgain.addEventListener("click", reStart);
+    playAgain.addEventListener("click", gameAgain);
 }
 // /////color display for scoreboard
 function setLevelColor(currentPlace, currentLevel) {
@@ -541,14 +535,14 @@ function setLevelColor(currentPlace, currentLevel) {
 function sortArrayDescending(arrayToSort, fieldToSortOn) {
     return arrayToSort.sort((a, b) => (a[fieldToSortOn] > b[fieldToSortOn]) ? -1 : 1);
 }
-function postSB(arrayOfPlayers) { 
+function postSB(arrayOfPlayers) {
     game++
 
     let levelBlock = document.getElementsByClassName('lvColor');
-    let scoreBlock = document.getElementsByClassName('score');   
+    let scoreBlock = document.getElementsByClassName('score');
     let nameBlock = document.getElementsByClassName('name');
     let timeDate = document.getElementsByClassName('timeDate');
-    
+
     // Sorted Array of previous games
     isTopTen(gamePlay, arrayOfPlayers);
 
@@ -558,19 +552,19 @@ function postSB(arrayOfPlayers) {
 
         levelBlock[currentPlace].innerText = currentPlayer.level;
         scoreBlock[currentPlace].innerText = currentPlayer.score;
-        nameBlock[currentPlace].innerText = currentPlayer.name; 
-        timeDate[currentPlace].innerText = currentPlayer.timeDate;   
+        nameBlock[currentPlace].innerText = currentPlayer.name;
+        timeDate[currentPlace].innerText = currentPlayer.timeDate;
 
         setLevelColor(currentPlace, currentPlayer.level)
     }
 }
 function isTopTen(gamePlay, arrayOfPlayers) {
     arrayOfPlayers = sortArrayDescending(arrayOfPlayers, "score");
-    if( (arrayOfPlayers.length <= 10)  // Player automatically in if less than 10 players saved
-        || (gamePlay.score > arrayOfPlayers[arrayOfPlayers.length - 1].score) ){
+    if ((arrayOfPlayers.length <= 10)  // Player automatically in if less than 10 players saved
+        || (gamePlay.score > arrayOfPlayers[arrayOfPlayers.length - 1].score)) {
         // Now player is in Top 10
         arrayOfPlayers.push({
-            name:  getName(),
+            name: getName(),
             level: gamePlay.level,
             score: gamePlay.score,
             timeDate: getDate()
@@ -578,19 +572,19 @@ function isTopTen(gamePlay, arrayOfPlayers) {
 
         // Reset length of arrayOfPlayers (masterArr)
         arrayOfPlayers.length = (arrayOfPlayers.length > 10)
-                                    ? 10
-                                    : arrayOfPlayers.length;
+            ? 10
+            : arrayOfPlayers.length;
         arrayOfPlayers = sortArrayDescending(arrayOfPlayers, "score");
 
         gameLocalStorage.setMasterArr(arrayOfPlayers);
         localStorage.setItem(lsName, JSON.stringify(masterArr));
-    } 
+    }
 };
-function getName(){    
+function getName() {
     let sName = prompt("Well done, you! Make your mark next to your score (limit 3 characters).");
     return sName.length >= 3
-            ? sName.substring(0, 3)
-            : sName;
+        ? sName.substring(0, 3)
+        : sName;
 }
 function getDate() {
     let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
