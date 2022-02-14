@@ -226,11 +226,13 @@ start.addEventListener("click", () => {
     doneChoosing();
     padlock.innerText = `${lock}`;
     level.style.cursor = 'default';
+    
     header.innerText = `Level ${round}`;
     finger.style.display = 'none';
     finger.removeEventListener("click", difficultyLevel);
     level.removeEventListener("click", difficultyLevel);
-    start.style.visibility = "hidden";
+    level.classList.add('lockPadlock'); 
+start.style.visibility = "hidden";
     document.getElementsByClassName('wBox2')[0].style.visibility = "visible";
     let time = window.setInterval(() => {
         document.getElementById("time").innerText = ':' + timer;

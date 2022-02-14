@@ -34,7 +34,7 @@ button .xIntro {
     font-size: 16px;
     width: 80px;
     height: 60px;
-    background-color: rgb(0, 0, 0);
+    background: #000000;
     color: silver;
     padding: 9px 0 0px 25px;
     border: solid 2px #f3f365;
@@ -48,6 +48,10 @@ button .xIntro {
     width: 25px;
     position: fixed;
     font-size: 20px;
+}
+.lockPadlock {
+   background: repeating-linear-gradient(to top left, 
+               rgb(0 0 0) 90%, rgb(98 98 98) 100%);
 }
 #finger {
     margin-top: -60px;
