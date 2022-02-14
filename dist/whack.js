@@ -40,8 +40,7 @@ let plusScore = 0;
 let minusAmt = 0;
 let minusVal = -15;
 let minusScore = 0;
-//const lsName = "localStorageMasterArrayName";
-//let masterArr = JSON.parse(localStorage.getItem(lsName)) || [];
+const lsName = "localStorageMasterArrayName";
 let masterArr = gameLocalStorage.getMasterArr()
 let gamePlay = {};
 let rScores = [];
@@ -60,7 +59,6 @@ let unlock = '\u{1f513}';
 let restart = '\u{21ba}';
 let fire = '\u{1f525}'
 let again = '\u{1f3ac}';
-let shortName;
 let timeDate;
 let start = document.getElementById('start');
 let time = document.getElementById('time');
@@ -91,7 +89,7 @@ let level = document.getElementById('level');
 let padlock = document.getElementById('padlock');
 let finger = document.getElementById('finger');
 let choiceStack = document.getElementsByClassName('choice')[0];
-let nameArr = document.getElementsByClassName('name');
+
 const darkmole = [mole1, mole2, mole3, mole4];
 const darkcash = [cash1, cash2, cash3, cash4];
 let mole = darkmole[round];
@@ -101,7 +99,7 @@ let sum;
 let stackStyle = '';
 
 window.onload =
-    window.localStorage.clear();
+    // window.localStorage.clear();
 intro();
 
 function intro() {
@@ -160,7 +158,7 @@ function reStart() {
     padlock.innerText = `${unlock}`;
     level.style.cursor = 'pointer';
     level.addEventListener("click", difficultyLevel);
-    hearts()
+    hearts();
 }
 function levelChoice() {
     padlock.innerText = `${unlock}`;
@@ -233,6 +231,7 @@ start.addEventListener("click", () => {
     header.innerText = `Level ${round}`;
     finger.style.display = 'none';
     finger.removeEventListener("click", difficultyLevel);
+    level.removeEventListener("click", difficultyLevel);
     start.style.visibility = "hidden";
     document.getElementsByClassName('wBox2')[0].style.visibility = "visible";
     let time = window.setInterval(() => {
@@ -240,7 +239,7 @@ start.addEventListener("click", () => {
         timer--;
     }, 1000);
 
-    //choice between cash or mole
+    // /////choice between cash or mole
     let whereMole = window.setInterval(() => {
         result = choice(min, max);
         if (result % 2 == 0) {
@@ -334,9 +333,9 @@ function statusMessage(msg) {
 }
 //display hearts for lives
 function hearts() {
-
     for (let i = 1; i < 5; i++) {
         let hearts = document.getElementsByClassName(`heart${i}`)[0];
+        hearts.setAttribute('style','y:0','scale:1');
         hearts.innerText = `${heart}`;
         hearts.style.opacity = 1;
     }
@@ -406,12 +405,11 @@ function sumArr() {
     for (let i = 0; i < rScores.length; i++) {
         sum += rScores[i];
     }
-    gamePlay.score = sum;
     return sum;
+    // gamePlay.score = sum; // Use returned value
 }
 function useHeart() {
     gsap.to(`.heart${life}`, { opacity: 0, duration: 2.5, y: -100, rotation: 720, scale: 0 });
-    console.log(life);
     roundUp()
 };
 function noHearts() {
@@ -473,18 +471,9 @@ function roundUp() {
 function gameEnd() {
     header.innerText = 'Final';
 
-    document.getElementById("totalScore").innerText = sumArr(newArr);
+    gamePlay.score = sumArr();
 
-    masterArr.push({
-        level: gamePlay.level,
-        active: gamePlay.active = true,
-        score: gamePlay.score,
-    });
-    sumArr();
-
-    masterArr = sortArrayDescending(masterArr, "score");
-    gameLocalStorage.setMasterArr(masterArr);
-    //localStorage.setItem(lsName, JSON.stringify(masterArr));
+    document.getElementById("totalScore").innerText = gamePlay.score;
 
     postSB(masterArr);
 
@@ -492,10 +481,9 @@ function gameEnd() {
     document.getElementById("quarter_two").innerText = rScores[1];
     document.getElementById("quarter_three").innerText = rScores[2];
     document.getElementById("quarter_four").innerText = rScores[3];
-    document.getElementById('all').innerText = sumArr();
 
-    let final = gsap.timeline()
-    final
+    let finalSBPrint = gsap.timeline()
+    finalSBPrint
         .to(".roundModal", { opacity: 0, duration: .5, ease: "circ", })
         .to(".roundModal", { y: '-200%' })
         .to(".tsModal", { opacity: 1, duration: 1.3, y: "165%", ease: "bounce", }, "-=.5")
@@ -507,6 +495,7 @@ function gameEnd() {
         .fromTo(".lvColor", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .fromTo(".score", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .fromTo(".name", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
+        .fromTo(".timeDate", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .fromTo("#message", { opacity: 0, scale: 0, x: "10%", y: "30%" }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
         .fromTo("#eval2", { opacity: 0, x: "0%", }, { opacity: 1, x: "500%", duration: 1, y: "0%", ease: "back", rotation: 720 }, "-=1");
 
@@ -552,56 +541,64 @@ function setLevelColor(currentPlace, currentLevel) {
 function sortArrayDescending(arrayToSort, fieldToSortOn) {
     return arrayToSort.sort((a, b) => (a[fieldToSortOn] > b[fieldToSortOn]) ? -1 : 1);
 }
-function postSB(arrayOfPlayers) {
+function postSB(arrayOfPlayers) { 
     game++
 
-    let levelArr = document.getElementsByClassName('lvColor');
-    let scoreArr = document.getElementsByClassName('score');   
-    let timeDateArr = document.getElementsByClassName('timeDate');
+    let levelBlock = document.getElementsByClassName('lvColor');
+    let scoreBlock = document.getElementsByClassName('score');   
+    let nameBlock = document.getElementsByClassName('name');
+    let timeDate = document.getElementsByClassName('timeDate');
+    
+    // Sorted Array of previous games
+    isTopTen(gamePlay, arrayOfPlayers);
 
-    for (let currentPlace = 0; currentPlace < arrayOfPlayers.length && currentPlace < 10; currentPlace++) {
+    //display leader board
+    for (let currentPlace = 0; currentPlace < arrayOfPlayers.length; currentPlace++) {
+        let currentPlayer = arrayOfPlayers[currentPlace];
 
-        let currentPlayers = arrayOfPlayers[currentPlace];
-        levelArr[currentPlace].innerText = currentPlayers.level;
-        scoreArr[currentPlace].innerText = currentPlayers.score;
+        levelBlock[currentPlace].innerText = currentPlayer.level;
+        scoreBlock[currentPlace].innerText = currentPlayer.score;
+        nameBlock[currentPlace].innerText = currentPlayer.name; 
+        timeDate[currentPlace].innerText = currentPlayer.timeDate;   
 
-        console.log(currentPlace, currentPlayers)
-        console.log(gamePlay, masterArr);
-
-        topTen(currentPlace,currentPlayers);
-        console.log(gamePlay, masterArr);
-
-        timeDateArr[currentPlace].innerText = currentPlayers.timeDate;
-
-        setLevelColor(currentPlace, currentPlayers.level)
+        setLevelColor(currentPlace, currentPlayer.level)
     }
 }
-function topTen(currentPlace,currentPlayers) {
-    let nameArr = document.getElementsByClassName('name');
-    if (currentPlace <= 9 && gamePlay["active"] == true) {
-        sName = prompt("Well done, you! Make your mark next to your score (limit 3 characters).");
-        limitChar(sName,currentPlace);
-        console.log(gamePlay, masterArr);
-        nameArr[currentPlace].innerText = masterArr[currentPlace].name;
-        getDate();
-        
-       masterArr[currentPlace].active= false;       
-       masterArr[currentPlace].timeDate= timeDateArr;
-    }
+function isTopTen(gamePlay, arrayOfPlayers) {
+    arrayOfPlayers = sortArrayDescending(arrayOfPlayers, "score");
+    if( (arrayOfPlayers.length <= 10)  // Player automatically in if less than 10 players saved
+        || (gamePlay.score > arrayOfPlayers[arrayOfPlayers.length - 1].score) ){
+        // Now player is in Top 10
+        arrayOfPlayers.push({
+            name:  getName(),
+            level: gamePlay.level,
+            score: gamePlay.score,
+            timeDate: getDate()
+        });
+
+        // Reset length of arrayOfPlayers (masterArr)
+        arrayOfPlayers.length = (arrayOfPlayers.length > 10)
+                                    ? 10
+                                    : arrayOfPlayers.length;
+        arrayOfPlayers = sortArrayDescending(arrayOfPlayers, "score");
+
+        gameLocalStorage.setMasterArr(arrayOfPlayers);
+        localStorage.setItem(lsName, JSON.stringify(masterArr));
+    } 
 };
-function limitChar(sName,currentPlace) {    
-    if (sName.length >= 3) {
-        shortName = sName.substring(0, 3);        
-        masterArr[currentPlace].name= shortName;  
-        return shortName;
-    }
+function getName(){    
+    let sName = prompt("Well done, you! Make your mark next to your score (limit 3 characters).");
+    return sName.length >= 3
+            ? sName.substring(0, 3)
+            : sName;
 }
 function getDate() {
     let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     let currTime = new Date();
     let month = currTime.getMonth();
 
-    timeDateArr = currTime.getHours() + ':' + currTime.getMinutes() + ':' + currTime.getSeconds() + ' ' + months[month] + '.' + currTime.getDate() + '.' + currTime.getFullYear();
+    timeDateStamp = currTime.getHours() + ':' + currTime.getMinutes() + ':' + currTime.getSeconds() + ' ' + months[month] + '.' + currTime.getDate() + '.' + currTime.getFullYear();
+    return timeDateStamp;
 }
 
 
