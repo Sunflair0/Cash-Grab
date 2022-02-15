@@ -369,7 +369,7 @@ function roundEnd() {
     else if (quarterScore < goal && life > 1) {
         rScores.pop(quarterScore);
         life--
-        statusMessage(`Use a heart and try again`);
+        statusMessage(`Use a heart to try again`);
         let tryAgain = document.getElementById('eval');
         tryAgain = document.createElement("button");
         document.getElementById('eval').append(tryAgain);
@@ -377,7 +377,7 @@ function roundEnd() {
         tryAgain.addEventListener("click", useHeart);
     }
     else if (round == 4) {
-        statusMessage(`Congratulations, you made it! Push the button for your results. `);
+        statusMessage(`Congratulations, you made it! Push the button for your results.`);
         let advance = document.getElementById('eval');
         advance = document.createElement("button");
         document.getElementById('eval').append(advance);
@@ -556,8 +556,9 @@ function postSB(arrayOfPlayers) {
 }
 function isTopTen(gamePlay, arrayOfPlayers) {
     arrayOfPlayers = sortArrayDescending(arrayOfPlayers, "score");
-    if ((arrayOfPlayers.length <= 10)  // Player automatically in if less than 10 players saved
+    if ((arrayOfPlayers.length < 10)  // Player automatically in if less than 10 players saved
         || (gamePlay.score > arrayOfPlayers[arrayOfPlayers.length - 1].score)) {
+            console.log(gamePlay, masterArr, arrayOfPlayers[arrayOfPlayers.length - 1]);
         // Now player is in Top 10
         arrayOfPlayers.push({
             name: getName(),
