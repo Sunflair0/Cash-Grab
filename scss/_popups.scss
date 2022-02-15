@@ -57,20 +57,20 @@
 .round4 {
     background-image: url(/dist/asset/round4.png); 
 }
-img{
-    max-height: 75%;
-}
- #first {
+#first {
+    margin-left: -14px;
     max-width: 100px;
     min-width: 80px;  
 }
-#second{
+#second {
+    margin-top: 6px;
     max-width: 100px;
     min-width: 80px;   
 }
  .moleShow {
     display: flex;
     position: relative;     
+    margin-left: 5px;
     height: 100%;
     width: 100%;
 }
@@ -79,16 +79,16 @@ img{
     height: 100%; 
 }
 .cashShows {
-    display: flex;
+    display: flex;    
     position: relative;        
     width: 5%;   
 }
 .cashShow{
     display: flex;
-    width: 10%;     
+    width: 25%;     
     position: fixed;  
     max-height: 75px;
-    top: 9%;   
+    top: 6%;   
     left: 43%; }
 .moleHold {
    display: flex;

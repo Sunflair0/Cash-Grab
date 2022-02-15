@@ -2,11 +2,21 @@
     .roundModal {        
         color:rgb(241, 11, 11);
     }
-    .headings {
+    .headings, #score, #time {
         font-size: xx-large;        
     }
     .heart1, .heart2, .heart3, .heart4 {
         font-size: x-large;    
+    }
+    #plusImg, #minusImg, #coolmole1 {
+        width: 100px;
+        min-width: 54px;
+    }
+    #evalMes, .evalOne2{
+        margin-left: 1rem;
+    }
+    .evalOne {
+        width: 35%;
     }
 }
 @include media-md {

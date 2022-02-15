@@ -122,16 +122,15 @@ function intro() {
 
     let cashCarousel = gsap.timeline({ repeat: -1 });
     cashCarousel
-        .from("#min1", { opacity: 0, x: '-50%', duration: 1 })
-        .to("#min1", { opacity: 0, x: "0%", duration: 1, delay: 1.3 })
-        .from("#min2", { opacity: 0, x: '-50%', duration: 1 })
-        .to("#min2", { opacity: 0, x: "0%", duration: 1, delay: 1.3 })
-        .from("#min3", { opacity: 0, x: '-50%', duration: 1 })
-        .to("#min3", { opacity: 0, x: "0%", duration: 1, delay: 1.3 })
-        .from("#min4", { opacity: 0, x: '-50%', duration: 1 })
-        .to("#min4", { opacity: 0, x: "0%", duration: 1, delay: 1.3 })
-        .tweenFromTo("hold", "end",);
-
+        .from("#min1", { opacity: 0, x: '-80%', duration: .5 })
+        .to("#min1", { opacity: 0, x: 0, duration: 1, delay: 2 })
+        .from("#min2", { opacity: 0, x: '-80%', duration: .5 })
+        .to("#min2", { opacity: 0, x: 0, duration: 1, delay: 2 })
+        .from("#min3", { opacity: 0, x: '-80%', duration: .5 })
+        .to("#min3", { opacity: 0, x: 0, duration: 1, delay: 2 })
+        .from("#min4", { opacity: 0, x: '-80%', duration: .5 })
+        .to("#min4", { opacity: 0, x: 0, duration: 1, delay: 2 })
+  
     // /////combining both timelines
     let master = gsap.timeline();
     master

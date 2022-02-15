@@ -57,7 +57,7 @@ body {
     overflow: hidden;
 }
  img {    
-    height: auto;
+    max-height: 75%;
     width: 100%;
     object-fit: cover;   
 }

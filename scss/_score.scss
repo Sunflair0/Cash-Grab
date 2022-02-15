@@ -2,26 +2,27 @@
     display: flex;
     max-width:100px;
     max-height: 100px;
-    justify-content: center;
-    align-content: center;      
+    // justify-content: center;
+    // align-content: center;     
+    margin: auto; 
     cursor: pointer;
 }
 .start {
-    animation: start alternate 1s linear ease-in;
+    animation: start alternate 2.5s linear ease-in;
 }
 @keyframes start{
     from {
-        transform: scale(1);
+        transform: scale();
     }
     to{
-        transform: scale(1.5);
+        transform: scale(5);
     }
 }
 #score, #time {
     font-family: 'Orbitron';
     width: 200px;   
     text-align: center;
-    font-size: xx-large;   
+    font-size: x-large;   
 }
 .whiteBoxes {
     display: flex;
@@ -89,8 +90,8 @@
     width: 25%;
     margin: 1px;
     color: rgb(255, 0, 0);
-    font-size:  large;     
-    margin-top: 7vh;
+    font-size: medium;     
+    margin-top: 9vh;
     z-index: 10;
 }
 .wBox4 {   
@@ -116,11 +117,12 @@
 }
 .proScore {
     max-width: 100px;
-    min-width: 80px;
+    min-width: 60px;
     margin: 0 auto;
 
     &::before{
         content: '50 pts';
+        color: rgb(77, 224, 57);
         height: 20px;
         width: 50%;
         font-weight: 700;

@@ -74,7 +74,7 @@ body button {
 }
 
 img {
-  height: auto;
+  max-height: 75%;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -145,11 +145,21 @@ img {
   .roundModal {
     color: #f10b0b;
   }
-  .headings {
+  .headings, #score, #time {
     font-size: xx-large;
   }
   .heart1, .heart2, .heart3, .heart4 {
     font-size: x-large;
+  }
+  #plusImg, #minusImg, #coolmole1 {
+    width: 100px;
+    min-width: 54px;
+  }
+  #evalMes, .evalOne2 {
+    margin-left: 1rem;
+  }
+  .evalOne {
+    width: 35%;
   }
 }
 
@@ -297,16 +307,14 @@ img {
   background-image: url(/dist/asset/round4.png);
 }
 
-img {
-  max-height: 75%;
-}
-
 #first {
+  margin-left: -14px;
   max-width: 100px;
   min-width: 80px;
 }
 
 #second {
+  margin-top: 6px;
   max-width: 100px;
   min-width: 80px;
 }
@@ -316,6 +324,7 @@ img {
   display: -ms-flexbox;
   display: flex;
   position: relative;
+  margin-left: 5px;
   height: 100%;
   width: 100%;
 }
@@ -339,10 +348,10 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 10%;
+  width: 25%;
   position: fixed;
   max-height: 75px;
-  top: 9%;
+  top: 6%;
   left: 43%;
 }
 
@@ -401,38 +410,34 @@ img {
   display: flex;
   max-width: 100px;
   max-height: 100px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  margin: auto;
   cursor: pointer;
 }
 
 .start {
-  -webkit-animation: start alternate 1s linear ease-in;
-          animation: start alternate 1s linear ease-in;
+  -webkit-animation: start alternate 2.5s linear ease-in;
+          animation: start alternate 2.5s linear ease-in;
 }
 
 @-webkit-keyframes start {
   from {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    -webkit-transform: scale();
+            transform: scale();
   }
   to {
-    -webkit-transform: scale(1.5);
-            transform: scale(1.5);
+    -webkit-transform: scale(5);
+            transform: scale(5);
   }
 }
 
 @keyframes start {
   from {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+    -webkit-transform: scale();
+            transform: scale();
   }
   to {
-    -webkit-transform: scale(1.5);
-            transform: scale(1.5);
+    -webkit-transform: scale(5);
+            transform: scale(5);
   }
 }
 
@@ -440,7 +445,7 @@ img {
   font-family: 'Orbitron';
   width: 200px;
   text-align: center;
-  font-size: xx-large;
+  font-size: x-large;
 }
 
 .whiteBoxes {
@@ -553,8 +558,8 @@ img {
   width: 25%;
   margin: 1px;
   color: red;
-  font-size: large;
-  margin-top: 7vh;
+  font-size: medium;
+  margin-top: 9vh;
   z-index: 10;
 }
 
@@ -586,12 +591,13 @@ img {
 
 .proScore {
   max-width: 100px;
-  min-width: 80px;
+  min-width: 60px;
   margin: 0 auto;
 }
 
 .proScore::before {
   content: '50 pts';
+  color: #4de039;
   height: 20px;
   width: 50%;
   font-weight: 700;
@@ -939,8 +945,7 @@ img {
 }
 
 #plusImg, #minusImg, #coolmole1 {
-  width: 100px;
-  min-width: 54px;
+  width: 75px;
 }
 
 .mathChar {
@@ -1017,12 +1022,11 @@ img {
   font-family: "Dongle";
   font-size: x-large;
   margin-bottom: 1rem;
-  margin-left: 1rem;
 }
 
 .evalOne {
   margin-left: 0%;
-  width: 35%;
+  width: 55%;
   top: 0;
 }
 
@@ -1299,15 +1303,14 @@ li:nth-child(4) {
 
 p {
   font-family: "Mukta";
-  font-weight: 500;
   font-size: .8rem;
-  margin-bottom: .5rem;
+  margin-bottom: .4rem;
   color: #fcddb6;
-  line-height: 1.5rem;
+  line-height: 1.4rem;
 }
 
 p::first-letter {
-  font-size: xx-large;
+  font-size: x-large;
   font-family: 'Flavors';
 }
 
