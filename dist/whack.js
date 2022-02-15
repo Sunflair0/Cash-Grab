@@ -156,7 +156,7 @@ function gameAgain() {
 }
 function unlockChoice() {
     padlock.innerText = `${unlock}`;
-    level.classList.toggle('lockPadlock'); 
+    level.classList.remove('lockPadlock'); 
     level.addEventListener("click", selectDifficulty);
     level.style.cursor = 'pointer';
 

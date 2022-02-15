@@ -1103,7 +1103,7 @@ button .xIntro {
   font-size: 16px;
   width: 80px;
   height: 60px;
-  background: #000000;
+  background-color: #000000;
   color: #f3f365;
   padding: 9px 0 0px 25px;
   border: solid 2px #f3f365;
@@ -1124,13 +1124,8 @@ button .xIntro {
   font-size: 20px;
 }
 
-
 .lockPadlock {
-  background: repeating-linear-gradient(139deg, 
- #000000 83%, 
- #000000 90%,
- #717576 96%,        
- #000000 100%);;
+  background: repeating-linear-gradient(139deg, #000000 83%, #000000 90%, #717576 96%, #000000 100%);
 }
 
 #finger {
