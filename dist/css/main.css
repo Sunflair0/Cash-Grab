@@ -1124,8 +1124,13 @@ button .xIntro {
   font-size: 20px;
 }
 
+
 .lockPadlock {
-  background: repeating-linear-gradient(45deg, #000000, #000000 77%, #686868 84%, #000000 94%, #000000 102%);
+  background: repeating-linear-gradient(139deg, 
+ #000000 83%, 
+ #000000 90%,
+ #717576 96%,        
+ #000000 100%);;
 }
 
 #finger {

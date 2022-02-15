@@ -220,15 +220,14 @@ function begin() {
 }
 start.addEventListener("click", () => {
     closeChoosing();
-    padlock.innerText = `${lock}`;
-    level.classList.toggle('lockPadlock'); 
-    console.log(level.classList)
+    start.style.visibility = "hidden";
+    level.classList.add('lockPadlock'); 
     level.style.cursor = 'default';    
     header.innerText = `Level ${round}`;
     finger.style.display = 'none';
-    level.removeEventListener("click", selectDifficulty);
-    
-start.style.visibility = "hidden";
+    padlock.innerText = `${lock}`;
+    level.removeEventListener("click", selectDifficulty);    
+
     document.getElementsByClassName('wBox2')[0].style.visibility = "visible";
     let time = window.setInterval(() => {
         document.getElementById("time").innerText = ':' + timer;
