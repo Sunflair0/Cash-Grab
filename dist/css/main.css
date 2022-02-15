@@ -161,6 +161,9 @@ img {
   .evalOne {
     width: 35%;
   }
+  .scoreCap {
+    font-size: medium;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -743,11 +746,12 @@ img {
   grid-area: 1/1/11/2;
 }
 
-.rank {
+.rank, .lvColor, .score {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-flow: row;
           flex-flow: row;
+  margin-bottom: 10px;
 }
 
 .sb_Beta {
@@ -849,6 +853,7 @@ img {
   height: 100%;
   padding: 5% 10px;
   grid-row: span 1;
+  font-size: small;
   border-bottom: #ffffff 3px ridge;
   background-color: black;
 }

@@ -59,8 +59,9 @@
     width: 75%;
     grid-area: 1/1/11/2;
 }
-.rank{
+.rank, .lvColor, .score {
     flex-flow: row;
+    margin-bottom: 10px;
 }
 .sb_Beta  {
     @include sbPlus;
@@ -90,6 +91,7 @@
 } 
 .scoreCap {
     @include gridplus;    
+    font-size: small;
     border-bottom:#ffffff 3px ridge;
     background-color: black;
 }
