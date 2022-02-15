@@ -41,16 +41,12 @@ body {
         outline: rgba(255, 255, 255, 0.548) 2.5px solid;
         outline-offset: -4px;
         border: rgba(255, 255, 255, 0.637) 4px solid;
-        border-top-color: rgb(179, 179, 179);
-        border-left-color: rgb(179, 179, 179) ;
-        border-right-color: rgba(116, 116, 116, 0.89);
-        border-bottom-color: rgba(116, 116, 116, 0.89);
           font-size:large;
           color: red;
           height: 45px;
           width: 45px;
           border-radius: 50%;
-          background-image: linear-gradient(to top, #4aec0a 0%, #e7d801 70%);
+          background: linear-gradient(to top, #4aec0a 0%, #e7d801 70%);
           cursor: pointer;
       }
 }

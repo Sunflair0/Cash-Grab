@@ -22,11 +22,9 @@ button .xIntro {
     text-align: center;    
     justify-content: center;
     font-size: 16px;
-    border-radius: 20px;
-    max-width: 10vw;
-    min-width: 6vw;
-    max-height: 10vw;
-    min-height: 6vh;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
     margin-top: 2%;
 }    
 #level {
@@ -35,7 +33,7 @@ button .xIntro {
     width: 80px;
     height: 60px;
     background: #000000;
-    color: silver;
+    color: #f3f365;
     padding: 9px 0 0px 25px;
     border: solid 2px #f3f365;
     transform: translate(0,0px);
@@ -50,8 +48,12 @@ button .xIntro {
     font-size: 20px;
 }
 .lockPadlock {
-   background: repeating-linear-gradient(to top left, 
-               rgb(0 0 0) 90%, rgb(98 98 98) 100%);
+         background: repeating-linear-gradient(45deg, 
+         #000000, 
+         #000000 77%,
+         #686868 84%,
+         #000000 94%, 
+         #000000 102%);
 }
 #finger {
     margin-top: -60px;

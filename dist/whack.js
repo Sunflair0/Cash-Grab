@@ -89,7 +89,6 @@ let level = document.getElementById('level');
 let padlock = document.getElementById('padlock');
 let finger = document.getElementById('finger');
 let choiceStack = document.getElementsByClassName('choice')[0];
-
 const darkmole = [mole1, mole2, mole3, mole4];
 const darkcash = [cash1, cash2, cash3, cash4];
 let mole = darkmole[round];
@@ -146,43 +145,40 @@ function xIntro() {
     finger.innerText = `${hand}`;
 
     // /////intromodal leaving
-    let tl = gsap.timeline()
-    tl
-        .to(".introModal", { opacity: 0, x: '200%', y: "165%", duration: 1, ease: "circ", delay: ".5" });
-    level.setAttribute('style', 'transform:translate(0,0px');
-    hearts()
-    levelChoice()
-}
+    let introLeave = gsap.timeline()
+    introLeave.to(".introModal", { opacity: 0, x: '200%', y: "165%", duration: 1, ease: "circ", delay: ".5" });   
+    printHearts()
+    unlockChoice()}
 function gameAgain() {
     gsap.to(".tsModal", { opacity: 0, duration: 1, ease: "circ", y: '-165%' });
-    hearts()
-    levelChoice();
+    printHearts()
+    unlockChoice();
 }
-function levelChoice() {
+function unlockChoice() {
     padlock.innerText = `${unlock}`;
-    finger.setAttribute('style', 'top: -80px;');
-    finger.addEventListener("click", difficultyLevel);
-    finger.style.cursor = 'pointer';
+    level.classList.toggle('lockPadlock'); 
+    level.addEventListener("click", selectDifficulty);
+    level.style.cursor = 'pointer';
 
     let point = gsap.timeline();
     point
         .to("#finger", { x: "20%", repeat: 5, yoyo: true, duration: .3, delay: 3 })
         .to("#finger", { x: "20%", repeat: 5, yoyo: true, duration: .3, delay: 5 });
 }
-close.addEventListener("click", doneChoosing);
-easy.addEventListener("click", difficultyLevel);
-med.addEventListener("click", difficultyLevel);
-hard.addEventListener("click", difficultyLevel);
+close.addEventListener("click", closeChoosing);
+easy.addEventListener("click", selectDifficulty);
+med.addEventListener("click", selectDifficulty);
+hard.addEventListener("click", selectDifficulty);
+finger.addEventListener("click", selectDifficulty);
 
-function doneChoosing() {
+function closeChoosing() {
     choiceStack.setAttribute('style', 'right:-100%;');
     document.getElementsByClassName('choiceblock')[0].style.height = '30px';
 }
-function difficultyLevel() {
+function selectDifficulty() {
     choiceStack.setAttribute('style', 'right: 0%;');
-    finger.style.transform = "translate(0,30px)";
     level.setAttribute('style', 'height:30px;');
-    finger.innerText = '';
+    finger.style.display = 'none';
 
     if (document.getElementById('easy').checked) {
         seconds = 2000;
@@ -205,8 +201,8 @@ function difficultyLevel() {
         setStyle();
         gamePlay.level = "HARD";
     }
-    console.log("difficultyLevel gamePlay:", gamePlay);
-    console.log("difficultyLevel masterArr", JSON.stringify(masterArr))
+    console.log("selectDifficulty gamePlay:", gamePlay);
+    console.log("selectDifficulty masterArr", JSON.stringify(masterArr))
 }
 function setStyle() {
     level.style.color = `${stackStyle}`;
@@ -220,18 +216,18 @@ function begin() {
     rScores = [];
     header.innerText = "CashSmash";
     roundUp();
-    levelChoice();
+    unlockChoice();
 }
 start.addEventListener("click", () => {
-    doneChoosing();
+    closeChoosing();
     padlock.innerText = `${lock}`;
-    level.style.cursor = 'default';
-    
+    level.classList.toggle('lockPadlock'); 
+    console.log(level.classList)
+    level.style.cursor = 'default';    
     header.innerText = `Level ${round}`;
     finger.style.display = 'none';
-    finger.removeEventListener("click", difficultyLevel);
-    level.removeEventListener("click", difficultyLevel);
-    level.classList.add('lockPadlock'); 
+    level.removeEventListener("click", selectDifficulty);
+    
 start.style.visibility = "hidden";
     document.getElementsByClassName('wBox2')[0].style.visibility = "visible";
     let time = window.setInterval(() => {
@@ -257,7 +253,7 @@ start.style.visibility = "hidden";
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    }, 5100); //shortened for debugging mode
+    }, 100); //shortened for debugging mode
 });
 
 function choice(min, max) {
@@ -332,7 +328,7 @@ function statusMessage(msg) {
     container.innerText = msg;
 }
 //display hearts for lives
-function hearts() {
+function printHearts() {
     for (let i = 1; i < 5; i++) {
         let hearts = document.getElementsByClassName(`heart${i}`)[0];
         hearts.setAttribute('style', 'y:0', 'scale:1');
@@ -418,7 +414,7 @@ function noHearts() {
     doOver = document.createElement("button");
     document.getElementById('eval').append(doOver);
     doOver.innerText = `${restart}`;
-    doOver.addEventListener("click", hearts);
+    doOver.addEventListener("click", printHearts);
 }
 
 // /////stat modal drop
