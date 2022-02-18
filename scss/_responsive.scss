@@ -2,7 +2,7 @@
     .roundModal {        
         color:rgb(241, 11, 11);
     }
-    .headings, #score, #time {
+    .headings, #score, #tick {
         font-size: xx-large;        
     }
     .heart1, .heart2, .heart3, .heart4 {
@@ -37,7 +37,7 @@
     }
 }
 @include media-lg {
-    #score, #time {
+    #score, #tick {
         font-family: 'Orbitron';
         margin-top: 3vh;
     }
@@ -47,7 +47,7 @@
     }
 }
 @include media-xl {
-    #score, #time {
+    #score, #tick {
         font-family: 'Orbitron';
     }
 }  

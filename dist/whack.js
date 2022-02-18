@@ -59,9 +59,8 @@ let unlock = '\u{1f513}';
 let restart = '\u{21ba}';
 let fire = '\u{1f525}'
 let again = '\u{1f3ac}';
-let timeDate;
 let start = document.getElementById('start');
-let time = document.getElementById('time');
+let tick = document.getElementById('tick');
 let whiteBoxes = document.getElementsByClassName("whiteBoxes")[0];
 let close = document.getElementsByClassName('close')[0];
 let easy = document.getElementById('easy');
@@ -228,8 +227,8 @@ start.addEventListener("click", () => {
     level.removeEventListener("click", selectDifficulty);    
 
     document.getElementsByClassName('wBox2')[0].style.visibility = "visible";
-    let time = window.setInterval(() => {
-        document.getElementById("time").innerText = ':' + timer;
+    let secs = window.setInterval(() => {
+        document.getElementById("tick").innerText = ':' + timer;
         timer--;
     }, 1000);
 
@@ -246,7 +245,7 @@ start.addEventListener("click", () => {
 
     window.setTimeout(() => {
         window.clearInterval(whereMole);
-        window.clearInterval(time);
+        window.clearInterval(secs);
         document.getElementsByClassName('wBox2')[0].style.visibility = "hidden";
         document.getElementById('score').innerText = score;
         timer = 29
@@ -459,7 +458,7 @@ function roundUp() {
     whiteBoxes.classList.remove('color');
 
     gsap.to(".roundModal", { y: "-100%", duration: 2.5, ease: "power1" });
-    gsap.fromTo(".start", { opacity: 0, scale: 0 }, { duration: 2.5, opacity: 1, scale: 1, ease: "elastic" })
+    gsap.fromTo(".start", { opacity: 0, scale: 0 }, { duration: 1.5, opacity: 1, scale: 1, ease: "elastic" })
 
 }
 function gameEnd() {
@@ -485,17 +484,36 @@ function gameEnd() {
         .fromTo(".lvColor", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .fromTo(".score", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .fromTo(".name", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
-        .fromTo(".timeDate", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
+        .fromTo(".time", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")     
         .fromTo("#message", { opacity: 0, scale: 0, x: "10%", y: "30%" }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
         .fromTo("#eval2", { opacity: 0, x: "0%", }, { opacity: 1, x: "500%", duration: 1, y: "0%", ease: "back", rotation: 720 }, "-=1");
 
-    document.getElementById('message').innerText = `Try to beat your score`;
+        
+document.getElementById('message').innerText = `Try to beat your score`;
     let playAgain = document.getElementById('eval2');
     playAgain = document.createElement("button");
     document.getElementById('eval2').append(playAgain);
     playAgain.innerText = `${again}`;
     playAgain.addEventListener("click", gameAgain);
+
+ let fadeDuration = 1,
+    stayDuration = 3,
+    finalSBPrint2 = gsap.timeline({repeat: -1});
+
+finalSBPrint2.to(".time", {opacity: 0, duration: fadeDuration}, stayDuration)
+  .to(".date", {opacity: 1, duration: fadeDuration}, "-=100%")
+  .to(".time", {opacity: 1, duration: fadeDuration}, "+=" + stayDuration)
+  .to(".date", {opacity: 0, duration: fadeDuration}, "-=100%");
+  
+  let master = gsap.timeline();
+  master
+  .add(finalSBPrint)
+  .add(finalSBPrint2);
+
 }
+
+
+
 // /////color display for scoreboard
 function setLevelColor(currentPlace, currentLevel) {
     switch (currentLevel) {
@@ -505,7 +523,8 @@ function setLevelColor(currentPlace, currentLevel) {
             document.getElementsByClassName('lvColor')[currentPlace].innerText = 'EASY';
             document.getElementsByClassName("score")[currentPlace].style.color = '#5dca5d';
             document.getElementsByClassName("name")[currentPlace].style.color = '#5dca5d';
-            document.getElementsByClassName("timeDate")[currentPlace].style.color = '#5dca5d';
+            document.getElementsByClassName("time")[currentPlace].style.color = '#5dca5d';
+            document.getElementsByClassName("date")[currentPlace].style.color = '#5dca5d';
             break;
         case "MED":
             document.getElementsByClassName("rank")[currentPlace].style.color = '#f3f365';
@@ -513,7 +532,8 @@ function setLevelColor(currentPlace, currentLevel) {
             document.getElementsByClassName('lvColor')[currentPlace].innerText = 'MED';
             document.getElementsByClassName("score")[currentPlace].style.color = '#f3f365';
             document.getElementsByClassName("name")[currentPlace].style.color = '#f3f365';
-            document.getElementsByClassName("timeDate")[currentPlace].style.color = '#f3f365';
+            document.getElementsByClassName("time")[currentPlace].style.color = '#f3f365';
+            document.getElementsByClassName("date")[currentPlace].style.color = '#f3f365';
             break;
         case "HARD":
             document.getElementsByClassName("rank")[currentPlace].style.color = '#fd7575';
@@ -521,7 +541,8 @@ function setLevelColor(currentPlace, currentLevel) {
             document.getElementsByClassName('lvColor')[currentPlace].innerText = 'HARD';
             document.getElementsByClassName("score")[currentPlace].style.color = '#fd7575';
             document.getElementsByClassName("name")[currentPlace].style.color = '#fd7575';
-            document.getElementsByClassName("timeDate")[currentPlace].style.color = '#fd7575';
+            document.getElementsByClassName("time")[currentPlace].style.color = '#fd7575';
+            document.getElementsByClassName("date")[currentPlace].style.color = '#fd7575';
             break;
         default:
             alert("Should never see this!!");
@@ -537,7 +558,8 @@ function postSB(arrayOfPlayers) {
     let levelBlock = document.getElementsByClassName('lvColor');
     let scoreBlock = document.getElementsByClassName('score');
     let nameBlock = document.getElementsByClassName('name');
-    let timeDate = document.getElementsByClassName('timeDate');
+    let time = document.getElementsByClassName('time');
+    let date = document.getElementsByClassName('date');
 
     // Sorted Array of previous games
     isTopTen(gamePlay, arrayOfPlayers);
@@ -549,7 +571,8 @@ function postSB(arrayOfPlayers) {
         levelBlock[currentPlace].innerText = currentPlayer.level;
         scoreBlock[currentPlace].innerText = currentPlayer.score;
         nameBlock[currentPlace].innerText = currentPlayer.name;
-        timeDate[currentPlace].innerText = currentPlayer.timeDate;
+        time[currentPlace].innerText = currentPlayer.time;
+        date[currentPlace].innerText = currentPlayer.date;
 
         setLevelColor(currentPlace, currentPlayer.level)
     }
@@ -564,7 +587,8 @@ function isTopTen(gamePlay, arrayOfPlayers) {
             name: getName(),
             level: gamePlay.level,
             score: gamePlay.score,
-            timeDate: getDate()
+            time: getTime(),
+            date: getDate(),
         });
 
         // Reset length of arrayOfPlayers (masterArr)
@@ -583,13 +607,18 @@ function getName() {
         ? sName.substring(0, 3)
         : sName;
 }
+function getTime() {
+    let currTime = new Date();
+    timeStamp = currTime.getHours() + ':' + currTime.getMinutes() + ':' + currTime.getSeconds() 
+    return timeStamp;
+}
 function getDate() {
     let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    let currTime = new Date();
-    let month = currTime.getMonth();
+    let currDate = new Date();
+    let month = currDate.getMonth();
 
-    timeDateStamp = currTime.getHours() + ':' + currTime.getMinutes() + ':' + currTime.getSeconds() + ' ' + months[month] + '.' + currTime.getDate() + '.' + currTime.getFullYear();
-    return timeDateStamp;
+    dateStamp = months[month] + '.' + currDate.getDate() + '.' + (currDate.getFullYear() - 2000);
+    return dateStamp;
 }
 
 

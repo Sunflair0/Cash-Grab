@@ -129,7 +129,7 @@ img {
   }
 }
 @media screen and (max-width: 992px) {
-  #score, #time {
+  #score, #tick {
     font-family: "Orbitron";
     margin-top: 3vh;
   }
@@ -140,7 +140,7 @@ img {
   }
 }
 @media screen and (max-width: 1200px) {
-  #score, #time {
+  #score, #tick {
     font-family: "Orbitron";
   }
 }
@@ -344,7 +344,7 @@ img {
     transform: scale(1.5);
   }
 }
-#score, #time {
+#score, #tick {
   font-family: "Orbitron";
   width: 200px;
   text-align: center;
