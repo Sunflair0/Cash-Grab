@@ -12,7 +12,11 @@ p {
     font-size: .8rem;
     margin-bottom: .4rem;
     color:rgb(252, 221, 182);
-    line-height: 1.4rem;
+    line-height: 1.1rem;
+
+        &::first-child {
+            margin-top: 10px;
+        }
 
         &::first-letter {
         font-size: x-large;
@@ -55,21 +59,31 @@ p {
 #ccc{
     color: rgb(145, 255, 0);
 }
+.bigShell {
+    display:flex;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    flex-direction:column;
+    
+}
 .sky {
     @include flexShell;   
-    flex-basis: 43%;  
+    flex-basis: 27%; 
 }
 .ground {
     @include flexShell;
-    flex-basis: 62.5%;
-    width: 95%; 
-    margin: auto;    
+    flex-basis: 60%;
+    width: 85%;
+    margin-top: -3%;
+    margin-bottom: 5%;
 }
 .bottom {
     @include flexShell;
-    flex-basis: auto;  
+    flex-basis: 22.5%;  
     width: 100%;
-    padding: 3px;    
+    padding: 2px;    
     border: white 4px ridge;
     background: rgb(0, 0, 0);   
+    margin-bottom: 0%;
 }

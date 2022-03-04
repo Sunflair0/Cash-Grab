@@ -1,21 +1,20 @@
 #start {    
     display: flex;
-    max-width:100px;
-    max-height: 100px;
-    // justify-content: center;
-    // align-content: center;     
-    margin: auto; 
+    width: 80px;
+    height: 80px;
+    margin: auto;   
+    margin-top: 13px;
     cursor: pointer;
 }
 .start {
-    animation: start alternate 2.5s linear ease-in;
+    animation: start alternate 2s linear ease-in;
 }
 @keyframes start{
     from {
         transform: scale();
     }
     to{
-        transform: scale(5);
+        transform: scale(3);
     }
 }
 #score, #tick {
@@ -61,18 +60,18 @@
 .wBox1 {
     visibility: visible;
     display: flex;
-    flex-basis: 22%;    
+    width: 21%;  
     border: white 2px ridge; 
 }  
 .wBox2{
     visibility: hidden;
-    flex-basis: 15%;
+    width: 21%;
     padding-left: 6px;
     padding-top: 6px;
     position: fixed;    
 }
 .wBox3 {
-    flex-basis: 25%;
+    width: 21%;
     padding-left: 6px;
     padding-top: 6px;    
     border: white 2px ridge;
@@ -81,22 +80,19 @@
 .heartBox {
     display: flex;
     max-width: 100px;
-    height: 100%;
     z-index: 10;
-    transform:translate(0%,-65%);
+    transform:translate(-5%, -30%);
 }
 .heart1, .heart2, .heart3, .heart4 {
     display: flex;
     width: 25%;
-    margin: 1px;
-    color: rgb(255, 0, 0);
-    font-size: medium;     
-    margin-top: 9vh;
+    margin: 60px auto;
+    color: rgb(255, 0, 0);    
     z-index: 10;
 }
 .wBox4 {   
     display: flex;
-    flex-basis: 40%;
+    width: 40%;
     padding-top: 6px;
     padding-left: 6px;    
     border: white 2px ridge;
@@ -137,17 +133,17 @@
 }
 .wBox5b {
     display: flex;     
+    margin-left: 4%;
     overflow: hidden;
 }
 .wBox5 {
     display: flex;
-    flex-basis: 23%;
     flex-direction: column;
     padding-top: 6px;
     padding-left: 6px;    
-    width: 20%;
-    border: white 2px ridge;
-    overflow: hidden;
+    width: 15%;
+    border-left: white 2px ridge;
+    
 }
 #wBox5 {
     display: flex;

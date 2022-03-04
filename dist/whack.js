@@ -12,7 +12,7 @@ let gameLocalStorage = (() => {
     }
 
     function setMasterArr(masterArr) {
-        // localStorage.setItem(masterArrName, JSON.stringify(masterArr))
+         localStorage.setItem(masterArrName, JSON.stringify(masterArr))
     }
 
     return {
@@ -101,6 +101,7 @@ window.onload =
     intro();
 
 function intro() {
+    header.innerText = "CashSmash";
     let rule = CSSRulePlugin.getRule("p:after");
     start.style.visibility = "hidden";
     let xIntro1 = document.getElementById('xIntro');
@@ -130,7 +131,7 @@ function intro() {
         .from("#min4", { opacity: 0, x: '-80%', duration: .5 })
         .to("#min4", { opacity: 0, x: 0, duration: 1, delay: 2 })
   
-    // /////combining both timelines
+    /////combining both timelines
     let master = gsap.timeline();
     master
         .add(intro)
@@ -146,7 +147,8 @@ function xIntro() {
     let introLeave = gsap.timeline()
     introLeave.to(".introModal", { opacity: 0, x: '200%', y: "165%", duration: 1, ease: "circ", delay: ".5" });   
     printHearts()
-    unlockChoice()}
+    unlockChoice()
+}
 function gameAgain() {
     gsap.to(".tsModal", { opacity: 0, duration: 1, ease: "circ", y: '-165%' });
     printHearts()
@@ -212,7 +214,6 @@ function begin() {
     life = 5;
     round = 1;
     rScores = [];
-    header.innerText = "CashSmash";
     roundUp();
     unlockChoice();
 }
@@ -250,7 +251,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    }, 100); //shortened for debugging mode
+    }, 5100); //shortened for debugging mode
 });
 
 function choice(min, max) {
@@ -446,12 +447,12 @@ function roundUp() {
     minusAmt = 0;
     minusScore = 0;
 
+    document.getElementById('start').style.visibility = "visible";
     header.innerText = `Level ${round}`;
     document.getElementById('eval').innerText = '';
     document.getElementById('score').innerText = score;
     document.getElementById('eval').style.visibility = "hidden";
-    document.body.style.backgroundImage = `url(/dist/asset/round${round}.png)`;
-    document.getElementById('start').style.visibility = "visible";
+    document.body.style.backgroundImage = `url(/dist/asset/round${round}.png)`;    
     document.getElementById('wBox5').src = `./asset/round${round + 1}.png`;
     document.getElementById('first').src = `./asset/minCash${round}.png`;
     document.getElementById('second').src = `./asset/mole${round}.png`;
@@ -459,11 +460,11 @@ function roundUp() {
 
     gsap.to(".roundModal", { y: "-100%", duration: 2.5, ease: "power1" });
     gsap.fromTo(".start", { opacity: 0, scale: 0 }, { duration: 1.5, opacity: 1, scale: 1, ease: "elastic" })
-
 }
 function gameEnd() {
     header.innerText = 'Final';
     gamePlay.score = sumArr();
+    console.log(sumArr())
     document.getElementById("totalScore").innerText = gamePlay.score;
     postSB(masterArr);
     document.getElementById("quarter_one").innerText = rScores[0];
@@ -485,8 +486,8 @@ function gameEnd() {
         .fromTo(".score", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .fromTo(".name", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .fromTo(".time", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")     
-        .fromTo("#message", { opacity: 0, scale: 0, x: "10%", y: "30%" }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
-        .fromTo("#eval2", { opacity: 0, x: "0%", }, { opacity: 1, x: "500%", duration: 1, y: "0%", ease: "back", rotation: 720 }, "-=1");
+        .fromTo("#message", { opacity: 0, scale: 0, x: "13%", y: "80%" }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
+        .fromTo("#eval2", { opacity: 0, x: "0%", }, { opacity: 1, x: "700%", duration: 1, y: "0%", ease: "back", rotation: 720 }, "-=1");
 
         
 document.getElementById('message').innerText = `Try to beat your score`;
@@ -509,10 +510,7 @@ finalSBPrint2.to(".time", {opacity: 0, duration: fadeDuration}, stayDuration)
   master
   .add(finalSBPrint)
   .add(finalSBPrint2);
-
 }
-
-
 
 // /////color display for scoreboard
 function setLevelColor(currentPlace, currentLevel) {

@@ -2,12 +2,23 @@
     .roundModal {        
         color:rgb(241, 11, 11);
     }
+    #start {       
+        max-width:100px;
+        max-height: 100px;    
+        
+    }
     .headings, #score, #tick {
         font-size: xx-large;        
     }
     .heart1, .heart2, .heart3, .heart4 {
         font-size: x-large;    
     }
+    .heartbox {
+    transform:translate(-5%, -4%);
+    }
+    .bottom {
+    margin-bottom: 13px;
+    }    
     #plusImg, #minusImg, #coolmole1 {
         width: 100px;
         min-width: 54px;
@@ -21,6 +32,12 @@
     .scoreCap {  
         font-size: medium;  
     }   
+    .rank, .lvColor, .score, .name {
+        margin-bottom: 21%;
+    }
+    th {
+        font-size: small;  
+    }
 }
 @include media-md {
     .roundModal {        
@@ -35,8 +52,25 @@
     .darkhole {
             max-width: 180px;
     }
+    .rank, .lvColor, .score, .name {
+        margin-bottom: 15%;
+}
+.tsModal {
+    height: 70%;
+    top: -106%;
+}
+.scoreModal {
+    height: 60%;
+}
+.bottom {
+    margin-bottom: -3%;
+}
 }
 @include media-lg {
+    .sky {
+       
+        margin-top: -290px;
+    }
     #score, #tick {
         font-family: 'Orbitron';
         margin-top: 3vh;
@@ -44,6 +78,9 @@
     .second {  
         transform: scale(.35,.35);
         margin-bottom: 8vh;
+    }
+    .bottom {
+        margin-bottom: -31%;
     }
 }
 @include media-xl {

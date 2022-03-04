@@ -1,19 +1,22 @@
 .head_font, .header{
+    display: flex;
     font-family: 'Flavors';
     font-size: 40px;
-    overflow: visible;
-    margin: 0 5px;
+    align-items: center;
+    overflow: visible;  
+    margin: 15px 5px;
     color: rgb(189, 73, 27);
     text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
     transform: all ease 2s;    
 }
+
 .choiceblock {
     display: flex;
     height: 60px;
     flex-direction: column;
     right: 0;
     position:absolute;
-    margin-top: 0px;
+    transform: translate(0,5px);
     visibility: hidden;
     transition: .3s ease all;
 }
@@ -36,7 +39,7 @@ button .xIntro {
     color: #f3f365;
     padding: 9px 0 0px 25px;
     border: solid 2px #f3f365;
-    transform: translate(0,0px);
+    transform: translate(0,-5px);
     transition: .3s ease all;
     cursor: pointer;      
 }
@@ -46,6 +49,7 @@ button .xIntro {
     width: 25px;
     position: fixed;
     font-size: 20px;
+    transform: translate(0,-5px);
 }
 .lockPadlock {
          background: repeating-linear-gradient(139deg, 
@@ -61,7 +65,7 @@ button .xIntro {
     height: 60px;
     color: silver; 
     z-index: 2;
-    transform: translate(0%, 0px);         
+    transform: translate(0,-5px);      
 }
 li .buttons{        
     display: flex;

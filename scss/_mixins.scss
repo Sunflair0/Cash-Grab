@@ -35,14 +35,13 @@
   grid-area: 1/1/2/7;
   display:flex;
   height: 100%;
-  padding: 5% 10px; 
   grid-row: span 1;
 }
 @mixin sbPlus {
   display: flex;    
   flex-basis: 25%;
   font-size: small;
-  flex-direction: column;
+  // flex-direction: column;
 }
 @mixin media-sm {
   @media screen and (min-width: 576px) {
@@ -55,7 +54,7 @@
    }
 }
 @mixin media-lg {
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 1060px) {
       @content;
   }
 }
