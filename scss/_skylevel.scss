@@ -9,7 +9,6 @@
     text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
     transform: all ease 2s;    
 }
-
 .choiceblock {
     display: flex;
     height: 60px;
@@ -52,11 +51,11 @@ button .xIntro {
     transform: translate(0,-5px);
 }
 .lockPadlock {
-         background: repeating-linear-gradient(139deg, 
-         #000000 83%, 
-         #000000 90%,
-         #717576 96%,        
-         #000000 100%);
+    background: repeating-linear-gradient(139deg, 
+    #000000 83%, 
+    #000000 90%,
+    #717576 96%,        
+    #000000 100%);
 }
 #finger {
     margin-top: -60px;
@@ -114,55 +113,55 @@ li .buttons{
                 -4px 5px 0px 0px black,
                 inset -1px -2px 10px 0px #ffffff,
                 inset 1px -2px 7px 0px #000000;              
-            }
+        }
     }  
 }
 .clear-float{
     clear:both;
 }
 .easy + .buttons::before {
-       content: "";                
-       background: #6eaf45; 
+    content: "";                
+    background: #6eaf45; 
  }            
     .easy + .buttons:hover::before {
-        content: "";        
-        background: #62ff00; 
-        outline:  #a2fa6c 1px solid;
-        box-shadow:
-        -5px 7px 1px 0px #1b1b1b, 
-        6px -9px 8px 2px #43c53c, 
-        0px 0px 13px 5px #a3a3a5, 
-        -2px 2px 0px 6px #2d2d2e, 
-        6px -9px 6px 0px #ffffff, 
-        6px -9px 20px 4px #ffffff, 
-        inset 1px -2px 7px #13141d, 
-        6px -9px 20px 4px #62ff00;
+    content: "";        
+    background: #62ff00; 
+    outline:  #a2fa6c 1px solid;
+    box-shadow:
+    -5px 7px 1px 0px #1b1b1b, 
+    6px -9px 8px 2px #43c53c, 
+    0px 0px 13px 5px #a3a3a5, 
+    -2px 2px 0px 6px #2d2d2e, 
+    6px -9px 6px 0px #ffffff, 
+    6px -9px 20px 4px #ffffff, 
+    inset 1px -2px 7px #13141d, 
+    6px -9px 20px 4px #62ff00;
 } 
 .med + .buttons::before {
-       content: "";                 
-       background: #b4b643; 
+    content: "";                 
+    background: #b4b643; 
 }
 .med + .buttons:hover::before {
     content: ""; 
     background: #fbff00; 
     outline:  #f8fa6c 1px solid;
-        box-shadow:
-        -5px 7px 1px 0px #1b1b1b, 
-        6px -9px 8px 2px #bcc53c, 
-        0px 0px 13px 5px #a3a3a5, 
-        -2px 2px 0px 6px #2d2d2e, 
-        6px -9px 6px 0px #ffffff, 
-        6px -9px 20px 4px #ffffff, 
-        inset 1px -2px 7px #13141d, 
-        6px -9px 20px 4px #eeff00;
+    box-shadow:
+    -5px 7px 1px 0px #1b1b1b, 
+    6px -9px 8px 2px #bcc53c, 
+    0px 0px 13px 5px #a3a3a5, 
+    -2px 2px 0px 6px #2d2d2e, 
+    6px -9px 6px 0px #ffffff, 
+    6px -9px 20px 4px #ffffff, 
+    inset 1px -2px 7px #13141d, 
+    6px -9px 20px 4px #eeff00;
 } 
 .hard + .buttons::before {
-       content: "";          
-       background: #c05c4a; 
+    content: "";          
+    background: #c05c4a; 
     }
 .hard + .buttons:hover::before {
-       content: "";                 
-       background: #ff9b89;
+    content: "";                 
+    background: #ff9b89;
     outline: #fa7d6c 1px solid;
     box-shadow: -5px 7px 1px 0px #1b1b1b, 
     6px -7px 9px 3px #f18071, 
