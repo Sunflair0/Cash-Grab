@@ -71,56 +71,107 @@ li .buttons{
     display: flex;
     float: right;
     font-size: medium;    
-    margin:-0 10% 10% 8%;
+    margin:-0 30% 10% 8%;
     margin-top: 30%;
-    border: rgb(150, 150, 150) solid 1px;   
-    border-top: rgb(150, 150, 150) solid 2px;  
-    border-right:rgb(160, 159, 159) solid 3px;   
+    border: #000000 solid 1px;   
+    border-top: #adaaaa solid 2px;  
+    border-right:#9f9f9f solid 2px;   
     border-radius: 100%;
     height: 24px;
     width: 25px;    
-    background: rgb(73, 73, 73); 
     appearance: none;
     box-shadow: 
-    inset 2px -3px 3px 1px rgb(202, 200, 200), 
-    inset 2px -5px 5px 1px rgb(148, 148, 148),
-    inset 2px -7px 10px 1px rgb(141, 140, 140);   
+    inset 2px -3px 3px 1px #bbaeae, 
+    inset 2px -5px 5px 1px #c3c3c3,
+    inset 2px -7px 10px 1px #4c4c4c;   
     cursor: pointer;   
 
     &::before {
         content: "";
         height: 13px;
         width: 13px;
+        outline: #d3c9c9 1px solid;
+        outline-offset: 8px;
         border-radius: 100%;
-        margin: 4px -5px 12px 4px; 
-        border: rgb(19, 19, 19) solid 1px;   
+        margin: 4px 3px 12px 5px; 
         box-shadow: 
-            -10px -7px 7px 0px rgb(27, 27, 27),
-            -1px  7px 15px rgb(196, 190, 190),
-            inset 1px -2px 7px 0px rgb(19, 20, 29),
-            inset 0px -2px 10px 0 rgb(255, 255, 255);        
+        -5px 7px 1px 0px #1b1b1b, 
+        0px 0px 13px 5px #a3a3a5, 
+        -2px 2px 0px 6px #2d2d2e, 
+        6px -9px 6px 0px #ffffff, 
+        6px -9px 20px 4px #ffffff, 
+        inset 1px -2px 7px #13141d, 
+        inset 1px -2px 10px #ffffff;   
+            
+            li .buttons::before {
+                content: "";
+                height: 13px;
+                width: 13px;
+                border-radius: 100%;
+                margin: 4px 3px 12px 5px;
+                box-shadow: 7px -8px 6px 1px #ffffff, 
+                0px 0px 5px 2px #f0eeee, 
+                -4px 5px 0px 0px black,
+                inset -1px -2px 10px 0px #ffffff,
+                inset 1px -2px 7px 0px #000000;              
+            }
     }  
 }
 .clear-float{
     clear:both;
 }
-.easy + .buttons {
-   &::before {
+.easy + .buttons::before {
        content: "";                
-       background: rgb(87, 211, 4); 
-     }
-}
-.med + .buttons {
-   &::before {
+       background: #6eaf45; 
+ }            
+    .easy + .buttons:hover::before {
+        content: "";        
+        background: #62ff00; 
+        outline:  #a2fa6c 1px solid;
+        box-shadow:
+        -5px 7px 1px 0px #1b1b1b, 
+        6px -9px 8px 2px #43c53c, 
+        0px 0px 13px 5px #a3a3a5, 
+        -2px 2px 0px 6px #2d2d2e, 
+        6px -9px 6px 0px #ffffff, 
+        6px -9px 20px 4px #ffffff, 
+        inset 1px -2px 7px #13141d, 
+        6px -9px 20px 4px #62ff00;
+} 
+.med + .buttons::before {
        content: "";                 
-       background: rgb(255, 238, 0); 
-    }
+       background: #b4b643; 
 }
-.hard + .buttons {
-   &::before {
+.med + .buttons:hover::before {
+    content: ""; 
+    background: #fbff00; 
+    outline:  #f8fa6c 1px solid;
+        box-shadow:
+        -5px 7px 1px 0px #1b1b1b, 
+        6px -9px 8px 2px #bcc53c, 
+        0px 0px 13px 5px #a3a3a5, 
+        -2px 2px 0px 6px #2d2d2e, 
+        6px -9px 6px 0px #ffffff, 
+        6px -9px 20px 4px #ffffff, 
+        inset 1px -2px 7px #13141d, 
+        6px -9px 20px 4px #eeff00;
+} 
+.hard + .buttons::before {
        content: "";          
-       background: rgb(255, 0, 0); 
+       background: #c05c4a; 
     }
+.hard + .buttons:hover::before {
+       content: "";                 
+       background: #ff9b89;
+    outline: #fa7d6c 1px solid;
+    box-shadow: -5px 7px 1px 0px #1b1b1b, 
+    6px -7px 9px 3px #f18071, 
+    0px 0px 13px 5px #a3a3a5, 
+    -2px 2px 0px 6px #2d2d2e, 
+    6px -9px 6px 0px #ffffff, 
+    6px -9px 20px 4px #ffffff, 
+    inset 1px -2px 7px #13141d, 
+    6px -9px 20px 4px #fa5d41;
 }
 ul {   
     flex-direction: column;
@@ -148,68 +199,72 @@ ul {
     z-index: 10;
     transition: .5s ease all;
 }
-.easy:checked + .buttons{
-    background: #3aee3a;
-    box-shadow:  
-    1px -2px 7px 3px rgb(218, 255, 200),
-    -2px 1px 10px 4px  rgb(97, 255, 6), 
-    2px -1px 10px 4px  rgb(97, 255, 6), 
-    inset 0px 2px 10px 0 rgb(138, 238, 113),
-    inset 0px -2px 10px 0 rgb(138, 238, 113);  
-   
-     &::before {
+.easy:checked + .buttons{       
+    box-shadow: 
+    0px 0px 20px 12px #15df1b, 
+    0px 0px 13px 2px #00ff2a;
+    
+    &::before {
         content: "";
-        background: rgb(255, 255, 255); 
+        border: #59dd54 solid 1px;
+        outline: #50cb20 solid 1px;           
         box-shadow: 
-            1px -2px 7px 0px rgb(29, 63, 19),
-            1px  -7px 5px rgb(156, 241, 139),
-            inset 1px -2px 7px 0px rgb(156, 255, 132),
-            inset -1px 2px 3px 0px rgb(255, 255, 255);
-    } 
+        -5px 7px 1px 0px #166203, 
+        6px -7px 6px 1px #ffffff,
+        0px 0px 4px 5px #25fd08, 
+        0px 0px 12px 11px #33b15d,
+        10px -12px 9px 5px #e3e3e3, 
+        0px 0px 0px 7px #ffffff, 
+        0px 0px 9px 13px #000000,  
+        inset -2px 2px 0px 0px #c2ff24, 
+        inset 0px 0px 0px 20px #47ff00;  
+    }
 }  
 .med:checked + .buttons{
-    background: #bbb946;
     box-shadow: 
-    1px -2px 7px 3px rgb(241, 240, 142),
-    -2px 1px 10px 4px rgb(206, 203, 33), 
-    2px -1px 10px 4px rgb(206, 203, 33),
-    inset 0px 2px 10px 0 rgb(240, 234, 147),
-    inset 0px -8px 10px 0 rgb(240, 234, 147);  
-    z-index: 10;
+    0px 0px 20px 12px #dcdf15, 
+    0px 0px 13px 2px #fbff00;
    
      &::before {
         content: "";
-        background: rgb(255, 255, 255); 
+        border: #c9dd54 solid 1px;
+        outline: #c2cb20 solid 1px;
         box-shadow: 
-            1px -2px 7px 0px rgb(60, 63, 19),
-            1px  -7px 5px rgb(255, 255, 255),
-            inset 1px -2px 7px 0px rgb(247, 255, 132),
-            inset -1px 2px 3px 0px rgb(255, 255, 255);
-            z-index: 10;
+        -5px 7px 1px 0px #838102, 
+        6px -7px 6px 1px #ffffff,
+        0px 0px 4px 5px #faff09, 
+        0px 0px 12px 11px #959124, 
+        10px -12px 9px 5px #e3e3e3, 
+        0px 0px 0px 7px #ffffff, 
+        0px 0px 9px 13px #000000, 
+        inset -2px 2px 0px 0px  #ffffff, 
+        inset 0px 0px 0px 20px #fffb00
     }  
 }
 .hard:checked + .buttons{
-    background: #ee0404;
     box-shadow: 
-    1px -2px 7px 3px rgb(243, 115, 115),
-    2px -1px 10px 4px rgb(206, 33, 33), 
-    -2px 1px 10px 4px rgb(206, 33, 33), 
-    inset 0px 2px 10px 0 rgb(255, 170, 157),
-    inset 0px -8px 10px 0 rgb(255, 255, 255);  
+    0px 0px 20px 12px #df3315, 
+    0px 0px 13px 2px #ff2600;
    
      &::before {
         content: "";
-        background: rgb(255, 202, 202); 
+        border: #9f1717 solid 1px;
+        outline: #850000 solid 1px;  
         box-shadow: 
-            1px -2px 7px 0px rgb(255, 255, 255),
-            1px  -7px 5px rgb(192, 101, 101),
-            inset 1px -2px 7px 0px rgb(255, 51, 132),
-            inset -1px 2px 3px 0px rgb(255, 255, 255);
-    } 
+            -5px 7px 1px 0px #620303, 
+            6px -7px 6px 1px #ffffff, 
+            0px 0px 4px 5px #eb3131, 
+            0px 0px 12px 11px #b13b33, 
+            10px -12px 9px 5px #e3e3e3, 
+            0px 0px 0px 7px #ffffff, 
+            0px 0px 9px 13px #000000, 
+            inset -2px 2px 0px 0px #ff4e83, 
+            inset 0px 0px 0px 20px #ff0079;  
+    }   
 }
 //button labels
 li:nth-child(2){
-    color: #70fd70;
+    color: #00ff00;
     margin-left: 10px;
     overflow: visible;
     margin-right: 7px;   
@@ -221,7 +276,7 @@ li:nth-child(3){
     overflow: visible;
 }
 li:nth-child(4){
-    color: #fd5555;
+    color: #ff7373;
     margin-left: 10px;
     margin-right: 7px;
     overflow: visible;
