@@ -213,20 +213,13 @@ img {
 }
 
 @media screen and (min-width: 1060px) {
-  .sky {
-    margin-top: -290px;
-  }
   #score, #tick {
-    font-family: 'Orbitron';
     margin-top: 3vh;
   }
   .second {
     -webkit-transform: scale(0.35, 0.35);
             transform: scale(0.35, 0.35);
     margin-bottom: 8vh;
-  }
-  .bottom {
-    margin-bottom: -31%;
   }
 }
 
@@ -359,40 +352,49 @@ img {
   min-width: 80px;
 }
 
+.introModalShows {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  height: 100%;
+}
+
 .moleShow {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
-  margin-left: 5px;
-  height: 70%;
-  width: 100%;
-}
-
-.moleBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   height: 100%;
+  width: 300%;
 }
 
-.cashShows {
+.cash_moleShows {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: relative;
   width: 5%;
+  margin-top: -25%;
 }
 
 .cashShow {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-width: 10%;
   position: fixed;
-  max-height: 75px;
-  top: 8%;
-  left: 40%;
+  width: 60px;
+  -webkit-transform: translate(-4vh, -2vh);
+          transform: translate(-4vh, -2vh);
 }
 
 .moleHold {
@@ -405,27 +407,8 @@ img {
           flex-direction: column;
   width: 100%;
   position: fixed;
-  -webkit-transform: translate(0%, -20%);
-          transform: translate(0%, -20%);
-  margin: -2px 0;
-  left: 40%;
-}
-
-.textBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
-  margin-bottom: -18%;
-  margin-top: 5%;
-  height: 100%;
+  -webkit-transform: translate(-200%, -50%);
+          transform: translate(-200%, -50%);
 }
 
 .textShow {
@@ -438,7 +421,7 @@ img {
           flex-direction: column;
   font-size: auto;
   position: relative;
-  top: 20%;
+  top: 12%;
 }
 
 #coolmole1 img {
@@ -692,13 +675,13 @@ img {
           flex-direction: column;
   background-color: rgba(0, 0, 0, 0.75);
   border: #ffffff 5px ridge;
-  height: 58%;
+  height: 66%;
+  top: -95%;
   width: 86%;
   color: white;
   position: absolute;
   padding: 10px;
   opacity: 0;
-  top: -80%;
 }
 
 .roundModal {
@@ -1063,6 +1046,7 @@ button .xIntro {
 
 #level {
   font-weight: 700;
+  font-family: "Caveat";
   font-size: 16px;
   width: 80px;
   height: 60px;
@@ -1087,6 +1071,10 @@ button .xIntro {
   font-size: 20px;
   -webkit-transform: translate(0, -5px);
           transform: translate(0, -5px);
+}
+
+.close {
+  font-weight: 700;
 }
 
 .lockPadlock {
@@ -1384,8 +1372,8 @@ p:after {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -ms-flex-preferred-size: 27%;
-      flex-basis: 27%;
+  -ms-flex-preferred-size: 16%;
+      flex-basis: 16%;
 }
 
 .ground {
@@ -1398,11 +1386,9 @@ p:after {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -ms-flex-preferred-size: 60%;
-      flex-basis: 60%;
+  -ms-flex-preferred-size: 69%;
+      flex-basis: 69%;
   width: 85%;
-  margin-top: -3%;
-  margin-bottom: 5%;
 }
 
 .bottom {
@@ -1415,8 +1401,8 @@ p:after {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -ms-flex-preferred-size: 22.5%;
-      flex-basis: 22.5%;
+  -ms-flex-preferred-size: 15.5%;
+      flex-basis: 15.5%;
   width: 100%;
   padding: 2px;
   border: white 4px ridge;

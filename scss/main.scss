@@ -69,18 +69,16 @@ p {
 }
 .sky {
     @include flexShell;   
-    flex-basis: 27%; 
+    flex-basis: 16%; 
 }
 .ground {
     @include flexShell;
-    flex-basis: 60%;
+    flex-basis: 69%;
     width: 85%;
-    margin-top: -3%;
-    margin-bottom: 5%;
 }
 .bottom {
     @include flexShell;
-    flex-basis: 22.5%;  
+    flex-basis: 15.5%; 
     width: 100%;
     padding: 2px;    
     border: white 4px ridge;

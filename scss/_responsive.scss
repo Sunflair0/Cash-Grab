@@ -54,33 +54,25 @@
     }
     .rank, .lvColor, .score, .name {
         margin-bottom: 15%;
-}
-.tsModal {
-    height: 70%;
-    top: -106%;
-}
-.scoreModal {
-    height: 60%;
-}
-.bottom {
-    margin-bottom: -3%;
-}
+    }
+    .tsModal {
+        height: 70%;
+        top: -106%;
+    }
+    .scoreModal {
+        height: 60%;
+    }
+    .bottom {
+        margin-bottom: -3%;
+    }
 }
 @include media-lg {
-    .sky {
-       
-        margin-top: -290px;
-    }
     #score, #tick {
-        font-family: 'Orbitron';
         margin-top: 3vh;
     }
     .second {  
         transform: scale(.35,.35);
         margin-bottom: 8vh;
-    }
-    .bottom {
-        margin-bottom: -31%;
     }
 }
 @include media-xl {

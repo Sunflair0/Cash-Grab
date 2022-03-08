@@ -16,9 +16,9 @@
   border: blueviolet 2px solid;
  }
 @mixin flexShell {
-    display: flex;
-    flex-direction: row;  
-    flex-wrap: wrap;    
+  display: flex;
+  flex-direction: row;  
+  flex-wrap: wrap;    
 }
 @mixin actionBox {
   flex-basis: 32%;
@@ -41,7 +41,6 @@
   display: flex;    
   flex-basis: 25%;
   font-size: small;
-  // flex-direction: column;
 }
 @mixin media-sm {
   @media screen and (min-width: 576px) {

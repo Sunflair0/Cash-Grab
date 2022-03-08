@@ -67,54 +67,44 @@
     max-width: 100px;
     min-width: 80px;   
 }
- .moleShow {
+.introModalShows {
     display: flex;
-    position: relative;     
-    margin-left: 5px;
-    height: 70%;
-    width: 100%;
-}
-.moleBox {
+    flex-direction: column;         
+    align-items: center;
+    justify-content: center;
+    position: relative; 
+    height: 100%;
+ }
+.moleShow {
     display: flex;
     height: 100%; 
+    width: 300%;
 }
-.cashShows {
+.cash_moleShows {
     display: flex;    
     position: relative;        
     width: 5%;   
+    margin-top: -25%;
 }
 .cashShow{
-    display: flex;
-    max-width: 10%;
+    display: flex;   
     position: fixed;
-    max-height: 75px;
-    top: 8%;
-    left: 40%;
+    width: 60px;
+    transform: translate(-4vh, -2vh);
 }
 .moleHold {
    display: flex;
    flex-direction: column; 
    width: 100%;
    position: fixed; 
-   transform: translate(0%,-20%);
-   margin: -2px 0;
-   left: 40%;
-}
-.textBox {
-   display: flex;
-   flex-direction: column;         
-   align-items: center;
-   position: relative; 
-   margin-bottom: -18%;
-   margin-top: 5%;
-   height: 100%;
+   transform: translate(-200%, -50%);
 }
 .textShow {
     display: flex;
     flex-direction: column;
     font-size: auto;
     position: relative;     
-    top: 20%;
+    top: 12%;
 }
 #coolmole1 img {
     width: 75%;

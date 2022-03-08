@@ -118,7 +118,7 @@ function intro() {
         // /////text reveal
         .to(rule, { cssRule: { scaleY: 0 }, duration: 4 }, "-=.5")
         // /////mole slide in
-        .fromTo(".moleHold", { opacity: 0, x: '-100%', }, { opacity: 1, x: 0, duration: 2 }, "-=3.5");
+        .fromTo(".moleShow", { opacity: 0, x: '-1500%', }, { opacity: 1, x: 0, duration: 2 }, "-=3.5");
 
     let cashCarousel = gsap.timeline({ repeat: -1 });
     cashCarousel
