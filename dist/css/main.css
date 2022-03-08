@@ -675,12 +675,13 @@ img {
           flex-direction: column;
   background-color: rgba(0, 0, 0, 0.75);
   border: #ffffff 5px ridge;
-  height: 66%;
-  top: -95%;
-  width: 86%;
+  height: 70%;
+  top: -103%;
+  width: 85%;
+  max-width: 510px;
   color: white;
   position: absolute;
-  padding: 10px;
+  padding: 2vh;
   opacity: 0;
 }
 
@@ -726,7 +727,7 @@ img {
 }
 
 #evalMes, .evalOne2, #message {
-  font-family: 'Flavors';
+  font-family: 'Caveat';
   font-size: medium;
   margin-bottom: 1rem;
   color: #f77c4c;
@@ -1046,14 +1047,14 @@ button .xIntro {
 
 #level {
   font-weight: 700;
-  font-family: "Caveat";
   font-size: 16px;
   width: 80px;
   height: 60px;
   background-color: #000000;
+  outline: #f3f365 solid 2px;
+  outline-offset: -4px;
   color: #f3f365;
-  padding: 9px 0 0px 25px;
-  border: solid 2px #f3f365;
+  padding: 10px 0 0 28px;
   -webkit-transform: translate(0, -5px);
           transform: translate(0, -5px);
   -webkit-transition: .3s ease all;
@@ -1066,30 +1067,64 @@ button .xIntro {
   display: -ms-flexbox;
   display: flex;
   height: 30px;
-  width: 25px;
+  width: 23px;
   position: fixed;
-  font-size: 20px;
-  -webkit-transform: translate(0, -5px);
-          transform: translate(0, -5px);
+  margin: -1px 4px;
+  font-size: 17px;
+}
+
+ul {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+li::marker {
+  color: transparent;
 }
 
 .close {
+  margin: 6%;
   font-weight: 700;
+  color: white;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
 }
 
-.lockPadlock {
-  background: repeating-linear-gradient(139deg, #000000 83%, #000000 90%, #717576 96%, #000000 100%);
+.choice {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80px;
+  top: 28px;
+  background: #0e0c0c;
+  position: absolute;
+  outline-offset: -4px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: small;
+  border-top: 0;
+  right: -100%;
+  z-index: 10;
+  -webkit-transition: .5s ease all;
+  transition: .5s ease all;
 }
 
 #finger {
   margin-top: -60px;
-  font-size: 60px;
+  font-size: 56px;
   width: 80px;
   height: 60px;
   color: silver;
   z-index: 2;
   -webkit-transform: translate(0, -5px);
           transform: translate(0, -5px);
+}
+
+.lockPadlock {
+  background: repeating-linear-gradient(139deg, #000000 83%, #000000 90%, #717576 96%, #000000 100%);
 }
 
 li .buttons {
@@ -1179,41 +1214,6 @@ li .buttons::before li .buttons::before {
           box-shadow: -5px 7px 1px 0px #1b1b1b,  6px -7px 9px 3px #f18071,  0px 0px 13px 5px #a3a3a5,  -2px 2px 0px 6px #2d2d2e,  6px -9px 6px 0px #ffffff,  6px -9px 20px 4px #ffffff,  inset 1px -2px 7px #13141d,  6px -9px 20px 4px #fa5d41;
 }
 
-ul {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.close {
-  margin: 0%;
-  color: white;
-  position: relative;
-  height: 20px;
-  width: 20px;
-  cursor: pointer;
-}
-
-.choice {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  color: white;
-  width: 80px;
-  top: 30px;
-  background: #0e0c0c;
-  position: absolute;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: small;
-  border: 2px solid black;
-  border-top: 0;
-  right: -100%;
-  z-index: 10;
-  -webkit-transition: .5s ease all;
-  transition: .5s ease all;
-}
-
 .easy:checked + .buttons {
   -webkit-box-shadow: 0px 0px 20px 12px #15df1b,  0px 0px 13px 2px #00ff2a;
           box-shadow: 0px 0px 20px 12px #15df1b,  0px 0px 13px 2px #00ff2a;
@@ -1268,7 +1268,7 @@ li:nth-child(3) {
 }
 
 li:nth-child(4) {
-  color: #ff7373;
+  color: #ff5252;
   margin-left: 10px;
   margin-right: 7px;
   overflow: visible;
@@ -1285,9 +1285,9 @@ li:nth-child(4) {
 p {
   font-family: "Mukta";
   font-size: .8rem;
-  margin-bottom: .4rem;
+  margin-bottom: 1rem;
   color: #fcddb6;
-  line-height: 1.1rem;
+  line-height: 1rem;
 }
 
 p::first-child {

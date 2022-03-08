@@ -129,7 +129,7 @@ function intro() {
         .from("#min3", { opacity: 0, x: '-80%', duration: .5 })
         .to("#min3", { opacity: 0, x: 0, duration: 1, delay: 2 })
         .from("#min4", { opacity: 0, x: '-80%', duration: .5 })
-        .to("#min4", { opacity: 0, x: 0, duration: 1, delay: 2 })
+        .to("#min4", { opacity: 0, x: 0, duration: 1, delay: 2 });
   
     /////combining both timelines
     let master = gsap.timeline();
@@ -138,6 +138,13 @@ function intro() {
         .add(cashCarousel);
 }
 function xIntro() {
+
+    let choiceblock = gsap.timeline({ defaults: { duration: 1.5 } })
+    choiceblock
+    .fromTo("#level", {opacity: 0, y:-40}, {opacity: 1, y:-5})
+    .fromTo("#finger", {opacity: 0}, {opacity: 1})
+    .fromTo("#padlock", {opacity: 0}, {opacity: 1}, "<");
+
     document.getElementsByClassName('choiceblock')[0].style.visibility = "visible";
     gamePlay.level = "MED";
     level.innerText = 'MED';
@@ -163,7 +170,7 @@ function unlockChoice() {
     let point = gsap.timeline();
     point
         .to("#finger", { x: "20%", repeat: 5, yoyo: true, duration: .3, delay: 3 })
-        .to("#finger", { x: "20%", repeat: 5, yoyo: true, duration: .3, delay: 5 });
+        .to("#finger", { x: "30%", repeat: 5, yoyo: true, duration: .3, delay: 5 });
 }
 close.addEventListener("click", closeChoosing);
 easy.addEventListener("click", selectDifficulty);
@@ -183,7 +190,7 @@ function selectDifficulty() {
     if (document.getElementById('easy').checked) {
         seconds = 2000;
         level.innerText = 'EASY';
-        stackStyle = '#5dca5d';
+        stackStyle = '#61fb61';
         setStyle();
         gamePlay.level = "EASY";
     }
@@ -197,7 +204,7 @@ function selectDifficulty() {
     if (document.getElementById('hard').checked) {
         seconds = 500;
         level.innerText = 'HARD';
-        stackStyle = '#fd7575';
+        stackStyle = '#ff5252';
         setStyle();
         gamePlay.level = "HARD";
     }
@@ -206,9 +213,9 @@ function selectDifficulty() {
 }
 function setStyle() {
     level.style.color = `${stackStyle}`;
-    level.style.border = `${stackStyle} 2px solid`;
-    choiceStack.style.border = `${stackStyle} 2px solid`;
-    choiceStack.style.borderTop = '0';
+    level.style.outline = `${stackStyle} 2px solid`;
+    choiceStack.style.outline = `${stackStyle} 2px solid`;
+    choiceStack.style.outlineTop = '0';
 }
 function begin() {
     life = 5;

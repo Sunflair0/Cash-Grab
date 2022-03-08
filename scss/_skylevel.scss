@@ -31,14 +31,14 @@ button .xIntro {
 }    
 #level {
     font-weight: 700;
-    font-family: "Caveat";
     font-size: 16px;
     width: 80px;
     height: 60px;
     background-color: #000000;
+    outline: #f3f365 solid 2px;
+    outline-offset: -4px;
     color: #f3f365;
-    padding: 9px 0 0px 25px;
-    border: solid 2px #f3f365;
+    padding: 10px 0 0 28px;
     transform: translate(0,-5px);
     transition: .3s ease all;
     cursor: pointer;      
@@ -46,13 +46,48 @@ button .xIntro {
 #padlock {
     display: flex;
     height: 30px;
-    width: 25px;
+    width: 23px;
     position: fixed;
-    font-size: 20px;
-    transform: translate(0,-5px);
+    margin: -1px 4px;
+    font-size: 17px;
+}
+ul {   
+    flex-direction: column;
+}
+li::marker {
+    color: transparent;
 }
 .close {
+    margin: 6%;
     font-weight: 700;
+    color: rgb(255, 255, 255);        
+    position: relative;
+    height: 20px;
+    width: 20px;        
+    cursor: pointer;    
+}
+.choice {    
+    display: flex;  
+    width: 80px;    
+    top: 28px;
+    background: rgb(14, 12, 12);
+    position: absolute;
+    outline-offset: -4px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: small;          
+    border-top: 0; 
+    right: -100%;    
+    z-index: 10;
+    transition: .5s ease all;
+}
+#finger {
+    margin-top: -60px;
+    font-size: 56px;
+    width: 80px;
+    height: 60px;
+    color: silver; 
+    z-index: 2;
+    transform: translate(0,-5px);      
 }
 .lockPadlock {
     background: repeating-linear-gradient(139deg, 
@@ -61,15 +96,7 @@ button .xIntro {
     #717576 96%,        
     #000000 100%);
 }
-#finger {
-    margin-top: -60px;
-    font-size: 60px;
-    width: 80px;
-    height: 60px;
-    color: silver; 
-    z-index: 2;
-    transform: translate(0,-5px);      
-}
+
 li .buttons{        
     display: flex;
     float: right;
@@ -176,32 +203,6 @@ li .buttons{
     inset 1px -2px 7px #13141d, 
     6px -9px 20px 4px #fa5d41;
 }
-ul {   
-    flex-direction: column;
-}
-.close {
-    margin: 0%;
-    color: rgb(255, 255, 255);        
-    position: relative;
-    height: 20px;
-    width: 20px;        
-    cursor: pointer;    
-}
-.choice {    
-    display: flex;
-    color: white;    
-    width: 80px;    
-    top: 30px;
-    background: rgb(14, 12, 12);
-    position: absolute;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: small;      
-    border: 2px solid black;
-    border-top: 0; 
-    right: -100%;    
-    z-index: 10;
-    transition: .5s ease all;
-}
 .easy:checked + .buttons{       
     box-shadow: 
     0px 0px 20px 12px #15df1b, 
@@ -279,7 +280,7 @@ li:nth-child(3){
     overflow: visible;
 }
 li:nth-child(4){
-    color: #ff7373;
+    color: #ff5252;
     margin-left: 10px;
     margin-right: 7px;
     overflow: visible;

@@ -4,14 +4,14 @@
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.75);
     border:#ffffff 5px ridge;
-    height: 66%;
-    top: -95%;
-    width: 86%;
+    height: 70%;
+    top: -103%;
+    width: 85%;
+    max-width: 510px;
     color: white;
     position: absolute;
-    padding: 10px;
-    opacity: 0;
-    
+    padding: 2vh;
+    opacity: 0;    
 }
 .roundModal {
     display: flex;
@@ -45,7 +45,7 @@
     overflow: visible;
 }
 #evalMes, .evalOne2, #message {    
-    font-family: 'Flavors';
+    font-family: 'Caveat';
     font-size: medium;
     margin-bottom: 1rem;
     color: #f77c4c;
