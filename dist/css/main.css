@@ -146,10 +146,6 @@ img {
   .roundModal {
     color: #f10b0b;
   }
-  #start {
-    max-width: 100px;
-    max-height: 100px;
-  }
   .headings, #score, #tick {
     font-size: xx-large;
   }
@@ -181,6 +177,9 @@ img {
   }
   th {
     font-size: small;
+  }
+  #start {
+    min-height: 100px;
   }
 }
 
@@ -433,10 +432,12 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 80px;
-  height: 80px;
+  width: auto;
+  height: 80%;
   margin: auto;
-  margin-top: 13px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   cursor: pointer;
 }
 
@@ -550,8 +551,8 @@ img {
 .wBox2 {
   visibility: hidden;
   width: 21%;
-  padding-left: 6px;
-  padding-top: 6px;
+  padding-left: 7px;
+  padding-top: 7px;
   position: fixed;
 }
 
@@ -729,9 +730,12 @@ img {
 
 #evalMes, .evalOne2, #message {
   font-family: 'Caveat';
-  font-size: medium;
+  font-size: larger;
   margin-bottom: 1rem;
-  color: #f77c4c;
+  font-weight: 600;
+  background: radial-gradient(#c0ff00, #fbff00, #4aec0a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 th {
@@ -894,15 +898,12 @@ tr {
 }
 
 .progress-bar::before {
-  content: attr(data-label);
+  content: "Goal\00a0=\00a0 300";
   padding-left: 3%;
-  color: #f30000;
+  color: #000000de;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   width: calc(var(--width,0)*1%);
   height: 1em;
   min-width: 1rem;
@@ -1052,10 +1053,12 @@ button .xIntro {
   width: 80px;
   height: 60px;
   background-color: #000000;
+  border-top: black solid 1px;
+  border-bottom: black solid 2px;
   outline: #f3f365 solid 2px;
   outline-offset: -4px;
   color: #f3f365;
-  padding: 10px 0 0 28px;
+  padding: 7px 0 0 28px;
   -webkit-transform: translate(0, -5px);
           transform: translate(0, -5px);
   -webkit-transition: .3s ease all;
@@ -1403,8 +1406,8 @@ p:after {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -ms-flex-preferred-size: 15.5%;
-      flex-basis: 15.5%;
+  -ms-flex-preferred-size: 14%;
+      flex-basis: 14%;
   width: 100%;
   padding: 2px;
   border: white 4px ridge;

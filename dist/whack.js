@@ -139,7 +139,7 @@ function intro() {
 }
 function xIntro() {
 
-    let choiceblock = gsap.timeline({ defaults: { duration: 1.5 } })
+    let choiceblock = gsap.timeline({ defaults: { duration: 1 } })
     choiceblock
     .fromTo("#level", {opacity: 0, y:-40}, {opacity: 1, y:-5})
     .fromTo("#finger", {opacity: 0}, {opacity: 1})
@@ -258,7 +258,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    }, 5100); //shortened for debugging mode
+    }, 25100); //shortened for debugging mode
 });
 
 function choice(min, max) {

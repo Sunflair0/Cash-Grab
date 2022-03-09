@@ -1,9 +1,9 @@
 #start {    
     display: flex;
-    width: 80px;
-    height: 80px;
-    margin: auto;   
-    margin-top: 13px;
+    width: auto;
+    height: 80%;
+    margin: auto;  
+    align-items: center;
     cursor: pointer;
 }
 .start {
@@ -66,8 +66,8 @@
 .wBox2{
     visibility: hidden;
     width: 21%;
-    padding-left: 6px;
-    padding-top: 6px;
+    padding-left: 7px;
+    padding-top: 7px;
     position: fixed;    
 }
 .wBox3 {

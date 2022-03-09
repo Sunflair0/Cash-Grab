@@ -49,9 +49,12 @@
 }
 #evalMes, .evalOne2, #message {    
     font-family: 'Caveat';
-    font-size: medium;
+    font-size: larger;
     margin-bottom: 1rem;
-    color: #f77c4c;
+    font-weight: 600;
+    background: radial-gradient(#c0ff00, #fbff00, #4aec0a); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 th {
     font-size: x-small;
@@ -135,6 +138,9 @@ tr {
 .mathChar{
     font-size: medium;
 }
+// data-label {
+
+// }
 .progress-bar {
     padding: 2px;    
     max-width: 100%;
@@ -145,11 +151,10 @@ tr {
     margin-right: -10vw;   
 
       &::before {
-          content: attr(data-label);
+          content: "Goal\00a0=\00a0 300";
           padding-left: 3%;
-          color:rgb(243, 0, 0);
+          color:#000000de;
           display: flex;
-          align-items: center;
           width: calc(var(--width,0)*1%);
           height: 1em;
           min-width: 1rem;

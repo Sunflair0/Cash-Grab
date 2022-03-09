@@ -35,10 +35,12 @@ button .xIntro {
     width: 80px;
     height: 60px;
     background-color: #000000;
+    border-top: black solid 1px;
+    border-bottom: black solid 2px;
     outline: #f3f365 solid 2px;
     outline-offset: -4px;
     color: #f3f365;
-    padding: 10px 0 0 28px;
+    padding: 7px 0 0 28px;
     transform: translate(0,-5px);
     transition: .3s ease all;
     cursor: pointer;      

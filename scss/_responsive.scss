@@ -2,11 +2,6 @@
     .roundModal {        
         color:rgb(241, 11, 11);
     }
-    #start {       
-        max-width:100px;
-        max-height: 100px;    
-        
-    }
     .headings, #score, #tick {
         font-size: xx-large;        
     }
@@ -37,6 +32,9 @@
     }
     th {
         font-size: small;  
+    }
+    #start {    
+        min-height: 100px;
     }
 }
 @include media-md {
