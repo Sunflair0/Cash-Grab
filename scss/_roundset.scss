@@ -42,7 +42,7 @@
 .scoreModal {   
     border:white 5px ridge;
     padding: 0px 7px;
-    margin: -5% auto;    
+    margin: 3% auto;    
     height: 60%;
     opacity: 0;
     overflow: visible;
@@ -52,7 +52,7 @@
     font-size: larger;
     margin-bottom: 1rem;
     font-weight: 600;
-    background: radial-gradient(#c0ff00, #fbff00, #4aec0a); 
+    background: radial-gradient(#33ff00, #ffee00, #4aec0a); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -79,15 +79,14 @@ tr {
     grid-template-rows:  1fr;
 } 
 .scoreCap {
-    @include gridplus;    
-    padding: 5% 10px; 
-    font-size: small;
+    grid-area: 1/1/2/7;
+    display:flex;
+    height: 70%;
+    grid-row: span 1;   
+    margin: 5% 10px 0;
+    font-size: medium;
     border-bottom:#ffffff 3px ridge;
     background-color: black;
-}
-.scoreCap2 {
-    @include gridplus;
-    padding: 5% 10px; 
 }
 .pScore0 { 
     display: flex;
@@ -138,9 +137,6 @@ tr {
 .mathChar{
     font-size: medium;
 }
-// data-label {
-
-// }
 .progress-bar {
     padding: 2px;    
     max-width: 100%;

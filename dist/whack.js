@@ -138,13 +138,6 @@ function intro() {
         .add(cashCarousel);
 }
 function xIntro() {
-
-    let choiceblock = gsap.timeline({ defaults: { duration: 1 } })
-    choiceblock
-    .fromTo("#level", {opacity: 0, y:-40}, {opacity: 1, y:-5})
-    .fromTo("#finger", {opacity: 0}, {opacity: 1})
-    .fromTo("#padlock", {opacity: 0}, {opacity: 1}, "<");
-
     document.getElementsByClassName('choiceblock')[0].style.visibility = "visible";
     gamePlay.level = "MED";
     level.innerText = 'MED';
@@ -155,6 +148,12 @@ function xIntro() {
     introLeave.to(".introModal", { opacity: 0, x: '200%', y: "165%", duration: 1, ease: "circ", delay: ".5" });   
     printHearts()
     unlockChoice()
+    
+    let levelBlock_descends = gsap.timeline({ defaults: { duration: 1 } })
+    levelBlock_descends
+    .fromTo("#level", {opacity: 0, y:-40}, {opacity: 1, y:-5})
+    .fromTo("#finger", {opacity: 0}, {opacity: 1})
+    .fromTo("#padlock", {opacity: 0}, {opacity: 1}, "<");
 }
 function gameAgain() {
     gsap.to(".tsModal", { opacity: 0, duration: 1, ease: "circ", y: '-165%' });
@@ -258,7 +257,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         roundGsap();
-    }, 25100); //shortened for debugging mode
+    }, 5100); //shortened for debugging mode
 });
 
 function choice(min, max) {
@@ -485,17 +484,30 @@ function gameEnd() {
         .to(".roundModal", { y: '-200%' })
         .to(".tsModal", { opacity: 1, duration: 1.3, y: "165%", ease: "bounce", }, "-=.5")
         .to(".scoreCap", { opacity: 1, duration: 1.5, ease: "circ" })
-        .fromTo(".pScore0", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: .3, ease: "circ" })
-        .fromTo(".quarter", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: .3, ease: "circ", stagger: .4 })
+
+        // /////top part of scoreboard --player score
+        .to(".quarter0", { opacity: 0, duration: .5, ease: "circ"})
+        .fromTo(".pScore0",{ opacity: 0, scale: 0, x: "-50", y: "-50"}, { opacity: 1, scale: 1, duration: .6, ease: "circ", y:"0" },"<")
+        .to(".quarter1", { opacity: 0, duration: .5, ease: "circ"})
+        .fromTo(".pScore1", { opacity: 0, scale: 0, x: "-30", y: "-50"},{ opacity: 1, scale: 1, duration: .6, ease: "circ", y:"0" },"<")
+        .to(".quarter2", { opacity: 0, duration: .5, ease: "circ"})
+        .fromTo(".pScore2", { opacity: 0, scale: 0, x: "-30", y: "-50"},{ opacity: 1, scale: 1, duration: .6, ease: "circ", y:"0" },"<")
+        .to(".quarter3", { opacity: 0, duration: .5, ease: "circ"})
+        .fromTo(".pScore3", { opacity: 0, scale: 0, x: "-30", y: "-50"},{ opacity: 1, scale: 1, duration: .6, ease: "circ", y:"0" },"<")
+        .to(".quarter4", { opacity: 0, duration: .5, ease: "circ"})
+        .fromTo(".pScore4",{ opacity: 0, scale: 0, x: "-30", y: "-50"}, { opacity: 1, scale: 1, duration: .6, ease: "circ", y:"0" },"<")
+        .to(".quarter5", { opacity: 0, duration: .5, ease: "circ"})
+        .fromTo(".pScore5", { opacity: 0, scale: 0, x: "-30", y: "-50"},{ opacity: 1, scale: 1, duration: .6, ease: "circ", y:"0" },"<")
+        
+        // /////bottom part of scoreboard --top ten
         .fromTo(".scoreModal", { opacity: 0 }, { opacity: 1, duration: 1, ease: "circ" }, "+=.5")
         .fromTo(".rank", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 })
         .fromTo(".lvColor", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .fromTo(".score", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .fromTo(".name", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .fromTo(".time", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")     
-        .fromTo("#message", { opacity: 0, scale: 0, x: "13%", y: "80%" }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
+        .fromTo("#message", { opacity: 0, scale: 0, x: "13%", y: "33%" }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
         .fromTo("#eval2", { opacity: 0, x: "0%", }, { opacity: 1, x: "700%", duration: 1, y: "0%", ease: "back", rotation: 720 }, "-=1");
-
         
 document.getElementById('message').innerText = `Try to beat your score`;
     let playAgain = document.getElementById('eval2');
