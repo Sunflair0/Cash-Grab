@@ -114,9 +114,9 @@ function intro() {
     let intro = gsap.timeline({ defaults: { duration: 1.5 } })
     intro
         // /////modal slide in
-        .fromTo(".introModal", { opacity: 0, x: '-200%', y: '165%' }, { opacity: .87, duration: 1.5, x: 0, ease: "circ" })
+        .fromTo(".introModal", { opacity: 0, x: '-200%', y: '165%' }, { opacity: .8, duration: 1.5, x: 0, ease: "circ" })
         // /////text reveal
-        .to(rule, { cssRule: { scaleY: 0 }, duration: 4 }, "-=.5")
+        .to(rule, { cssRule: { scaleY: 0 }, duration: 3.5 }, "-=.5")
         // /////mole slide in
         .fromTo(".moleShow", { opacity: 0, x: '-1500%', }, { opacity: 1, x: 0, duration: 2 }, "-=3.5");
 
