@@ -51,14 +51,6 @@ let min = round;
 let max = round + 1;
 let life = 5;
 let goal = 0;
-let hand = '\u{261e}';
-let lock = '\u{1f512}';
-let heart = '\u{2764}';
-let trophy = '\u{1f3c6}';
-let unlock = '\u{1f513}';
-let restart = '\u{21ba}';
-let fire = '\u{1f525}'
-let again = '\u{1f3ac}';
 let start = document.getElementById('start');
 let tick = document.getElementById('tick');
 let whiteBoxes = document.getElementsByClassName("whiteBoxes")[0];
@@ -76,24 +68,19 @@ let cash1 = document.querySelectorAll(".cash1");
 let cash2 = document.querySelectorAll(".cash2");
 let cash3 = document.querySelectorAll(".cash3");
 let cash4 = document.querySelectorAll(".cash4");
-let cash5 = document.querySelectorAll(".cash5");
-let minCash1 = document.querySelectorAll("#minCash1");
-let minCash2 = document.querySelectorAll("#minCash2");
-let minCash3 = document.querySelectorAll("#minCash3");
-let minCash4 = document.querySelectorAll("#minCash4");
-let minCash5 = document.querySelectorAll("#minCash5");
-let coolmole = document.getElementById("coolmole1");
+const darkmole = [mole1, mole2, mole3, mole4];
+const darkcash = [cash1, cash2, cash3, cash4];
+let mole = darkmole[round];
+let cash = darkcash[round];
+
+// let coolmole = document.getElementById("coolmole1");
 let header = document.getElementById('header');
 let level = document.getElementById('level');
 let padlock = document.getElementById('padlock');
 let finger = document.getElementById('finger');
 let choiceStack = document.getElementsByClassName('choice')[0];
-const darkmole = [mole1, mole2, mole3, mole4];
-const darkcash = [cash1, cash2, cash3, cash4];
-let mole = darkmole[round];
-let cash = darkcash[round];
+
 let seconds;
-let sum;
 let stackStyle = '';
 
 window.onload =
@@ -141,7 +128,7 @@ function xIntro() {
     document.getElementsByClassName('choiceblock')[0].style.visibility = "visible";
     gamePlay.level = "MED";
     level.innerText = 'MED';
-    finger.innerText = `${hand}`;
+    finger.innerText = "\u{261e}";
 
     // /////intromodal leaving
     let introLeave = gsap.timeline()
@@ -161,7 +148,7 @@ function gameAgain() {
     unlockChoice();
 }
 function unlockChoice() {
-    padlock.innerText = `${unlock}`;
+    padlock.innerText = "\u{1f513}";
     level.classList.remove('lockPadlock'); 
     level.addEventListener("click", selectDifficulty);
     level.style.cursor = 'pointer';
@@ -229,8 +216,8 @@ start.addEventListener("click", () => {
     level.classList.add('lockPadlock'); 
     level.style.cursor = 'default';    
     header.innerText = `Level ${round}`;
-    finger.style.display = 'none';
-    padlock.innerText = `${lock}`;
+    finger.style.display = 'none'; 
+    padlock.innerText = "\u{1f512}";
     level.removeEventListener("click", selectDifficulty);    
 
     document.getElementsByClassName('wBox2')[0].style.visibility = "visible";
@@ -256,8 +243,8 @@ start.addEventListener("click", () => {
         document.getElementsByClassName('wBox2')[0].style.visibility = "hidden";
         document.getElementById('score').innerText = score;
         timer = 29
-        roundGsap();
-    }, 5100); //shortened for debugging mode
+        clearHolesAfterRound();
+    }, 10100); //shortened for debugging mode
 });
 
 function choice(min, max) {
@@ -276,7 +263,6 @@ function displayMole() {
         holes[randomHole].classList.remove(`mole${round}`);
     }, 3000);
 };
-
 function displayCash() {
     let randomHole = null;
     let isRandomHoleAvailable = false;
@@ -289,7 +275,6 @@ function displayCash() {
         holes[randomHole].classList.remove(`cash${round}`);
     }, 2000);
 };
-
 holes.forEach((val) => {
     val.addEventListener('click', (e) => {
         hit++
@@ -331,12 +316,12 @@ function statusMessage(msg) {
     let container = document.querySelector("#evalMes");
     container.innerText = msg;
 }
-//display hearts for lives
+// /////display hearts for lives
 function printHearts() {
     for (let i = 1; i < 5; i++) {
         let hearts = document.getElementsByClassName(`heart${i}`)[0];
         hearts.setAttribute('style', 'y:0', 'scale:1');
-        hearts.innerText = `${heart}`;
+        hearts.innerText = "\u{2764}";
         hearts.style.opacity = 1;
     }
     begin();
@@ -379,7 +364,7 @@ function roundEnd() {
         let tryAgain = document.getElementById('eval');
         tryAgain = document.createElement("button");
         document.getElementById('eval').append(tryAgain);
-        tryAgain.innerText = `${heart}`;
+        tryAgain.innerText = "\u{2764}";
         tryAgain.addEventListener("click", useHeart);
     }
     else if (round == 4) {
@@ -387,7 +372,7 @@ function roundEnd() {
         let advance = document.getElementById('eval');
         advance = document.createElement("button");
         document.getElementById('eval').append(advance);
-        advance.innerText = `${fire}`;
+        advance.innerText = "\u{1f525}";
         advance.addEventListener("click", gameEnd);
     }
     else {
@@ -396,7 +381,7 @@ function roundEnd() {
         let advance = document.getElementById('eval');
         advance = document.createElement("button");
         document.getElementById('eval').append(advance);
-        advance.innerText = `${trophy}`;
+        advance.innerText = "\u{1f3c6}";
         advance.addEventListener("click", roundUp);
     }
 }
@@ -417,12 +402,12 @@ function noHearts() {
     let doOver = document.getElementById('eval');
     doOver = document.createElement("button");
     document.getElementById('eval').append(doOver);
-    doOver.innerText = `${restart}`;
+    doOver.innerText = "\u{21ba}";
     doOver.addEventListener("click", printHearts);
 }
 
 // /////stat modal drop
-function roundGsap() {
+function clearHolesAfterRound() {
     let clearHole = document.querySelectorAll(`.mole${round}`);
     clearHole.forEach((val) => {
         val.classList.remove(`mole${round}`)
@@ -431,6 +416,9 @@ function roundGsap() {
     clearHole1.forEach((val) => {
         val.classList.remove(`cash${round}`)
     });
+    roundendGSAP();
+}
+function roundendGSAP(){
     document.getElementById('plusImg').src = `./asset/minCash${round}.png`;
     let tl = gsap.timeline({ defaults: { duration: .5, opacity: 0 } })
     tl
@@ -470,7 +458,8 @@ function roundUp() {
 function gameEnd() {
     header.innerText = 'Final';
     gamePlay.score = sumArr();
-    console.log(sumArr())
+    console.log(gamePlay.score);
+    console.log(sumArr());
     document.getElementById("totalScore").innerText = gamePlay.score;
     postSB(masterArr);
     document.getElementById("quarter_one").innerText = rScores[0];
@@ -507,13 +496,13 @@ function gameEnd() {
         .fromTo(".name", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .fromTo(".time", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")     
         .fromTo("#message", { opacity: 0, scale: 0, x: "13%", y: "33%" }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
-        .fromTo("#eval2", { opacity: 0, x: "0%", }, { opacity: 1, x: "700%", duration: 1, y: "0%", ease: "back", rotation: 720 }, "-=1");
+        .fromTo("#eval2", { opacity: 0, x: "0%" }, { opacity: 1, x: "700%",  y: "0", duration: 1, ease: "back", rotation: 720 }, "-=1");
         
 document.getElementById('message').innerText = `Try to beat your score`;
     let playAgain = document.getElementById('eval2');
     playAgain = document.createElement("button");
     document.getElementById('eval2').append(playAgain);
-    playAgain.innerText = `${again}`;
+    playAgain.innerText = "\u{1f3ac}";
     playAgain.addEventListener("click", gameAgain);
 
  let fadeDuration = 1,
@@ -605,14 +594,16 @@ function isTopTen(gamePlay, arrayOfPlayers) {
             level: gamePlay.level,
             score: gamePlay.score,
             time: getTime(),
-            date: getDate(),
+            date: getDate(),   
         });
+        console.log(arrayOfPlayers)
 
         // Reset length of arrayOfPlayers (masterArr)
+        arrayOfPlayers = sortArrayDescending(arrayOfPlayers, "score");
         arrayOfPlayers.length = (arrayOfPlayers.length > 10)
             ? 10
             : arrayOfPlayers.length;
-        arrayOfPlayers = sortArrayDescending(arrayOfPlayers, "score");
+        
 
         gameLocalStorage.setMasterArr(arrayOfPlayers);
         localStorage.setItem(lsName, JSON.stringify(masterArr));
