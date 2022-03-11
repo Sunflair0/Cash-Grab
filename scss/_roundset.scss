@@ -54,7 +54,7 @@
     margin-bottom: 1rem;
     font-weight: 600;
     background: radial-gradient(#33ff00, #ffee00, #4aec0a); 
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 th {

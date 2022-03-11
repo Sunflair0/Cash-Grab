@@ -246,7 +246,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         clearHolesAfterRound();
-    }, 10100); //shortened for debugging mode
+    }, 30100); //shorten here for debugging mode
 });
 
 function choice(min, max) {
@@ -603,8 +603,7 @@ function isTopTen(gamePlay, arrayOfPlayers) {
         arrayOfPlayers = sortArrayDescending(arrayOfPlayers, "score");
         arrayOfPlayers.length = (arrayOfPlayers.length > 10)
             ? 10
-            : arrayOfPlayers.length;
-        
+            : arrayOfPlayers.length;        
 
         gameLocalStorage.setMasterArr(arrayOfPlayers);
         localStorage.setItem(lsName, JSON.stringify(masterArr));

@@ -764,6 +764,7 @@ img {
   margin-bottom: 1rem;
   font-weight: 600;
   background: radial-gradient(#33ff00, #ffee00, #4aec0a);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
