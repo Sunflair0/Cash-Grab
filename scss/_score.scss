@@ -1,27 +1,27 @@
 #start {    
     display: flex;
-    max-width:100px;
-    max-height: 100px;
-    justify-content: center;
-    align-content: center;      
+    width: auto;
+    height: 80%;
+    margin: auto;  
+    align-items: center;
     cursor: pointer;
 }
 .start {
-    animation: start alternate 1s linear ease-in;
+    animation: start alternate 2s linear ease-in;
 }
 @keyframes start{
     from {
-        transform: scale(1);
+        transform: scale();
     }
     to{
-        transform: scale(1.5);
+        transform: scale(3);
     }
 }
-#score, #time {
+#score, #tick {
     font-family: 'Orbitron';
     width: 200px;   
     text-align: center;
-    font-size: xx-large;   
+    font-size: x-large;   
 }
 .whiteBoxes {
     display: flex;
@@ -60,18 +60,18 @@
 .wBox1 {
     visibility: visible;
     display: flex;
-    flex-basis: 22%;    
+    width: 21%;  
     border: white 2px ridge; 
 }  
 .wBox2{
     visibility: hidden;
-    flex-basis: 15%;
-    padding-left: 6px;
-    padding-top: 6px;
+    width: 21%;
+    padding-left: 7px;
+    padding-top: 7px;
     position: fixed;    
 }
 .wBox3 {
-    flex-basis: 25%;
+    width: 21%;
     padding-left: 6px;
     padding-top: 6px;    
     border: white 2px ridge;
@@ -80,22 +80,19 @@
 .heartBox {
     display: flex;
     max-width: 100px;
-    height: 100%;
     z-index: 10;
-    transform:translate(0%,-65%);
+    transform:translate(-5%, -30%);
 }
 .heart1, .heart2, .heart3, .heart4 {
     display: flex;
     width: 25%;
-    margin: 1px;
-    color: rgb(255, 0, 0);
-    font-size:  medium;     
-    margin-top: 8vh;
+    margin: 60px auto;
+    color: rgb(255, 0, 0);    
     z-index: 10;
 }
 .wBox4 {   
     display: flex;
-    flex-basis: 40%;
+    width: 40%;
     padding-top: 6px;
     padding-left: 6px;    
     border: white 2px ridge;
@@ -116,11 +113,12 @@
 }
 .proScore {
     max-width: 100px;
-    min-width: 80px;
+    min-width: 60px;
     margin: 0 auto;
 
     &::before{
         content: '50 pts';
+        color: rgb(77, 224, 57);
         height: 20px;
         width: 50%;
         font-weight: 700;
@@ -135,17 +133,16 @@
 }
 .wBox5b {
     display: flex;     
+    margin-left: 4%;
     overflow: hidden;
 }
 .wBox5 {
     display: flex;
-    flex-basis: 23%;
     flex-direction: column;
     padding-top: 6px;
     padding-left: 6px;    
-    width: 20%;
-    border: white 2px ridge;
-    overflow: hidden;
+    width: 15%;
+    border-left: white 2px ridge;    
 }
 #wBox5 {
     display: flex;

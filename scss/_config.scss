@@ -2,7 +2,7 @@ html
 {
     overflow: hidden;
 }
-body{
+body {
     overflow: hidden;
     position: relative;
     background-image: url(/dist/asset/round1.png);
@@ -38,26 +38,27 @@ body{
             }
       }
       & button {
-        outline: white 1.5px solid;
+        outline: rgba(0, 0, 0, 0.548) 2.5px solid;
         outline-offset: -4px;
-        border: white 2px solid;
-          font-size:large;
-          height: 45px;
-          width: 45px;
+        border: rgb(255, 255, 255) 4px solid;
+          font-size: medium;
+          color: red;
+          height: 40px;
+          padding-bottom: 5px;
+          width: 38px;
           border-radius: 50%;
-          overflow: visible;
-          background-image: linear-gradient(to top, #4aec0a 0%, #e7d801 70%);
+          background: linear-gradient(to top, #4aec0a 0%, #e7d801 70%);
+          z-index: 10;
           cursor: pointer;
       }
 }
-*, ::before, ::after{
+*, ::before, ::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
  img {    
-    height: auto;
+    max-height: 75%;
     width: 100%;
     object-fit: cover;   
- }
+}
