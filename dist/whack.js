@@ -80,7 +80,7 @@ let padlock = document.getElementById('padlock');
 let finger = document.getElementById('finger');
 let choiceStack = document.getElementsByClassName('choice')[0];
 
-let seconds;
+let seconds = 1500;
 let stackStyle = '';
 
 window.onload =
@@ -181,14 +181,14 @@ function selectDifficulty() {
         gamePlay.level = "EASY";
     }
     if (document.getElementById('med').checked) {
-        seconds = 1000;
+        seconds = 1500;
         level.innerText = 'MED';
         stackStyle = '#f3f365';
         setStyle();
         gamePlay.level = "MED";
     }
     if (document.getElementById('hard').checked) {
-        seconds = 500;
+        seconds = 1000;
         level.innerText = 'HARD';
         stackStyle = '#ff5252';
         setStyle();
@@ -261,7 +261,7 @@ function displayMole() {
     holes[randomHole].classList.add(`mole${round}`);
     window.setTimeout(() => {
         holes[randomHole].classList.remove(`mole${round}`);
-    }, 3000);
+    }, `${seconds}`);
 };
 function displayCash() {
     let randomHole = null;
@@ -273,7 +273,7 @@ function displayCash() {
     holes[randomHole].classList.add(`cash${round}`);
     window.setTimeout(() => {
         holes[randomHole].classList.remove(`cash${round}`);
-    }, 2000);
+    }, `${seconds}`);
 };
 holes.forEach((val) => {
     val.addEventListener('click', (e) => {
