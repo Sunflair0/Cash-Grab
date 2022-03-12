@@ -2,6 +2,7 @@
   flex-basis: 50%;
   max-width: 50px;
   height: 50px;
+  margin-left: -14px;
   margin: auto;
   background-size: contain;
   background-repeat: no-repeat;
@@ -15,14 +16,14 @@
   border: blueviolet 2px solid;
  }
 @mixin flexShell {
-    display: flex;
-    flex-direction: row;  
-    flex-wrap: wrap;    
+  display: flex;
+  flex-direction: row;  
+  flex-wrap: wrap;    
 }
 @mixin actionBox {
   flex-basis: 32%;
   max-width: 240px;
-  height: 90px;
+  height: 90px; 
   margin: auto;
   margin-top: 12vh; 
   background-position: center; 
@@ -30,10 +31,28 @@
   background-repeat: no-repeat;
   border-radius: 20%;
 }
-@mixin gridplus {
-  background-color: black;
-  grid-row: span 1;
-  border-bottom:#ffffff 3px ridge;
-  //grid-row: span 2;
-  
+@mixin sbPlus {
+  display: flex;    
+  flex-basis: 25%;
+  font-size: small;
+}
+@mixin media-sm {
+  @media screen and (min-width: 576px) {
+      @content;
+  }
+}
+@mixin media-md {
+   @media screen and (min-width: 768px) {
+       @content;
+   }
+}
+@mixin media-lg {
+  @media screen and (min-width: 1060px) {
+      @content;
+  }
+}
+@mixin media-xl {
+  @media screen and (min-width: 1200px) {
+      @content;
+  }
 }

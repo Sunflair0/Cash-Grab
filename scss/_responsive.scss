@@ -1,22 +1,71 @@
-@media screen and (max-width: 576px) {
+@include media-sm {
     .roundModal {        
-        color:rgb(241, 11, 11);}
+        color:rgb(241, 11, 11);
+    }
+    .headings, #score, #tick {
+        font-size: xx-large;        
+    }
+    .heart1, .heart2, .heart3, .heart4 {
+        font-size: x-large;    
+    }
+    .heartbox {
+    transform:translate(-5%, -4%);
+    }
+    .bottom {
+    margin-bottom: 13px;
+    }    
+    #plusImg, #minusImg, #coolmole1 {
+        width: 100px;
+        min-width: 54px;
+    }
+    #evalMes, .evalOne2{
+        margin-left: 1rem;
+    }
+    .evalOne {
+        width: 35%;
+    }
+    .scoreCap {  
+        font-size: medium;  
+    }   
+    .rank, .lvColor, .score, .name {
+        margin-bottom: 21%;
+    }
+    th {
+        font-size: small;  
+    }
+    #start {    
+        min-height: 100px;
+    }
+}
+@include media-md {
+    .roundModal {        
+        color:rgb(241, 11, 11);
+    }
     .headings {
         font-size: xx-large;        
     }
     .heart1, .heart2, .heart3, .heart4 {
         font-size: x-large;    
     }
-}
-@media screen and (max-width: 768px) {
     .darkhole {
             max-width: 180px;
     }
+    .rank, .lvColor, .score, .name {
+        margin-bottom: 15%;
+    }
+    .tsModal {
+        height: 70%;
+        top: -106%;
+    }
+    .scoreModal {
+        height: 60%;
+    }
+    .bottom {
+        margin-bottom: -3%;
+    }
 }
-@media screen and (max-width: 992px) {
-
-    #score, #time {
-        font-family: 'Orbitron';
+@include media-lg {
+    #score, #tick {
         margin-top: 3vh;
     }
     .second {  
@@ -24,8 +73,8 @@
         margin-bottom: 8vh;
     }
 }
-@media screen and (max-width: 1200px) {
-    #score, #time {
+@include media-xl {
+    #score, #tick {
         font-family: 'Orbitron';
     }
 }  

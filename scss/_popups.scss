@@ -31,10 +31,10 @@
     @include actionBox;
     background-image: url(/dist/asset/smash.png);
 }
-.splat {
+.bop {
     @include flexShell;    
     @include actionBox;
-    background-image: url(/dist/asset/splat.png);
+    background-image: url(/dist/asset/bop.png);
 }
 .mole1 {
     background-image: url(/dist/asset/mole1.png); 
@@ -57,63 +57,56 @@
 .round4 {
     background-image: url(/dist/asset/round4.png); 
 }
-img{
-    max-height: 75%;
-}
- #first {
+#first {
+    margin-left: -14px;
     max-width: 100px;
     min-width: 80px;  
 }
-#second{
+#second {
+    margin-top: 3px;
     max-width: 100px;
     min-width: 80px;   
 }
- .moleShow {
+.introModalShows {
     display: flex;
-    position: relative;     
+    flex-direction: column;         
+    align-items: center;
+    justify-content: center;
+    position: relative; 
     height: 100%;
-    width: 100%;
-}
-.moleBox {
+ }
+.moleShow {
     display: flex;
     height: 100%; 
+    width: 300%;
 }
-.cashShows {
-    display: flex;
+.cash_moleShows {
+    display: flex;    
     position: relative;        
     width: 5%;   
+    margin-top: -25%;
 }
 .cashShow{
-    display: flex;
-    width: 10%;     
-    position: fixed;  
-    max-height: 75px;
-    top: 9%;   
-    left: 43%; }
+    display: flex;   
+    position: fixed;
+    width: 60px;
+    transform: translate(-4vh, -2vh);
+}
 .moleHold {
    display: flex;
    flex-direction: column; 
    width: 100%;
    position: fixed; 
-   transform: translate(0%,-20%);
-   margin:10px 0;
-   left: 40%;
-}
-.textBox {
-   display: flex;
-   flex-direction: column;         
-   align-items: center;
-   position: relative; 
-   height: 100%;
+   transform: translate(-200%, -50%);
 }
 .textShow {
     display: flex;
     flex-direction: column;
     font-size: auto;
     position: relative;     
-    top: 20%;
+    top: 12%;
 }
 #coolmole1 img {
     width: 75%;
-    bottom: -40%;
+    bottom: -43%;
 }

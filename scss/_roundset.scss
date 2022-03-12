@@ -1,66 +1,74 @@
 .introModal {
-    display: flex;
-    align-items: center;   
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.749);
+    position: absolute;
+    color: white;
     border:#ffffff 5px ridge;
-    height: 75%;
-    width: 80%;
-    color:white;    
-    position: fixed;  
-    padding: 20px;
-    margin: 20px;    
-    // second BG needed for text mask
+    height: 70%;
+    width: 85%;
+    top: -103%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;     
+    padding: 2vh;    
+    max-width: 510px;  
+    
+    // ///// opacity also handled with gsap
     background-color: #000000;
     opacity: 0;    
-    top: -122%;  
 }
 .roundModal {
     display: flex;
     flex-direction: column;
     border:rgb(255, 255, 255) 5px ridge;
     background-color: #000000de;
-    height: 75%;
+    height: 60%;
     width: 80%;
     color:white;
     position: fixed;  
-    top: -122%;       
+    top: -86%;       
     padding: 20px;
     margin: 20px;        
+    opacity: 0;
 }
 .tsModal {
     background-color: hsla(0, 0%, 0%, 0.8);
-    height: 75%;
-    width: 80%;
-    color:white;
-    top: -122%;    
-    position: fixed;  
-    border:rgb(255, 255, 255) 5px ridge;
-    justify-content:center;    
+    height: 72%;
+    width: 90%;
+    color: white;
+    top: -108%;
+    position: fixed;
+    border: white 5px ridge;
+    justify-content: center;    
 }
 .scoreModal {   
-    border:#ffffff 5px ridge;
-    padding: 10px 20px;
-    margin: 5px 20px;    
-    display: flex;
-    align-items: center;   
-    flex-direction: row;
-    justify-content: space-around;
+    border:white 5px ridge;
+    padding: 0px 7px;
+    margin: 13px auto -1%;        
+    height: 60%;
     opacity: 0;
+    overflow: visible;
 }
-.score, .score2, .level_color {
-    margin-bottom: 5%;
+#evalMes, .evalOne2, #message {    
+    font-family: 'Caveat';
+    font-size: larger;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    background: radial-gradient(#33ff00, #ffee00, #4aec0a); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
- .sb_Beta, .sb_Gamma  {
-    display: flex;        
-    flex-basis: 50%;
-    flex-direction: column;
-    align-items: center;
+th {
+    font-size: x-small;
+    padding: 9px 13px 0 0;
 }
-.sb_Alpha  {
-    display: flex;        
-    flex-basis: 50%;
-    flex-direction: column;
+tr {
+    margin-bottom: 0%;
+}
+.score {
+    text-align: end;
+    padding-right: 7px;
+}
+.name {
+    text-align: center;
 }
 .sbColor {
     color:rgb(252, 221, 182);
@@ -69,31 +77,41 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows:  1fr;
+    background: black;
+    border-bottom:#ffffff 3px ridge;
 } 
 .scoreCap {
-    @include gridplus;
     grid-area: 1/1/2/7;
     display:flex;
-    height: 100%;
-    padding: 5% 10px; 
-    background-color: black;
+    height: 70%;
+    grid-row: span 1;   
+    margin: 20px 10px 0;
+    font-size: medium;
+}
+.pScore0 { 
+    display: flex;
+    flex-wrap: column;
+    font-size: smaller;
+    height: 45px;
 }
 .quarter1, .quarter2, .quarter3, .quarter4, 
-.pScore0,.pScore1, .pScore2, .pScore3, .pScore4 {
+.pScore1, .pScore2, .pScore3, .pScore4 {
     display:flex;
-    flex-basis:16%;
-    justify-content: space-around;
+    flex-basis:14%;
+    justify-content: center;
 }
 .quarter5, .pScore5 {
     display:flex;
-    flex-basis:20%;
-    justify-content: space-evenly;
+    flex-basis:18%;
+    justify-content: end;
+}
+.quarter {
+    transform: translate(-40px, 0px);
 }
 .pScores {
     display:flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 5% 10px; 
+    flex-direction: row;   
+    padding: 5% 0px; 
 }
 .headings {
     display: flex;
@@ -114,8 +132,7 @@
     overflow: visible;
 }
 #plusImg, #minusImg, #coolmole1 {
-    width: 100px;
-    min-width: 54px;
+    width: 75px;    
 }
 .mathChar{
     font-size: medium;
@@ -130,11 +147,10 @@
     margin-right: -10vw;   
 
       &::before {
-          content: attr(data-label);
+          content: "Goal\00a0=\00a0 300";
           padding-left: 3%;
-          color:rgb(243, 0, 0);
+          color:#000000de;
           display: flex;
-          align-items: center;
           width: calc(var(--width,0)*1%);
           height: 1em;
           min-width: 1rem;
@@ -171,21 +187,14 @@
     flex-direction: row;
     margin-top: 1rem;
 }
-#evalMes, .evalOne2{
-    font-family: "Dongle";
-    font-size: x-large;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
-}
 .evalOne {
     margin-left: 0%;
-    width: 35%;
+    width: 55%;
     top:0;
 }
 #eval2 {
     border: none;
 }
-
 #percent {
     padding-top: 2rem;
 }
@@ -203,4 +212,12 @@
     display: flex;
     flex-direction:column;
     margin-top: -10rem;
+}
+.time {
+    opacity: 0;    
+    transform: translate(0, 9px);   
+}
+.date {
+    opacity: 0;
+    transform: translate(0, -9px);   
 }

@@ -16,7 +16,7 @@
     "url": "https://github.com/Sunflair0/Whack-/issues"
   },
   "homepage": "https://github.com/Sunflair0/Whack-#readme",
-  "dependencies": {
-    "sass": "^1.45.1"
+  "devDependencies": {
+    "sass": "^1.49.7"
   }
 }
