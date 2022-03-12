@@ -114,13 +114,8 @@ img {
   .roundModal {
     color: #f10b0b;
   }
-
   .headings {
     font-size: xx-large;
-  }
-
-  .heart1, .heart2, .heart3, .heart4 {
-    font-size: x-large;
   }
 }
 @media screen and (max-width: 768px) {
@@ -527,8 +522,10 @@ img {
   padding: 20px;
   margin: 20px;
   background-color: #000000;
+  z-index: 1;
   opacity: 0;
   top: -122%;
+
 }
 
 .roundModal {
@@ -543,6 +540,7 @@ img {
   top: -122%;
   padding: 20px;
   margin: 20px;
+  z-index: 1;
 }
 
 .tsModal {
@@ -554,6 +552,7 @@ img {
   position: fixed;
   border: white 5px ridge;
   justify-content: center;
+  z-index: 1;
 }
 
 .scoreModal {
@@ -568,6 +567,7 @@ img {
   flex-direction: row;
   height: 47%;
   opacity: 0;
+  z-index: 1;
 }
 
 .rank, .lvColor, .score, .winner {
@@ -1015,7 +1015,6 @@ p:after {
   z-index: 1;
   transform-origin: 0 100%;
 }
-
 #bop {
   font-family: "Ubuntu";
   color: #fd3b3b;
@@ -1060,7 +1059,7 @@ p:after {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  flex-basis: 62.5%;
+  flex-basis: 74.2%;
   width: 95%;
   margin: auto;
 }

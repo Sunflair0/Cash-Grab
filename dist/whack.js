@@ -1,6 +1,3 @@
-// window.addEventListener("scroll", preventMotion, false);
-// window.addEventListener("touchmove", preventMotion, false);
-
 let gameLocalStorage = (() => {
 
     let masterArrName = "localStorageMasterArrayName";
@@ -19,15 +16,10 @@ let gameLocalStorage = (() => {
         getMasterArr,  // Because I'm using same name, don't need :value
         setMasterArr: setMasterArr // Same as above
     }
-
 })();
-// function preventMotion(event)
-// {
-//     window.scrollTo(0, 0);
-//     event.preventDefault();
-//     event.stopPropagation();
-// }
 
+let seconds = 1500;
+let stackStyle = '';
 let score = 0;
 let hit = 0;
 let miss = 0;
@@ -75,57 +67,12 @@ const darkcash = [cash1, cash2, cash3, cash4];
 let mole = darkmole[round];
 let cash = darkcash[round];
 
-// let coolmole = document.getElementById("coolmole1");
 let header = document.getElementById('header');
 let level = document.getElementById('level');
 let padlock = document.getElementById('padlock');
 let finger = document.getElementById('finger');
 let choiceStack = document.getElementsByClassName('choice')[0];
 
-let seconds = 1500;
-let stackStyle = '';
-
-window.onload =
-    // window.localStorage.clear();
-    intro();
-
-function intro() {
-    header.innerText = "CashSmash";
-    let rule = CSSRulePlugin.getRule("p:after");
-    start.style.visibility = "hidden";
-    let xIntro1 = document.getElementById('xIntro');
-    document.getElementById('min1').src = `./asset/minCash1.png`;
-    document.getElementById('min2').src = `./asset/minCash2.png`;
-    document.getElementById('min3').src = `./asset/minCash3.png`;
-    document.getElementById('min4').src = `./asset/minCash4.png`;
-    xIntro1.addEventListener("click", xIntro);
-
-    let intro = gsap.timeline({ defaults: { duration: 1.5 } })
-    intro
-        // /////modal slide in
-        .fromTo(".introModal", { opacity: 0, x: '-200%', y: '165%' }, { opacity: .8, duration: 1.5, x: 0, ease: "circ" })
-        // /////text reveal
-        .to(rule, { cssRule: { scaleY: 0 }, duration: 3.5 }, "-=.5")
-        // /////mole slide in
-        .fromTo(".moleShow", { opacity: 0, x: '-1500%', }, { opacity: 1, x: 0, duration: 2 }, "-=3.5");
-
-    let cashCarousel = gsap.timeline({ repeat: -1 });
-    cashCarousel
-        .from("#min1", { opacity: 0, x: '-80%', duration: .5 })
-        .to("#min1", { opacity: 0, x: 0, duration: 1, delay: 2 })
-        .from("#min2", { opacity: 0, x: '-80%', duration: .5 })
-        .to("#min2", { opacity: 0, x: 0, duration: 1, delay: 2 })
-        .from("#min3", { opacity: 0, x: '-80%', duration: .5 })
-        .to("#min3", { opacity: 0, x: 0, duration: 1, delay: 2 })
-        .from("#min4", { opacity: 0, x: '-80%', duration: .5 })
-        .to("#min4", { opacity: 0, x: 0, duration: 1, delay: 2 });
-  
-    /////combining both timelines
-    let master = gsap.timeline();
-    master
-        .add(intro)
-        .add(cashCarousel);
-}
 function xIntro() {
     document.getElementsByClassName('choiceblock')[0].style.visibility = "visible";
     gamePlay.level = "MED";
@@ -471,7 +418,7 @@ function gameEnd() {
     let finalSBPrint = gsap.timeline()
     finalSBPrint
         .to(".roundModal", { opacity: 0, duration: .5, ease: "circ", })
-        .to(".roundModal", { y: '-200%' })
+        .to(".roundModal", { y: '-300%' })
         .to(".tsModal", { opacity: 1, duration: 1.3, y: "165%", ease: "bounce", }, "-=.5")
         .to(".scoreCap", { opacity: 1, duration: 1.5, ease: "circ" })
 
@@ -506,6 +453,7 @@ document.getElementById('message').innerText = `Try to beat your score`;
     playAgain.innerText = "\u{1f3ac}";
     playAgain.addEventListener("click", gameAgain);
 
+
  let fadeDuration = 1,
     stayDuration = 3,
     finalSBPrint2 = gsap.timeline({repeat: -1});
@@ -527,7 +475,7 @@ function setLevelColor(currentPlace, currentLevel) {
         case "EASY":
             document.getElementsByClassName("rank")[currentPlace].style.color = '#5dca5d';
             document.getElementsByClassName("lvColor")[currentPlace].style.color = '#5dca5d';
-            document.getElementsByClassName('lvColor')[currentPlace].innerText = 'EASY';
+            document.getElementsByClassName("lvColor")[currentPlace].innerText = 'EASY';
             document.getElementsByClassName("score")[currentPlace].style.color = '#5dca5d';
             document.getElementsByClassName("name")[currentPlace].style.color = '#5dca5d';
             document.getElementsByClassName("time")[currentPlace].style.color = '#5dca5d';
@@ -536,7 +484,7 @@ function setLevelColor(currentPlace, currentLevel) {
         case "MED":
             document.getElementsByClassName("rank")[currentPlace].style.color = '#f3f365';
             document.getElementsByClassName("lvColor")[currentPlace].style.color = '#f3f365';
-            document.getElementsByClassName('lvColor')[currentPlace].innerText = 'MED';
+            document.getElementsByClassName("lvColor")[currentPlace].innerText = 'MED';
             document.getElementsByClassName("score")[currentPlace].style.color = '#f3f365';
             document.getElementsByClassName("name")[currentPlace].style.color = '#f3f365';
             document.getElementsByClassName("time")[currentPlace].style.color = '#f3f365';
@@ -545,7 +493,7 @@ function setLevelColor(currentPlace, currentLevel) {
         case "HARD":
             document.getElementsByClassName("rank")[currentPlace].style.color = '#fd7575';
             document.getElementsByClassName("lvColor")[currentPlace].style.color = '#fd7575';
-            document.getElementsByClassName('lvColor')[currentPlace].innerText = 'HARD';
+            document.getElementsByClassName("lvColor")[currentPlace].innerText = 'HARD';
             document.getElementsByClassName("score")[currentPlace].style.color = '#fd7575';
             document.getElementsByClassName("name")[currentPlace].style.color = '#fd7575';
             document.getElementsByClassName("time")[currentPlace].style.color = '#fd7575';
@@ -651,7 +599,41 @@ let myGame = (() => {
 
     // Private Functions
     function intro() {
-        console.log("setup game");
+        header.innerText = "CashSmash";
+    let rule = CSSRulePlugin.getRule("p:after");
+    start.style.visibility = "hidden";
+    let xIntro1 = document.getElementById('xIntro');
+    document.getElementById('min1').src = `./asset/minCash1.png`;
+    document.getElementById('min2').src = `./asset/minCash2.png`;
+    document.getElementById('min3').src = `./asset/minCash3.png`;
+    document.getElementById('min4').src = `./asset/minCash4.png`;
+    xIntro1.addEventListener("click", xIntro);
+
+    let intro = gsap.timeline({ defaults: { duration: 1.5 } })
+    intro
+        // /////modal slide in
+        .fromTo(".introModal", { opacity: 0, x: '-200%', y: '165%' }, { opacity: .8, duration: 1.5, x: 0, ease: "circ" })
+        // /////text reveal
+        .to(rule, { cssRule: { scaleY: 0 }, duration: 3.5 }, "-=.5")
+        // /////mole slide in
+        .fromTo(".moleShow", { opacity: 0, x: '-1500%', }, { opacity: 1, x: 0, duration: 2 }, "-=3.5");
+
+    let cashCarousel = gsap.timeline({ repeat: -1 });
+    cashCarousel
+        .from("#min1", { opacity: 0, x: '-80%', duration: .5 })
+        .to("#min1", { opacity: 0, x: 0, duration: 1, delay: 2 })
+        .from("#min2", { opacity: 0, x: '-80%', duration: .5 })
+        .to("#min2", { opacity: 0, x: 0, duration: 1, delay: 2 })
+        .from("#min3", { opacity: 0, x: '-80%', duration: .5 })
+        .to("#min3", { opacity: 0, x: 0, duration: 1, delay: 2 })
+        .from("#min4", { opacity: 0, x: '-80%', duration: .5 })
+        .to("#min4", { opacity: 0, x: 0, duration: 1, delay: 2 });
+  
+    /////combining both timelines
+    let master = gsap.timeline();
+    master
+        .add(intro)
+        .add(cashCarousel);
     }
 
     intro();

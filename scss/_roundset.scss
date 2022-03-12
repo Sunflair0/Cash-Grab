@@ -2,21 +2,21 @@
     position: absolute;
     color: white;
     border:#ffffff 5px ridge;
-    height: 70%;
+    height: 69%;
     width: 85%;
-    top: -103%;
+    top: -101%;
     display: flex;
     flex-direction: column;
     align-items: center;     
     padding: 2vh;    
     max-width: 510px;  
+    z-index: 1;
     
     // ///// opacity also handled with gsap
     background-color: #000000;
     opacity: 0;    
 }
 .roundModal {
-    @include modalplus;    
     display: flex;
     flex-direction: column;
     border:rgb(255, 255, 255) 5px ridge;
@@ -29,6 +29,7 @@
     padding: 20px;
     margin: 20px;        
     opacity: 0;
+    z-index: 1;
 }
 .tsModal {
     background-color: hsla(0, 0%, 0%, 0.8);
@@ -39,6 +40,7 @@
     position: fixed;
     border: white 5px ridge;
     justify-content: center;    
+    z-index: 1;
 }
 .scoreModal {   
     border:white 5px ridge;
@@ -47,15 +49,17 @@
     height: 60%;
     opacity: 0;
     overflow: visible;
+    z-index: 1;
 }
 #evalMes, .evalOne2, #message {    
     font-family: 'Caveat';
     font-size: larger;
+    transform: translate(0px, 50px);
     margin-bottom: 1rem;
     font-weight: 600;
-    background: radial-gradient(#33ff00, #ffee00, #4aec0a); 
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: radial-gradient( #e7d801, #4aec0a, #00a1ff);
+    -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
 }
 th {
     font-size: x-small;
@@ -200,7 +204,7 @@ tr {
     padding-top: 2rem;
 }
 #eval {
-    margin-left: 40%;
+    margin-left: 100%;
 }
 .theBar {
     width: 35%;

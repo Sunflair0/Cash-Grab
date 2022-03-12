@@ -149,7 +149,7 @@ img {
     font-size: xx-large;
   }
   .heart1, .heart2, .heart3, .heart4 {
-    font-size: xx-large;
+    font-size: x-large;
   }
   .head_font, .header {
     font-size: 70px;
@@ -208,15 +208,34 @@ img {
   }
 }
 
+@media screen and (max-height: 750px), (max-width: 500px) {
+  p {
+    font-size: 0.6rem;
+  }
+  .xIntro {
+    margin-top: -15%;
+  }
+  .roundModal {
+    font-size: smaller;
+    height: 60%;
+    top: -86%;
+  }
+  .introModal {
+    font-size: smaller;
+    height: 67%;
+    width: 85%;
+    top: -99%;
+  }
+  .lineOne, .lineTwo {
+    height: 7rem;
+    font-size: x-large;
+    margin-top: 2rem;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .roundModal {
     color: #f10b0b;
-  }
-  .headings {
-    font-size: xx-large;
-  }
-  .heart1, .heart2, .heart3, .heart4 {
-    font-size: x-large;
   }
   .darkhole {
     max-width: 180px;
@@ -690,9 +709,9 @@ img {
   position: absolute;
   color: white;
   border: #ffffff 5px ridge;
-  height: 70%;
+  height: 69%;
   width: 85%;
-  top: -103%;
+  top: -101%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -705,18 +724,12 @@ img {
           align-items: center;
   padding: 2vh;
   max-width: 510px;
+  z-index: 1;
   background-color: #000000;
   opacity: 0;
 }
 
 .roundModal {
-  position: fixed;
-  color: white;
-  border: white 5px ridge;
-  background-color: #000000bf;
-  height: 75%;
-  width: 80%;
-  top: -122%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -734,6 +747,7 @@ img {
   padding: 20px;
   margin: 20px;
   opacity: 0;
+  z-index: 1;
 }
 
 .tsModal {
@@ -747,6 +761,7 @@ img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  z-index: 1;
 }
 
 .scoreModal {
@@ -756,15 +771,17 @@ img {
   height: 60%;
   opacity: 0;
   overflow: visible;
+  z-index: 1;
 }
 
 #evalMes, .evalOne2, #message {
   font-family: 'Caveat';
   font-size: larger;
+  -webkit-transform: translate(0px, 50px);
+          transform: translate(0px, 50px);
   margin-bottom: 1rem;
   font-weight: 600;
-  background: radial-gradient(#33ff00, #ffee00, #4aec0a);
-  background-clip: text;
+  background: radial-gradient(#e7d801, #4aec0a, #00a1ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -982,7 +999,7 @@ tr {
 }
 
 #eval {
-  margin-left: 40%;
+  margin-left: 100%;
 }
 
 .theBar {
@@ -1165,12 +1182,8 @@ li .buttons {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  -webkit-box-shadow: inset 2px -3px 3px 1px #bbaeae, 
- inset 2px -5px 5px 1px #c3c3c3,
- inset 2px -7px 10px 1px #4c4c4c;
-          box-shadow: inset 2px -3px 3px 1px #bbaeae, 
- inset 2px -5px 5px 1px #c3c3c3,
- inset 2px -7px 10px 1px #4c4c4c;
+  -webkit-box-shadow: inset 2px -3px 3px 1px #bbaeae,  inset 2px -5px 5px 1px #c3c3c3, inset 2px -7px 10px 1px #4c4c4c;
+          box-shadow: inset 2px -3px 3px 1px #bbaeae,  inset 2px -5px 5px 1px #c3c3c3, inset 2px -7px 10px 1px #4c4c4c;
   cursor: pointer;
 }
 
@@ -1182,20 +1195,8 @@ li .buttons::before {
   outline-offset: 8px;
   border-radius: 100%;
   margin: 4px 3px 12px 5px;
-  -webkit-box-shadow: -5px 7px 1px 0px #1b1b1b, 
- 0px 0px 13px 5px #a3a3a5, 
- -2px 2px 0px 6px #2d2d2e, 
- 6px -9px 6px 0px #ffffff, 
- 6px -9px 20px 4px #ffffff, 
- inset 1px -2px 7px #13141d, 
- inset 1px -2px 10px #ffffff;
-          box-shadow: -5px 7px 1px 0px #1b1b1b, 
- 0px 0px 13px 5px #a3a3a5, 
- -2px 2px 0px 6px #2d2d2e, 
- 6px -9px 6px 0px #ffffff, 
- 6px -9px 20px 4px #ffffff, 
- inset 1px -2px 7px #13141d, 
- inset 1px -2px 10px #ffffff;
+  -webkit-box-shadow: -5px 7px 1px 0px #1b1b1b,  0px 0px 13px 5px #a3a3a5,  -2px 2px 0px 6px #2d2d2e,  6px -9px 6px 0px #ffffff,  6px -9px 20px 4px #ffffff,  inset 1px -2px 7px #13141d,  inset 1px -2px 10px #ffffff;
+          box-shadow: -5px 7px 1px 0px #1b1b1b,  0px 0px 13px 5px #a3a3a5,  -2px 2px 0px 6px #2d2d2e,  6px -9px 6px 0px #ffffff,  6px -9px 20px 4px #ffffff,  inset 1px -2px 7px #13141d,  inset 1px -2px 10px #ffffff;
 }
 
 li .buttons::before li .buttons::before {
@@ -1204,16 +1205,8 @@ li .buttons::before li .buttons::before {
   width: 13px;
   border-radius: 100%;
   margin: 4px 3px 12px 5px;
-  -webkit-box-shadow: 7px -8px 6px 1px #ffffff, 
- 0px 0px 5px 2px #f0eeee, 
- -4px 5px 0px 0px black,
- inset -1px -2px 10px 0px #ffffff,
- inset 1px -2px 7px 0px #000000;
-          box-shadow: 7px -8px 6px 1px #ffffff, 
- 0px 0px 5px 2px #f0eeee, 
- -4px 5px 0px 0px black,
- inset -1px -2px 10px 0px #ffffff,
- inset 1px -2px 7px 0px #000000;
+  -webkit-box-shadow: 7px -8px 6px 1px #ffffff,  0px 0px 5px 2px #f0eeee,  -4px 5px 0px 0px black, inset -1px -2px 10px 0px #ffffff, inset 1px -2px 7px 0px #000000;
+          box-shadow: 7px -8px 6px 1px #ffffff,  0px 0px 5px 2px #f0eeee,  -4px 5px 0px 0px black, inset -1px -2px 10px 0px #ffffff, inset 1px -2px 7px 0px #000000;
 }
 
 .clear-float {
@@ -1229,22 +1222,8 @@ li .buttons::before li .buttons::before {
   content: "";
   background: #62ff00;
   outline: #a2fa6c 1px solid;
-  -webkit-box-shadow: -5px 7px 1px 0px #1b1b1b, 
- 6px -9px 8px 2px #43c53c, 
- 0px 0px 13px 5px #a3a3a5, 
- -2px 2px 0px 6px #2d2d2e, 
- 6px -9px 6px 0px #ffffff, 
- 6px -9px 20px 4px #ffffff, 
- inset 1px -2px 7px #13141d, 
- 6px -9px 20px 4px #62ff00;
-          box-shadow: -5px 7px 1px 0px #1b1b1b, 
- 6px -9px 8px 2px #43c53c, 
- 0px 0px 13px 5px #a3a3a5, 
- -2px 2px 0px 6px #2d2d2e, 
- 6px -9px 6px 0px #ffffff, 
- 6px -9px 20px 4px #ffffff, 
- inset 1px -2px 7px #13141d, 
- 6px -9px 20px 4px #62ff00;
+  -webkit-box-shadow: -5px 7px 1px 0px #1b1b1b,  6px -9px 8px 2px #43c53c,  0px 0px 13px 5px #a3a3a5,  -2px 2px 0px 6px #2d2d2e,  6px -9px 6px 0px #ffffff,  6px -9px 20px 4px #ffffff,  inset 1px -2px 7px #13141d,  6px -9px 20px 4px #62ff00;
+          box-shadow: -5px 7px 1px 0px #1b1b1b,  6px -9px 8px 2px #43c53c,  0px 0px 13px 5px #a3a3a5,  -2px 2px 0px 6px #2d2d2e,  6px -9px 6px 0px #ffffff,  6px -9px 20px 4px #ffffff,  inset 1px -2px 7px #13141d,  6px -9px 20px 4px #62ff00;
 }
 
 .med + .buttons::before {
@@ -1256,22 +1235,8 @@ li .buttons::before li .buttons::before {
   content: "";
   background: #fbff00;
   outline: #f8fa6c 1px solid;
-  -webkit-box-shadow: -5px 7px 1px 0px #1b1b1b, 
- 6px -9px 8px 2px #bcc53c, 
- 0px 0px 13px 5px #a3a3a5, 
- -2px 2px 0px 6px #2d2d2e, 
- 6px -9px 6px 0px #ffffff, 
- 6px -9px 20px 4px #ffffff, 
- inset 1px -2px 7px #13141d, 
- 6px -9px 20px 4px #eeff00;
-          box-shadow: -5px 7px 1px 0px #1b1b1b, 
- 6px -9px 8px 2px #bcc53c, 
- 0px 0px 13px 5px #a3a3a5, 
- -2px 2px 0px 6px #2d2d2e, 
- 6px -9px 6px 0px #ffffff, 
- 6px -9px 20px 4px #ffffff, 
- inset 1px -2px 7px #13141d, 
- 6px -9px 20px 4px #eeff00;
+  -webkit-box-shadow: -5px 7px 1px 0px #1b1b1b,  6px -9px 8px 2px #bcc53c,  0px 0px 13px 5px #a3a3a5,  -2px 2px 0px 6px #2d2d2e,  6px -9px 6px 0px #ffffff,  6px -9px 20px 4px #ffffff,  inset 1px -2px 7px #13141d,  6px -9px 20px 4px #eeff00;
+          box-shadow: -5px 7px 1px 0px #1b1b1b,  6px -9px 8px 2px #bcc53c,  0px 0px 13px 5px #a3a3a5,  -2px 2px 0px 6px #2d2d2e,  6px -9px 6px 0px #ffffff,  6px -9px 20px 4px #ffffff,  inset 1px -2px 7px #13141d,  6px -9px 20px 4px #eeff00;
 }
 
 .hard + .buttons::before {
@@ -1283,115 +1248,47 @@ li .buttons::before li .buttons::before {
   content: "";
   background: #ff9b89;
   outline: #fa7d6c 1px solid;
-  -webkit-box-shadow: -5px 7px 1px 0px #1b1b1b, 
- 6px -7px 9px 3px #f18071, 
- 0px 0px 13px 5px #a3a3a5, 
- -2px 2px 0px 6px #2d2d2e, 
- 6px -9px 6px 0px #ffffff, 
- 6px -9px 20px 4px #ffffff, 
- inset 1px -2px 7px #13141d, 
- 6px -9px 20px 4px #fa5d41;
-          box-shadow: -5px 7px 1px 0px #1b1b1b, 
- 6px -7px 9px 3px #f18071, 
- 0px 0px 13px 5px #a3a3a5, 
- -2px 2px 0px 6px #2d2d2e, 
- 6px -9px 6px 0px #ffffff, 
- 6px -9px 20px 4px #ffffff, 
- inset 1px -2px 7px #13141d, 
- 6px -9px 20px 4px #fa5d41;
+  -webkit-box-shadow: -5px 7px 1px 0px #1b1b1b,  6px -7px 9px 3px #f18071,  0px 0px 13px 5px #a3a3a5,  -2px 2px 0px 6px #2d2d2e,  6px -9px 6px 0px #ffffff,  6px -9px 20px 4px #ffffff,  inset 1px -2px 7px #13141d,  6px -9px 20px 4px #fa5d41;
+          box-shadow: -5px 7px 1px 0px #1b1b1b,  6px -7px 9px 3px #f18071,  0px 0px 13px 5px #a3a3a5,  -2px 2px 0px 6px #2d2d2e,  6px -9px 6px 0px #ffffff,  6px -9px 20px 4px #ffffff,  inset 1px -2px 7px #13141d,  6px -9px 20px 4px #fa5d41;
 }
 
 .easy:checked + .buttons {
-  -webkit-box-shadow: 0px 0px 20px 12px #15df1b, 
- 0px 0px 13px 2px #00ff2a;
-          box-shadow: 0px 0px 20px 12px #15df1b, 
- 0px 0px 13px 2px #00ff2a;
+  -webkit-box-shadow: 0px 0px 20px 12px #15df1b,  0px 0px 13px 2px #00ff2a;
+          box-shadow: 0px 0px 20px 12px #15df1b,  0px 0px 13px 2px #00ff2a;
 }
 
 .easy:checked + .buttons::before {
   content: "";
   border: #59dd54 solid 1px;
   outline: #50cb20 solid 1px;
-  -webkit-box-shadow: -5px 7px 1px 0px #166203, 
- 6px -7px 6px 1px #ffffff,
- 0px 0px 4px 5px #25fd08, 
- 0px 0px 12px 11px #33b15d,
- 10px -12px 9px 5px #e3e3e3, 
- 0px 0px 0px 7px #ffffff, 
- 0px 0px 9px 13px #000000,  
- inset -2px 2px 0px 0px #c2ff24, 
- inset 0px 0px 0px 20px #47ff00;
-          box-shadow: -5px 7px 1px 0px #166203, 
- 6px -7px 6px 1px #ffffff,
- 0px 0px 4px 5px #25fd08, 
- 0px 0px 12px 11px #33b15d,
- 10px -12px 9px 5px #e3e3e3, 
- 0px 0px 0px 7px #ffffff, 
- 0px 0px 9px 13px #000000,  
- inset -2px 2px 0px 0px #c2ff24, 
- inset 0px 0px 0px 20px #47ff00;
+  -webkit-box-shadow: -5px 7px 1px 0px #166203,  6px -7px 6px 1px #ffffff, 0px 0px 4px 5px #25fd08,  0px 0px 12px 11px #33b15d, 10px -12px 9px 5px #e3e3e3,  0px 0px 0px 7px #ffffff,  0px 0px 9px 13px #000000,   inset -2px 2px 0px 0px #c2ff24,  inset 0px 0px 0px 20px #47ff00;
+          box-shadow: -5px 7px 1px 0px #166203,  6px -7px 6px 1px #ffffff, 0px 0px 4px 5px #25fd08,  0px 0px 12px 11px #33b15d, 10px -12px 9px 5px #e3e3e3,  0px 0px 0px 7px #ffffff,  0px 0px 9px 13px #000000,   inset -2px 2px 0px 0px #c2ff24,  inset 0px 0px 0px 20px #47ff00;
 }
 
 .med:checked + .buttons {
-  -webkit-box-shadow: 0px 0px 20px 12px #dcdf15, 
- 0px 0px 13px 2px #fbff00;
-          box-shadow: 0px 0px 20px 12px #dcdf15, 
- 0px 0px 13px 2px #fbff00;
+  -webkit-box-shadow: 0px 0px 20px 12px #dcdf15,  0px 0px 13px 2px #fbff00;
+          box-shadow: 0px 0px 20px 12px #dcdf15,  0px 0px 13px 2px #fbff00;
 }
 
 .med:checked + .buttons::before {
   content: "";
   border: #c9dd54 solid 1px;
   outline: #c2cb20 solid 1px;
-  -webkit-box-shadow: -5px 7px 1px 0px #838102, 
- 6px -7px 6px 1px #ffffff,
- 0px 0px 4px 5px #faff09, 
- 0px 0px 12px 11px #959124, 
- 10px -12px 9px 5px #e3e3e3, 
- 0px 0px 0px 7px #ffffff, 
- 0px 0px 9px 13px #000000, 
- inset -2px 2px 0px 0px  #ffffff, 
- inset 0px 0px 0px 20px #fffb00;
-          box-shadow: -5px 7px 1px 0px #838102, 
- 6px -7px 6px 1px #ffffff,
- 0px 0px 4px 5px #faff09, 
- 0px 0px 12px 11px #959124, 
- 10px -12px 9px 5px #e3e3e3, 
- 0px 0px 0px 7px #ffffff, 
- 0px 0px 9px 13px #000000, 
- inset -2px 2px 0px 0px  #ffffff, 
- inset 0px 0px 0px 20px #fffb00;
+  -webkit-box-shadow: -5px 7px 1px 0px #838102,  6px -7px 6px 1px #ffffff, 0px 0px 4px 5px #faff09,  0px 0px 12px 11px #959124,  10px -12px 9px 5px #e3e3e3,  0px 0px 0px 7px #ffffff,  0px 0px 9px 13px #000000,  inset -2px 2px 0px 0px  #ffffff,  inset 0px 0px 0px 20px #fffb00;
+          box-shadow: -5px 7px 1px 0px #838102,  6px -7px 6px 1px #ffffff, 0px 0px 4px 5px #faff09,  0px 0px 12px 11px #959124,  10px -12px 9px 5px #e3e3e3,  0px 0px 0px 7px #ffffff,  0px 0px 9px 13px #000000,  inset -2px 2px 0px 0px  #ffffff,  inset 0px 0px 0px 20px #fffb00;
 }
 
 .hard:checked + .buttons {
-  -webkit-box-shadow: 0px 0px 20px 12px #df3315, 
- 0px 0px 13px 2px #ff2600;
-          box-shadow: 0px 0px 20px 12px #df3315, 
- 0px 0px 13px 2px #ff2600;
+  -webkit-box-shadow: 0px 0px 20px 12px #df3315,  0px 0px 13px 2px #ff2600;
+          box-shadow: 0px 0px 20px 12px #df3315,  0px 0px 13px 2px #ff2600;
 }
 
 .hard:checked + .buttons::before {
   content: "";
   border: #9f1717 solid 1px;
   outline: #850000 solid 1px;
-  -webkit-box-shadow: -5px 7px 1px 0px #620303, 
- 6px -7px 6px 1px #ffffff, 
- 0px 0px 4px 5px #eb3131, 
- 0px 0px 12px 11px #b13b33, 
- 10px -12px 9px 5px #e3e3e3, 
- 0px 0px 0px 7px #ffffff, 
- 0px 0px 9px 13px #000000, 
- inset -2px 2px 0px 0px #ff4e83, 
- inset 0px 0px 0px 20px #ff0079;
-          box-shadow: -5px 7px 1px 0px #620303, 
- 6px -7px 6px 1px #ffffff, 
- 0px 0px 4px 5px #eb3131, 
- 0px 0px 12px 11px #b13b33, 
- 10px -12px 9px 5px #e3e3e3, 
- 0px 0px 0px 7px #ffffff, 
- 0px 0px 9px 13px #000000, 
- inset -2px 2px 0px 0px #ff4e83, 
- inset 0px 0px 0px 20px #ff0079;
+  -webkit-box-shadow: -5px 7px 1px 0px #620303,  6px -7px 6px 1px #ffffff,  0px 0px 4px 5px #eb3131,  0px 0px 12px 11px #b13b33,  10px -12px 9px 5px #e3e3e3,  0px 0px 0px 7px #ffffff,  0px 0px 9px 13px #000000,  inset -2px 2px 0px 0px #ff4e83,  inset 0px 0px 0px 20px #ff0079;
+          box-shadow: -5px 7px 1px 0px #620303,  6px -7px 6px 1px #ffffff,  0px 0px 4px 5px #eb3131,  0px 0px 12px 11px #b13b33,  10px -12px 9px 5px #e3e3e3,  0px 0px 0px 7px #ffffff,  0px 0px 9px 13px #000000,  inset -2px 2px 0px 0px #ff4e83,  inset 0px 0px 0px 20px #ff0079;
 }
 
 li:nth-child(2) {
@@ -1414,8 +1311,7 @@ li:nth-child(4) {
   padding-bottom: 5px;
 }
 
-ul input {
-  color: transparent;
+.choice input {
   opacity: 0;
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -1446,7 +1342,7 @@ p:after {
   position: absolute;
   top: 3%;
   left: -1%;
-  width: 100%;
+  width: 105%;
   height: 100%;
   z-index: 1;
   -webkit-transform-origin: 0 100%;
@@ -1458,13 +1354,14 @@ p:after {
   color: #fd3b3b;
   padding: .5rem;
   font-weight: 700;
-  display: table-row;
+  display: block;
   margin: 0 auto;
   font-size: .8rem;
   text-align: center;
   -webkit-animation: bop infinite 2.5s steps(2);
           animation: bop infinite 2.5s steps(2);
   width: 45%;
+  justify-items: center;
 }
 
 #bop::first-letter {
@@ -1526,9 +1423,10 @@ p:after {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -ms-flex-preferred-size: 69%;
-      flex-basis: 69%;
-  width: 85%;
+  -ms-flex-preferred-size: 74.2%;
+      flex-basis: 74.2%;
+  width: 550px;
+  max-width: 85%;
 }
 
 .bottom {
@@ -1541,8 +1439,8 @@ p:after {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -ms-flex-preferred-size: 14%;
-      flex-basis: 14%;
+  -ms-flex-preferred-size: 9%;
+      flex-basis: 9%;
   width: 100%;
   padding: 2px;
   border: white 4px ridge;
