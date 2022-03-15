@@ -193,7 +193,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         clearHolesAfterRound();
-    }, 30100); //shorten here for debugging mode
+    }, 100); //shorten here for debugging mode
 });
 
 function choice(min, max) {
@@ -330,7 +330,7 @@ function roundEnd() {
         let advance = document.getElementById('eval');
         advance = document.createElement("button");
         document.getElementById('eval').append(advance);
-        advance.innerText = "\u{1f3c6}";
+        advance.innerText = "\u{1f3c6}";       
         advance.addEventListener("click", roundUp);
     }
 }
@@ -424,17 +424,17 @@ function gameEnd() {
 
         // /////top part of scoreboard --player score
         .to(".quarter0", { opacity: 0, duration: .5, ease: "circ"})
-        .fromTo(".pScore0",{ opacity: 0, scale: 0, x: "-50", y: "-50"}, { opacity: 1, scale: 1, duration: .6, ease: "circ", y:"0" },"<")
+        .fromTo(".pScore0",{ opacity: 0, scale: 0}, { opacity: 1, scale: 1, y:"-9", duration: .6, ease: "circ"},"<")
         .to(".quarter1", { opacity: 0, duration: .5, ease: "circ"})
-        .fromTo(".pScore1", { opacity: 0, scale: 0, x: "-30", y: "-50"},{ opacity: 1, scale: 1, duration: .6, ease: "circ", y:"0" },"<")
+        .fromTo(".pScore1", { opacity: 0, scale: 0, y: "-50" },{ opacity: 1, scale: 1, y:"-10", duration: .6, ease: "circ" },"<")
         .to(".quarter2", { opacity: 0, duration: .5, ease: "circ"})
-        .fromTo(".pScore2", { opacity: 0, scale: 0, x: "-30", y: "-50"},{ opacity: 1, scale: 1, duration: .6, ease: "circ", y:"0" },"<")
+        .fromTo(".pScore2", { opacity: 0, scale: 0, y: "-50" },{ opacity: 1, scale: 1, y:"-10", duration: .6, ease: "circ" },"<")
         .to(".quarter3", { opacity: 0, duration: .5, ease: "circ"})
-        .fromTo(".pScore3", { opacity: 0, scale: 0, x: "-30", y: "-50"},{ opacity: 1, scale: 1, duration: .6, ease: "circ", y:"0" },"<")
+        .fromTo(".pScore3", { opacity: 0, scale: 0, y: "-50" },{ opacity: 1, scale: 1, y:"-10", duration: .6, ease: "circ" },"<")
         .to(".quarter4", { opacity: 0, duration: .5, ease: "circ"})
-        .fromTo(".pScore4",{ opacity: 0, scale: 0, x: "-30", y: "-50"}, { opacity: 1, scale: 1, duration: .6, ease: "circ", y:"0" },"<")
+        .fromTo(".pScore4",{ opacity: 0, scale: 0, y: "-50" }, { opacity: 1, scale: 1, y:"-10", duration: .6, ease: "circ" },"<")
         .to(".quarter5", { opacity: 0, duration: .5, ease: "circ"})
-        .fromTo(".pScore5", { opacity: 0, scale: 0, x: "-30", y: "-50"},{ opacity: 1, scale: 1, duration: .6, ease: "circ", y:"0" },"<")
+        .fromTo(".pScore5", { opacity: 0, scale: 0, y: "-50"},{ opacity: 1, scale: 1, y:"-10", duration: .6, ease: "circ" },"<")
         
         // /////bottom part of scoreboard --top ten
         .fromTo(".scoreModal", { opacity: 0 }, { opacity: 1, duration: 1, ease: "circ" }, "+=.5")
@@ -445,14 +445,6 @@ function gameEnd() {
         .fromTo(".time", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")     
         .fromTo("#message", { opacity: 0, scale: 0, x: "13%", y: "33%" }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
         .fromTo("#eval2", { opacity: 0, x: "0%" }, { opacity: 1, x: "700%",  y: "0", duration: 1, ease: "back", rotation: 720 }, "-=1");
-        
-document.getElementById('message').innerText = `Try to beat your score`;
-    let playAgain = document.getElementById('eval2');
-    playAgain = document.createElement("button");
-    document.getElementById('eval2').append(playAgain);
-    playAgain.innerText = "\u{1f3ac}";
-    playAgain.addEventListener("click", gameAgain);
-
 
  let fadeDuration = 1,
     stayDuration = 3,
@@ -467,6 +459,14 @@ finalSBPrint2.to(".time", {opacity: 0, duration: fadeDuration}, stayDuration)
   master
   .add(finalSBPrint)
   .add(finalSBPrint2);
+
+  document.getElementById('message').innerText = `Try to beat your score`;
+    let playAgain = document.getElementById('eval2');
+    playAgain = document.createElement("button");
+    document.getElementById('eval2').append(playAgain);
+    playAgain.innerText = "\u{1f3ac}";
+    playAgain.addEventListener("click", gameAgain);
+
 }
 
 // /////color display for scoreboard

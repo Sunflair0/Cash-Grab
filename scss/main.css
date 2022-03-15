@@ -574,102 +574,31 @@ img {
   margin-bottom: 10%;
 }
 
-.sb_Alpha {
-  display: flex;
-  font-size: 1.2rem;
-  flex-basis: 25%;
-  flex-direction: column;
-  width: 75%;
-  grid-area: 1/1/11/2;
-}
-
 .rank {
   flex-flow: row;
 }
-
-.sb_Beta {
-  display: flex;
-  font-size: 1.2rem;
-  flex-basis: 25%;
-  flex-direction: column;
-  grid-area: 1/2/11/3;
-  align-items: center;
-}
-
-.sb_Gamma {
-  display: flex;
-  font-size: 1.2rem;
-  flex-basis: 25%;
-  flex-direction: column;
-  grid-area: 1/3/11/4;
-  align-items: center;
-}
-
-.sb_Delta {
-  display: flex;
-  font-size: 1.2rem;
-  flex-basis: 25%;
-  flex-direction: column;
-  grid-area: 1/4/11/6;
-}
-
-.sbColor {
-  color: #fcddb6;
-}
-
-.grid_container {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 1fr;
-}
-
 .scoreCap {
-  grid-area: 1/1/2/7;
   display: flex;
-  height: 100%;
-  padding: 5% 10px;
-  grid-row: span 1;
-  border-bottom: #ffffff 3px ridge;
-  background-color: black;
-}
-
-.scoreCap2 {
-  grid-area: 1/1/2/7;
-  display: flex;
-  height: 100%;
-  padding: 5% 10px;
-  grid-row: span 1;
-}
-
-.pScore0 {
-  display: flex;
-  flex-wrap: column;
-  height: 50px;
-}
-
-.quarter1, .quarter2, .quarter3, .quarter4,
-.pScore1, .pScore2, .pScore3, .pScore4 {
-  display: flex;
-  flex-basis: 16%;
   justify-content: space-around;
+  align-items: center;
+  height: 10%;
+  width: 100%;
+  font-size: large;
+  overflow: visible;
+  background: black;
+  border-bottom:#ffffff 3px ridge;
+  color:rgb(252, 221, 182);
 }
-
-.quarter5, .pScore5 {
-  display: flex;
-  flex-basis: 20%;
-  justify-content: space-evenly;
+.quarter0, .quarter1, .quarter2, .quarter3, .quarter4, .quarter5 {
+  display:flex;
+  justify-content: center;
+  transform: translate(10px, 0px);
 }
-
-.quarter {
-  transform: translate(-40px, 0px);
+.pScore0, .pScore1, .pScore2, .pScore3, .pScore4, .pScore5 {
+  display:flex;
+  justify-content: center;
+  transform: translate(-50px, -50px);
 }
-
-.pScores {
-  display: flex;
-  flex-direction: row;
-  padding: 5% 0px;
-}
-
 .headings {
   display: flex;
   justify-content: space-around;

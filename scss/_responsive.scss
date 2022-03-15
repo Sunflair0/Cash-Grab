@@ -2,8 +2,8 @@
     .roundModal {        
         color:rgb(241, 11, 11);
     }
-    .headings, #score, #tick {
-        font-size: xx-large;        
+    .headings, #score, #tick, .lineOne, .lineTwo {
+        font-size: large;        
     }
     .heart1, .heart2, .heart3, .heart4 {
         font-size: x-large;    
@@ -101,6 +101,7 @@
     }
     .scoreModal {
         height: 60%;
+        font-size: small;
     }
     .bottom {
         margin-bottom: -3%;
