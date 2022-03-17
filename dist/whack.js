@@ -91,7 +91,7 @@ function xIntro() {
     .fromTo("#finger", {opacity: 0,}, {opacity: 1}, 1.28)    
     .fromTo("#padlock", {opacity: 0}, {opacity: 1}, "<");
 }
-function gameAgain() {
+function startGameAgain() {
     gsap.to(".tsModal", { opacity: 0, duration: 1, ease: "circ", y: '-165%' });
     printHearts()
     unlockChoice();
@@ -464,8 +464,8 @@ finalSBPrint2.to(".time", {opacity: 0, duration: fadeDuration}, stayDuration)
     let playAgain = document.getElementById('eval2');
     playAgain = document.createElement("button");
     document.getElementById('eval2').append(playAgain);
-    playAgain.innerText = "\u{1f3ac}";
-    playAgain.addEventListener("click", gameAgain);
+    // playAgain.innerText = "\u{1f3ac}";
+    playAgain.addEventListener("click", startGameAgain);
 
 }
 
