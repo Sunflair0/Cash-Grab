@@ -63,9 +63,10 @@
     min-width: 80px;  
 }
 #second {
-    margin-top: 3px;
-    max-width: 100px;
-    min-width: 80px;   
+    margin-top: 9px;
+    max-width: 68px;
+    min-width: 75px;
+    position: fixed;
 }
 .introModalShows {
     display: flex;
@@ -104,9 +105,9 @@
     flex-direction: column;
     font-size: auto;
     position: relative;     
-    top: 12%;
+    top: 8%;
 }
 #coolmole1 img {
-    width: 75%;
+    width: 84px;
     bottom: -43%;
 }

@@ -76,7 +76,6 @@ let choiceStack = document.getElementsByClassName('choice')[0];
 function xIntro() {
     document.getElementsByClassName('choiceblock')[0].style.visibility = "visible";
     gamePlay.level = "MED";
-    level.innerText = 'MED';
     finger.innerText = "\u{261e}";
 
     // /////intromodal leaving
@@ -85,10 +84,11 @@ function xIntro() {
     printHearts()
     unlockChoice()
     
-    let levelBlock_descends = gsap.timeline({ defaults: { duration: 1 } })
+    let levelBlock_descends = gsap.timeline({ defaults: { duration: .7 } })
     levelBlock_descends
-    .fromTo("#level", {opacity: 0, y:-40}, {opacity: 1, y:-5})
-    .fromTo("#finger", {opacity: 0}, {opacity: 1})
+    .fromTo("#level", {opacity: 0.5, y:-30}, {opacity: 1, y:-5})
+    .set("#level", {innerText:"MED"})
+    .fromTo("#finger", {opacity: 0,}, {opacity: 1}, 1.28)    
     .fromTo("#padlock", {opacity: 0}, {opacity: 1}, "<");
 }
 function gameAgain() {
@@ -377,7 +377,7 @@ function roundendGSAP(){
         .from(".line", {})
         .from(".theBar", {})
         .fromTo(".evalOne", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, ease: "power2" })
-        .from("#eval", { x: "-30%" });
+        .from("#eval", { opacity: 0 });
     roundEnd();
 }
 // /////function to roll up stat page and restart new level

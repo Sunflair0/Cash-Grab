@@ -37,7 +37,6 @@
     margin-bottom: 13px;
     }    
     #plusImg, #minusImg, #coolmole1 {
-        width: 100px;
         min-width: 54px;
     }
     #evalMes, .evalOne2 {
@@ -54,6 +53,14 @@
     }
     th {
         font-size: small;  
+    }
+    img {    
+        width: 100%;
+    }
+    #second {
+        margin-top: 1px;
+        max-width: 100px;
+        min-width: 80px;   
     }
     #start {    
         min-height: 100px;
@@ -100,7 +107,6 @@
         top: -106%;
     }
     .scoreModal {
-        height: 60%;
         font-size: small;
     }
     .bottom {

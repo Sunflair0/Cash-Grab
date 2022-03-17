@@ -2,14 +2,14 @@
     position: absolute;
     color: white;
     border:#ffffff 5px ridge;
-    height: 69%;
+    height: 63%;
     width: 85%;
-    top: -101%;
+    max-width: 500px;
+    top: -89%;
     display: flex;
     flex-direction: column;
     align-items: center;     
     padding: 2vh;    
-    max-width: 510px;  
     z-index: 1;
     
     // ///// opacity also handled with gsap
@@ -23,6 +23,7 @@
     background-color: #000000de;
     height: 60%;
     width: 80%;
+    max-width: 500px;
     color:white;
     position: fixed;  
     top: -86%;       
@@ -33,10 +34,11 @@
 }
 .tsModal {
     background-color: hsla(0, 0%, 0%, 0.8);
-    height: 72%;
+    height: 67%;
     width: 90%;
+    max-width: 500px;
     color: white;
-    top: -108%;
+    top: -99%;
     position: fixed;
     border: white 5px ridge;
     justify-content: center;    
@@ -44,37 +46,35 @@
 }
 .scoreModal {   
     border:white 5px ridge;
-    font-size: small;
-    padding: 0px 7px;
-    margin: 13px auto;        
-    height: 60%;
+    font-size: x-small;
+    padding: 18px 7px;
+    margin: 15px auto 12px;
+    height: 59%;
     opacity: 0;
     overflow: visible;
     z-index: 1;
 }
-#evalMes {   
+.evalOne {
     @include modal; 
-    margin-bottom: 1rem;
-    transform: translate(0px, 10px);  
+    width: 100px;
+    transform: translate(14%, 18%);
 }
 .evalOne2 {   
-    @include modal; 
-    margin-bottom: 1rem;    
-    transform: translate(0px, 50px);   
+    @include modal;   
+    transform: translate(-20px, 50px);   
 }
 #message {   
     @include modal; 
-    margin-bottom: 1rem;    
-    transform: translate(0px, 50px);   
+    margin-bottom: -2rem;
+    transform: translate(40px, -50px);  
 }
 .tsModal th {
     font-size: x-small;
-   
+    transform: translateY(-8px);
 }
  .x, .scoreCap tr  {
     width: 100%;
     border-bottom:#ffffff 3px ridge;
-    margin-bottom: 5px;
 }
 
 .score {
@@ -141,12 +141,11 @@
 }
 .progress-bar {
     padding: 2px;    
-    max-width: 100%;
     border: 2px solid #c4a728;
     height: 1.5em;
-    width: 300px;
+    width: 100%;
     border-radius: 15px;
-    margin-right: -10vw;   
+    margin-right: -5vw;   
 
       &::before {
           content: "Goal\00a0=\00a0 300";
@@ -171,9 +170,10 @@
     height: 7rem;
     font-size: x-large;  
     display: flex;
-    justify-content: right;
-    align-items: right;   
+    margin-top: 2rem;
     margin-right: 2vw;
+    align-items: center;       
+    
 }
 .times {    
     font-size: x-large;
@@ -189,37 +189,25 @@
     flex-direction: row;
     margin-top: 1rem;
 }
-.evalOne {
-    margin-left: 0%;
-    width: 55%;
-    top:0;
-}
 #eval2 {
     border: none;
 }
 #percent {
-    padding-top: 2rem;
-}
-#eval {
-    margin-left: 108%;
+    padding: .5rem 1rem;
 }
 .theBar {
-    width: 35%;
-    top:0;
-    padding-bottom: 1rem;
-    margin-left: 20vw;
-}
-#all {
-    color:#e7d801;
     display: flex;
-    flex-direction:column;
-    margin-top: -10rem;
+    margin-left: 9vw;
+    width: 300px;
+}
+#eval {
+    transform: translate(44%, -105%);    
 }
 .time {
     opacity: 0;    
-    transform: translate(9px, 9px);   
+    transform: translate(9px, 6px);   
 }
 .date {
     opacity: 0;
-    transform: translate(0, -9px);   
+    transform: translate(0, -6px);   
 }
