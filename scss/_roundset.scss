@@ -72,18 +72,16 @@
     font-size: x-small;
     transform: translateY(-8px);
 }
- .x, .scoreCap tr  {
+.scWrapper  {
     width: 100%;
     border-bottom:#ffffff 3px ridge;
 }
-
 .score {
     text-align: end;
     padding-right: 7px;
 }
 .name {
     text-align: center;
-
 }
 .scoreCap {
     justify-content: space-around;

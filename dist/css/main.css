@@ -804,7 +804,7 @@ img {
           transform: translateY(-8px);
 }
 
-.x, .scoreCap tr {
+.scWrapper {
   width: 100%;
   border-bottom: #ffffff 3px ridge;
 }

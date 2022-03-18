@@ -413,7 +413,7 @@ function gameEnd() {
     document.getElementById("quarter_one").innerText = rScores[0];
     document.getElementById("quarter_two").innerText = rScores[1];
     document.getElementById("quarter_three").innerText = rScores[2];
-    document.getElementById("quarter_four").innerText = rScores[3];
+    document.getElementById("quarter_four").innerText = rScores[3];    
 
     let finalSBPrint = gsap.timeline()
     finalSBPrint
@@ -444,7 +444,7 @@ function gameEnd() {
         .fromTo(".name", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .fromTo(".time", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")     
         .fromTo("#message", { opacity: 0, scale: 0, x: "13%", y: "33%" }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
-        .fromTo("#eval2", { opacity: 0, x: "0%" }, { opacity: 1, x: "700%",  y: "0", duration: 1, ease: "back", rotation: 720 }, "-=1");
+        .fromTo("#eval2", { opacity: 0, x: "0%" }, { opacity: 1, x: "700%",  y: "0%", duration: 1, ease: "back", rotation: "720deg" }, "-=1");
 
  let fadeDuration = 1,
     stayDuration = 3,
@@ -464,9 +464,8 @@ finalSBPrint2.to(".time", {opacity: 0, duration: fadeDuration}, stayDuration)
     let playAgain = document.getElementById('eval2');
     playAgain = document.createElement("button");
     document.getElementById('eval2').append(playAgain);
-    // playAgain.innerText = "\u{1f3ac}";
+    playAgain.innerText = "\u{1f3ac}";
     playAgain.addEventListener("click", startGameAgain);
-
 }
 
 // /////color display for scoreboard
