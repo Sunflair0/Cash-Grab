@@ -754,9 +754,10 @@ img {
 
 .scoreModal {
   border: white 5px ridge;
-  font-size: x-small;
-  padding: 18px 7px;
+  font-size: medium;
+  padding: 15px 7px 0;
   margin: 15px auto 12px;
+  line-height: .8rem;
   height: 59%;
   opacity: 0;
   overflow: visible;
@@ -770,7 +771,7 @@ img {
   background: radial-gradient(#e7d801, #ece360, #4aec0a, #00a1ff, #ff8cff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  width: 100px;
+  width: 105px;
   -webkit-transform: translate(14%, 18%);
           transform: translate(14%, 18%);
 }
@@ -782,8 +783,8 @@ img {
   background: radial-gradient(#e7d801, #ece360, #4aec0a, #00a1ff, #ff8cff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-transform: translate(-20px, 50px);
-          transform: translate(-20px, 50px);
+  -webkit-transform: translate(-20px, 45px);
+          transform: translate(-20px, 45px);
 }
 
 #message {

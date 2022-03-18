@@ -36,15 +36,12 @@ const lsName = "localStorageMasterArrayName";
 let masterArr = gameLocalStorage.getMasterArr()
 let gamePlay = {};
 let rScores = [];
-let newArr = [];
-let summore =[];
 let color =[];
-let result = 0;
 let percent = 0;
 let min = round;
 let max = round + 1;
 let life = 5;
-let goal = 0;
+let goal = 0; // /////short for debugging
 let start = document.getElementById('start');
 let tick = document.getElementById('tick');
 let whiteBoxes = document.getElementsByClassName("whiteBoxes")[0];
@@ -66,14 +63,13 @@ const darkmole = [mole1, mole2, mole3, mole4];
 const darkcash = [cash1, cash2, cash3, cash4];
 let mole = darkmole[round];
 let cash = darkcash[round];
-
 let header = document.getElementById('header');
 let level = document.getElementById('level');
 let padlock = document.getElementById('padlock');
 let finger = document.getElementById('finger');
 let choiceStack = document.getElementsByClassName('choice')[0];
 
-function xIntro() {
+function exitIntro() {
     document.getElementsByClassName('choiceblock')[0].style.visibility = "visible";
     gamePlay.level = "MED";
     finger.innerText = "\u{261e}";
@@ -143,8 +139,6 @@ function selectDifficulty() {
         setStyle();
         gamePlay.level = "HARD";
     }
-    console.log("selectDifficulty gamePlay:", gamePlay);
-    console.log("selectDifficulty masterArr", JSON.stringify(masterArr))
 }
 function setStyle() {
     level.style.color = `${stackStyle}`;
@@ -193,7 +187,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         clearHolesAfterRound();
-    }, 100); //shorten here for debugging mode
+    },10100); //shorten here for debugging mode
 });
 
 function choice(min, max) {
@@ -364,9 +358,9 @@ function clearHolesAfterRound() {
     clearHole1.forEach((val) => {
         val.classList.remove(`cash${round}`)
     });
-    roundendGSAP();
+    roundEndGSAP();
 }
-function roundendGSAP(){
+function roundEndGSAP(){
     document.getElementById('plusImg').src = `./asset/minCash${round}.png`;
     let tl = gsap.timeline({ defaults: { duration: .5, opacity: 0 } })
     tl
@@ -405,15 +399,13 @@ function roundUp() {
 }
 function gameEnd() {
     header.innerText = 'Final';
-    gamePlay.score = sumArr();
-    console.log(gamePlay.score);
-    console.log(sumArr());
-    document.getElementById("totalScore").innerText = gamePlay.score;
+    gamePlay.score = sumArr();    
     postSB(masterArr);
     document.getElementById("quarter_one").innerText = rScores[0];
     document.getElementById("quarter_two").innerText = rScores[1];
     document.getElementById("quarter_three").innerText = rScores[2];
     document.getElementById("quarter_four").innerText = rScores[3];    
+    document.getElementById("totalScore").innerText = gamePlay.score;
 
     let finalSBPrint = gsap.timeline()
     finalSBPrint
@@ -444,7 +436,7 @@ function gameEnd() {
         .fromTo(".name", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .fromTo(".time", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")     
         .fromTo("#message", { opacity: 0, scale: 0, x: "13%", y: "33%" }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
-        .fromTo("#eval2", { opacity: 0, x: "0%" }, { opacity: 1, x: "700%",  y: "0%", duration: 1, ease: "back", rotation: "720deg" }, "-=1");
+        .fromTo("#eval2", { opacity: 0, x: "0%" }, { opacity: 1, x: "90%",  y: "0%", duration: 1, ease: "back", rotation: "720" }, "-=1");
 
  let fadeDuration = 1,
     stayDuration = 3,
@@ -535,7 +527,6 @@ function isTopTen(gamePlay, arrayOfPlayers) {
     arrayOfPlayers = sortArrayDescending(arrayOfPlayers, "score");
     if ((arrayOfPlayers.length < 10)  // Player automatically in if less than 10 players saved
         || (gamePlay.score > arrayOfPlayers[arrayOfPlayers.length - 1].score)) {
-            console.log(gamePlay, masterArr, arrayOfPlayers[arrayOfPlayers.length - 1]);
         // Now player is in Top 10
         arrayOfPlayers.push({
             name: getName(),
@@ -544,7 +535,6 @@ function isTopTen(gamePlay, arrayOfPlayers) {
             time: getTime(),
             date: getDate(),   
         });
-        console.log(arrayOfPlayers)
 
         // Reset length of arrayOfPlayers (masterArr)
         arrayOfPlayers = sortArrayDescending(arrayOfPlayers, "score");
@@ -601,12 +591,12 @@ let myGame = (() => {
         header.innerText = "CashSmash";
     let rule = CSSRulePlugin.getRule("p:after");
     start.style.visibility = "hidden";
-    let xIntro1 = document.getElementById('xIntro');
+    let exitIntro1 = document.getElementById('xIntro');
     document.getElementById('min1').src = `./asset/minCash1.png`;
     document.getElementById('min2').src = `./asset/minCash2.png`;
     document.getElementById('min3').src = `./asset/minCash3.png`;
     document.getElementById('min4').src = `./asset/minCash4.png`;
-    xIntro1.addEventListener("click", xIntro);
+    exitIntro1.addEventListener("click", exitIntro);
 
     let intro = gsap.timeline({ defaults: { duration: 1.5 } })
     intro

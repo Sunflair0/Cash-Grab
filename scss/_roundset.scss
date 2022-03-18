@@ -46,9 +46,10 @@
 }
 .scoreModal {   
     border:white 5px ridge;
-    font-size: x-small;
-    padding: 18px 7px;
+    font-size: medium;
+    padding: 15px 7px 0;
     margin: 15px auto 12px;
+    line-height: .8rem;
     height: 59%;
     opacity: 0;
     overflow: visible;
@@ -56,12 +57,12 @@
 }
 .evalOne {
     @include modal; 
-    width: 100px;
+    width: 105px;
     transform: translate(14%, 18%);
 }
 .evalOne2 {   
     @include modal;   
-    transform: translate(-20px, 50px);   
+    transform: translate(-20px, 45px); 
 }
 #message {   
     @include modal; 
