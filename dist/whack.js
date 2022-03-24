@@ -88,6 +88,7 @@ function exitIntro() {
     .fromTo("#padlock", {opacity: 0}, {opacity: 1}, "<");
 }
 function startGameAgain() {
+    document.getElementById('restart-button').remove;
     gsap.to(".tsModal", { opacity: 0, duration: 1, ease: "circ", y: '-165%' });
     printHearts()
     unlockChoice();
@@ -455,6 +456,7 @@ finalSBPrint2.to(".time", {opacity: 0, duration: fadeDuration}, stayDuration)
   document.getElementById('message').innerText = `Try to beat your score`;
     let playAgain = document.getElementById('eval2');
     playAgain = document.createElement("button");
+    playAgain.id ='restart-button';
     document.getElementById('eval2').append(playAgain);
     playAgain.innerText = "\u{1f3ac}";
     playAgain.addEventListener("click", startGameAgain);

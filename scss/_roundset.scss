@@ -56,16 +56,20 @@
     z-index: 1;
 }
 .evalOne {
-    @include modal; 
     width: 105px;
     transform: translate(14%, 18%);
 }
 .evalOne2 {   
-    @include modal;   
     transform: translate(-20px, 45px); 
 }
 #message {   
     @include modal; 
+    font-family: 'Caveat';
+    font-size: larger;
+    font-weight: 600;
+    background: radial-gradient( #e7d801, #ece360, #4aec0a, #00a1ff, #ff8cff);
+    -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
     margin-bottom: -2rem;
     transform: translate(40px, -50px);  
 }

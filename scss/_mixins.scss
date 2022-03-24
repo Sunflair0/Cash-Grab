@@ -30,14 +30,6 @@
   background-repeat: no-repeat;
   border-radius: 20%;
 }
-@mixin modal {
-  font-family: 'Caveat';
-    font-size: larger;
-    font-weight: 600;
-    background: radial-gradient( #e7d801, #ece360, #4aec0a, #00a1ff, #ff8cff);
-    -webkit-background-clip: text;
-     -webkit-text-fill-color: transparent;
-}
 @mixin sbPlus {
   display: flex;    
   flex-basis: 25%;

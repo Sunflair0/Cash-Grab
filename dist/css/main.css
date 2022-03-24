@@ -768,9 +768,6 @@ img {
   font-family: 'Caveat';
   font-size: larger;
   font-weight: 600;
-  background: radial-gradient(#e7d801, #ece360, #4aec0a, #00a1ff, #ff8cff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   width: 105px;
   -webkit-transform: translate(14%, 18%);
           transform: translate(14%, 18%);
@@ -780,9 +777,6 @@ img {
   font-family: 'Caveat';
   font-size: larger;
   font-weight: 600;
-  background: radial-gradient(#e7d801, #ece360, #4aec0a, #00a1ff, #ff8cff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   -webkit-transform: translate(-20px, 45px);
           transform: translate(-20px, 45px);
 }
@@ -1157,8 +1151,12 @@ li .buttons {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  -webkit-box-shadow: inset 2px -3px 3px 1px #bbaeae,  inset 2px -5px 5px 1px #c3c3c3, inset 2px -7px 10px 1px #4c4c4c;
-          box-shadow: inset 2px -3px 3px 1px #bbaeae,  inset 2px -5px 5px 1px #c3c3c3, inset 2px -7px 10px 1px #4c4c4c;
+  -webkit-box-shadow: inset 2px -3px 3px 1px #bbaeae, 
+ inset 2px -5px 5px 1px #c3c3c3,
+ inset 2px -7px 10px 1px #4c4c4c;
+          box-shadow: inset 2px -3px 3px 1px #bbaeae, 
+ inset 2px -5px 5px 1px #c3c3c3,
+ inset 2px -7px 10px 1px #4c4c4c;
   cursor: pointer;
 }
 
@@ -1170,8 +1168,20 @@ li .buttons::before {
   outline-offset: 8px;
   border-radius: 100%;
   margin: 4px 3px 12px 5px;
-  -webkit-box-shadow: -5px 7px 1px 0px #1b1b1b,  0px 0px 13px 5px #a3a3a5,  -2px 2px 0px 6px #2d2d2e,  6px -9px 6px 0px #ffffff,  6px -9px 20px 4px #ffffff,  inset 1px -2px 7px #13141d,  inset 1px -2px 10px #ffffff;
-          box-shadow: -5px 7px 1px 0px #1b1b1b,  0px 0px 13px 5px #a3a3a5,  -2px 2px 0px 6px #2d2d2e,  6px -9px 6px 0px #ffffff,  6px -9px 20px 4px #ffffff,  inset 1px -2px 7px #13141d,  inset 1px -2px 10px #ffffff;
+  -webkit-box-shadow: -5px 7px 1px 0px #1b1b1b, 
+ 0px 0px 13px 5px #a3a3a5, 
+ -2px 2px 0px 6px #2d2d2e, 
+ 6px -9px 6px 0px #ffffff, 
+ 6px -9px 20px 4px #ffffff, 
+ inset 1px -2px 7px #13141d, 
+ inset 1px -2px 10px #ffffff;
+          box-shadow: -5px 7px 1px 0px #1b1b1b, 
+ 0px 0px 13px 5px #a3a3a5, 
+ -2px 2px 0px 6px #2d2d2e, 
+ 6px -9px 6px 0px #ffffff, 
+ 6px -9px 20px 4px #ffffff, 
+ inset 1px -2px 7px #13141d, 
+ inset 1px -2px 10px #ffffff;
 }
 
 li .buttons::before li .buttons::before {
@@ -1180,8 +1190,16 @@ li .buttons::before li .buttons::before {
   width: 13px;
   border-radius: 100%;
   margin: 4px 3px 12px 5px;
-  -webkit-box-shadow: 7px -8px 6px 1px #ffffff,  0px 0px 5px 2px #f0eeee,  -4px 5px 0px 0px black, inset -1px -2px 10px 0px #ffffff, inset 1px -2px 7px 0px #000000;
-          box-shadow: 7px -8px 6px 1px #ffffff,  0px 0px 5px 2px #f0eeee,  -4px 5px 0px 0px black, inset -1px -2px 10px 0px #ffffff, inset 1px -2px 7px 0px #000000;
+  -webkit-box-shadow: 7px -8px 6px 1px #ffffff, 
+ 0px 0px 5px 2px #f0eeee, 
+ -4px 5px 0px 0px black,
+ inset -1px -2px 10px 0px #ffffff,
+ inset 1px -2px 7px 0px #000000;
+          box-shadow: 7px -8px 6px 1px #ffffff, 
+ 0px 0px 5px 2px #f0eeee, 
+ -4px 5px 0px 0px black,
+ inset -1px -2px 10px 0px #ffffff,
+ inset 1px -2px 7px 0px #000000;
 }
 
 .clear-float {
@@ -1197,8 +1215,22 @@ li .buttons::before li .buttons::before {
   content: "";
   background: #62ff00;
   outline: #a2fa6c 1px solid;
-  -webkit-box-shadow: -5px 7px 1px 0px #1b1b1b,  6px -9px 8px 2px #43c53c,  0px 0px 13px 5px #a3a3a5,  -2px 2px 0px 6px #2d2d2e,  6px -9px 6px 0px #ffffff,  6px -9px 20px 4px #ffffff,  inset 1px -2px 7px #13141d,  6px -9px 20px 4px #62ff00;
-          box-shadow: -5px 7px 1px 0px #1b1b1b,  6px -9px 8px 2px #43c53c,  0px 0px 13px 5px #a3a3a5,  -2px 2px 0px 6px #2d2d2e,  6px -9px 6px 0px #ffffff,  6px -9px 20px 4px #ffffff,  inset 1px -2px 7px #13141d,  6px -9px 20px 4px #62ff00;
+  -webkit-box-shadow: -5px 7px 1px 0px #1b1b1b, 
+ 6px -9px 8px 2px #43c53c, 
+ 0px 0px 13px 5px #a3a3a5, 
+ -2px 2px 0px 6px #2d2d2e, 
+ 6px -9px 6px 0px #ffffff, 
+ 6px -9px 20px 4px #ffffff, 
+ inset 1px -2px 7px #13141d, 
+ 6px -9px 20px 4px #62ff00;
+          box-shadow: -5px 7px 1px 0px #1b1b1b, 
+ 6px -9px 8px 2px #43c53c, 
+ 0px 0px 13px 5px #a3a3a5, 
+ -2px 2px 0px 6px #2d2d2e, 
+ 6px -9px 6px 0px #ffffff, 
+ 6px -9px 20px 4px #ffffff, 
+ inset 1px -2px 7px #13141d, 
+ 6px -9px 20px 4px #62ff00;
 }
 
 .med + .buttons::before {
@@ -1210,8 +1242,22 @@ li .buttons::before li .buttons::before {
   content: "";
   background: #fbff00;
   outline: #f8fa6c 1px solid;
-  -webkit-box-shadow: -5px 7px 1px 0px #1b1b1b,  6px -9px 8px 2px #bcc53c,  0px 0px 13px 5px #a3a3a5,  -2px 2px 0px 6px #2d2d2e,  6px -9px 6px 0px #ffffff,  6px -9px 20px 4px #ffffff,  inset 1px -2px 7px #13141d,  6px -9px 20px 4px #eeff00;
-          box-shadow: -5px 7px 1px 0px #1b1b1b,  6px -9px 8px 2px #bcc53c,  0px 0px 13px 5px #a3a3a5,  -2px 2px 0px 6px #2d2d2e,  6px -9px 6px 0px #ffffff,  6px -9px 20px 4px #ffffff,  inset 1px -2px 7px #13141d,  6px -9px 20px 4px #eeff00;
+  -webkit-box-shadow: -5px 7px 1px 0px #1b1b1b, 
+ 6px -9px 8px 2px #bcc53c, 
+ 0px 0px 13px 5px #a3a3a5, 
+ -2px 2px 0px 6px #2d2d2e, 
+ 6px -9px 6px 0px #ffffff, 
+ 6px -9px 20px 4px #ffffff, 
+ inset 1px -2px 7px #13141d, 
+ 6px -9px 20px 4px #eeff00;
+          box-shadow: -5px 7px 1px 0px #1b1b1b, 
+ 6px -9px 8px 2px #bcc53c, 
+ 0px 0px 13px 5px #a3a3a5, 
+ -2px 2px 0px 6px #2d2d2e, 
+ 6px -9px 6px 0px #ffffff, 
+ 6px -9px 20px 4px #ffffff, 
+ inset 1px -2px 7px #13141d, 
+ 6px -9px 20px 4px #eeff00;
 }
 
 .hard + .buttons::before {
@@ -1223,47 +1269,115 @@ li .buttons::before li .buttons::before {
   content: "";
   background: #ff9b89;
   outline: #fa7d6c 1px solid;
-  -webkit-box-shadow: -5px 7px 1px 0px #1b1b1b,  6px -7px 9px 3px #f18071,  0px 0px 13px 5px #a3a3a5,  -2px 2px 0px 6px #2d2d2e,  6px -9px 6px 0px #ffffff,  6px -9px 20px 4px #ffffff,  inset 1px -2px 7px #13141d,  6px -9px 20px 4px #fa5d41;
-          box-shadow: -5px 7px 1px 0px #1b1b1b,  6px -7px 9px 3px #f18071,  0px 0px 13px 5px #a3a3a5,  -2px 2px 0px 6px #2d2d2e,  6px -9px 6px 0px #ffffff,  6px -9px 20px 4px #ffffff,  inset 1px -2px 7px #13141d,  6px -9px 20px 4px #fa5d41;
+  -webkit-box-shadow: -5px 7px 1px 0px #1b1b1b, 
+ 6px -7px 9px 3px #f18071, 
+ 0px 0px 13px 5px #a3a3a5, 
+ -2px 2px 0px 6px #2d2d2e, 
+ 6px -9px 6px 0px #ffffff, 
+ 6px -9px 20px 4px #ffffff, 
+ inset 1px -2px 7px #13141d, 
+ 6px -9px 20px 4px #fa5d41;
+          box-shadow: -5px 7px 1px 0px #1b1b1b, 
+ 6px -7px 9px 3px #f18071, 
+ 0px 0px 13px 5px #a3a3a5, 
+ -2px 2px 0px 6px #2d2d2e, 
+ 6px -9px 6px 0px #ffffff, 
+ 6px -9px 20px 4px #ffffff, 
+ inset 1px -2px 7px #13141d, 
+ 6px -9px 20px 4px #fa5d41;
 }
 
 .easy:checked + .buttons {
-  -webkit-box-shadow: 0px 0px 20px 12px #15df1b,  0px 0px 13px 2px #00ff2a;
-          box-shadow: 0px 0px 20px 12px #15df1b,  0px 0px 13px 2px #00ff2a;
+  -webkit-box-shadow: 0px 0px 20px 12px #15df1b, 
+ 0px 0px 13px 2px #00ff2a;
+          box-shadow: 0px 0px 20px 12px #15df1b, 
+ 0px 0px 13px 2px #00ff2a;
 }
 
 .easy:checked + .buttons::before {
   content: "";
   border: #59dd54 solid 1px;
   outline: #50cb20 solid 1px;
-  -webkit-box-shadow: -5px 7px 1px 0px #166203,  6px -7px 6px 1px #ffffff, 0px 0px 4px 5px #25fd08,  0px 0px 12px 11px #33b15d, 10px -12px 9px 5px #e3e3e3,  0px 0px 0px 7px #ffffff,  0px 0px 9px 13px #000000,   inset -2px 2px 0px 0px #c2ff24,  inset 0px 0px 0px 20px #47ff00;
-          box-shadow: -5px 7px 1px 0px #166203,  6px -7px 6px 1px #ffffff, 0px 0px 4px 5px #25fd08,  0px 0px 12px 11px #33b15d, 10px -12px 9px 5px #e3e3e3,  0px 0px 0px 7px #ffffff,  0px 0px 9px 13px #000000,   inset -2px 2px 0px 0px #c2ff24,  inset 0px 0px 0px 20px #47ff00;
+  -webkit-box-shadow: -5px 7px 1px 0px #166203, 
+ 6px -7px 6px 1px #ffffff,
+ 0px 0px 4px 5px #25fd08, 
+ 0px 0px 12px 11px #33b15d,
+ 10px -12px 9px 5px #e3e3e3, 
+ 0px 0px 0px 7px #ffffff, 
+ 0px 0px 9px 13px #000000,  
+ inset -2px 2px 0px 0px #c2ff24, 
+ inset 0px 0px 0px 20px #47ff00;
+          box-shadow: -5px 7px 1px 0px #166203, 
+ 6px -7px 6px 1px #ffffff,
+ 0px 0px 4px 5px #25fd08, 
+ 0px 0px 12px 11px #33b15d,
+ 10px -12px 9px 5px #e3e3e3, 
+ 0px 0px 0px 7px #ffffff, 
+ 0px 0px 9px 13px #000000,  
+ inset -2px 2px 0px 0px #c2ff24, 
+ inset 0px 0px 0px 20px #47ff00;
 }
 
 .med:checked + .buttons {
-  -webkit-box-shadow: 0px 0px 20px 12px #dcdf15,  0px 0px 13px 2px #fbff00;
-          box-shadow: 0px 0px 20px 12px #dcdf15,  0px 0px 13px 2px #fbff00;
+  -webkit-box-shadow: 0px 0px 20px 12px #dcdf15, 
+ 0px 0px 13px 2px #fbff00;
+          box-shadow: 0px 0px 20px 12px #dcdf15, 
+ 0px 0px 13px 2px #fbff00;
 }
 
 .med:checked + .buttons::before {
   content: "";
   border: #c9dd54 solid 1px;
   outline: #c2cb20 solid 1px;
-  -webkit-box-shadow: -5px 7px 1px 0px #838102,  6px -7px 6px 1px #ffffff, 0px 0px 4px 5px #faff09,  0px 0px 12px 11px #959124,  10px -12px 9px 5px #e3e3e3,  0px 0px 0px 7px #ffffff,  0px 0px 9px 13px #000000,  inset -2px 2px 0px 0px  #ffffff,  inset 0px 0px 0px 20px #fffb00;
-          box-shadow: -5px 7px 1px 0px #838102,  6px -7px 6px 1px #ffffff, 0px 0px 4px 5px #faff09,  0px 0px 12px 11px #959124,  10px -12px 9px 5px #e3e3e3,  0px 0px 0px 7px #ffffff,  0px 0px 9px 13px #000000,  inset -2px 2px 0px 0px  #ffffff,  inset 0px 0px 0px 20px #fffb00;
+  -webkit-box-shadow: -5px 7px 1px 0px #838102, 
+ 6px -7px 6px 1px #ffffff,
+ 0px 0px 4px 5px #faff09, 
+ 0px 0px 12px 11px #959124, 
+ 10px -12px 9px 5px #e3e3e3, 
+ 0px 0px 0px 7px #ffffff, 
+ 0px 0px 9px 13px #000000, 
+ inset -2px 2px 0px 0px  #ffffff, 
+ inset 0px 0px 0px 20px #fffb00;
+          box-shadow: -5px 7px 1px 0px #838102, 
+ 6px -7px 6px 1px #ffffff,
+ 0px 0px 4px 5px #faff09, 
+ 0px 0px 12px 11px #959124, 
+ 10px -12px 9px 5px #e3e3e3, 
+ 0px 0px 0px 7px #ffffff, 
+ 0px 0px 9px 13px #000000, 
+ inset -2px 2px 0px 0px  #ffffff, 
+ inset 0px 0px 0px 20px #fffb00;
 }
 
 .hard:checked + .buttons {
-  -webkit-box-shadow: 0px 0px 20px 12px #df3315,  0px 0px 13px 2px #ff2600;
-          box-shadow: 0px 0px 20px 12px #df3315,  0px 0px 13px 2px #ff2600;
+  -webkit-box-shadow: 0px 0px 20px 12px #df3315, 
+ 0px 0px 13px 2px #ff2600;
+          box-shadow: 0px 0px 20px 12px #df3315, 
+ 0px 0px 13px 2px #ff2600;
 }
 
 .hard:checked + .buttons::before {
   content: "";
   border: #9f1717 solid 1px;
   outline: #850000 solid 1px;
-  -webkit-box-shadow: -5px 7px 1px 0px #620303,  6px -7px 6px 1px #ffffff,  0px 0px 4px 5px #eb3131,  0px 0px 12px 11px #b13b33,  10px -12px 9px 5px #e3e3e3,  0px 0px 0px 7px #ffffff,  0px 0px 9px 13px #000000,  inset -2px 2px 0px 0px #ff4e83,  inset 0px 0px 0px 20px #ff0079;
-          box-shadow: -5px 7px 1px 0px #620303,  6px -7px 6px 1px #ffffff,  0px 0px 4px 5px #eb3131,  0px 0px 12px 11px #b13b33,  10px -12px 9px 5px #e3e3e3,  0px 0px 0px 7px #ffffff,  0px 0px 9px 13px #000000,  inset -2px 2px 0px 0px #ff4e83,  inset 0px 0px 0px 20px #ff0079;
+  -webkit-box-shadow: -5px 7px 1px 0px #620303, 
+ 6px -7px 6px 1px #ffffff, 
+ 0px 0px 4px 5px #eb3131, 
+ 0px 0px 12px 11px #b13b33, 
+ 10px -12px 9px 5px #e3e3e3, 
+ 0px 0px 0px 7px #ffffff, 
+ 0px 0px 9px 13px #000000, 
+ inset -2px 2px 0px 0px #ff4e83, 
+ inset 0px 0px 0px 20px #ff0079;
+          box-shadow: -5px 7px 1px 0px #620303, 
+ 6px -7px 6px 1px #ffffff, 
+ 0px 0px 4px 5px #eb3131, 
+ 0px 0px 12px 11px #b13b33, 
+ 10px -12px 9px 5px #e3e3e3, 
+ 0px 0px 0px 7px #ffffff, 
+ 0px 0px 9px 13px #000000, 
+ inset -2px 2px 0px 0px #ff4e83, 
+ inset 0px 0px 0px 20px #ff0079;
 }
 
 li:nth-child(2) {
