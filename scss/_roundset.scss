@@ -57,6 +57,9 @@
 }
 .evalOne {
     width: 105px;
+    color: #c3bd03;
+    text-shadow: -3px -3px 0 rgb(70, 223, 10), 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+
     transform: translate(14%, 18%);
 }
 .evalOne2 {   
@@ -68,6 +71,7 @@
     font-size: larger;
     font-weight: 600;
     background: radial-gradient( #e7d801, #ece360, #4aec0a, #00a1ff, #ff8cff);
+    background-clip: text;
     -webkit-background-clip: text;
      -webkit-text-fill-color: transparent;
     margin-bottom: -2rem;

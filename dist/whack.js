@@ -88,7 +88,7 @@ function exitIntro() {
     .fromTo("#padlock", {opacity: 0}, {opacity: 1}, "<");
 }
 function startGameAgain() {
-    document.getElementById('restart-button').remove;
+    document.getElementById('restart-button').remove();
     gsap.to(".tsModal", { opacity: 0, duration: 1, ease: "circ", y: '-165%' });
     printHearts()
     unlockChoice();
