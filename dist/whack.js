@@ -389,7 +389,7 @@ function roundUp() {
     document.getElementById('eval').innerText = '';
     document.getElementById('score').innerText = score;
     document.getElementById('eval').style.visibility = "hidden";
-    document.body.style.backgroundImage = `url(/dist/asset/round${round}.png)`;    
+    document.body.style.backgroundImage = `url(./asset/round${round}.png)`;    
     document.getElementById('wBox5').src = `./asset/round${round + 1}.png`;
     document.getElementById('first').src = `./asset/minCash${round}.png`;
     document.getElementById('second').src = `./asset/mole${round}.png`;

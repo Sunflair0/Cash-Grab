@@ -5,7 +5,7 @@ html {
 body {
   overflow: hidden;
   position: relative;
-  background-image: url(/dist/asset/round1.png);
+  background-image: url(../asset/round1.png);
   background-color: black;
   background-size: cover;
   background-clip: content-box;
@@ -74,7 +74,7 @@ img {
   background-size: contain;
   background-repeat: no-repeat;
   border-radius: 20%;
-  background-image: url(/dist/asset/darkhole.png);
+  background-image: url(../asset/darkhole.png);
 }
 
 #roundEnd {
@@ -145,35 +145,35 @@ img {
 }
 
 #minCash1 {
-  background-image: url(/dist/asset/minCash1.png);
+  background-image: url(../asset/minCash1.png);
 }
 
 #minCash2 {
-  background-image: url(/dist/asset/minCash2.png);
+  background-image: url(../asset/minCash2.png);
 }
 
 #minCash3 {
-  background-image: url(/dist/asset/minCash3.png);
+  background-image: url(../asset/minCash3.png);
 }
 
 #minCash4, #minCash5 {
-  background-image: url(/dist/asset/minCash4.png);
+  background-image: url(../asset/minCash4.png);
 }
 
 .cash1 {
-  background-image: url(/dist/asset/darkcash.png);
+  background-image: url(../asset/darkcash.png);
 }
 
 .cash2 {
-  background-image: url(/dist/asset/darklapis.png);
+  background-image: url(../asset/darklapis.png);
 }
 
 .cash3 {
-  background-image: url(/dist/asset/darkpearl.png);
+  background-image: url(../asset/darkpearl.png);
 }
 
 .cash4, .cash5 {
-  background-image: url(/dist/asset/darkyellow.png);
+  background-image: url(../asset/darkyellow.png);
 }
 
 .smash {
@@ -189,7 +189,7 @@ img {
   background-size: contain;
   background-repeat: no-repeat;
   border-radius: 20%;
-  background-image: url(/dist/asset/smash.png);
+  background-image: url(../asset/smash.png);
 }
 
 .bop {
@@ -205,35 +205,35 @@ img {
   background-size: contain;
   background-repeat: no-repeat;
   border-radius: 20%;
-  background-image: url(/dist/asset/bop.png);
+  background-image: url(../asset/bop.png);
 }
 
 .mole1 {
-  background-image: url(/dist/asset/mole1.png);
+  background-image: url(../asset/mole1.png);
 }
 
 .mole2 {
-  background-image: url(/dist/asset/mole2.png);
+  background-image: url(../asset/mole2.png);
 }
 
 .mole3 {
-  background-image: url(/dist/asset/mole3.png);
+  background-image: url(../asset/mole3.png);
 }
 
 .mole4 {
-  background-image: url(/dist/asset/mole4.png);
+  background-image: url(../asset/mole4.png);
 }
 
 .round2 {
-  background-image: url(/dist/asset/round2.png);
+  background-image: url(../asset/round2.png);
 }
 
 .round3 {
-  background-image: url(/dist/asset/round3.png);
+  background-image: url(../asset/round3.png);
 }
 
 .round4 {
-  background-image: url(/dist/asset/round4.png);
+  background-image: url(../asset/round4.png);
 }
 
 img {
