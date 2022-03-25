@@ -20,18 +20,17 @@ body {
     transition: transform 1s;  
     
       & button {
-        outline: rgba(0, 0, 0, 0.548) 2.5px solid;
-        outline-offset: -4px;
-        border: rgb(255, 255, 255) 4px solid;
-          font-size: medium;
-          color: red;
-          height: 40px;
-          padding-bottom: 5px;
-          width: 38px;
-          border-radius: 50%;
-          background: linear-gradient(to top, #4aec0a 0%, #e7d801 70%);
-          z-index: 10;
-          cursor: pointer;
+        outline: rgb(255, 255, 255) 2.5px double;
+        outline-offset: -4px;  
+        border: #75766f 6px solid;        
+        font-size: medium;
+        height: 45px;
+        padding-bottom: 3px;
+        width: 43px;
+        border-radius: 50%;
+        background: linear-gradient(to top, #4aec0a 0%, #e7d801 70%);
+        z-index: 10;
+        cursor: pointer;
       }
 }
 *, ::before, ::after {

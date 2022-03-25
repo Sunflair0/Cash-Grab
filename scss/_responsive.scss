@@ -1,4 +1,9 @@
 @include media-sm {
+    p, #bop {
+        font-size: 1.3rem;
+        margin-bottom: 0.9rem;
+        line-height: 1.3rem;
+    }
     .roundModal {        
         color:rgb(241, 11, 11);
     }
@@ -72,6 +77,7 @@
     }
     .xIntro {
         margin-top: -15%;
+        z-index: 10;
     }
     .roundModal {
         font-size: smaller;

@@ -57,25 +57,29 @@
 }
 .evalOne {
     width: 105px;
-    color: #c3bd03;
-    text-shadow: -3px -3px 0 rgb(70, 223, 10), 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
-
+    background: radial-gradient( #e7d801, #ece360, #4aec0a, #00a1ff, #ff8cff);
+    background-clip: text;
+    -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
     transform: translate(14%, 18%);
 }
-.evalOne2 {   
-    transform: translate(-20px, 45px); 
-}
-#message {   
-    @include modal; 
+.evalOne2 {
     font-family: 'Caveat';
+    color: #c3bd03;
     font-size: larger;
+    font-weight: 600;
+    transform: translate(-20px, 22px);
+  }
+#message {   
+    font-family: 'Caveat';
+    font-size: x-large;
     font-weight: 600;
     background: radial-gradient( #e7d801, #ece360, #4aec0a, #00a1ff, #ff8cff);
     background-clip: text;
     -webkit-background-clip: text;
      -webkit-text-fill-color: transparent;
     margin-bottom: -2rem;
-    transform: translate(40px, -50px);  
+    transform: translateX(40px);
 }
 .tsModal th {
     font-size: x-small;
@@ -179,8 +183,7 @@
     display: flex;
     margin-top: 2rem;
     margin-right: 2vw;
-    align-items: center;       
-    
+    align-items: center;           
 }
 .times {    
     font-size: x-large;
@@ -196,8 +199,15 @@
     flex-direction: row;
     margin-top: 1rem;
 }
+.evalOne {
+    color: #c3bd03;
+    border: rgb(30, 255, 0) solid 2px;
+  }
 #eval2 {
     border: none;
+    font-size: large;
+    transform: translateY(-140%);
+    border: rgb(4, 0, 255) solid 2px;
 }
 #percent {
     padding: .5rem 1rem;

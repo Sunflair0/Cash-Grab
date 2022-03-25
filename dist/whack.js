@@ -84,7 +84,7 @@ function exitIntro() {
     levelBlock_descends
     .fromTo("#level", {opacity: 0.5, y:-30}, {opacity: 1, y:-5})
     .set("#level", {innerText:"MED"})
-    .fromTo("#finger", {opacity: 0,}, {opacity: 1}, 1.28)    
+    .fromTo("#finger", {opacity: 0,}, {opacity: 1}, .7)    
     .fromTo("#padlock", {opacity: 0}, {opacity: 1}, "<");
 }
 function startGameAgain() {
@@ -188,7 +188,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         clearHolesAfterRound();
-    },10100); //shorten here for debugging mode
+    },5100); //shorten here for debugging mode
 });
 
 function choice(min, max) {
@@ -309,6 +309,8 @@ function roundEnd() {
         tryAgain = document.createElement("button");
         document.getElementById('eval').append(tryAgain);
         tryAgain.innerText = "\u{2764}";
+        document.getElementById('eval').style.fontSize = "large";
+        tryAgain.setAttribute('style', 'color:red; font-size:x-large;');
         tryAgain.addEventListener("click", useHeart);
     }
     else if (round == 4) {
@@ -345,6 +347,7 @@ function noHearts() {
     let doOver = document.getElementById('eval');
     doOver = document.createElement("button");
     document.getElementById('eval').append(doOver);
+    doOver.setAttribute('style', 'color:red; font-size:x-large; font-weight:600;');
     doOver.innerText = "\u{21ba}";
     doOver.addEventListener("click", printHearts);
 }
@@ -436,8 +439,8 @@ function gameEnd() {
         .fromTo(".score", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .fromTo(".name", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .fromTo(".time", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")     
-        .fromTo("#message", { opacity: 0, scale: 0, x: "13%", y: "33%" }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
-        .fromTo("#eval2", { opacity: 0, x: "0%" }, { opacity: 1, x: "90%",  y: "0%", duration: 1, ease: "back", rotation: "720" }, "-=1");
+        .fromTo("#message", { opacity: 0, scale: 0, x: "20%", y: "33%" }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
+        .fromTo("#eval2", { opacity: 0,  }, { opacity: 1, x: "650%",  duration: 1, ease: "back", rotation: 720 }, "-=1");
 
  let fadeDuration = 1,
     stayDuration = 3,
@@ -455,9 +458,9 @@ finalSBPrint2.to(".time", {opacity: 0, duration: fadeDuration}, stayDuration)
 
   document.getElementById('message').innerText = `Try to beat your score`;
     let playAgain = document.getElementById('eval2');
-    playAgain = document.createElement("button");
     playAgain.id ='restart-button';
-    document.getElementById('eval2').append(playAgain);
+    // document.getElementById('eval2').append(playAgain);
+    
     playAgain.innerText = "\u{1f3ac}";
     playAgain.addEventListener("click", startGameAgain);
 }
@@ -568,17 +571,6 @@ function getDate() {
     return dateStamp;
 }
 
-
-// function gameCount(){
-
-
-// let sGame=[];
-// sGame =`sbg${game}` 
-
-// sGame.push($`seconds`,sumArr())
-//  console.log(sGame,`sbg${game}`  )
-// }
-
 ////////////////////////////////
 //IIFE - Immediately Invoked Function Expression
 
@@ -625,6 +617,14 @@ let myGame = (() => {
     master
         .add(intro)
         .add(cashCarousel);
+
+        let startButton = document.getElementById('xIntro');
+        startButton = document.createElement("button");
+        document.getElementById('xIntro').append(startButton);
+        startButton.innerText = "\u{1f44d}\u{1f3fe}";
+        startButton.addEventListener("click", exitIntro);
+
+
     }
 
     intro();

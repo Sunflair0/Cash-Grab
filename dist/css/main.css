@@ -33,14 +33,13 @@ body {
 }
 
 body button {
-  outline: rgba(0, 0, 0, 0.548) 2.5px solid;
-  outline-offset: -4px;
-  border: white 4px solid;
+  outline: rgb(255, 255, 255) 2.5px double;
+  outline-offset: -4px;  
+  border: #75766f 6px solid;        
   font-size: medium;
-  color: red;
-  height: 40px;
-  padding-bottom: 5px;
-  width: 38px;
+  height: 45px;
+  padding-bottom: 3px;
+  width: 43px;
   border-radius: 50%;
   background: -webkit-gradient(linear, left bottom, left top, from(#4aec0a), color-stop(70%, #e7d801));
   background: linear-gradient(to top, #4aec0a 0%, #e7d801 70%);
@@ -122,7 +121,12 @@ img {
   }
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 500px) {
+  p, #bop {
+    font-size: 1.3rem;
+    margin-bottom: 0.9rem;
+    line-height: 1.3rem;
+}
   .roundModal {
     color: #f10b0b;
   }
@@ -202,6 +206,7 @@ img {
   }
   .xIntro {
     margin-top: -15%;
+    z-index: 10;
   }
   .roundModal {
     font-size: smaller;
@@ -770,6 +775,10 @@ img {
   font-family: 'Caveat';
   font-size: larger;
   font-weight: 600;
+  background: radial-gradient( #e7d801, #ece360, #4aec0a, #00a1ff, #ff8cff);
+    background-clip: text;
+    -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
   width: 105px;
   -webkit-transform: translate(14%, 18%);
           transform: translate(14%, 18%);
@@ -777,10 +786,11 @@ img {
 
 .evalOne2 {
   font-family: 'Caveat';
+  color: #c3bd03;
   font-size: larger;
   font-weight: 600;
-  -webkit-transform: translate(-20px, 45px);
-          transform: translate(-20px, 45px);
+  -webkit-transform: translate(-20px, 22px);
+          transform: translate(-20px, 22px);
 }
 
 #message {
@@ -792,8 +802,8 @@ img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: -2rem;
-  -webkit-transform: translate(40px, -50px);
-          transform: translate(40px, -50px);
+  -webkit-transform: translateX(40px);
+          transform: translateX(40px);
 }
 
 .tsModal th {
@@ -974,6 +984,8 @@ img {
 
 #eval2 {
   border: none;
+  border: rgb(4, 0, 255) solid 2px;
+
 }
 
 #percent {
@@ -1051,6 +1063,7 @@ button .xIntro {
   width: 45px;
   border-radius: 50%;
   margin-top: 2%;
+  z-index: 10;
 }
 
 #level {
@@ -1471,7 +1484,7 @@ p:after {
   }
 }
 
-#ccc {
+#gameGoal {
   color: #91ff00;
 }
 

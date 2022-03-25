@@ -35,13 +35,13 @@ body::-webkit-scrollbar-thumb {
   border: transparent solid 0.3rem;
 }
 body button {
-  outline: white 1.5px solid;
-  outline-offset: -4px;
-  border: white 2px solid;
-  font-size: large;
-  color: red;
+  outline: rgb(255, 255, 255) 2.5px double;
+  outline-offset: -4px;  
+  border: #75766f 6px solid;        
+  font-size: medium;
   height: 45px;
-  width: 45px;
+  padding-bottom: 3px;
+  width: 43px;
   border-radius: 50%;
   background-image: linear-gradient(to top, #4aec0a 0%, #e7d801 70%);
   cursor: pointer;
@@ -110,7 +110,12 @@ img {
     transform: scale(1);
   }
 }
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 500px) {
+  p, #bop {
+    font-size: 1.3rem;
+    margin-bottom: 0.9rem;
+    line-height: 1.3rem;
+}
   .roundModal {
     color: #f10b0b;
   }
@@ -749,6 +754,7 @@ button .xIntro {
   max-height: 10vw;
   min-height: 6vh;
   margin-top: 2%;
+  z-index: 10;
 }
 
 #level {
@@ -973,7 +979,7 @@ p:after {
     color: #ebdbdb;
   }
 }
-#ccc {
+#gameGoal {
   color: #91ff00;
 }
 
