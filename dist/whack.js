@@ -136,7 +136,7 @@ function selectDifficulty() {
     if (document.getElementById('hard').checked) {
         seconds = 1000;
         level.innerText = 'HARD';
-        stackStyle = '#ff5252';
+        stackStyle = '#fb9797';
         setStyle();
         gamePlay.level = "HARD";
     }
@@ -412,6 +412,14 @@ function gameEnd() {
     document.getElementById("quarter_four").innerText = rScores[3];    
     document.getElementById("totalScore").innerText = gamePlay.score;
 
+    document.getElementById('message').innerText = `Try to beat your score`;
+    let playAgain = document.getElementById('eval2');
+    playAgain.id ='restart-button';
+    playAgain.innerText = "\u{1f3ac}";
+    playAgain.addEventListener("click", startGameAgain);
+
+
+
     let finalSBPrint = gsap.timeline()
     finalSBPrint
         .to(".roundModal", { opacity: 0, duration: .5, ease: "circ", })
@@ -442,12 +450,6 @@ function gameEnd() {
         .fromTo(".time", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")     
         .fromTo("#message", { opacity: 0, scale: 0, x: "20%", y: "33%" }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
         .fromTo("#eval2", { opacity: 0,  }, { opacity: 1, x: "650%",  duration: 1, ease: "back", rotation: 720 }, "-=1");
-
- document.getElementById('message').innerText = `Try to beat your score`;
-    let playAgain = document.getElementById('eval2');
-    playAgain.id ='restart-button';
-    playAgain.innerText = "\u{1f3ac}";
-    playAgain.addEventListener("click", startGameAgain);
 
  let fadeDuration = 1,
     stayDuration = 3,
