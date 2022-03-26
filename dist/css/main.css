@@ -127,77 +127,78 @@ img {
     margin-bottom: 0.9rem;
     line-height: 1.3rem;
 }
-  .roundModal {
-    color: #f10b0b;
-  }
-  .headings, #score, #tick, .lineOne, .lineTwo {
-    font-size: large;
-  }
-  .heart1, .heart2, .heart3, .heart4 {
-    font-size: x-large;
-  }
-  .head_font, .header {
-    font-size: 70px;
-    margin: 0 5px;
-  }
-  #level {
-    font-size: 16px;
-    padding: 9px 0 0px 25px;
-  }
-  #padlock {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    height: 30px;
-  }
-  #finger {
-    margin-top: -60px;
-    font-size: 60px;
-    width: 80px;
-  }
-  .choice {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    color: white;
-    width: 80px;
-  }
-  .heartbox {
-    -webkit-transform: translate(-5%, -4%);
-            transform: translate(-5%, -4%);
-  }
-  .bottom {
-    margin-bottom: 13px;
-  }
-  #plusImg, #minusImg, #coolmole1 {
-    min-width: 54px;
-  }
-  #evalMes, .evalOne2 {
-    margin-left: 1rem;
-  }
-  .evalOne {
-    width: 35%;
-  }
-  .scoreCap {
-    font-size: medium;
-  }
-  .rank, .lvColor, .score, .name {
-    margin-bottom: 21%;
-  }
-  th {
-    font-size: small;
-  }
-  img {
-    width: 100%;
-  }
-  #second {
-    margin-top: 1px;
-    max-width: 100px;
-    min-width: 80px;
-  }
-  #start {
-    min-height: 100px;
-  }
+.headings{
+  font-size: xx-large;  
+}
+.heart1, .heart2, .heart3, .heart4, #score, #tick  {
+  font-size: x-large;    
+}
+.lineOne, .lineTwo {
+  font-size: large;        
+}
+.head_font, .header{
+  font-size: 70px;
+  margin: 0 5px;
+}
+#level {
+  font-size: 16px;
+  padding: 9px 0 0px 25px;
+}
+#padlock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 30px;
+}
+#finger { 
+  margin-top: -60px;
+  font-size: 56px;
+  width: 80px;
+    
+}
+.choice {  
+  display: -webkit-box;
+  display: -ms-flexbox;  
+  display: flex;
+  color: white;    
+  width: 80px;  
+}
+.heartbox {
+  -webkit-transform: translate(-5%, -4%);
+          transform: translate(-5%, -4%);
+}
+.bottom {
+margin-bottom: 13px;
+}    
+#plusImg, #minusImg, #coolmole1 {
+  min-width: 54px;
+}
+#evalMes, .evalOne2 {
+  margin-left: 1rem;
+}
+.evalOne {
+  width: 35%;
+}
+.scoreCap {  
+  font-size: medium;  
+}   
+.rank, .lvColor, .score, .name {
+  margin-bottom: 21%;
+}
+th {
+  font-size: small;  
+}
+img {    
+  width: 100%;
+}
+#second {
+  margin-top: 1px;
+  max-width: 100px;
+  min-width: 80px;   
+}
+#start {    
+  min-height: 100px;
+}
 }
 
 @media screen and (max-height: 750px), (max-width: 500px) {
@@ -249,19 +250,10 @@ img {
 }
 
 @media screen and (min-width: 1060px) {
-  #score, #tick {
-    margin-top: 3vh;
-  }
   .second {
     -webkit-transform: scale(0.35, 0.35);
             transform: scale(0.35, 0.35);
     margin-bottom: 8vh;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  #score, #tick {
-    font-family: 'Orbitron';
   }
 }
 
@@ -507,7 +499,7 @@ img {
   font-family: 'Orbitron';
   width: 200px;
   text-align: center;
-  font-size: x-large;
+  font-size: large;
 }
 
 .whiteBoxes {

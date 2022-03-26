@@ -44,7 +44,7 @@ button .xIntro {
     padding: 7px 0 0 28px;
     transform: translate(0,-5px);
     transition: .3s ease all;
-    cursor: pointer;      
+    cursor: pointer;     
 }
 #padlock {
     display: flex;
@@ -89,8 +89,8 @@ li::marker {
     width: 80px;
     height: 60px;
     color: silver; 
-    z-index: 2;
-    transform: translate(0,-5px);      
+    z-index: 2;     
+    transform: translate(0,-5px);
 }
 .lockPadlock {
     background: repeating-linear-gradient(139deg, 

@@ -163,12 +163,14 @@
           padding-left: 3%;
           color:#000000de;
           display: flex;
-          width: calc(var(--width,0)*1%);
+          width: calc(var(--width,0));
+       
           height: 1em;
           min-width: 1rem;
           max-width: 100%;
           border-radius: 15px;
           position: relative;
+          transition: all 5s 5s;
           background: repeating-linear-gradient(
             135deg,
             #4aec0a,

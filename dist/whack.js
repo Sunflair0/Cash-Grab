@@ -165,13 +165,13 @@ start.addEventListener("click", () => {
     level.removeEventListener("click", selectDifficulty);    
 
     document.getElementsByClassName('wBox2')[0].style.visibility = "visible";
-    let secs = window.setInterval(() => {
+    let secs = setInterval(() => {
         document.getElementById("tick").innerText = ':' + timer;
         timer--;
     }, 1000);
 
     // /////choice between cash or mole
-    let whereMole = window.setInterval(() => {
+    let whereMole = setInterval(() => {
         result = choice(min, max);
         if (result % 2 == 0) {
             displayCash()
@@ -181,14 +181,14 @@ start.addEventListener("click", () => {
         };
     }, 1000);
 
-    window.setTimeout(() => {
-        window.clearInterval(whereMole);
-        window.clearInterval(secs);
+    setTimeout(() => {
+        clearInterval(whereMole);
+        clearInterval(secs);
         document.getElementsByClassName('wBox2')[0].style.visibility = "hidden";
         document.getElementById('score').innerText = score;
         timer = 29
         clearHolesAfterRound();
-    },5100); //shorten here for debugging mode
+    },100); //shorten here for debugging mode
 });
 
 function choice(min, max) {
@@ -203,7 +203,7 @@ function displayMole() {
         isRandomHoleAvailable = !(holes[randomHole].classList.contains(`mole${round}`)) || !(holes[randomHole].classList.contains(`cash${round}`));
     }
     holes[randomHole].classList.add(`mole${round}`);
-    window.setTimeout(() => {
+    setTimeout(() => {
         holes[randomHole].classList.remove(`mole${round}`);
     }, `${seconds}`);
 };
@@ -215,7 +215,7 @@ function displayCash() {
         isRandomHoleAvailable = !(holes[randomHole].classList.contains(`mole${round}`)) || !(holes[randomHole].classList.contains(`cash${round}`));
     }
     holes[randomHole].classList.add(`cash${round}`);
-    window.setTimeout(() => {
+    setTimeout(() => {
         holes[randomHole].classList.remove(`cash${round}`);
     }, `${seconds}`);
 };
@@ -253,8 +253,8 @@ const progressBar = document.getElementsByClassName('progress-bar')[0];
 
 let progress = setInterval(() => {
     const width = percent || 0
-    progressBar.style.setProperty('--width', width + 1)
-}, 1000)
+    progressBar.style.setProperty('--width', width + 1);
+}, 3000);
 
 function statusMessage(msg) {
     let container = document.querySelector("#evalMes");
@@ -263,7 +263,7 @@ function statusMessage(msg) {
 // /////display hearts for lives
 function printHearts() {
     for (let i = 1; i < 5; i++) {
-        let hearts = document.getElementsByClassName(`heart${i}`)[0];
+        let hearts = document.getElementsByClassName(`heart${i}`)[0];       
         hearts.setAttribute('style', 'y:0', 'scale:1');
         hearts.innerText = "\u{2764}";
         hearts.style.opacity = 1;
@@ -309,7 +309,6 @@ function roundEnd() {
         tryAgain = document.createElement("button");
         document.getElementById('eval').append(tryAgain);
         tryAgain.innerText = "\u{2764}";
-        document.getElementById('eval').style.fontSize = "large";
         tryAgain.setAttribute('style', 'color:red; font-size:x-large;');
         tryAgain.addEventListener("click", useHeart);
     }
@@ -317,6 +316,7 @@ function roundEnd() {
         statusMessage(`Congratulations, you made it! Push the button for your results.`);
         let advance = document.getElementById('eval');
         advance = document.createElement("button");
+
         document.getElementById('eval').append(advance);
         advance.innerText = "\u{1f525}";
         advance.addEventListener("click", gameEnd);
@@ -339,7 +339,8 @@ function sumArr() {
     return sum;
 }
 function useHeart() {
-    gsap.to(`.heart${life}`, { opacity: 0, duration: 2.5, y: -100, rotation: 720, scale: 0 });
+    gsap.to(`.heart${life}`, { opacity: 0, duration: 2.5, y: -100, rotation: 720, scale: 0, clearProps: true  })
+    gsap.to(`.heart${life}`, { opacity: 0},"> -.501");
     roundUp()
 };
 function noHearts() {
@@ -442,6 +443,12 @@ function gameEnd() {
         .fromTo("#message", { opacity: 0, scale: 0, x: "20%", y: "33%" }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
         .fromTo("#eval2", { opacity: 0,  }, { opacity: 1, x: "650%",  duration: 1, ease: "back", rotation: 720 }, "-=1");
 
+ document.getElementById('message').innerText = `Try to beat your score`;
+    let playAgain = document.getElementById('eval2');
+    playAgain.id ='restart-button';
+    playAgain.innerText = "\u{1f3ac}";
+    playAgain.addEventListener("click", startGameAgain);
+
  let fadeDuration = 1,
     stayDuration = 3,
     finalSBPrint2 = gsap.timeline({repeat: -1});
@@ -454,19 +461,15 @@ finalSBPrint2.to(".time", {opacity: 0, duration: fadeDuration}, stayDuration)
   let master = gsap.timeline();
   master
   .add(finalSBPrint)
-  .add(finalSBPrint2);
+  .add(finalSBPrint2)
+  document.getElementById("restart-button").onclick = () => master.reverse(finalSBPrint2);
 
-  document.getElementById('message').innerText = `Try to beat your score`;
-    let playAgain = document.getElementById('eval2');
-    playAgain.id ='restart-button';
-    // document.getElementById('eval2').append(playAgain);
-    
-    playAgain.innerText = "\u{1f3ac}";
-    playAgain.addEventListener("click", startGameAgain);
+ 
 }
 
 // /////color display for scoreboard
-function setLevelColor(currentPlace, currentLevel) {
+function setLevelColor(currentPlace,
+     currentLevel) {
     switch (currentLevel) {
         case "EASY":
             document.getElementsByClassName("rank")[currentPlace].style.color = '#5dca5d';

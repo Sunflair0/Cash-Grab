@@ -4,14 +4,14 @@
         margin-bottom: 0.9rem;
         line-height: 1.3rem;
     }
-    .roundModal {        
-        color:rgb(241, 11, 11);
+    .headings{
+        font-size: xx-large;  
     }
-    .headings, #score, #tick, .lineOne, .lineTwo {
-        font-size: large;        
-    }
-    .heart1, .heart2, .heart3, .heart4 {
+    .heart1, .heart2, .heart3, .heart4, #score, #tick  {
         font-size: x-large;    
+    }
+    .lineOne, .lineTwo {
+        font-size: large;        
     }
     .head_font, .header{
         font-size: 70px;
@@ -26,9 +26,7 @@
         height: 30px;
     }
     #finger {
-        margin-top: -60px;
-        font-size: 60px;
-        width: 80px;     
+        font-size: 56px;   
     }
     .choice {    
         display: flex;
