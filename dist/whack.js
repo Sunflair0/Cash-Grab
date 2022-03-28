@@ -41,7 +41,7 @@ let percent = 0;
 let min = round;
 let max = round + 1;
 let life = 5;
-let goal = 0; // /////short for debugging
+let goal = 500; // /////short for debugging
 let start = document.getElementById('start');
 let tick = document.getElementById('tick');
 let whiteBoxes = document.getElementsByClassName("whiteBoxes")[0];
@@ -88,7 +88,6 @@ function exitIntro() {
     .fromTo("#padlock", {opacity: 0}, {opacity: 1}, "<");
 }
 function startGameAgain() {
-    document.getElementById('restart-button').remove();
     gsap.to(".tsModal", { opacity: 0, duration: 1, ease: "circ", y: '-165%' });
     printHearts()
     unlockChoice();
@@ -188,7 +187,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         clearHolesAfterRound();
-    },100); //shorten here for debugging mode
+    },30100); //shorten here for debugging mode
 });
 
 function choice(min, max) {
@@ -413,8 +412,7 @@ function gameEnd() {
     document.getElementById("totalScore").innerText = gamePlay.score;
 
     document.getElementById('message').innerText = `Try to beat your score`;
-    let playAgain = document.getElementById('eval2');
-    playAgain.id ='restart-button';
+    let playAgain = document.getElementById('restart-button');
     playAgain.innerText = "\u{1f3ac}";
     playAgain.addEventListener("click", startGameAgain);
 
@@ -449,7 +447,7 @@ function gameEnd() {
         .fromTo(".name", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .fromTo(".time", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")     
         .fromTo("#message", { opacity: 0, scale: 0, x: "20%", y: "33%" }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
-        .fromTo("#eval2", { opacity: 0,  }, { opacity: 1, x: "650%",  duration: 1, ease: "back", rotation: 720 }, "-=1");
+        .fromTo("#restart-button", { opacity: 0,  }, { opacity: 1, x: "650%",  duration: 1, ease: "back", rotation: 720 }, "-=1");
 
  let fadeDuration = 1,
     stayDuration = 3,
@@ -463,10 +461,7 @@ finalSBPrint2.to(".time", {opacity: 0, duration: fadeDuration}, stayDuration)
   let master = gsap.timeline();
   master
   .add(finalSBPrint)
-  .add(finalSBPrint2)
-  document.getElementById("restart-button").onclick = () => master.reverse(finalSBPrint2);
-
- 
+  .add(finalSBPrint2);
 }
 
 // /////color display for scoreboard
