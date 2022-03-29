@@ -921,7 +921,7 @@ img {
 }
 
 .progress-bar::before {
-  content: "Goal\00a0=\00a0 300";
+  content: "Goal\00a0=\00a0 500";
   padding-left: 3%;
   color: #000000de;
   display: -webkit-box;
@@ -1491,7 +1491,8 @@ p:after {
 }
 
 #gameGoal {
-  color: #91ff00;
+  color: #23ef0a;
+  font-weight: 600;
 }
 
 .bigShell {
