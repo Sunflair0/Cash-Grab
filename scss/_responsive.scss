@@ -68,23 +68,24 @@
     .xIntro {
         margin-top: -15%;
         z-index: 10;
-    }
-    .roundModal {
+      }
+      .roundModal {
         font-size: smaller;
         height: 60%;
         top: -86%;
-    }
-   .introModal {
-        font-size: smaller;
-        height: 67%;
-        width: 85%;
-        top: -99%;
-    }
-    .lineOne, .lineTwo {
-        height: 7rem;
-        font-size: x-large;
-        margin-top: 2rem;
-    }   
+      }
+      .progress-bar {
+        margin-top: 20%;
+      }
+      .introModal {
+          font-size: smaller;
+          height: 67%;
+          width: 85%;
+          top: -99%;
+      }
+      .theBar{
+          margin-top: -14%;
+      } 
 }
 @include media-md {
     .darkhole {

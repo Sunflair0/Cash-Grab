@@ -201,7 +201,7 @@ img {
 }
 }
 
-@media screen and (max-height: 750px), (max-width: 500px) {
+@media screen and (max-height: 750px){
   .xIntro {
     margin-top: -15%;
     z-index: 10;
@@ -211,16 +211,17 @@ img {
     height: 60%;
     top: -86%;
   }
-  .introModal {
-    font-size: smaller;
-    height: 67%;
-    width: 85%;
-    top: -99%;
+  .progress-bar {
+    margin-top: 20%;
   }
-  .lineOne, .lineTwo {
-    height: 7rem;
-    font-size: x-large;
-    margin-top: 2rem;
+  .introModal {
+      font-size: smaller;
+      height: 67%;
+      width: 85%;
+      top: -99%;
+  }
+  .theBar{
+      margin-top: -14%;
   }
 }
 
@@ -994,16 +995,69 @@ img {
           transform: translate(44%, -105%);
 }
 
+
 .time {
   opacity: 0;
   -webkit-transform: translate(9px, 6px);
           transform: translate(9px, 6px);
+  -webkit-animation: 6s cubic-bezier(0.65, -0.2, 0.41, 1.19) delay .5;
+          animation: 6s cubic-bezier(0.65, -0.2, 0.41, 1.19) delay .5;
+}
+
+@-webkit-keyframes time_key {
+  0% {
+    opacity: 1;
+}
+87% {
+  opacity: 0.1;  
+}
+87.5% {
+    opacity: 0;  
+}
+90.5% {
+    opacity: .5;  
+}
+}
+
+@keyframes time_key {
+  0% {
+    opacity: 1;
+}
+87% {
+  opacity: 0.1;  
+}
+87.5% {
+    opacity: 0;  
+}
+90.5% {
+    opacity: .5;  
+}
 }
 
 .date {
   opacity: 0;
   -webkit-transform: translate(0, -6px);
           transform: translate(0, -6px);
+  -webkit-animation: date_key  6s cubic-bezier(0.65, -0.2, 0.41, 1.19) delay .5;
+          animation: date_key 6s cubic-bezier(0.65, -0.2, 0.41, 1.19) delay .5;
+}
+
+@-webkit-keyframes date_key {
+  0% {
+    opacity: 0;
+  }
+  87.5% {
+    opacity: 1;
+  }
+}
+
+@keyframes date_key {
+  0% {
+    opacity: 0;
+  }
+  87.5% {
+    opacity: 1;
+  }
 }
 
 .head_font, .header {
