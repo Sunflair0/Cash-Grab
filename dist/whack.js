@@ -41,7 +41,7 @@ let percent = 0;
 let min = round;
 let max = round + 1;
 let life = 5;
-let goal = 10; // /////short for debugging
+let goal = 0; // /////short for debugging
 let start = document.getElementById('start');
 let tick = document.getElementById('tick');
 let whiteBoxes = document.getElementsByClassName("whiteBoxes")[0];
@@ -91,7 +91,9 @@ function startGameAgain() {
     gsap.to(".tsModal", { opacity: 0, duration: 1, ease: "circ", y: '-165%' })
     gsap.set(".quarter0, .quarter1, .quarter2, .quarter3, .quarter4, .quarter5, #restart-button", {clearProps: true});
     
-  
+    document.getElementsByClassName('time')[0].style.opacity = '0';
+    document.getElementsByClassName('date')[0].style.opacity = '0';
+
     printHearts()
     unlockChoice();
 }
@@ -404,6 +406,15 @@ function roundUp() {
     gsap.to(".roundModal", { y: "-100%", duration: 2.5, ease: "power1" });
     gsap.fromTo(".start", { opacity: 0, scale: 0 }, { duration: 1.5, opacity: 1, scale: 1, ease: "elastic" })
 }
+let fadeDuration = 1,
+    stayDuration = 3,
+    finalSBPrint2;
+
+let playAgain = document.getElementById('restart-button');
+    playAgain.innerText = "\u{1f3ac}";  
+    playAgain.addEventListener("click", startGameAgain);
+
+
 function gameEnd() {
     header.innerText = 'Final';
     gamePlay.score = sumArr();    
@@ -441,31 +452,35 @@ function gameEnd() {
         .fromTo(".lvColor", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .fromTo(".score", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .fromTo(".name", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
-        .fromTo(".time", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")    
-        .fromTo(".date", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ" }, "<+3") 
+        .to(".time", { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")  
+        .to(".date", { opacity: 0, duration: 2, ease: "circ", stagger: .4 }, "<")    
+        
+  
         .fromTo("#message", { opacity: 0, scale: 0, x: "20%", y: "33%" }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
-        .fromTo("#restart-button", { opacity: 0 }, { opacity: 1, x: "650%",  duration: 1, ease: "back", rotation: 720 }, "-=1");
+        .fromTo("#restart-button", { opacity: 0 }, { opacity: 1, x: "650%",  duration: 1, ease: "back", rotation: 720 }, "-=1")
         
 
- let fadeDuration = 1,
-    stayDuration = 3,
-    finalSBPrint2 = gsap.timeline({repeat: -1});
-
-finalSBPrint2.to(".time", {opacity: 0, duration: fadeDuration}, stayDuration)
-  .to(".date", {opacity: 1, duration: fadeDuration}, "-=100%")
-  .to(".time", {opacity: 1, duration: fadeDuration}, "+=" + stayDuration)
-  .to(".date", {opacity: 0, duration: fadeDuration}, "-=100%");
-  
-  let master = gsap.timeline();
-  master
-  .add(finalSBPrint)
-  .add(finalSBPrint2)
+        
+        if(finalSBPrint2) {
+            finalSBPrint2.progress(0).kill();
+           }
+           finalSBPrint2 = gsap.timeline({repeat: -1});
+           gsap.set(".time", { opacity: 0 });
+           finalSBPrint2.to(".time", {opacity: 0, duration: fadeDuration}, stayDuration)
+             .to(".date", {opacity: 1, duration: fadeDuration}, "-=100%")
+             .to(".time", {opacity: 1, duration: fadeDuration}, "+=" + stayDuration)
+             .to(".date", {opacity: 0, duration: fadeDuration}, "-=100%");
+           
+           
+          let master = gsap.timeline();
+          master
+          .add(finalSBPrint)
+          .add(finalSBPrint2);
 
   document.getElementById('message').innerText = `Try to beat your score`;
-    let playAgain = document.getElementById('restart-button');
-    playAgain.innerText = "\u{1f3ac}";
-    playAgain.addEventListener("click", startGameAgain);
-  
+    // let playAgain = document.getElementById('restart-button');
+      
+    
 }
 
 // /////color display for scoreboard

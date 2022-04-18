@@ -999,12 +999,50 @@ img {
   opacity: 0;
   -webkit-transform: translate(9px, 6px);
           transform: translate(9px, 6px);
+          /* animation: time_Frame 10s delay 10s ease-in-out infinite; */
 }
 
 .date {
   opacity: 0;
   -webkit-transform: translate(0, -6px);
           transform: translate(0, -6px);
+          /* animation: date_Frame 10s delay 10s ease-in-out infinite; */
+}
+
+@keyframes date_Frame {
+  0%{ 
+      opacity: 0;
+  }
+  40%{
+      opacity: 0;
+  }
+  50%{
+      opacity: 1;
+  }
+  90%{
+      opacity: 1;
+  }
+  100%{
+      opacity: 0;
+  }    
+}
+
+@keyframes time_Frame {
+  0%{ 
+      opacity: 1;
+  }
+  40%{
+      opacity: 1;
+  }
+  50%{
+      opacity: 0;
+  }
+  90%{
+      opacity: 0;
+  }
+  100%{
+      opacity: 1;
+  }    
 }
 
 .head_font, .header {

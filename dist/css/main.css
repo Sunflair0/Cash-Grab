@@ -1000,64 +1000,51 @@ img {
   opacity: 0;
   -webkit-transform: translate(9px, 6px);
           transform: translate(9px, 6px);
-  -webkit-animation: 6s cubic-bezier(0.65, -0.2, 0.41, 1.19) delay .5;
-          animation: 6s cubic-bezier(0.65, -0.2, 0.41, 1.19) delay .5;
-}
+          /* animation: date_Frame 10s delay 10s ease-in-out infinite; */
 
-@-webkit-keyframes time_key {
-  0% {
-    opacity: 1;
-}
-87% {
-  opacity: 0.1;  
-}
-87.5% {
-    opacity: 0;  
-}
-90.5% {
-    opacity: .5;  
-}
-}
-
-@keyframes time_key {
-  0% {
-    opacity: 1;
-}
-87% {
-  opacity: 0.1;  
-}
-87.5% {
-    opacity: 0;  
-}
-90.5% {
-    opacity: .5;  
-}
 }
 
 .date {
   opacity: 0;
   -webkit-transform: translate(0, -6px);
           transform: translate(0, -6px);
-  -webkit-animation: date_key  6s cubic-bezier(0.65, -0.2, 0.41, 1.19) delay .5;
-          animation: date_key 6s cubic-bezier(0.65, -0.2, 0.41, 1.19) delay .5;
+          /* animation: date_Frame 10s delay 10s ease-in-out infinite; */
 }
 
-@-webkit-keyframes date_key {
-  0% {
-    opacity: 0;
+@keyframes date_Frame {
+  0%{ 
+      opacity: 0;
   }
-  87.5% {
-    opacity: 1;
+  40%{
+      opacity: 0;
   }
+  50%{
+      opacity: 1;
+  }
+  90%{
+      opacity: 1;
+  }
+  100%{
+      opacity: 0;
+  }    
 }
 
-@keyframes date_key {
-  0% {
-    opacity: 0;
+@keyframes time_Frame {
+  0%{ 
+      opacity: 1;
   }
-  87.5% {
-    opacity: 1;
+  40%{
+      opacity: 1;
   }
+  50%{
+      opacity: 0;
+  }
+  90%{
+      opacity: 0;
+  }
+  100%{
+      opacity: 1;
+  }    
 }
 
 .head_font, .header {
