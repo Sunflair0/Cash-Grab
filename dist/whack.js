@@ -41,7 +41,7 @@ let percent = 0;
 let min = round;
 let max = round + 1;
 let life = 5;
-let goal = 0; // /////short for debugging
+let goal = 300; // /////shorten for debugging
 let start = document.getElementById('start');
 let tick = document.getElementById('tick');
 let whiteBoxes = document.getElementsByClassName("whiteBoxes")[0];
@@ -172,7 +172,7 @@ start.addEventListener("click", () => {
     let secs = setInterval(() => {
         document.getElementById("tick").innerText = ':' + timer;
         timer--;
-    }, 1000);
+    }, 301000);
 
     // /////choice between cash or mole
     let whereMole = setInterval(() => {
