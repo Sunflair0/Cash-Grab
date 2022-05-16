@@ -828,11 +828,9 @@ img {
 
 .evalOne {
   color: #c3bd03;
-  border: rgb(30, 255, 0) solid 2px;
 }
 
 #restart-button {
-  border: none;
   font-size: large;
   transform: translateY(-140%);
   border: rgb(4, 0, 255) solid 2px;
