@@ -95,6 +95,16 @@ img {
     transform: scale(1);
   }
 }
+
+.percent {
+  transform: translate(10px, 60px);
+}
+@media screen and (min-width: 376px) {
+.progress-bar {
+    margin-bottom: 17%;
+  }
+}
+
 @media screen and (min-width: 500px) {
   .headings {
     font-size: xx-large;
@@ -112,6 +122,8 @@ img {
     font-size: 70px;
     margin: 0 5px;
   }
+
+  
 
   #level {
     font-size: 16px;
@@ -188,11 +200,7 @@ img {
   .roundModal {
     font-size: smaller;
     height: 60%;
-    top: -86%;
-  }
-
-  .progress-bar {
-    margin-top: 20%;
+    top: -86%;    
   }
 
   .introModal {
@@ -204,6 +212,7 @@ img {
 
   .theBar {
     margin-top: -14%;
+    width: 50%;
   }
 }
 @media screen and (min-width: 768px) {
@@ -353,7 +362,7 @@ img {
   justify-content: center;
   position: relative;
   height: 100%;
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 .moleShow {
@@ -621,6 +630,7 @@ img {
   height: 60%;
   width: 80%;
   max-width: 500px;
+  min-width: 300px;
   color: white;
   position: fixed;
   top: -86%;
@@ -665,15 +675,15 @@ img {
 }
 
 .evalOne2 {
-  font-family: "Caveat";
+  font-family: "Fruktur", serif;
   color: #c3bd03;
   font-size: larger;
   font-weight: 600;
-  transform: translate(-20px, 22px);
+  transform: translate(-20px, 60px);
 }
 
 #message {
-  font-family: "Caveat";
+  font-family: "Fruktur", serif;
   font-size: x-large;
   font-weight: 600;
   background: radial-gradient(#e7d801, #ece360, #4aec0a, #00a1ff, #ff8cff);
@@ -753,6 +763,7 @@ img {
   max-height: 1vh;
   width: 100%;
   font-size: medium;
+  margin-bottom: 1rem;
   overflow: visible;
 }
 
@@ -763,7 +774,7 @@ img {
   align-items: center;
   height: 4rem;
   font-size: medium;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   overflow: visible;
 }
 
@@ -778,26 +789,41 @@ img {
 }
 
 .progress-bar {
-  padding: 2px;
-  border: 2px solid #c4a728;
-  height: 1.5em;
-  width: 100%;
+  display: flex;
+  padding: 2px;  
+  background-color: #000000de;  
+  width: 50%;
   border-radius: 15px;
-  margin-right: -5vw;
+  position: absolute;
+  height: 26px;
+  border-radius: 50px;
+  border: 2px #ffffff solid;  
+  bottom: 30%;
 }
+
 .progress-bar::before {
   content: "Goal = 500";
   padding-left: 3%;
   color: rgba(0, 0, 0, 0.8705882353);
-  display: flex;
-  width: calc(var(--width, 0));
-  height: 1em;
-  min-width: 1rem;
-  max-width: 100%;
-  border-radius: 15px;
+  height: 18px;
+  width: calc(var(--width,0)*1%);
   position: relative;
-  transition: all 5s 5s;
-  background: repeating-linear-gradient(135deg, #4aec0a, #4aec0a 20px, #e7d801 20px, #e7d801 40px);
+  transition: all .5s;
+  border-radius: 15px;
+  animation: moving 1s linear infinite;
+  animation-delay: 10s;
+  background-size: 72px;
+  background: repeating-linear-gradient(131.5deg,
+          #4aec0a 3px,
+          #4aec0a 10px,
+          #e7d801 10px,
+          #e7d801 20px);          
+}
+
+@keyframes moving {
+  100% {
+    background-position: 48px 0;  
+  } 
 }
 
 #quarterScore {
@@ -805,7 +831,7 @@ img {
   font-size: x-large;
   display: flex;
   margin-top: 2rem;
-  margin-right: 2vw;
+  margin-left: 18vw;
   align-items: center;
 }
 
@@ -817,6 +843,7 @@ img {
 .line {
   margin: 1% auto;
   width: 90%;
+  margin-top: 1.25rem;
   border: white 1px solid;
 }
 
@@ -824,6 +851,12 @@ img {
   display: flex;
   flex-direction: row;
   margin-top: 1rem;
+}
+
+.but-bottom {
+  position: absolute;
+  right: 50%;
+  bottom: -30px;
 }
 
 .evalOne {
@@ -836,14 +869,11 @@ img {
   border: rgb(4, 0, 255) solid 2px;
 }
 
-#percent {
-  padding: 0.5rem 1rem;
-}
-
 .theBar {
   display: flex;
   margin-left: 9vw;
   width: 300px;
+  
 }
 
 #eval {
@@ -853,6 +883,11 @@ img {
 .time {
   opacity: 0;
   transform: translate(9px, 6px);
+}
+
+.date {
+  opacity: 0;
+  transform: translate(9px, -6px);
 }
 
 .head_font, .header {
@@ -1103,10 +1138,10 @@ li:nth-child(4) {
 
 p {
   font-family: "Mukta";
-  font-size: 1rem;
+  font-size: 14px;
   margin-bottom: 0.9rem;
   color: #fcddb6;
-  line-height: 1rem;
+  line-height: .8rem;
 }
 p::first-child {
   margin-top: 10px;

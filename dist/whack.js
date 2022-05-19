@@ -20,26 +20,17 @@ let gameLocalStorage = (() => {
 
 let seconds = 1500;
 let stackStyle = '';
-let score = 0;
-let hit = 0;
-let miss = 0;
-let game = 0;
+let score, hit, miss, game, plusAmt, plusScore, minusAmt, minusScore= 0;
 let timer = 29;
 let round = 1;
-let plusAmt = 0;
+let min = round;
+let max = round + 1;
 let plusVal = 50;
-let plusScore = 0;
-let minusAmt = 0;
 let minusVal = -15;
-let minusScore = 0;
 const lsName = "localStorageMasterArrayName";
 let masterArr = gameLocalStorage.getMasterArr()
 let gamePlay = {};
-let rScores = [];
-let color =[];
-let percent = 0;
-let min = round;
-let max = round + 1;
+let rScores, color = [];
 let life = 5;
 let goal = 500; // /////shorten for debugging
 let start = document.getElementById('start');
@@ -256,9 +247,11 @@ holes.forEach((val) => {
 const progressBar = document.getElementsByClassName('progress-bar')[0];
 
 let progress = setInterval(() => {
-    const width = percent || 0
-    progressBar.style.setProperty('--width', width + 1);
-}, 3000);
+    const width = goalReached() || 0
+   
+    progressBar.style.setProperty('--width', width)
+
+}, 1000);
 
 function statusMessage(msg) {
     let container = document.querySelector("#evalMes");
@@ -276,10 +269,15 @@ function printHearts() {
 }
 // /////evaluation for percent to be converted and truncated
 function goalReached() {
-    percentage = quarterScore / 3;
+    percentage = quarterScore / goal * 100;
     percentage = Math.min(100, Math.max(0, percentage));
-    percent = percentage.toFixed(2);
+
+    //In case score is negative
+    percentage < 0 ? percentage = 0: percentage;
+    
+    return percentage;
 }
+
 function roundEnd() {
     quarterScore = plusScore + minusScore;
     goalReached();
@@ -298,7 +296,7 @@ function roundEnd() {
     document.getElementById("minusAmt").innerText = minusAmt;
     document.getElementById("minusValue").innerText = minusVal;
     document.getElementById("minusScore").innerText = minusScore;
-    document.getElementById("percent").innerText = percent + '%';
+    document.getElementById("percent").innerText = goalReached() + '%';
     document.getElementById("quarterScore").innerText = quarterScore;
     whiteBoxes.classList.add('color');
 
@@ -478,9 +476,6 @@ function gameEnd() {
           .add(finalSBPrint2);
 
   document.getElementById('message').innerText = `Try to beat your score`;
-    // let playAgain = document.getElementById('restart-button');
-      
-    
 }
 
 // /////color display for scoreboard

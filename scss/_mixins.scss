@@ -13,7 +13,6 @@
   max-width: 50px;  
   min-width: 50px;
   position: absolute; 
-  // border: blueviolet 2px solid;
  }
 @mixin flexShell {
   display: flex;
@@ -35,6 +34,13 @@
   flex-basis: 25%;
   font-size: small;
 }
+
+@mixin media-ss {
+  @media screen and (min-width: 376px) {
+      @content;
+  }
+}
+
 @mixin media-sm {
   @media screen and (min-width: 500px) {
       @content;
