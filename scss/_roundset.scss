@@ -1,206 +1,290 @@
 .introModal {
+    position: absolute;
+    color: white;
+    border: #ffffff 5px ridge;
+    height: 63%;
+    width: 85%;
+    max-width: 500px;
+    top: -89%;
     display: flex;
-    align-items: center;   
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.749);
-    border:#ffffff 5px ridge;
-    height: 75%;
-    width: 80%;
-    color:white;    
-    position: fixed;  
-    padding: 20px;
-    margin: 20px;    
-    // second BG needed for text mask
+    align-items: center;
+    padding: 2vh;
+    z-index: 1;
+
+    // ///// opacity also handled with gsap
     background-color: #000000;
-    opacity: 0;    
-    top: -122%;  
+    backdrop-filter: blur(5px);
+    opacity: 0;
 }
+
 .roundModal {
     display: flex;
     flex-direction: column;
-    border:rgb(255, 255, 255) 5px ridge;
+    border: rgb(255, 255, 255) 5px ridge;
     background-color: #000000de;
-    height: 75%;
+    height: 60%;
     width: 80%;
-    color:white;
-    position: fixed;  
-    top: -122%;       
+    max-width: 500px;
+    color: white;
+    position: fixed;
+    top: -86%;
     padding: 20px;
-    margin: 20px;        
+    margin: 20px;
+    opacity: 0;
+    z-index: 1;
 }
+
 .tsModal {
     background-color: hsla(0, 0%, 0%, 0.8);
-    height: 75%;
-    width: 80%;
-    color:white;
-    top: -122%;    
-    position: fixed;  
-    border:rgb(255, 255, 255) 5px ridge;
-    justify-content:center;    
+    height: 67%;
+    width: 90%;
+    max-width: 500px;
+    color: white;
+    top: -99%;
+    position: fixed;
+    border: white 5px ridge;
+    justify-content: center;
+    z-index: 1;
 }
-.scoreModal {   
-    border:#ffffff 5px ridge;
-    padding: 10px 20px;
-    margin: 5px 20px;    
-    display: flex;
-    align-items: center;   
-    flex-direction: row;
-    justify-content: space-around;
+
+.scoreModal {
+    border: white 5px ridge;
+    font-size: medium;
+    padding: 15px 7px 0;
+    margin: 15px auto 12px;
+    line-height: .8rem;
+    height: 59%;
     opacity: 0;
+    overflow: visible;
+    z-index: 1;
 }
-.score, .score2, .level_color {
-    margin-bottom: 5%;
+
+.evalOne {
+    width: 105px;
+    background: radial-gradient(#e7d801, #ece360, #4aec0a, #00a1ff, #ff8cff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: translate(14%, 18%);
 }
- .sb_Beta, .sb_Gamma  {
-    display: flex;        
-    flex-basis: 50%;
-    flex-direction: column;
-    align-items: center;
+
+.evalOne2 {
+    font-family: 'Fruktur', serif;
+    color: #c3bd03;
+    font-size: larger;
+    font-weight: 600;
+    transform: translate(-20px, 60px);
 }
-.sb_Alpha  {
-    display: flex;        
-    flex-basis: 50%;
-    flex-direction: column;
+
+#message {
+    font-family: 'Fruktur', serif;
+    font-size: x-large;
+    font-weight: 600;
+    background: radial-gradient(#e7d801, #ece360, #4aec0a, #00a1ff, #ff8cff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: -2rem;
+    transform: translateX(40px);
 }
-.sbColor {
-    color:rgb(252, 221, 182);
+
+.tsModal th {
+    font-size: x-small;
+    transform: translateY(-8px);
 }
-.grid_container { 
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows:  1fr;
-} 
+
+.scWrapper {
+    width: 100%;
+    border-bottom: #ffffff 3px ridge;
+}
+
+.score {
+    text-align: end;
+    padding-right: 7px;
+}
+
+.name {
+    text-align: center;
+}
+
 .scoreCap {
-    @include gridplus;
-    grid-area: 1/1/2/7;
-    display:flex;
-    height: 100%;
-    padding: 5% 10px; 
-    background-color: black;
-}
-.quarter1, .quarter2, .quarter3, .quarter4, 
-.pScore0,.pScore1, .pScore2, .pScore3, .pScore4 {
-    display:flex;
-    flex-basis:16%;
     justify-content: space-around;
+    align-items: center;
+    display: flex;
+    overflow: visible;
+    background: black;
+    color: rgb(252, 221, 182);
 }
-.quarter5, .pScore5 {
-    display:flex;
-    flex-basis:20%;
-    justify-content: space-evenly;
+
+.quarter1,
+.quarter2,
+.quarter3,
+.quarter4,
+.quarter5 {
+    display: flex;
+    font-size: small;
+    transform: translate(-5px, 7px);
 }
-.pScores {
-    display:flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 5% 10px; 
+
+.pScore1,
+.pScore2,
+.pScore3,
+.pScore4,
+.pScore5 {
+    display: flex;
+    font-size: small;
+    transform: translate(-5px, 15px);
+    justify-content: center;
 }
+
+.quarter0 {
+    display: flex;
+    justify-content: end;
+    transform: translate(-5px, 15px);
+}
+
+.pScore0 {
+    display: flex;
+    font-size: small;
+    justify-content: end;
+    transform: translateX(-15px);
+}
+
 .headings {
     display: flex;
     justify-content: space-around;
     align-items: center;
     max-height: 1vh;
     width: 100%;
-    font-size: large;
+    font-size: medium;
+    margin-bottom: 1rem;
     overflow: visible;
 }
-.lineOne, .lineTwo {
+
+.lineOne,
+.lineTwo {
     display: flex;
     justify-content: space-around;
-    align-items: center;    
-    height: 7rem;
-    font-size: x-large;    
-    margin-top: 2rem;
+    align-items: center;
+    height: 4rem;
+    font-size: medium;
+    margin-top: 1.5rem;
     overflow: visible;
 }
-#plusImg, #minusImg, #coolmole1 {
-    width: 100px;
-    min-width: 54px;
+
+#plusImg,
+#minusImg,
+#coolmole1 {
+    width: 75px;
 }
-.mathChar{
+
+.mathChar {
     font-size: medium;
 }
-.progress-bar {
-    padding: 2px;    
-    max-width: 100%;
-    border: 2px solid #c4a728;
-    height: 1.5em;
-    width: 300px;
+  
+  .progress-bar {
+    display: flex;
+    padding: 2px;  
+    background-color: #000000de;  
+    width: 100%;
     border-radius: 15px;
-    margin-right: -10vw;   
-
-      &::before {
-          content: attr(data-label);
-          padding-left: 3%;
-          color:rgb(243, 0, 0);
-          display: flex;
-          align-items: center;
-          width: calc(var(--width,0)*1%);
-          height: 1em;
-          min-width: 1rem;
-          max-width: 100%;
-          border-radius: 15px;
-          position: relative;
-          background: repeating-linear-gradient(
-            135deg,
-            #4aec0a,
-            #4aec0a 20px,
-            #e7d801 20px,
-            #e7d801 40px);          
-      }
+    height: 100%;
+    position: absolute;
+    height: 26px;
+    width: 120px;
+    border-radius: 50px;
+    border: 2px #ffffff solid;  
+    bottom: 30%; 
   }
+
+  .progress-bar::before {
+    content: "Goal = 500";
+    padding-left: 3%;
+    color: rgba(0, 0, 0, 0.8705882353);
+    height: 18px;
+    width: calc(var(--width,0)*1%);
+    position: relative;
+    transition: all .5s;
+    border-radius: 15px;
+    animation: moving 1s linear infinite;
+    animation-delay: 10s;
+    background-size: 72px;
+    background: repeating-linear-gradient(131.5deg,
+            #4aec0a 3px,
+            #4aec0a 10px,
+            #e7d801 10px,
+            #e7d801 20px);  
+  }
+
+  .percent {
+    transform: translate(10px, 60px);
+  }
+
+@keyframes moving {
+   100% {
+     background-position: 48px 0;  
+   } 
+}
+
 #quarterScore {
     height: 7rem;
-    font-size: x-large;  
+    font-size: x-large;
     display: flex;
-    justify-content: right;
-    align-items: right;   
-    margin-right: 2vw;
+    margin-top: 2rem;
+    margin-left: 18vw;
+    align-items: center;
 }
-.times {    
+
+.times {
     font-size: x-large;
     position: absolute;
 }
+
 .line {
     margin: 1% auto;
-    width: 90% ;
+    width: 90%;
+    margin-top: 1.25rem;
     border: white 1px solid;
 }
+
 .endGroup {
     display: flex;
     flex-direction: row;
     margin-top: 1rem;
 }
-#evalMes, .evalOne2{
-    font-family: "Dongle";
-    font-size: x-large;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
-}
+
+.but-bottom {
+    position: absolute;
+    right: 50%;
+    bottom: -30px;
+  }
+
 .evalOne {
-    margin-left: 0%;
-    width: 35%;
-    top:0;
-}
-#eval2 {
-    border: none;
+    color: #c3bd03;
 }
 
-#percent {
-    padding-top: 2rem;
+#restart-button {
+    font-size: large;
+    transform: translateY(-140%);
+    border: rgb(4, 0, 255) solid 2px;
 }
-#eval {
-    margin-left: 40%;
-}
+
 .theBar {
-    width: 35%;
-    top:0;
-    padding-bottom: 1rem;
-    margin-left: 20vw;
-}
-#all {
-    color:#e7d801;
     display: flex;
-    flex-direction:column;
-    margin-top: -10rem;
+    margin-left: 9vw;
+    width: 300px;
+}
+
+#eval {
+    transform: translate(44%, -105%);
+}
+
+.time {
+    opacity: 0;
+    transform: translate(9px, 6px);
+}
+.date {
+    opacity: 0;
+    transform: translate(9px, -6px);
 }
