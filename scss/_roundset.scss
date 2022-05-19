@@ -70,15 +70,15 @@
 }
 
 .evalOne2 {
-    font-family: 'Caveat';
+    font-family: 'Fruktur', serif;
     color: #c3bd03;
     font-size: larger;
     font-weight: 600;
-    transform: translate(-20px, 22px);
+    transform: translate(-20px, 60px);
 }
 
 #message {
-    font-family: 'Caveat';
+    font-family: 'Fruktur', serif;
     font-size: x-large;
     font-weight: 600;
     background: radial-gradient(#e7d801, #ece360, #4aec0a, #00a1ff, #ff8cff);
@@ -158,6 +158,7 @@
     max-height: 1vh;
     width: 100%;
     font-size: medium;
+    margin-bottom: 1rem;
     overflow: visible;
 }
 
@@ -168,7 +169,7 @@
     align-items: center;
     height: 4rem;
     font-size: medium;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     overflow: visible;
 }
 
@@ -181,34 +182,49 @@
 .mathChar {
     font-size: medium;
 }
-
-.progress-bar {
-    padding: 2px;
-    border: 2px solid #c4a728;
-    height: 1.5em;
+  
+  .progress-bar {
+    display: flex;
+    padding: 2px;  
+    background-color: #000000de;  
     width: 100%;
     border-radius: 15px;
-    margin-right: -5vw;
+    height: 100%;
+    position: absolute;
+    height: 26px;
+    width: 120px;
+    border-radius: 50px;
+    border: 2px #ffffff solid;  
+    bottom: 30%; 
+  }
 
-    &::before {
-        content: "Goal\00a0=\00a0 500";
-        padding-left: 3%;
-        color: #000000de;
-        display: flex;
-        width: calc(var(--width, 0));
+  .progress-bar::before {
+    content: "Goal = 500";
+    padding-left: 3%;
+    color: rgba(0, 0, 0, 0.8705882353);
+    height: 18px;
+    width: calc(var(--width,0)*1%);
+    position: relative;
+    transition: all .5s;
+    border-radius: 15px;
+    animation: moving 1s linear infinite;
+    animation-delay: 10s;
+    background-size: 72px;
+    background: repeating-linear-gradient(131.5deg,
+            #4aec0a 3px,
+            #4aec0a 10px,
+            #e7d801 10px,
+            #e7d801 20px);  
+  }
 
-        height: 1em;
-        min-width: 1rem;
-        max-width: 100%;
-        border-radius: 15px;
-        position: relative;
-        transition: all 5s 5s;
-        background: repeating-linear-gradient(135deg,
-                #4aec0a,
-                #4aec0a 20px,
-                #e7d801 20px,
-                #e7d801 40px);
-    }
+  .percent {
+    transform: translate(10px, 60px);
+  }
+
+@keyframes moving {
+   100% {
+     background-position: 48px 0;  
+   } 
 }
 
 #quarterScore {
@@ -216,7 +232,7 @@
     font-size: x-large;
     display: flex;
     margin-top: 2rem;
-    margin-right: 2vw;
+    margin-left: 18vw;
     align-items: center;
 }
 
@@ -228,6 +244,7 @@
 .line {
     margin: 1% auto;
     width: 90%;
+    margin-top: 1.25rem;
     border: white 1px solid;
 }
 
@@ -237,20 +254,20 @@
     margin-top: 1rem;
 }
 
+.but-bottom {
+    position: absolute;
+    right: 50%;
+    bottom: -30px;
+  }
+
 .evalOne {
     color: #c3bd03;
-    border: rgb(30, 255, 0) solid 2px;
 }
 
 #restart-button {
-    border: none;
     font-size: large;
     transform: translateY(-140%);
     border: rgb(4, 0, 255) solid 2px;
-}
-
-#percent {
-    padding: .5rem 1rem;
 }
 
 .theBar {
@@ -266,4 +283,8 @@
 .time {
     opacity: 0;
     transform: translate(9px, 6px);
+}
+.date {
+    opacity: 0;
+    transform: translate(9px, -6px);
 }
