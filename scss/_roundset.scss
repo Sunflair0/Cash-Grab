@@ -74,7 +74,7 @@
     color: #c3bd03;
     font-size: larger;
     font-weight: 600;
-    transform: translate(-20px, 60px);
+    transform: translate(-20px, 40px);
 }
 
 #message {
@@ -195,7 +195,7 @@
     width: 120px;
     border-radius: 50px;
     border: 2px #ffffff solid;  
-    bottom: 30%; 
+    bottom: -4%; 
   }
 
   .progress-bar::before {
@@ -218,7 +218,7 @@
   }
 
   .percent {
-    transform: translate(10px, 60px);
+    transform: translate(10px, 80px);
   }
 
 @keyframes moving {

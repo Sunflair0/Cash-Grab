@@ -97,7 +97,7 @@ img {
 }
 
 .percent {
-  transform: translate(10px, 60px);
+  transform: translate(10px, 80px);
 }
 @media screen and (min-width: 376px) {
 .progress-bar {
@@ -679,7 +679,7 @@ img {
   color: #c3bd03;
   font-size: larger;
   font-weight: 600;
-  transform: translate(-20px, 60px);
+  transform: translate(-20px, 40px);
 }
 
 #message {
@@ -690,7 +690,7 @@ img {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: -2rem;
+  margin-bottom: 0rem;
   transform: translateX(40px);
 }
 
@@ -792,13 +792,14 @@ img {
   display: flex;
   padding: 2px;  
   background-color: #000000de;  
-  width: 50%;
   border-radius: 15px;
   position: absolute;
   height: 26px;
+  width: 50%;
   border-radius: 50px;
   border: 2px #ffffff solid;  
   bottom: 30%;
+  margin-bottom: -4%;
 }
 
 .progress-bar::before {
@@ -808,7 +809,7 @@ img {
   height: 18px;
   width: calc(var(--width,0)*1%);
   position: relative;
-  transition: all .5s;
+  transition: all 5s;
   border-radius: 15px;
   animation: moving 1s linear infinite;
   animation-delay: 10s;
