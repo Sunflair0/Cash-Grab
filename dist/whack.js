@@ -246,12 +246,12 @@ holes.forEach((val) => {
 // /////progress bar
 const progressBar = document.getElementsByClassName('progress-bar')[0];
 
-let progress = setInterval(() => {
-    const width = goalReached() || 0
-   
-    progressBar.style.setProperty('--width', width)
-
-}, 1000);
+setTimeout(() => {
+setInterval(() => {
+    const width = goalReached() || 0   
+    progressBar.style.setProperty('--width', width + .1)
+}, 6000);
+},5);
 
 function statusMessage(msg) {
     let container = document.querySelector("#evalMes");

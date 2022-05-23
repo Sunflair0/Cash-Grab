@@ -201,14 +201,13 @@
   .progress-bar::before {
     content: "Goal = 500";
     padding-left: 3%;
-    color: rgba(0, 0, 0, 0.8705882353);
+    color: #000000de;
     height: 18px;
     width: calc(var(--width,0)*1%);
     position: relative;
     transition: all .5s;
     border-radius: 15px;
-    animation: moving 1s linear infinite;
-    animation-delay: 10s;
+    animation: moving linear infinite;
     background-size: 72px;
     background: repeating-linear-gradient(131.5deg,
             #4aec0a 3px,

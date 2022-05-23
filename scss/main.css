@@ -807,10 +807,8 @@ img {
   position: relative;
   transition: all 0.5s;
   border-radius: 15px;
-  -webkit-animation: moving 1s linear infinite;
-          animation: moving 1s linear infinite;
-  -webkit-animation-delay: 10s;
-          animation-delay: 10s;
+  -webkit-animation: moving linear infinite;
+          animation: moving linear infinite;
   background-size: 72px;
   background: repeating-linear-gradient(131.5deg, #4aec0a 3px, #4aec0a 10px, #e7d801 10px, #e7d801 20px);
 }
