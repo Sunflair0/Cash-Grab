@@ -662,7 +662,7 @@ img {
 
 .evalOne {
   width: 105px;
-  background: radial-gradient(#e7d801, #ece360, #4aec0a, #00a1ff, #ff8cff);
+  background: radial-gradient(#ece360, #4aec0a, #8a9be9, #ff8cff, #fff);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -681,7 +681,7 @@ img {
   font-family: "Fruktur", serif;
   font-size: x-large;
   font-weight: 600;
-  background: radial-gradient(#e7d801, #ece360, #4aec0a, #00a1ff, #ff8cff);
+  background: radial-gradient(#e7d801, #ece360, #4aec0a, #8a9be9, #ff8cff);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -805,34 +805,40 @@ img {
   height: 18px;
   width: calc(var(--width, 0) * 1%);
   position: relative;
-  transition: all 0.5s;
+  transition: all 5s;
   border-radius: 15px;
-  -webkit-animation: moving linear infinite;
-          animation: moving linear infinite;
-  background-size: 72px;
-  background: repeating-linear-gradient(131.5deg, #4aec0a 3px, #4aec0a 10px, #e7d801 10px, #e7d801 20px);
+  -webkit-animation: moving 5s linear infinite;
+          animation: moving 5s linear infinite;
+          background-size: 105px;
+          background: repeating-linear-gradient(135deg,        
+                #4aec0a 0px,      
+                #4aec0a 15px,
+                #e7d801 15px,
+                #e7d801 35px,
+                #4aec0a 35px); 
 }
-
+        
 .percent {
-  transform: translate(10px, 80px);
+  transform: translate(10px, 75px);
+}
+        
+@keyframes moving {
+  100% {
+    background-position: 210px 0px;  
+  } 
 }
 
 @-webkit-keyframes moving {
   100% {
-    background-position: 48px 0;
+    background-position: 210px 0;
   }
 }
 
-@keyframes moving {
-  100% {
-    background-position: 48px 0;
-  }
-}
 #quarterScore {
   height: 7rem;
   font-size: x-large;
   display: flex;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   margin-left: 18vw;
   align-items: center;
 }
@@ -1000,7 +1006,11 @@ li::marker {
 }
 
 .lockPadlock {
-  background: repeating-linear-gradient(139deg, #000000 83%, #000000 90%, #717576 96%, #000000 100%);
+  background: repeating-linear-gradient(139deg, 
+    #000000 83%, 
+    #000000 90%, 
+    #717576 96%, 
+    #000000 100%);
 }
 
 li .buttons {

@@ -248,9 +248,9 @@ const progressBar = document.getElementsByClassName('progress-bar')[0];
 
 setTimeout(() => {
 setInterval(() => {
-    const width = goalReached() || 0   
+    const width = goalReached() || 0;   
     progressBar.style.setProperty('--width', width + .1)
-}, 6000);
+}, 7000);
 },5);
 
 function statusMessage(msg) {
@@ -271,10 +271,7 @@ function printHearts() {
 function goalReached() {
     percentage = quarterScore / goal * 100;
     percentage = Math.min(100, Math.max(0, percentage));
-
-    //In case score is negative
-    percentage < 0 ? percentage = 0: percentage;
-    
+    percentage = NaN ? percentage = 0: percentage;    
     return percentage;
 }
 
