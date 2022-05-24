@@ -13,7 +13,6 @@
   max-width: 50px;  
   min-width: 50px;
   position: absolute; 
-  border: blueviolet 2px solid;
  }
 @mixin flexShell {
   display: flex;
@@ -25,7 +24,6 @@
   max-width: 240px;
   height: 90px; 
   margin: auto;
-  margin-top: 12vh; 
   background-position: center; 
   background-size: contain;
   background-repeat: no-repeat;
@@ -36,8 +34,20 @@
   flex-basis: 25%;
   font-size: small;
 }
+
+@mixin media-ss {
+  @media screen and (min-width: 376px) {
+      @content;
+  }
+}
+
 @mixin media-sm {
-  @media screen and (min-width: 576px) {
+  @media screen and (min-width: 500px) {
+      @content;
+  }
+}
+@mixin media-smh {
+  @media screen and (max-height: 750px){
       @content;
   }
 }

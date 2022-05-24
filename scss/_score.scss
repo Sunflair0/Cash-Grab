@@ -1,9 +1,8 @@
 #start {    
     display: flex;
     width: auto;
-    height: 80%;
+    height: 69%;
     margin: auto;  
-    align-items: center;
     cursor: pointer;
 }
 .start {
@@ -18,10 +17,10 @@
     }
 }
 #score, #tick {
+    font-size: large;   
     font-family: 'Orbitron';
     width: 200px;   
     text-align: center;
-    font-size: x-large;   
 }
 .whiteBoxes {
     display: flex;
@@ -142,8 +141,7 @@
     padding-top: 6px;
     padding-left: 6px;    
     width: 15%;
-    border-left: white 2px ridge;
-    
+    border-left: white 2px ridge;    
 }
 #wBox5 {
     display: flex;

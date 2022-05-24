@@ -26,8 +26,10 @@ button .xIntro {
     font-size: 16px;
     height: 45px;
     width: 45px;
+    padding-bottom: 6px;
     border-radius: 50%;
     margin-top: 2%;
+    z-index: 10;
 }    
 #level {
     font-weight: 700;
@@ -43,7 +45,7 @@ button .xIntro {
     padding: 7px 0 0 28px;
     transform: translate(0,-5px);
     transition: .3s ease all;
-    cursor: pointer;      
+    cursor: pointer;     
 }
 #padlock {
     display: flex;
@@ -67,6 +69,10 @@ li::marker {
     height: 20px;
     width: 20px;        
     cursor: pointer;    
+
+    &_:hover {
+        color: #00fff2;
+    }
 }
 .choice {    
     display: flex;  
@@ -88,8 +94,8 @@ li::marker {
     width: 80px;
     height: 60px;
     color: silver; 
-    z-index: 2;
-    transform: translate(0,-5px);      
+    z-index: 2;     
+    transform: translate(0,-5px);
 }
 .lockPadlock {
     background: repeating-linear-gradient(139deg, 
@@ -215,15 +221,18 @@ li .buttons{
         border: #59dd54 solid 1px;
         outline: #50cb20 solid 1px;           
         box-shadow: 
-        -5px 7px 1px 0px #166203, 
-        6px -7px 6px 1px #ffffff,
-        0px 0px 4px 5px #25fd08, 
-        0px 0px 12px 11px #33b15d,
-        10px -12px 9px 5px #e3e3e3, 
-        0px 0px 0px 7px #ffffff, 
-        0px 0px 9px 13px #000000,  
-        inset -2px 2px 0px 0px #c2ff24, 
-        inset 0px 0px 0px 20px #47ff00;  
+            -5px 7px 1px 0px #168302, 
+            -4px 5px 4px 3px #d0f9c9, 
+            13px -10px 11px 0px #ffffff, 
+            7px -3px 20px 0px #ffffff, 
+            5px -7px 8px 3px #ffffff, 
+            -1px -4px 16px 4px #000000, 
+            -1px 1px 0px 8px #23a315, 
+            -1px 0px 3px 8px #000000,
+            7px -8px 10px 7px #e3e3e3, 
+            0px 0px 6px 13px #157419, 
+            0px 0px 20px 14px #12ff00, 
+            inset 1px 7px 13px 4px #00ff05;
     }
 }  
 .med:checked + .buttons{
@@ -236,15 +245,18 @@ li .buttons{
         border: #c9dd54 solid 1px;
         outline: #c2cb20 solid 1px;
         box-shadow: 
-        -5px 7px 1px 0px #838102, 
-        6px -7px 6px 1px #ffffff,
-        0px 0px 4px 5px #faff09, 
-        0px 0px 12px 11px #959124, 
-        10px -12px 9px 5px #e3e3e3, 
-        0px 0px 0px 7px #ffffff, 
-        0px 0px 9px 13px #000000, 
-        inset -2px 2px 0px 0px  #ffffff, 
-        inset 0px 0px 0px 20px #fffb00
+            -5px 7px 1px 0px #838102, 
+            -4px 5px 4px 3px #fffccd,        
+            13px -10px 11px 0px #ffffff,
+            7px -3px 20px 0px #ffffff, 
+            5px -7px 8px 3px #ffffff, 
+            -1px -4px 16px 4px #5c5412, 
+            -1px 1px 0px 8px #978400, 
+            -1px 0px 3px 8px #000000,       
+            7px -8px 10px 7px #e3e3e3, 
+            0px 0px 6px 13px #727415, 
+            0px 0px 20px 14px #ffffff,
+            inset 1px 7px 13px 4px #faff00; 
     }  
 }
 .hard:checked + .buttons{
@@ -257,15 +269,18 @@ li .buttons{
         border: #9f1717 solid 1px;
         outline: #850000 solid 1px;  
         box-shadow: 
-            -5px 7px 1px 0px #620303, 
-            6px -7px 6px 1px #ffffff, 
-            0px 0px 4px 5px #eb3131, 
-            0px 0px 12px 11px #b13b33, 
-            10px -12px 9px 5px #e3e3e3, 
-            0px 0px 0px 7px #ffffff, 
-            0px 0px 9px 13px #000000, 
-            inset -2px 2px 0px 0px #ff4e83, 
-            inset 0px 0px 0px 20px #ff0079;  
+        -5px 7px 1px 0px #620303, 
+        -4px 6px 2px 3px #ffd1d1, 
+        13px -10px 11px 0px #ffffff, 
+        7px -3px 20px 0px #ffffff, 
+        8px -13px 13px 5px #ffffff, 
+        6px -7px 7px 0px #ffffff, 
+        0px 0px 0px 10px #7e2525, 
+        0px 0px 18px 13px #ff3f3f, 
+        0px 0px 18px 20px #b10000, 
+        0px 0px 4px 18px #000000,
+        inset 2px -2px 2px 3px #ff7d7d,  
+        inset 4px -3px 20px 0px #ffffff;    
     }   
 }
 //button labels
@@ -279,17 +294,14 @@ li:nth-child(3){
     color: #f1ef45;
     margin-left: 10px;
     margin-right: 7px;
-    overflow: visible;
 }
 li:nth-child(4){
-    color: #ff5252;
+    color: #fb9797;
     margin-left: 10px;
     margin-right: 7px;
-    overflow: visible;
     padding-bottom: 5px;
 }
 .choice input {
     opacity: 0;    
     appearance: none; 
-    // margin-right: -15%;
 }
