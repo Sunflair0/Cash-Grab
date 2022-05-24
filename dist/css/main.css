@@ -97,7 +97,7 @@ img {
 }
 
 .percent {
-  transform: translate(10px, 60px);
+  transform: translate(10px, 75px);
 }
 @media screen and (min-width: 376px) {
 .progress-bar {
@@ -679,7 +679,7 @@ img {
   color: #c3bd03;
   font-size: larger;
   font-weight: 600;
-  transform: translate(-20px, 60px);
+  transform: translate(-20px, 40px);
 }
 
 #message {
@@ -690,7 +690,7 @@ img {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: -2rem;
+  margin-bottom: 0rem;
   transform: translateX(40px);
 }
 
@@ -792,13 +792,14 @@ img {
   display: flex;
   padding: 2px;  
   background-color: #000000de;  
-  width: 50%;
   border-radius: 15px;
   position: absolute;
   height: 26px;
+  width: 50%;
   border-radius: 50px;
   border: 2px #ffffff solid;  
   bottom: 30%;
+  margin-bottom: -4%;
 }
 
 .progress-bar::before {
@@ -808,21 +809,25 @@ img {
   height: 18px;
   width: calc(var(--width,0)*1%);
   position: relative;
-  transition: all .5s;
+  transition: all 5s;
   border-radius: 15px;
-  animation: moving 1s linear infinite;
-  animation-delay: 10s;
-  background-size: 72px;
-  background: repeating-linear-gradient(131.5deg,
-          #4aec0a 3px,
-          #4aec0a 10px,
-          #e7d801 10px,
-          #e7d801 20px);          
+  animation: moving 5s linear infinite;
+  background-size: 105px;
+  background: repeating-linear-gradient(135deg,        
+        #4aec0a 0px,      
+        #4aec0a 15px,
+        #e7d801 15px,
+        #e7d801 35px,
+        #4aec0a 35px); 
+}
+
+.percent {
+  transform: translate(10px, 75px);
 }
 
 @keyframes moving {
   100% {
-    background-position: 48px 0;  
+    background-position: 210px 0px;  
   } 
 }
 
@@ -830,7 +835,7 @@ img {
   height: 7rem;
   font-size: x-large;
   display: flex;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   margin-left: 18vw;
   align-items: center;
 }
