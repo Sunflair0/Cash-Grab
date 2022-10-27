@@ -118,13 +118,6 @@ img {
     font-size: xx-large;
   }
 
-  .heart1,
-  .heart2,
-  .heart3,
-  .heart4 {
-    font-size: x-large;
-  }
-
   .lineOne,
   .lineTwo {
     font-size: large;
@@ -380,7 +373,7 @@ img {
 
 #second {
   margin-left: -10%;
-  margin-top: 8px;
+  margin-top: 6.5px;
   max-width: 60px;
   min-width: 55px;
 }
@@ -584,6 +577,8 @@ img {
   width: 25%;
   margin: 60px auto;
   color: rgb(255, 0, 0);
+  background-image: red;
+  font-size: clamp(14px, 2vw, 24px);
   z-index: 10;
 }
 
@@ -1287,7 +1282,7 @@ p:after {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  flex-basis: 64.2%;
+  flex-basis: 67%;
   width: 550px;
   max-width: 85%;
 }

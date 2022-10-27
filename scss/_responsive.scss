@@ -1,126 +1,167 @@
 @include media-ss {
     .progress-bar {
-    margin-bottom: 17%;
-  }
+        margin-bottom: 17%;
+    }
 }
+
 @include media-sm {
     .headings {
-        font-size: xx-large;  
+        font-size: xx-large;
     }
-    .heart1, .heart2, .heart3, .heart4, #score, #tick  {
-        font-size: x-large;    
+
+    .lineOne,
+    .lineTwo {
+        font-size: large;
     }
-    .lineOne, .lineTwo {
-        font-size: large;        
-    }
-    .head_font, .header{
+
+    .head_font,
+    .header {
         font-size: 70px;
         margin: 0 5px;
     }
+
     #level {
         font-size: 16px;
         padding: 9px 0 0px 25px;
     }
+
     #padlock {
         display: flex;
         height: 30px;
     }
+
     #finger {
-        font-size: 56px;   
+        font-size: 56px;
     }
-    .choice {    
+
+    .choice {
         display: flex;
-        color: white;    
-        width: 80px;  
+        color: white;
+        width: 80px;
     }
+
     .heartbox {
-    transform:translate(-5%, -4%);
+        transform: translate(-5%, -4%);
     }
+
     .bottom {
-    margin-bottom: 13px;
-    }    
-    #plusImg, #minusImg, #coolmole1 {
+        margin-bottom: 13px;
+    }
+
+    #plusImg,
+    #minusImg,
+    #coolmole1 {
         min-width: 54px;
     }
-    #evalMes, .evalOne2 {
+
+    #evalMes,
+    .evalOne2 {
         margin-left: 1rem;
     }
+
     .evalOne {
         width: 35%;
     }
-    .scoreCap {  
-        font-size: medium;  
-    }   
-    .rank, .lvColor, .score, .name {
+
+    .scoreCap {
+        font-size: medium;
+    }
+
+    .rank,
+    .lvColor,
+    .score,
+    .name {
         margin-bottom: 21%;
     }
+
     th {
-        font-size: small;  
+        font-size: small;
     }
-    img {    
+
+    img {
         width: 100%;
     }
+
     #second {
         margin-top: 1px;
         max-width: 100px;
-        min-width: 80px;   
+        min-width: 80px;
     }
-    #start {    
+
+    #start {
         min-height: 100px;
     }
 }
+
 @include media-smh {
     .xIntro {
         margin-top: -15%;
         z-index: 10;
-      }
-      .roundModal {
+    }
+
+    .roundModal {
         font-size: smaller;
         height: 60%;
         top: -86%;
-      }
-      .progress-bar {
+    }
+
+    .progress-bar {
         margin-top: 20%;
-      }
-      .introModal {
-          font-size: smaller;
-          height: 67%;
-          width: 85%;
-          top: -99%;
-      }
-      .theBar{
-          margin-top: -14%;
-      } 
+    }
+
+    .introModal {
+        font-size: smaller;
+        height: 67%;
+        width: 85%;
+        top: -99%;
+    }
+
+    .theBar {
+        margin-top: -14%;
+    }
 }
+
 @include media-md {
+
     // p {
     //     font-size: 1rem;
     //     margin-bottom: 0.9rem;
     //     line-height: 1rem;
     //   }
     .darkhole {
-            max-width: 180px;
+        max-width: 180px;
     }
-    .rank, .lvColor, .score, .name {
+
+    .rank,
+    .lvColor,
+    .score,
+    .name {
         margin-bottom: 15%;
     }
+
     .tsModal {
         height: 70%;
         top: -106%;
     }
+
     .scoreModal {
         font-size: small;
     }
+
     .bottom {
         margin-bottom: -3%;
     }
 }
+
 @include media-lg {
-    #score, #tick {
+
+    #score,
+    #tick {
         margin-top: 3vh;
     }
-    .second {  
-        transform: scale(.35,.35);
+
+    .second {
+        transform: scale(.35, .35);
         margin-bottom: 8vh;
     }
-}  
+}
