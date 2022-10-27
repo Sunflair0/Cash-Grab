@@ -121,9 +121,7 @@ img {
   .heart1,
   .heart2,
   .heart3,
-  .heart4,
-  #score,
-  #tick {
+  .heart4 {
     font-size: x-large;
   }
 
@@ -377,7 +375,7 @@ img {
 #first {
   margin-top: 30%;
   margin-left: -15%;
-min-height: 60px;
+  min-height: 60px;
 }
 
 #second {
@@ -473,7 +471,7 @@ min-height: 60px;
 
 #score,
 #tick {
-  font-size: large;
+  font-size: clamp(14px, 2vw, 24px);
   font-family: "Orbitron";
   width: 200px;
   text-align: center;
@@ -611,7 +609,8 @@ min-height: 60px;
   position: absolute;
   color: rgb(255, 67, 67);
   width: 40%;
-  font-size: clamp(12px, 2vw, 24px);
+  font-weight: 600;
+  font-size: clamp(14px, 2vw, 24px);
 }
 
 .proScore {
@@ -627,14 +626,14 @@ min-height: 60px;
   position: absolute;
   color: rgb(77, 224, 57);
   width: 50%;
-  font-size: clamp(12px, 2vw, 24px);
+  font-weight: 600;
+  font-size: clamp(14px, 2vw, 24px);
   margin-bottom: 5px;
 }
 
 .wBox5a {
   display: flex;
   height: 20px;
-  padding: 0 6px;
   overflow: visible;
 }
 

@@ -1,151 +1,180 @@
-#start {    
+#start {
     display: flex;
     width: auto;
     height: 69%;
-    margin: auto;  
+    margin: auto;
     cursor: pointer;
 }
+
 .start {
     animation: start alternate 2s linear ease-in;
 }
-@keyframes start{
+
+@keyframes start {
     from {
         transform: scale();
     }
-    to{
+
+    to {
         transform: scale(3);
     }
 }
-#score, #tick {
-    font-size: large;   
+
+#score,
+#tick {
+    font-size: large;
     font-family: 'Orbitron';
-    width: 200px;   
+    width: 200px;
     text-align: center;
 }
+
 .whiteBoxes {
     display: flex;
     flex-direction: row;
     max-height: 100px;
     width: 100%;
     padding: 3px;
-    color: #ffffff;    
-    border: #ffffff 5px dotted;     
-    outline:#ffffff ridge 4px;
+    color: #ffffff;
+    border: #ffffff 5px dotted;
+    outline: #ffffff ridge 4px;
     outline-offset: -11px;
-   }    
+}
+
 .color {
-        animation: color infinite 1s steps(6, jump-both);
-    }    
+    animation: color infinite 1s steps(6, jump-both);
+}
+
 @keyframes color {
     0% {
-        border: #cc00ff 5px dotted; 
+        border: #cc00ff 5px dotted;
     }
+
     20% {
-        border: #00fff2 5px dotted; 
+        border: #00fff2 5px dotted;
     }
+
     40% {
-        border: #00ff15 5px dotted; 
+        border: #00ff15 5px dotted;
     }
+
     60% {
-        border: #d9ff00 5px dotted; 
+        border: #d9ff00 5px dotted;
     }
+
     80% {
-        border: #ff7b00 5px dotted; 
+        border: #ff7b00 5px dotted;
     }
+
     100% {
-        border: #ff0000 5px dotted; 
+        border: #ff0000 5px dotted;
     }
 }
+
 .wBox1 {
     visibility: visible;
     display: flex;
-    width: 21%;  
-    border: white 2px ridge; 
-}  
-.wBox2{
+    width: 21%;
+    border: white 2px ridge;
+}
+
+.wBox2 {
     visibility: hidden;
     width: 21%;
     padding-left: 7px;
     padding-top: 7px;
-    position: fixed;    
+    position: fixed;
 }
+
 .wBox3 {
     width: 21%;
     padding-left: 6px;
-    padding-top: 6px;    
+    padding-top: 6px;
     border: white 2px ridge;
     position: relative;
 }
+
 .heartBox {
     display: flex;
     max-width: 100px;
     z-index: 10;
-    transform:translate(-5%, -37%);
+    transform: translate(-5%, -37%);
 }
-.heart1, .heart2, .heart3, .heart4 {
+
+.heart1,
+.heart2,
+.heart3,
+.heart4 {
     display: flex;
     width: 25%;
     margin: 60px auto;
-    color: rgb(255, 0, 0);    
+    color: rgb(255, 0, 0);
     z-index: 10;
 }
-.wBox4 {   
+
+.wBox4 {
     display: flex;
     width: 40%;
     padding-top: 6px;
-    padding-left: 6px;    
+    padding-left: 6px;
     border: white 2px ridge;
     position: relative;
 }
+
 .antiScore {
     max-width: 100px;
     min-width: 80px;
     margin: 0 auto;
-   
-    &::before{
+
+    &::before {
         content: '-15 pts';
-position: absolute;
+        position: absolute;
         color: rgb(255, 67, 67);
         height: 20px;
         width: 40%;
-        font-size: clamp(12px, 2vw, 24px);
+        font-weight: 600;
+        font-size: clamp(14px, 2vw, 24px);
     }
 }
+
 .proScore {
     max-width: 100px;
     min-width: 60px;
     margin: 0 auto;
 
-    &::before{
+    &::before {
         content: '50 pts';
-position: absolute;
+        position: absolute;
         color: rgb(77, 224, 57);
         width: 50%;
-        font-size: clamp(12px, 2vw, 24px);
+        font-weight: 600;
+        font-size: clamp(14px, 2vw, 24px);
         margin-bottom: 5px;
     }
 }
+
 .wBox5a {
     display: flex;
     height: 20px;
-    padding: 0 6px;
     overflow: visible;
 }
+
 .wBox5b {
-    display: flex;     
+    display: flex;
     margin-left: 4%;
     overflow: hidden;
 }
+
 .wBox5 {
     display: flex;
     flex-direction: column;
     padding-top: 6px;
-    padding-left: 6px;    
+    padding-left: 6px;
     width: 15%;
-    border-left: white 2px ridge;    
+    border-left: white 2px ridge;
 }
+
 #wBox5 {
     display: flex;
-    width: auto;    
+    width: auto;
     margin: auto;
-} 
+}

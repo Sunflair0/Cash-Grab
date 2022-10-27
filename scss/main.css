@@ -409,7 +409,8 @@ img {
     transform: scale(3);
   }
 }
-#score, #tick {
+#score,
+#tick {
   font-size: large;
   font-family: "Orbitron";
   width: 200px;
@@ -504,7 +505,10 @@ img {
   transform: translate(-5%, -37%);
 }
 
-.heart1, .heart2, .heart3, .heart4 {
+.heart1,
+.heart2,
+.heart3,
+.heart4 {
   display: flex;
   width: 25%;
   margin: 60px auto;
@@ -532,7 +536,8 @@ img {
   color: rgb(255, 67, 67);
   height: 20px;
   width: 40%;
-  font-size: clamp(12px, 2vw, 24px);
+  font-weight: 600;
+  font-size: clamp(14px, 2vw, 24px);
 }
 
 .proScore {
@@ -545,14 +550,14 @@ img {
   position: absolute;
   color: rgb(77, 224, 57);
   width: 50%;
-  font-size: clamp(12px, 2vw, 24px);
+  font-weight: 600;
+  font-size: clamp(14px, 2vw, 24px);
   margin-bottom: 5px;
 }
 
 .wBox5a {
   display: flex;
   height: 20px;
-  padding: 0 6px;
   overflow: visible;
 }
 
