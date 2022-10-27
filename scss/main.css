@@ -13,7 +13,7 @@ body {
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 90vh;
   min-width: 100%;
   justify-content: center;
   align-items: center;
@@ -104,82 +104,64 @@ img {
   .headings {
     font-size: xx-large;
   }
-
   .heart1, .heart2, .heart3, .heart4, #score, #tick {
     font-size: x-large;
   }
-
   .lineOne, .lineTwo {
     font-size: large;
   }
-
   .head_font, .header {
     font-size: 70px;
     margin: 0 5px;
   }
-
   #level {
     font-size: 16px;
     padding: 9px 0 0px 25px;
   }
-
   #padlock {
     display: flex;
     height: 30px;
   }
-
   #finger {
     font-size: 56px;
   }
-
   .choice {
     display: flex;
     color: white;
     width: 80px;
   }
-
   .heartbox {
     transform: translate(-5%, -4%);
   }
-
   .bottom {
     margin-bottom: 13px;
   }
-
   #plusImg, #minusImg, #coolmole1 {
     min-width: 54px;
   }
-
   #evalMes, .evalOne2 {
     margin-left: 1rem;
   }
-
   .evalOne {
     width: 35%;
   }
-
   .scoreCap {
     font-size: medium;
   }
-
   .rank, .lvColor, .score, .name {
     margin-bottom: 21%;
   }
-
   th {
     font-size: small;
   }
-
   img {
     width: 100%;
   }
-
   #second {
     margin-top: 1px;
     max-width: 100px;
     min-width: 80px;
   }
-
   #start {
     min-height: 100px;
   }
@@ -189,24 +171,20 @@ img {
     margin-top: -15%;
     z-index: 10;
   }
-
   .roundModal {
     font-size: smaller;
     height: 60%;
     top: -86%;
   }
-
   .progress-bar {
     margin-top: 20%;
   }
-
   .introModal {
     font-size: smaller;
     height: 67%;
     width: 85%;
     top: -99%;
   }
-
   .theBar {
     margin-top: -14%;
   }
@@ -215,20 +193,16 @@ img {
   .darkhole {
     max-width: 180px;
   }
-
   .rank, .lvColor, .score, .name {
     margin-bottom: 15%;
   }
-
   .tsModal {
     height: 70%;
     top: -106%;
   }
-
   .scoreModal {
     font-size: small;
   }
-
   .bottom {
     margin-bottom: -3%;
   }
@@ -237,7 +211,6 @@ img {
   #score, #tick {
     margin-top: 3vh;
   }
-
   .second {
     transform: scale(0.35, 0.35);
     margin-bottom: 8vh;
@@ -809,31 +782,25 @@ img {
   border-radius: 15px;
   -webkit-animation: moving 5s linear infinite;
           animation: moving 5s linear infinite;
-          background-size: 105px;
-          background: repeating-linear-gradient(135deg,        
-                #4aec0a 0px,      
-                #4aec0a 15px,
-                #e7d801 15px,
-                #e7d801 35px,
-                #4aec0a 35px); 
+  background-size: 105px;
+  background: repeating-linear-gradient(135deg, #4aec0a 0px, #4aec0a 15px, #e7d801 15px, #e7d801 35px, #4aec0a 35px);
 }
-        
+
 .percent {
   transform: translate(10px, 75px);
-}
-        
-@keyframes moving {
-  100% {
-    background-position: 210px 0px;  
-  } 
 }
 
 @-webkit-keyframes moving {
   100% {
-    background-position: 210px 0;
+    background-position: 210px 0px;
   }
 }
 
+@keyframes moving {
+  100% {
+    background-position: 210px 0px;
+  }
+}
 #quarterScore {
   height: 7rem;
   font-size: x-large;
@@ -1006,11 +973,7 @@ li::marker {
 }
 
 .lockPadlock {
-  background: repeating-linear-gradient(139deg, 
-    #000000 83%, 
-    #000000 90%, 
-    #717576 96%, 
-    #000000 100%);
+  background: repeating-linear-gradient(139deg, #000000 83%, #000000 90%, #717576 96%, #000000 100%);
 }
 
 li .buttons {
