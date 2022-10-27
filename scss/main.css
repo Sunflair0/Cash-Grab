@@ -1191,7 +1191,7 @@ p:after {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  flex-basis: 74.2%;
+  flex-basis: 64.2%;
   width: 550px;
   max-width: 85%;
 }
