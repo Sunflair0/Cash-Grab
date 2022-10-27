@@ -1,113 +1,142 @@
 .gameIcon {
     background-size: contain;
-    background-repeat: no-repeat;  
+    background-repeat: no-repeat;
 }
-#minCash1 {    
+
+#minCash1 {
     background-image: url(../asset/minCash1.png);
 }
-#minCash2{
+
+#minCash2 {
     background-image: url(../asset/minCash2.png);
 }
-#minCash3 {    
+
+#minCash3 {
     background-image: url(../asset/minCash3.png);
 }
-#minCash4, #minCash5{
+
+#minCash4,
+#minCash5 {
     background-image: url(../asset/minCash4.png);
 }
-.cash1 {    
+
+.cash1 {
     background-image: url(../asset/darkcash.png);
 }
-.cash2{
+
+.cash2 {
     background-image: url(../asset/darklapis.png);
 }
-.cash3 {    
+
+.cash3 {
     background-image: url(../asset/darkpearl.png);
 }
-.cash4, .cash5{
+
+.cash4,
+.cash5 {
     background-image: url(../asset/darkyellow.png);
 }
+
 .smash {
-    @include flexShell;    
+    @include flexShell;
     @include actionBox;
     background-image: url(../asset/smash.png);
 }
+
 .bop {
-    @include flexShell;    
+    @include flexShell;
     @include actionBox;
     background-image: url(../asset/bop.png);
 }
+
 .mole1 {
-    background-image: url(../asset/mole1.png); 
+    background-image: url(../asset/mole1.png);
 }
+
 .mole2 {
-    background-image: url(../asset/mole2.png); 
+    background-image: url(../asset/mole2.png);
 }
+
 .mole3 {
-    background-image: url(../asset/mole3.png);   
+    background-image: url(../asset/mole3.png);
 }
+
 .mole4 {
     background-image: url(../asset/mole4.png);
 }
+
 .round2 {
-    background-image: url(../asset/round2.png); 
+    background-image: url(../asset/round2.png);
 }
+
 .round3 {
-    background-image: url(../asset/round3.png); 
+    background-image: url(../asset/round3.png);
 }
+
 .round4 {
-    background-image: url(../asset/round4.png); 
+    background-image: url(../asset/round4.png);
 }
+
 #first {
-    margin-left: -14px;
-    max-width: 100px;
-    min-width: 80px;  
+
+    margin-top: 30%;
+    margin-left: -15%;
+min-height: 60px;
 }
+
 #second {
-    margin-top: 9px;
-    max-width: 68px;
-    min-width: 75px;
-    position: fixed;
+    margin-left: -10%;
+    margin-top: 8px;
+    max-width: 60px;
+    min-width: 55px;
 }
+
 .introModalShows {
     display: flex;
-    flex-direction: column;         
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative; 
+    position: relative;
     height: 100%;
     margin-top: 20%;
- }
+}
+
 .moleShow {
     display: flex;
-    height: 100%; 
+    height: 100%;
     width: 300%;
 }
+
 .cash_moleShows {
-    display: flex;    
-    position: relative;        
-    width: 5%;   
+    display: flex;
+    position: relative;
+    width: 5%;
     margin-top: -25%;
 }
-.cashShow{
-    display: flex;   
+
+.cashShow {
+    display: flex;
     position: fixed;
     width: 60px;
     transform: translate(-4vh, -2vh);
 }
+
 .moleHold {
-   display: flex;
-   flex-direction: column; 
-   width: 100%;
-   position: fixed; 
-   transform: translate(-200%, -50%);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: fixed;
+    transform: translate(-200%, -50%);
 }
+
 .textShow {
     display: flex;
     flex-direction: column;
     font-size: auto;
-    position: relative;     
+    position: relative;
     top: 8%;
 }
+
 #coolmole1 img {
     width: 84px;
     bottom: -43%;

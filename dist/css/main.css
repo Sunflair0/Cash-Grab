@@ -375,16 +375,16 @@ img {
 }
 
 #first {
-  margin-left: -14px;
-  max-width: 100px;
-  min-width: 80px;
+  margin-top: 30%;
+  margin-left: -15%;
+min-height: 60px;
 }
 
 #second {
-  margin-top: 9px;
-  max-width: 68px;
-  min-width: 75px;
-  position: fixed;
+  margin-left: -10%;
+  margin-top: 8px;
+  max-width: 60px;
+  min-width: 55px;
 }
 
 .introModalShows {
@@ -482,7 +482,7 @@ img {
 .whiteBoxes {
   display: flex;
   flex-direction: row;
-  max-height: 120px;
+  max-height: 100px;
   width: 100%;
   padding: 3px;
   color: #ffffff;
@@ -575,7 +575,7 @@ img {
   display: flex;
   max-width: 100px;
   z-index: 10;
-  transform: translate(-5%, -30%);
+  transform: translate(-5%, -37%);
 }
 
 .heart1,
@@ -602,28 +602,32 @@ img {
   max-width: 100px;
   min-width: 80px;
   margin: 0 auto;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .antiScore::before {
   content: "-15 pts";
+  position: absolute;
   color: rgb(255, 67, 67);
-  height: 20px;
   width: 40%;
-  font-weight: 700;
+  font-size: clamp(12px, 2vw, 24px);
 }
 
 .proScore {
   max-width: 100px;
   min-width: 60px;
   margin: 0 auto;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .proScore::before {
   content: "50 pts";
+  position: absolute;
   color: rgb(77, 224, 57);
-  height: 20px;
   width: 50%;
-  font-weight: 700;
+  font-size: clamp(12px, 2vw, 24px);
   margin-bottom: 5px;
 }
 
