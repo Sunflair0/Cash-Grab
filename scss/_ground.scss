@@ -1,6 +1,7 @@
 .darkhole {
     @include flexShell;    
     @include actionBox;
+height: 19%;
     background-image: url(../asset/darkhole.png);
 }
 #roundEnd {
