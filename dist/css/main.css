@@ -1033,8 +1033,7 @@ li::marker {
 
 #finger {
   margin-top: -60px;
-  font-size: clamp(24px, 35vw, 56px);
-
+  font-size: clamp(24px, 35vw, 50px);
   width: 80px;
   height: 60px;
   color: silver;
@@ -1187,11 +1186,10 @@ li:nth-child(4) {
 
 p {
   font-family: "Mukta";
-  font-size: 14px;
-  font-size: clamp(12px, 3vw, 16px);
+  font-size: clamp(10px, 3vw, 16px);
   margin-bottom: 0.9rem;
   color: #fcddb6;
-line-height: clamp(1rem, 3vw, 2.2rem);
+line-height: clamp(.8rem, 3vw, 2.2rem);
 }
 
 p::first-child {
