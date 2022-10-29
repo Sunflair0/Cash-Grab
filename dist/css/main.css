@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
 html {
-  /* overflow-y: scroll; */
   overflow-x: hidden;
 }
 
@@ -18,7 +17,6 @@ body {
   min-width: 100%;
   justify-content: center;
   align-items: center;
-  /* overflow-y: scroll; */
   overflow-x: hidden;
   transition: transform 1s;
 }
@@ -28,9 +26,11 @@ body button {
   outline-offset: -4px;
   border: #75766f 6px solid;
   font-size: medium;
-  height: 45px;
+  font-size: clamp(12px, 1vw, 18px);
+  aspect-ratio: 1;
+  height: 38px;
+  max-height: 45px;
   padding-bottom: 3px;
-  width: 43px;
   border-radius: 50%;
   background: linear-gradient(to top, #4aec0a 0%, #e7d801 70%);
   z-index: 10;
@@ -130,8 +130,6 @@ img {
     margin: 0 5px;
   }
 
-
-
   #level {
     font-size: 16px;
     padding: 9px 0 0px 25px;
@@ -154,12 +152,6 @@ img {
 
   .heartbox {
     transform: translate(-5%, -4%);
-  }
-
-  #plusImg,
-  #minusImg,
-  #coolmole1 {
-    min-width: 54px;
   }
 
   #evalMes,
@@ -197,7 +189,7 @@ img {
   }
 
   #start {
-    min-height: 100px;
+    min-height: 85px;
   }
 }
 
@@ -397,7 +389,8 @@ img {
 .cashShow {
   display: flex;
   position: fixed;
-  width: 60px;
+width: 45px;
+  max-width: 60px;
   transform: translate(-4vh, -2vh);
 }
 
@@ -417,10 +410,10 @@ img {
   top: 8%;
 }
 
-#coolmole1 img {
-  width: 84px;
+/* #coolmole1 img {
+  width: 55px;
   bottom: -43%;
-}
+} */
 
 #start {
   display: flex;
@@ -437,7 +430,7 @@ img {
 
 @-webkit-keyframes start {
   from {
-    transform: scale();
+    transform: scale(0);
   }
 
   to {
@@ -447,7 +440,7 @@ img {
 
 @keyframes start {
   from {
-    transform: scale();
+    transform: scale(0);
   }
 
   to {
@@ -457,7 +450,7 @@ img {
 
 #score,
 #tick {
-  font-size: clamp(14px, 2vw, 24px);
+  font-size: clamp(12px, 2vw, 24px);
   font-family: "Orbitron";
   width: 200px;
   text-align: center;
@@ -571,7 +564,7 @@ img {
   margin: 60px auto;
   color: rgb(255, 0, 0);
   background-image: red;
-  font-size: clamp(14px, 2vw, 24px);
+  font-size: clamp(14px, 4vw, 26px);
   z-index: 10;
 }
 
@@ -821,11 +814,11 @@ img {
   overflow: visible;
 }
 
-#plusImg,
-#minusImg,
-#coolmole1 {
-  width: 75px;
-}
+  #plusImg,
+  #minusImg,
+  #coolmole1 {
+    width: 70px;    
+  }
 
 .mathChar {
   font-size: medium;
@@ -1040,7 +1033,8 @@ li::marker {
 
 #finger {
   margin-top: -60px;
-  font-size: 56px;
+  font-size: clamp(24px, 35vw, 56px);
+
   width: 80px;
   height: 60px;
   color: silver;
@@ -1194,9 +1188,10 @@ li:nth-child(4) {
 p {
   font-family: "Mukta";
   font-size: 14px;
+  font-size: clamp(12px, 3vw, 16px);
   margin-bottom: 0.9rem;
   color: #fcddb6;
-  line-height: .8rem;
+line-height: clamp(1rem, 3vw, 2.2rem);
 }
 
 p::first-child {
@@ -1227,7 +1222,7 @@ p:after {
   font-weight: 700;
   display: block;
   margin: 0 auto;
-  font-size: 0.8rem;
+  font-size: clamp(0.5rem, 3vw, 1.4rem);
   text-align: center;
   -webkit-animation: bop infinite 2.5s steps(2);
   animation: bop infinite 2.5s steps(2);
@@ -1263,7 +1258,7 @@ p:after {
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-overflow: hidden;
+  overflow: hidden;
 }
 
 .sky {
@@ -1294,8 +1289,8 @@ overflow: hidden;
   padding: 2px;
   border: white 4px ridge;
   background: rgb(0, 0, 0);
-bottom: 0;
-margin-bottom: 0%;
+  bottom: 0;
+  margin-bottom: 0%;
 }
 
 /*# sourceMappingURL=main.css.map */

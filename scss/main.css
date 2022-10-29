@@ -404,7 +404,7 @@ img {
 
 @-webkit-keyframes start {
   from {
-    transform: scale();
+    transform: scale(0);
   }
   to {
     transform: scale(3);
@@ -413,7 +413,7 @@ img {
 
 @keyframes start {
   from {
-    transform: scale();
+    transform: scale(0);
   }
   to {
     transform: scale(3);
