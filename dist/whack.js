@@ -308,7 +308,7 @@ function roundEnd() {
         tryAgain = document.createElement("button");
         document.getElementById('eval').append(tryAgain);
         tryAgain.innerText = "\u{2764}";
-        tryAgain.setAttribute('style', 'color:red; font-size:x-large;');
+        tryAgain.setAttribute('style', 'color:rgb(255, 0, 0); font-size:large;');
         tryAgain.addEventListener("click", useHeart);
     }
     else if (round == 4) {

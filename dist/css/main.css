@@ -810,7 +810,7 @@ width: 45px;
   align-items: center;
   height: 4rem;
   font-size: medium;
-  margin-top: 1.5rem;
+  margin-top: clamp(.5rem, 2vw, 1.5rem);
   overflow: visible;
 }
 
