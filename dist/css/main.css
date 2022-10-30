@@ -126,6 +126,7 @@ img {
 
   .head_font,
   .header {
+    display: block;
     font-size: 70px;
     margin: 0 5px;
   }
@@ -1045,6 +1046,7 @@ li::marker {
   color: silver;
   z-index: 2;
   transform: translate(0, -5px);
+  cursor: pointer;
 }
 
 .lockPadlock {

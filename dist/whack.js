@@ -108,7 +108,17 @@ finger.addEventListener("click", selectDifficulty);
 function closeChoosing() {
     choiceStack.setAttribute('style', 'right:-100%;');
     document.getElementsByClassName('choiceblock')[0].style.height = '30px';
+    hideHeader();
 }
+
+function hideHeader() {
+    header.style.display = 'none';
+}
+
+function headerVisible() {
+    header.style.display = 'block';
+}
+
 function selectDifficulty() {
     choiceStack.setAttribute('style', 'right: 0%;');
     level.setAttribute('style', 'height:30px;');
@@ -151,6 +161,7 @@ function begin() {
 }
 start.addEventListener("click", () => {
     closeChoosing();
+
     start.style.visibility = "hidden";
     level.classList.add('lockPadlock');
     level.style.cursor = 'default';
@@ -246,12 +257,19 @@ holes.forEach((val) => {
 // /////progress bar
 const progressBar = document.getElementsByClassName('progress-bar')[0];
 
-setTimeout(() => {
-    setInterval(() => {
+const theTic = setTimeout(() => {
+    const theBar = setInterval(() => {
         const width = goalReached() || 0;
         progressBar.style.setProperty('--width', width + .1)
+
+
+        if ('--width' == 8) clearInterval(theBar);
     }, 8000);
+
+
 }, 500);
+
+
 
 function statusMessage(msg) {
     let container = document.querySelector("#evalMes");
@@ -286,6 +304,7 @@ function roundEnd() {
         val.classList.remove(`smash`);
         val.classList.remove(`bop`);
     })
+    header.style.display = 'block';
     document.getElementById('eval').style.visibility = "visible";
     document.getElementById("plusAmt").innerText = plusAmt;
     document.getElementById("plusValue").innerText = plusVal;
@@ -362,6 +381,7 @@ function clearHolesAfterRound() {
     clearHole1.forEach((val) => {
         val.classList.remove(`cash${round}`)
     });
+    headerVisible();
     roundEndGSAP();
 }
 function roundEndGSAP() {
@@ -388,6 +408,7 @@ function roundUp() {
     minusScore = 0;
 
     document.getElementById('start').style.visibility = "visible";
+    //  header.style.visibility = "visibile";
     header.innerText = `Level ${round}`;
     document.getElementById('eval').innerText = '';
     document.getElementById('score').innerText = score;
@@ -411,6 +432,7 @@ playAgain.addEventListener("click", startGameAgain);
 
 
 function gameEnd() {
+    header.style.visibility = 'visibile';
     header.innerText = 'Final';
     gamePlay.score = sumArr();
     postSB(masterArr);
@@ -450,11 +472,8 @@ function gameEnd() {
         .to(".time", { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .to(".date", { opacity: 0, duration: 2, ease: "circ", stagger: .4 }, "<")
 
-
         .fromTo("#message", { opacity: 0, scale: 0, x: "20%", y: "33%" }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
         .fromTo("#restart-button", { opacity: 0 }, { opacity: 1, x: "650%", duration: 1, ease: "back", rotation: 720 }, "-=1")
-
-
 
     if (finalSBPrint2) {
         finalSBPrint2.progress(0).kill();
