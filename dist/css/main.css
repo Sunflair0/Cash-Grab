@@ -59,7 +59,7 @@ img {
   flex-basis: 32%;
   max-width: 240px;
   height: 90px;
-  height: 19%;
+  height: 26%;
   margin: auto;
   background-position: center;
   background-size: contain;
@@ -389,7 +389,7 @@ img {
 .cashShow {
   display: flex;
   position: fixed;
-width: 45px;
+  width: 45px;
   max-width: 60px;
   transform: translate(-4vh, -2vh);
 }
@@ -563,7 +563,7 @@ width: 45px;
   width: 25%;
   margin: 60px auto;
   color: rgb(255, 0, 0);
-  background-image: red;
+  background-image: rgb(255, 0, 0);
   font-size: clamp(14px, 4vw, 26px);
   z-index: 10;
 }
@@ -715,7 +715,7 @@ width: 45px;
   color: #c3bd03;
   font-size: larger;
   font-weight: 600;
-  transform: translate(-20px, 40px);
+  transform: translate(-20px, 20px);
 }
 
 #message {
@@ -814,11 +814,11 @@ width: 45px;
   overflow: visible;
 }
 
-  #plusImg,
-  #minusImg,
-  #coolmole1 {
-    width: 70px;    
-  }
+#plusImg,
+#minusImg,
+#coolmole1 {
+  width: 70px;
+}
 
 .mathChar {
   font-size: medium;
@@ -847,14 +847,20 @@ width: 45px;
   position: relative;
   transition: all 5s;
   border-radius: 15px;
-  animation: moving 5s linear infinite;
-  background-size: 105px;
-  background: repeating-linear-gradient(135deg,
-      #4aec0a 0px,
-      #4aec0a 15px,
-      #e7d801 15px,
-      #e7d801 35px,
-      #4aec0a 35px);
+  transition: all 2s ease-in-out;
+  background: repeating-linear-gradient(-30deg,
+      #e7d801 16%,
+      #e7d801 15%,
+      #4aec0a 15%,
+      #4aec0a 30%,
+      #e7d801 30%,
+      #e7d801 45%,
+      #4aec0a 45%,
+      #4aec0a 60%,
+      #e7d801 60%,
+      #e7d801 75%,
+      #4aec0a 75%);
+  animation: moving 15s linear infinite;
 }
 
 .percent {
@@ -863,7 +869,7 @@ width: 45px;
 
 @keyframes moving {
   100% {
-    background-position: 210px 0px;
+    background-position: 1000px 0%
   }
 }
 
@@ -1189,7 +1195,7 @@ p {
   font-size: clamp(10px, 3vw, 16px);
   margin-bottom: 0.9rem;
   color: #fcddb6;
-line-height: clamp(.8rem, 3vw, 2.2rem);
+  line-height: clamp(.8rem, 3vw, 2.2rem);
 }
 
 p::first-child {
@@ -1275,6 +1281,7 @@ p:after {
   width: 550px;
   max-width: 85%;
   justify-content: center;
+  margin-top: -5vh;
 }
 
 .bottom {
