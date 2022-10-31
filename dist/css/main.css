@@ -151,7 +151,7 @@ img {
   }
 
   .heartbox {
-    transform: translate(-5%, -4%);
+    transform: translate(-5%, 0%);
   }
 
   #evalMes,
@@ -552,7 +552,7 @@ img {
   display: flex;
   max-width: 100px;
   z-index: 10;
-     transform: translate(-5%, 0%);
+     transform: translate(-5%, 50%);
     height: 30px;
 position: absolute;
 }
@@ -566,7 +566,7 @@ position: absolute;
   margin: 0 auto;
   color: rgb(255, 0, 0);
   background-image: rgb(255, 0, 0);
-  font-size: clamp(14px, 4vw, 26px);
+  font-size: clamp(12px, 4vw, 26px);
   z-index: 10;
 /* border: 2px solid red; */
 }
@@ -706,8 +706,9 @@ position: absolute;
 
 .evalOne {
   width: 105px;
-  background: radial-gradient(#e7d801, #ece360, #4aec0a, #00a1ff, #ff8cff);
-  background-clip: text;
+    background: radial-gradient(#e7d801, #ffef00, #00b8ff, #ff00bc, #fbff00);
+    background-clip: text;
+    text-shadow: 0 0 2px #ffffff40;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transform: translate(14%, 18%);
