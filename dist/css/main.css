@@ -126,7 +126,6 @@ img {
 
   .head_font,
   .header {
-    display: block;
     font-size: 70px;
     margin: 0 5px;
   }
@@ -553,7 +552,9 @@ img {
   display: flex;
   max-width: 100px;
   z-index: 10;
-  transform: translate(-5%, -37%);
+     transform: translate(-5%, 0%);
+    height: 30px;
+position: absolute;
 }
 
 .heart1,
@@ -562,11 +563,12 @@ img {
 .heart4 {
   display: flex;
   width: 25%;
-  margin: 60px auto;
+  margin: 0 auto;
   color: rgb(255, 0, 0);
   background-image: rgb(255, 0, 0);
   font-size: clamp(14px, 4vw, 26px);
   z-index: 10;
+/* border: 2px solid red; */
 }
 
 .wBox4 {
@@ -849,9 +851,7 @@ img {
   transition: all 5s;
   border-radius: 15px;
   transition: all 2s ease-in-out;
-  background: repeating-linear-gradient(-30deg,
-      #e7d801 16%,
-      #e7d801 15%,
+  background: repeating-linear-gradient(308deg,
       #4aec0a 15%,
       #4aec0a 30%,
       #e7d801 30%,
@@ -861,7 +861,7 @@ img {
       #e7d801 60%,
       #e7d801 75%,
       #4aec0a 75%);
-  animation: moving 15s linear infinite;
+  animation: moving 7s linear infinite;
 }
 
 .percent {
@@ -870,7 +870,7 @@ img {
 
 @keyframes moving {
   100% {
-    background-position: 1000px 0%
+    background-position: 785px 0%
   }
 }
 
@@ -879,7 +879,7 @@ img {
   font-size: x-large;
   display: flex;
   margin-top: 1.5rem;
-  margin-left: 18vw;
+  margin-left: 70%;
   align-items: center;
 }
 
@@ -898,7 +898,6 @@ img {
 .endGroup {
   display: flex;
   flex-direction: row;
-  margin-top: 1rem;
 }
 
 .but-bottom {
@@ -942,9 +941,10 @@ img {
 .header {
   display: flex;
   font-family: "Flavors";
-  font-size: 40px;
-  align-items: center;
+  visibility: visible;
   overflow: visible;
+  align-items: center;
+  font-size: 40px;
   margin: 15px 5px;
   color: rgb(189, 73, 27);
   text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
@@ -1012,15 +1012,15 @@ li::marker {
 .close {
   margin: 6%;
   font-weight: 700;
-  color: rgb(255, 255, 255);
+  color: rgb(190 235 255);
   position: relative;
   height: 20px;
   width: 20px;
   cursor: pointer;
 }
 
-.close_:hover {
-  color: #00fff2;
+.close:hover {
+  color: #ffffff;
 }
 
 .choice {
@@ -1264,14 +1264,14 @@ p:after {
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .sky {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  flex-basis: 16%;
+  flex-basis: 14%;
   justify-content: center;
 }
 

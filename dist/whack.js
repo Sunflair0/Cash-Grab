@@ -32,7 +32,7 @@ let masterArr = gameLocalStorage.getMasterArr()
 let gamePlay = {};
 let rScores, color = [];
 let life = 5;
-let goal = 500; // /////shorten for debugging
+let goal = 50; // /////shorten for debugging
 let start = document.getElementById('start');
 let tick = document.getElementById('tick');
 let whiteBoxes = document.getElementsByClassName("whiteBoxes")[0];
@@ -112,11 +112,11 @@ function closeChoosing() {
 }
 
 function hideHeader() {
-    header.style.display = 'none';
+    header.style.visibility = 'hidden';
 }
 
 function headerVisible() {
-    header.style.display = 'block';
+    header.style.visibility = 'visible';
 }
 
 function selectDifficulty() {
@@ -194,7 +194,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         clearHolesAfterRound();
-    }, 30900); //shorten here for debugging mode
+    }, 5900); //shorten here for debugging mode
 });
 
 function choice(min, max) {
@@ -256,19 +256,27 @@ holes.forEach((val) => {
 
 // /////progress bar
 const progressBar = document.getElementsByClassName('progress-bar')[0];
+let theBar
+function theTic() {
 
-const theTic = setTimeout(() => {
-    const theBar = setInterval(() => {
+    // let tOut = setTimeout(() => {
+
+    let theBar = setInterval(() => {
         const width = goalReached() || 0;
         progressBar.style.setProperty('--width', width + .1)
 
 
-        if ('--width' == 8) clearInterval(theBar);
-    }, 8000);
+        console.log(theBar, "theBar");
+        console.log(width, "count");
+        console.log('--width', "count2");
+    }, 7000);
 
 
-}, 500);
+    // }, 0);
 
+    // 
+
+}
 
 
 function statusMessage(msg) {
@@ -287,9 +295,11 @@ function printHearts() {
 }
 // /////evaluation for percent to be converted and truncated
 function goalReached() {
+    clearInterval(theBar);
     percentage = quarterScore / goal * 100;
     percentage = Math.min(100, Math.max(0, percentage));
     percentage = NaN ? percentage = 0 : percentage;
+    console.log(percentage, "percentage");
     return percentage;
 }
 
@@ -357,7 +367,7 @@ function sumArr() {
     return sum;
 }
 function useHeart() {
-    gsap.to(`.heart${life}`, { opacity: 0, duration: 2.5, y: -100, rotation: 720, scale: 0, clearProps: true })
+    gsap.to(`.heart${life}`, { opacity: 0, duration: 2.5, y:-100, rotation: 720, scale: 0, clearProps: true })
     gsap.to(`.heart${life}`, { opacity: 0 }, "> -=.5");
     roundUp()
 };
@@ -381,10 +391,13 @@ function clearHolesAfterRound() {
     clearHole1.forEach((val) => {
         val.classList.remove(`cash${round}`)
     });
-    headerVisible();
+
+    theTic();
     roundEndGSAP();
+    headerVisible();
 }
 function roundEndGSAP() {
+
     document.getElementById('plusImg').src = `./asset/minCash${round}.png`;
     let tl = gsap.timeline({ defaults: { duration: .5, opacity: 0 } })
     tl

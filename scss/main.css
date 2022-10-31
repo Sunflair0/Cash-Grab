@@ -4,7 +4,7 @@ html {
 }
 
 body {
-   position: relative;
+  position: relative;
   background-image: url(../asset/round1.png);
   background-color: black;
   background-size: cover;
@@ -16,6 +16,7 @@ body {
   min-width: 100%;
   justify-content: center;
   align-items: center;
+  overflow-y: scroll;
   overflow-x: hidden;
   transition: transform 1s;
 }
@@ -885,7 +886,8 @@ img {
   transform: translate(9px, -6px);
 }
 
-.head_font, .header {
+.head_font,
+.header {
   display: flex;
   font-family: "Flavors";
   font-size: 40px;
@@ -958,14 +960,14 @@ li::marker {
 .close {
   margin: 6%;
   font-weight: 700;
-  color: rgb(255, 255, 255);
+  color: rgb(166, 218, 241);
   position: relative;
   height: 20px;
   width: 20px;
   cursor: pointer;
 }
-.close_:hover {
-  color: #00fff2;
+.close:hover {
+  color: #ffffff;
 }
 
 .choice {
@@ -1203,7 +1205,7 @@ p:after {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  flex-basis: 16%;
+  flex-basis: 14%;
 }
 
 .ground {
