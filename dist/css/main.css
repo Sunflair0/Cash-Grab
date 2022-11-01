@@ -542,7 +542,7 @@ img {
 
 .scoreModal {
   border: white 5px ridge;
-  font-size: medium;
+  font-size: small;
   padding: 15px 7px 0;
   margin: 15px auto 12px;
   line-height: 0.8rem;
@@ -574,7 +574,7 @@ img {
 
 #message {
   font-family: "Rufina", serif;
-  font-size: x-large;
+  font-size: medium;
   font-weight: 600;
   background: radial-gradient(#e7d801, #ece360, #4aec0a, #00a1ff, #ff8cff);
   background-clip: text;
@@ -1198,6 +1198,14 @@ p:after {
   #quarterScore {
     margin-top: -20%;
   }
+
+#message {
+font-size: x-large;
+}
+
+.scoreModal {
+  font-size: medium;
+}
 
   .heart1,
   .heart2,
