@@ -713,9 +713,9 @@ img {
 }
 
 #percent {
-color:rgb(255, 255, 255);
-position:absolute;
-transform: translateY(150%);
+  color: rgb(255, 255, 255);
+  position: absolute;
+  transform: translateY(150%);
 }
 
 @keyframes moving {
@@ -726,10 +726,10 @@ transform: translateY(150%);
 
 #quarterScore {
   height: 7rem;
-position: absolute;
+  position: absolute;
   font-size: large;
-    margin-top: -20%;
-    margin-left: 75%;
+  margin-top: -30%;
+  margin-left: 75%;
   align-items: center;
 }
 
@@ -748,7 +748,7 @@ position: absolute;
 .endGroup {
   display: flex;
   flex-direction: row;
-margin: 4vh 0;
+  margin: 4vh 0;
 }
 
 .but-bottom {
@@ -765,7 +765,7 @@ margin: 4vh 0;
 
 .theBar {
   display: flex;
-position: relative;
+  position: relative;
   margin-left: 9vw;
   width: 300px;
 
@@ -1157,13 +1157,13 @@ p:after {
 
 @media screen and (min-width: 500px) {
 
-.headings {
+  .headings {
     font-size: large;
   }
 
   .lineOne,
   .lineTwo {
-  height: 4rem;
+    height: 4rem;
     font-size: large;
   }
 
@@ -1193,6 +1193,9 @@ p:after {
     width: 80px;
   }
 
+  #quarterScore {
+    margin-top: -20%;
+  }
 
   #evalMes,
   .evalOne2 {
@@ -1238,9 +1241,9 @@ p:after {
     margin-top: -14%;
   }
 
-.line {
-  margin-top: 1.25rem;
-}
+  .line {
+    margin-top: 1.25rem;
+  }
 
   .roundModal {
     font-size: smaller;
