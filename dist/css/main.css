@@ -546,7 +546,7 @@ img {
   padding: 15px 7px 0;
   margin: 15px auto 12px;
   line-height: 0.8rem;
-  height: 59%;
+  height: 53%;
   opacity: 0;
   overflow: visible;
   z-index: 1;
@@ -1205,6 +1205,7 @@ font-size: x-large;
 
 .scoreModal {
   font-size: medium;
+height: 59%;
 }
 
   .heart1,

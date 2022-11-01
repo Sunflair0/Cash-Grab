@@ -32,7 +32,7 @@ let masterArr = gameLocalStorage.getMasterArr()
 let gamePlay = {};
 let rScores, color = [];
 let life = 5;
-let goal = 500; // /////shorten for debugging
+let goal = 0; // /////shorten for debugging
 let start = document.getElementById('start');
 let tick = document.getElementById('tick');
 let whiteBoxes = document.getElementsByClassName("whiteBoxes")[0];
@@ -194,7 +194,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         clearHolesAfterRound();
-    }, 30900); //shorten here for debugging mode
+    }, 0900); //shorten here for debugging mode
 });
 
 function choice(min, max) {
