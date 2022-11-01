@@ -108,151 +108,6 @@ img {
   transform: translate(10px, 75px);
 }
 
-@media screen and (min-width: 376px) {
-  .progress-bar {
-    margin-bottom: 17%;
-  }
-}
-
-@media screen and (min-width: 500px) {
-  .headings {
-    font-size: xx-large;
-  }
-
-  .lineOne,
-  .lineTwo {
-    font-size: large;
-  }
-
-  .head_font,
-  .header {
-    font-size: 70px;
-    margin: 0 5px;
-  }
-
-  #level {
-    font-size: 16px;
-    padding: 9px 0 0px 25px;
-  }
-
-  #padlock {
-    display: flex;
-    height: 30px;
-  }
-
-  #finger {
-    font-size: 56px;
-  }
-
-  .choice {
-    display: flex;
-    color: white;
-    width: 80px;
-  }
-
-  .heartbox {
-    transform: translate(-5%, 0%);
-  }
-
-  #evalMes,
-  .evalOne2 {
-    margin-left: 1rem;
-  }
-
-  .evalOne {
-    width: 35%;
-  }
-
-  .scoreCap {
-    font-size: medium;
-  }
-
-  .rank,
-  .lvColor,
-  .score,
-  .name {
-    margin-bottom: 21%;
-  }
-
-  th {
-    font-size: small;
-  }
-
-  img {
-    width: 100%;
-  }
-
-  #second {
-    margin-top: 1px;
-    max-width: 100px;
-    min-width: 80px;
-  }
-
-  #start {
-    min-height: 85px;
-  }
-}
-
-@media screen and (max-height: 750px) {
-  .xIntro {
-    margin-top: -15%;
-    z-index: 10;
-  }
-
-  .roundModal {
-    font-size: smaller;
-    height: 60%;
-    top: -86%;
-  }
-
-  .introModal {
-    font-size: smaller;
-    height: 67%;
-    width: 85%;
-    top: -99%;
-  }
-
-  .theBar {
-    margin-top: -14%;
-    width: 50%;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .darkhole {
-    max-width: 180px;
-  }
-
-  .rank,
-  .lvColor,
-  .score,
-  .name {
-    margin-bottom: 15%;
-  }
-
-  .tsModal {
-    height: 70%;
-    top: -106%;
-  }
-
-  .scoreModal {
-    font-size: small;
-  }
-}
-
-@media screen and (min-width: 1060px) {
-
-  #score,
-  #tick {
-    margin-top: 3vh;
-  }
-
-  .second {
-    transform: scale(0.35, 0.35);
-    margin-bottom: 8vh;
-  }
-}
-
 .gameIcon {
   background-size: contain;
   background-repeat: no-repeat;
@@ -369,8 +224,10 @@ img {
   align-items: center;
   justify-content: center;
   position: relative;
+  max-width: 500px;
   height: 100%;
   margin-top: 10%;
+  z-index: -1;
 }
 
 .moleShow {
@@ -405,15 +262,11 @@ img {
 .textShow {
   display: flex;
   flex-direction: column;
-  font-size: auto;
+  max-width: 500px;
   position: relative;
   top: 8%;
+  z-index: -1;
 }
-
-/* #coolmole1 img {
-  width: 55px;
-  bottom: -43%;
-} */
 
 #start {
   display: flex;
@@ -552,9 +405,9 @@ img {
   display: flex;
   max-width: 100px;
   z-index: 10;
-     transform: translate(-5%, 50%);
-    height: 30px;
-position: absolute;
+  transform: translate(-5%, 50%);
+  height: 30px;
+  position: absolute;
 }
 
 .heart1,
@@ -566,9 +419,8 @@ position: absolute;
   margin: 0 auto;
   color: rgb(255, 0, 0);
   background-image: rgb(255, 0, 0);
-  font-size: clamp(12px, 4vw, 26px);
+font-size: (11px, 3vw, 26px);
   z-index: 10;
-/* border: 2px solid red; */
 }
 
 .wBox4 {
@@ -594,7 +446,7 @@ position: absolute;
   color: rgb(255, 67, 67);
   width: 40%;
   font-weight: 600;
-  font-size: clamp(14px, 2vw, 24px);
+  font-size: clamp(14px, 2vw, 20px);
 }
 
 .proScore {
@@ -611,7 +463,7 @@ position: absolute;
   color: rgb(77, 224, 57);
   width: 50%;
   font-weight: 600;
-  font-size: clamp(14px, 2vw, 24px);
+  font-size: clamp(14px, 2vw, 20px);
   margin-bottom: 5px;
 }
 
@@ -706,9 +558,9 @@ position: absolute;
 
 .evalOne {
   width: 105px;
-    background: radial-gradient(#e7d801, #ffef00, #00b8ff, #ff00bc, #fbff00);
-    background-clip: text;
-    text-shadow: 0 0 2px #ffffff40;
+  background: radial-gradient(#e7d801, #ffef00, #00b8ff, #ff00bc, #fbff00), #00ff15;
+  background-clip: text;
+  text-shadow: 0 0 2px #ffffff40;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transform: translate(14%, 18%);
@@ -839,7 +691,8 @@ position: absolute;
   border-radius: 50px;
   border: 2px #ffffff solid;
   bottom: 30%;
-  margin-bottom: -4%;
+  margin-bottom: -11%;
+  margin-left: -6vw;
 }
 
 .progress-bar::before {
@@ -877,7 +730,7 @@ position: absolute;
 
 #quarterScore {
   height: 7rem;
-  font-size: x-large;
+  font-size: large;
   display: flex;
   margin-top: 1.5rem;
   margin-left: 70%;
@@ -945,8 +798,8 @@ position: absolute;
   visibility: visible;
   overflow: visible;
   align-items: center;
-  font-size: 40px;
-  margin: 15px 5px;
+  font-size: 35px;
+  margin: 0 5px;
   color: rgb(189, 73, 27);
   text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
   transform: all ease 2s;
@@ -964,6 +817,7 @@ position: absolute;
 }
 
 button .xIntro {
+  display: flex;
   color: black;
   text-align: center;
   justify-content: center;
@@ -1196,7 +1050,7 @@ li:nth-child(4) {
 p {
   font-family: "Mukta";
   font-size: clamp(10px, 3vw, 16px);
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.5rem;
   color: #fcddb6;
   line-height: clamp(.8rem, 3vw, 2.2rem);
 }
@@ -1210,6 +1064,11 @@ p::first-letter {
   font-family: "Flavors";
 }
 
+p::last-child::after {
+  margin-bottom: 0;
+  z-index: 0;
+}
+
 p:after {
   content: "";
   display: block;
@@ -1221,6 +1080,7 @@ p:after {
   height: 100%;
   z-index: 1;
   transform-origin: 0 100%;
+  margin-bottom: -10vh;
 }
 
 #bop {
@@ -1299,6 +1159,164 @@ p:after {
   background: rgb(0, 0, 0);
   bottom: 0;
   margin-bottom: 0%;
+}
+
+@media screen and (min-width: 500px) {
+  .headings {
+    font-size: large;
+  }
+
+  .lineOne,
+  .lineTwo {
+    font-size: large;
+  }
+
+  .head_font,
+  .header {
+    font-size: 50px;
+    margin: 0 5px;
+  }
+
+  #level {
+    font-size: 16px;
+    padding: 9px 0 0px 25px;
+  }
+
+  #padlock {
+    display: flex;
+    height: 30px;
+  }
+
+  #finger {
+    font-size: 56px;
+  }
+
+  .choice {
+    display: flex;
+    color: white;
+    width: 80px;
+  }
+
+
+  #evalMes,
+  .evalOne2 {
+    margin-left: 1rem;
+  }
+
+  .evalOne {
+    width: 35%;
+  }
+
+  .scoreCap {
+    font-size: medium;
+  }
+
+  .rank,
+  .lvColor,
+  .score,
+  .name {
+    margin-bottom: 21%;
+  }
+
+  th {
+    font-size: small;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  #second {
+    margin-top: -2px;
+    max-width: 100px;
+    min-width: 80px;
+  }
+
+  #start {
+    min-height: 85px;
+  }
+}
+
+@media screen and (max-height: 750px) {
+  .xIntro {
+    margin-top: -14%;
+  }
+
+  .head_font,
+  .header {
+    font-size: 70px;
+    margin: 0 5px;
+  }
+
+#quarterScore {
+    margin-left: 60%;
+}
+
+  .roundModal {
+    font-size: smaller;
+    height: 60%;
+    top: -86%;
+  }
+
+  .introModal {
+    font-size: smaller;
+    height: 67%;
+    width: 85%;
+    top: -99%;
+  }
+
+  .theBar {
+    margin-top: -14%;
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .heartBox {
+    transform: translate(-5%, 10%);
+  }
+
+  .darkhole {
+    max-width: 180px;
+  }
+
+  .rank,
+  .lvColor,
+  .score,
+  .name {
+    margin-bottom: 15%;
+  }
+
+  .tsModal {
+    height: 70%;
+    top: -106%;
+  }
+
+  .scoreModal {
+    font-size: small;
+  }
+}
+
+@media screen and (min-width: 1060px) {
+
+  .introModalShows {
+    height: 93%;
+    /* z-index: -1; */
+  }
+
+  .heartBox {
+    transform: translate(-5%, -20%);
+  }
+
+  #score,
+  #tick {
+    margin-top: 3vh;
+  }
+
+  .second {
+    transform: scale(0.35, 0.35);
+    margin-bottom: 8vh;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
