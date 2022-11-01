@@ -104,10 +104,6 @@ img {
   }
 }
 
-.percent {
-  transform: translate(10px, 45px);
-}
-
 .gameIcon {
   background-size: contain;
   background-repeat: no-repeat;
@@ -419,7 +415,7 @@ img {
   margin: 0 auto;
   color: rgb(255, 0, 0);
   background-image: rgb(255, 0, 0);
-  font-size: small;
+  font-size: (10px, 2vw, 26px);
   z-index: 10;
 }
 
@@ -718,10 +714,6 @@ img {
   animation: moving 7s linear infinite;
 }
 
-.percent {
-  transform: translate(10px, 75px);
-}
-
 @keyframes moving {
   100% {
     background-position: 785px 0%
@@ -732,7 +724,7 @@ img {
   height: 7rem;
   font-size: large;
   display: flex;
-  margin-top: -.2rem;
+  margin-top: 0%;
   margin-left: 70%;
   align-items: center;
 }
@@ -1162,17 +1154,13 @@ p:after {
 }
 
 @media screen and (min-width: 500px) {
-  .headings {
+  .percent {
+    transform: translate(10px, 75px);
+  }  
+
+.headings {
     font-size: large;
   }
-
-
-.heart1,
-.heart2,
-.heart3,
-.heart4 {
-font-size: (11px, 3vw, 26px);
-}
 
   .lineOne,
   .lineTwo {
@@ -1270,7 +1258,7 @@ font-size: (11px, 3vw, 26px);
   }
 
   .percent {
-    transform: translate(10px, 75px);
+    transform: translate(66%, 44%);
   }
 
   .theBar {
