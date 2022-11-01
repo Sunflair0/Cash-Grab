@@ -419,7 +419,7 @@ img {
   margin: 0 auto;
   color: rgb(255, 0, 0);
   background-image: rgb(255, 0, 0);
-  font-size: (11px, 3vw, 26px);
+  font-size: small;
   z-index: 10;
 }
 
@@ -1165,6 +1165,14 @@ p:after {
   .headings {
     font-size: large;
   }
+
+
+.heart1,
+.heart2,
+.heart3,
+.heart4 {
+font-size: (11px, 3vw, 26px);
+}
 
   .lineOne,
   .lineTwo {
