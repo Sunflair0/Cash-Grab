@@ -554,16 +554,18 @@ img {
 
 .evalOne {
   width: 105px;
-  background: radial-gradient(#e7d801, #ffef00, #00b8ff, #ff00bc, #fbff00), #00ff15;
+  font-family: "Rufina", serif;
+  background: radial-gradient(#ffef00, #00ff89, #1000ff, #ff9900, #fbff00), #00ff15;
   background-clip: text;
-  text-shadow: 0 0 2px #ffffff40;
+  text-shadow: 3px 3px 3px #ffffff54;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transform: translateY(100%);
+  background-blend-mode: hue;
 }
 
 .evalOne2 {
-  font-family: "Fruktur", serif;
+  font-family: "Rufina", serif;
   color: #c3bd03;
   font-size: larger;
   font-weight: 600;
@@ -571,7 +573,7 @@ img {
 }
 
 #message {
-  font-family: "Fruktur", serif;
+  font-family: "Rufina", serif;
   font-size: x-large;
   font-weight: 600;
   background: radial-gradient(#e7d801, #ece360, #4aec0a, #00a1ff, #ff8cff);
@@ -1197,12 +1199,12 @@ p:after {
     margin-top: -20%;
   }
 
-.heart1,
-.heart2,
-.heart3,
-.heart4 {
- font-size: (10px, 2vw, 26px);
-}
+  .heart1,
+  .heart2,
+  .heart3,
+  .heart4 {
+    font-size: (10px, 2vw, 26px);
+  }
 
   #evalMes,
   .evalOne2 {
