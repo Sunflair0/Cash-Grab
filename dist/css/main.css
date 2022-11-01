@@ -559,7 +559,7 @@ img {
   text-shadow: 0 0 2px #ffffff40;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  transform: translate(14%, 18%);
+  transform: translateY(100%);
 }
 
 .evalOne2 {
@@ -683,12 +683,10 @@ img {
   border-radius: 15px;
   position: absolute;
   height: 26px;
-  width: 50%;
+  width: 100%;
   border-radius: 50px;
   border: 2px #ffffff solid;
-  bottom: 30%;
-  margin-bottom: -11%;
-  margin-left: -6vw;
+  bottom: -35%;
 }
 
 .progress-bar::before {
@@ -714,6 +712,12 @@ img {
   animation: moving 7s linear infinite;
 }
 
+#percent {
+color:rgb(255, 255, 255);
+position:absolute;
+transform: translateY(150%);
+}
+
 @keyframes moving {
   100% {
     background-position: 785px 0%
@@ -722,10 +726,10 @@ img {
 
 #quarterScore {
   height: 7rem;
+position: absolute;
   font-size: large;
-  display: flex;
-  margin-top: 0%;
-  margin-left: 70%;
+    margin-top: -20%;
+    margin-left: 75%;
   align-items: center;
 }
 
@@ -737,23 +741,20 @@ img {
 .line {
   margin: 1% auto;
   width: 90%;
-  margin-top: 1.25rem;
+  margin-top: 1rem;
   border: white 1px solid;
 }
 
 .endGroup {
   display: flex;
   flex-direction: row;
+margin: 4vh 0;
 }
 
 .but-bottom {
   position: absolute;
   right: 50%;
   bottom: -30px;
-}
-
-.evalOne {
-  color: #c3bd03;
 }
 
 #restart-button {
@@ -764,6 +765,7 @@ img {
 
 .theBar {
   display: flex;
+position: relative;
   margin-left: 9vw;
   width: 300px;
 
@@ -1154,9 +1156,6 @@ p:after {
 }
 
 @media screen and (min-width: 500px) {
-  .percent {
-    transform: translate(10px, 75px);
-  }  
 
 .headings {
     font-size: large;
@@ -1239,11 +1238,9 @@ p:after {
     margin-top: -14%;
   }
 
-  #quarterScore {
-    margin-top: 1.5rem;
-    margin-left: 60%;
-
-  }
+.line {
+  margin-top: 1.25rem;
+}
 
   .roundModal {
     font-size: smaller;
@@ -1256,10 +1253,6 @@ p:after {
     height: 67%;
     width: 85%;
     top: -99%;
-  }
-
-  .percent {
-    transform: translate(66%, 44%);
   }
 
   .theBar {
