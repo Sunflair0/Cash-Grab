@@ -1242,12 +1242,6 @@ p:after {
     margin-top: -14%;
   }
 
-  .head_font,
-  .header {
-    font-size: 70px;
-    margin: 0 5px;
-  }
-
 #quarterScore {
     margin-left: 60%;
 }
@@ -1301,11 +1295,16 @@ p:after {
 
   .introModalShows {
     height: 93%;
-    /* z-index: -1; */
   }
 
   .heartBox {
     transform: translate(-5%, -20%);
+  }
+
+  .head_font,
+  .header {
+    font-size: 70px;
+    margin: 0 5px;
   }
 
   #score,
