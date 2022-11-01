@@ -660,7 +660,7 @@ img {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 4rem;
+  height: 3.2rem;
   font-size: medium;
   margin-top: clamp(.5rem, 2vw, 1.5rem);
   overflow: visible;
@@ -1164,6 +1164,7 @@ p:after {
 
   .lineOne,
   .lineTwo {
+  height: 4rem;
     font-size: large;
   }
 
