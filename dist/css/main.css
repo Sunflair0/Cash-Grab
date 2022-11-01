@@ -105,7 +105,7 @@ img {
 }
 
 .percent {
-  transform: translate(10px, 75px);
+  transform: translate(10px, 45px);
 }
 
 .gameIcon {
@@ -419,7 +419,7 @@ img {
   margin: 0 auto;
   color: rgb(255, 0, 0);
   background-image: rgb(255, 0, 0);
-font-size: (11px, 3vw, 26px);
+  font-size: (11px, 3vw, 26px);
   z-index: 10;
 }
 
@@ -732,7 +732,7 @@ font-size: (11px, 3vw, 26px);
   height: 7rem;
   font-size: large;
   display: flex;
-  margin-top: 1.5rem;
+  margin-top: -.2rem;
   margin-left: 70%;
   align-items: center;
 }
@@ -1242,9 +1242,11 @@ p:after {
     margin-top: -14%;
   }
 
-#quarterScore {
+  #quarterScore {
+    margin-top: 1.5rem;
     margin-left: 60%;
-}
+
+  }
 
   .roundModal {
     font-size: smaller;
@@ -1257,6 +1259,10 @@ p:after {
     height: 67%;
     width: 85%;
     top: -99%;
+  }
+
+  .percent {
+    transform: translate(10px, 75px);
   }
 
   .theBar {
