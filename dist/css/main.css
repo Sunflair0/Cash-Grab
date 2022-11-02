@@ -17,7 +17,7 @@ body {
   min-width: 100%;
   justify-content: center;
   align-items: center;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   transition: transform 1s;
   -webkit-user-select: none;
