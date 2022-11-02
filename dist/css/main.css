@@ -1,23 +1,24 @@
 @charset "UTF-8";
 
 html {
-  overflow-x: hidden;
+  overflow: hidden;
   overflow-y: scroll;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   position: relative;
   background-image: url(../asset/round1.png);
   background-color: black;
   background-size: cover;
   background-clip: content-box;
   background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
   height: 100vh;
   min-width: 100%;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
   transition: transform 1s;
   -webkit-user-select: none;
   -moz-user-select: none;
