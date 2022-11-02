@@ -32,7 +32,7 @@ let masterArr = gameLocalStorage.getMasterArr()
 let gamePlay = {};
 let rScores, color = [];
 let life = 5;
-let goal = 0; // /////shorten for debugging
+let goal = 100; // /////shorten for debugging
 let start = document.getElementById('start');
 let tick = document.getElementById('tick');
 let whiteBoxes = document.getElementsByClassName("whiteBoxes")[0];
@@ -194,7 +194,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         clearHolesAfterRound();
-    }, 0900); //shorten here for debugging mode
+    }, 10900); //shorten here for debugging mode
 });
 
 function choice(min, max) {
@@ -256,26 +256,32 @@ holes.forEach((val) => {
 
 // /////progress bar
 const progressBar = document.getElementsByClassName('progress-bar')[0];
-let theBar
+
 function theTic() {
 
     // let tOut = setTimeout(() => {
 
     let theBar = setInterval(() => {
-        const width = goalReached() || 0;
+        //  theBar = 0;
+        console.log(theBar, "theBar");
+        width = goalReached() || 0;
+        console.log(goalReached(), "count");
         progressBar.style.setProperty('--width', width + .1)
 
+        if (width == theBar) {
 
-        console.log(theBar, "theBar");
-        console.log(width, "count");
-        console.log('--width', "count2");
+            clearInterval(theBar);
+        }
+
+        // 
+        // console.log(--width, "count2");
     }, 7000);
 
 
     // }, 0);
 
     // 
-
+    return;
 }
 
 
@@ -295,7 +301,7 @@ function printHearts() {
 }
 // /////evaluation for percent to be converted and truncated
 function goalReached() {
-    clearInterval(theBar);
+
     percentage = quarterScore / goal * 100;
     percentage = Math.min(100, Math.max(0, percentage));
     percentage = NaN ? percentage = 0 : percentage;
@@ -367,7 +373,7 @@ function sumArr() {
     return sum;
 }
 function useHeart() {
-    gsap.to(`.heart${life}`, { opacity: 0, duration: 2.5, y:-100, rotation: 720, scale: 0, clearProps: true })
+    gsap.to(`.heart${life}`, { opacity: 0, duration: 2.5, y: -100, rotation: 720, scale: 0, clearProps: true })
     gsap.to(`.heart${life}`, { opacity: 0 }, "> -=.5");
     roundUp()
 };
