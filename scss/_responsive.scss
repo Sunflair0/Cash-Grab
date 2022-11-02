@@ -1,4 +1,13 @@
 @include media-sm {
+
+    .heart1,
+    .heart2,
+    .heart3,
+    .heart4 {
+        font-size: clamp(16px, 3vw, 26px);
+        margin: -8% auto;
+    }
+
     .headings {
         font-size: large;
     }
@@ -36,11 +45,11 @@
     }
 
     #quarterScore {
-        margin-top: -20%;
+        margin-top: -26%;
     }
 
     #message {
-        font-size: x-large;
+        font-size: large;
     }
 
     .scoreModal {
@@ -48,11 +57,14 @@
         height: 59%;
     }
 
-    .heart1,
-    .heart2,
-    .heart3,
-    .heart4 {
-        font-size: (10px, 2vw, 26px);
+    .time {
+        opacity: 0;
+        transform: translate(9px, 6px);
+    }
+
+    .date {
+        opacity: 0;
+        transform: translate(9px, -6px);
     }
 
     #evalMes,
@@ -116,8 +128,13 @@
         top: -99%;
     }
 
+    .progress-bar {
+        margin-left: 15px;
+        bottom: -16%;
+    }
+
     .theBar {
-        margin-top: -14%;
+        margin-top: 10%;
         width: 50%;
     }
 }
@@ -136,6 +153,10 @@
     .score,
     .name {
         margin-bottom: 15%;
+    }
+
+    #quarterScore {
+        margin-left: 71%;
     }
 
     .tsModal {
