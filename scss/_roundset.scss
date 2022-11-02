@@ -1,16 +1,16 @@
 .introModal {
-    position: absolute;
-    color: white;
-    border: #ffffff 5px ridge;
-    height: 63%;
-    width: 85%;
-    max-width: 500px;
-    top: -89%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2vh;
-    z-index: 1;
+  position: absolute;
+  color: white;
+  border: #ffffff 5px ridge;
+  height: 63%;
+  width: 85%;
+  max-width: 500px;
+  top: -89%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh;
+  z-index: 1;
 
     // ///// opacity also handled with gsap
     background-color: #000000;
@@ -19,58 +19,62 @@
 }
 
 .roundModal {
-    display: flex;
-    flex-direction: column;
-    border: rgb(255, 255, 255) 5px ridge;
-    background-color: #000000de;
-    height: 60%;
-    width: 80%;
-    max-width: 500px;
-    color: white;
-    position: fixed;
-    top: -86%;
-    padding: 20px;
-    margin: 20px;
-    opacity: 0;
-    z-index: 1;
+  display: flex;
+  flex-direction: column;
+  border: rgb(255, 255, 255) 5px ridge;
+  background-color: rgba(0, 0, 0, 0.8705882353);
+  height: 60%;
+  width: 80%;
+  max-width: 500px;
+  min-width: 300px;
+  color: white;
+  position: fixed;
+  top: -86%;
+  padding: 20px;
+  margin: 20px;
+  opacity: 0;
+  z-index: 1;
 }
 
 .tsModal {
-    background-color: hsla(0, 0%, 0%, 0.8);
-    height: 67%;
-    width: 90%;
-    max-width: 500px;
-    color: white;
-    top: -99%;
-    position: fixed;
-    border: white 5px ridge;
-    justify-content: center;
-    z-index: 1;
+ background-color: hsla(0deg, 0%, 0%, 0.8);
+  height: 67%;
+  width: 90%;
+  max-width: 500px;
+  color: white;
+  top: -99%;
+  position: fixed;
+  border: white 5px ridge;
+  justify-content: center;
+  z-index: 1;
 }
 
 .scoreModal {
     border: white 5px ridge;
-    font-size: medium;
-    padding: 15px 7px 0;
-    margin: 15px auto 12px;
-    line-height: .8rem;
-    height: 59%;
-    opacity: 0;
-    overflow: visible;
-    z-index: 1;
+  font-size: small;
+  padding: 15px 7px 0;
+  margin: 15px auto 12px;
+  line-height: 0.5rem;
+  height: 38%;
+  opacity: 0;
+  overflow: visible;
+  z-index: 1;
 }
 
 .evalOne {
-    width: 105px;
-    background: radial-gradient(#ece360, #4aec0a, #8a9be9, #ff8cff, #fff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transform: translate(14%, 18%);
+     width: 105px;
+  font-family: "Rufina", serif;
+  background: radial-gradient(#ffef00, #00ff89, #1000ff, #ff9900, #fbff00), #00ff15;
+  background-clip: text;
+  text-shadow: 3px 3px 3px #ffffff54;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translateY(100%);
+  background-blend-mode: hue;
 }
 
 .evalOne2 {
-    font-family: 'Fruktur', serif;
+    font-family: 'Rufina', serif;
     color: #c3bd03;
     font-size: larger;
     font-weight: 600;
@@ -78,15 +82,15 @@
 }
 
 #message {
-    font-family: 'Fruktur', serif;
-    font-size: x-large;
-    font-weight: 600;
-    background: radial-gradient(#e7d801, #ece360, #4aec0a, #8a9be9, #ff8cff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: -2rem;
-    transform: translateX(40px);
+    font-family: "Rufina", serif;
+  font-size: medium;
+  font-weight: 600;
+  background: radial-gradient(#e7d801, #ece360, #4aec0a, #00a1ff, #ff8cff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0rem;
+  transform: translateX(40px);
 }
 
 .tsModal th {
@@ -164,19 +168,19 @@
 
 .lineOne,
 .lineTwo {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 4rem;
-    font-size: medium;
-    margin-top: 1.5rem;
-    overflow: visible;
+   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 3.2rem;
+  font-size: medium;
+  margin-top: clamp(.5rem, 2vw, 1.5rem);
+  overflow: visible;
 }
 
 #plusImg,
 #minusImg,
 #coolmole1 {
-    width: 75px;
+     width: 70px;
 }
 
 .mathChar {
@@ -184,56 +188,60 @@
 }
   
   .progress-bar {
-    display: flex;
-    padding: 2px;  
-    background-color: #000000de;  
-    width: 100%;
-    border-radius: 15px;
-    height: 100%;
-    position: absolute;
-    height: 26px;
-    width: 120px;
-    border-radius: 50px;
-    border: 2px #ffffff solid;  
-    bottom: -4%; 
+  display: flex;
+  padding: 2px;
+  background-color: #000000de;
+  border-radius: 15px;
+  position: absolute;
+  height: 26px;
+  width: 100%;
+  border-radius: 50px;
+  border: 2px #ffffff solid;
+  bottom: -35%; 
   }
 
   .progress-bar::before {
-    content: "Goal = 500";
-    padding-left: 3%;
-    color: rgba(0, 0, 0, 0.8705882353);
-    height: 18px;
-    width: calc(var(--width,0)*1%);
-    position: relative;
-    transition: all 5s;
-    border-radius: 15px;
-    animation: moving 5s linear infinite;
-    background-size: 105px;
-    background: repeating-linear-gradient(135deg,        
-          #4aec0a 0px,      
-          #4aec0a 15px,
-          #e7d801 15px,
-          #e7d801 35px,
-          #4aec0a 35px); 
+ content: "Goal = 500";
+  padding-left: 3%;
+  color: rgba(0, 0, 0, 0.8705882353);
+  height: 18px;
+  width: calc(var(--width, 0)*1%);
+  position: relative;
+  transition: all 5s;
+  border-radius: 15px;
+  transition: all 2s ease-in-out;
+  background: repeating-linear-gradient(308deg,
+      #4aec0a 15%,
+      #4aec0a 30%,
+      #e7d801 30%,
+      #e7d801 45%,
+      #4aec0a 45%,
+      #4aec0a 60%,
+      #e7d801 60%,
+      #e7d801 75%,
+      #4aec0a 75%);
+  animation: moving 7s linear infinite;
   }
   
   .percent {
-    transform: translate(10px, 75px);
+      color: rgb(255, 255, 255);
+  position: absolute;
+  transform: translateY(150%);
   }
   
   @keyframes moving {
     100% {
-      background-position: 210px 0px;  
+       background-position: 785px 0%
     } 
   }
 
 #quarterScore {
-    height: 7rem;
-    font-size: x-large;
-    display: flex;
-    margin-top: 1.5rem;
-    margin-left: 18vw;
-    align-items: center;
+   height: 7rem;
+  position: absolute;
+  font-size: large;
+  margin-top: -30%;
+  margin-left: 75%;
+  align-items: center;
 }
 
 .times {
@@ -244,14 +252,14 @@
 .line {
     margin: 1% auto;
     width: 90%;
-    margin-top: 1.25rem;
+    margin-top: 1rem;
     border: white 1px solid;
 }
 
 .endGroup {
     display: flex;
     flex-direction: row;
-    margin-top: 1rem;
+   margin: 4vh 0;
 }
 
 .but-bottom {
@@ -260,10 +268,6 @@
     bottom: -30px;
   }
 
-.evalOne {
-    color: #c3bd03;
-}
-
 #restart-button {
     font-size: large;
     transform: translateY(-140%);
@@ -271,9 +275,10 @@
 }
 
 .theBar {
-    display: flex;
-    margin-left: 9vw;
-    width: 300px;
+      display: flex;
+  position: relative;
+  margin-left: 9vw;
+  width: 300px;
 }
 
 #eval {

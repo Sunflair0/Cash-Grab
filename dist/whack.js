@@ -9,7 +9,7 @@ let gameLocalStorage = (() => {
     }
 
     function setMasterArr(masterArr) {
-         localStorage.setItem(masterArrName, JSON.stringify(masterArr))
+        localStorage.setItem(masterArrName, JSON.stringify(masterArr))
     }
 
     return {
@@ -20,7 +20,7 @@ let gameLocalStorage = (() => {
 
 let seconds = 1500;
 let stackStyle = '';
-let score, hit, miss, game, plusAmt, plusScore, minusAmt, minusScore= 0;
+let score, hit, miss, game, plusAmt, plusScore, minusAmt, minusScore = 0;
 let timer = 29;
 let round = 1;
 let min = round;
@@ -32,7 +32,7 @@ let masterArr = gameLocalStorage.getMasterArr()
 let gamePlay = {};
 let rScores, color = [];
 let life = 5;
-let goal = 500; // /////shorten for debugging
+let goal = 100; // /////shorten for debugging
 let start = document.getElementById('start');
 let tick = document.getElementById('tick');
 let whiteBoxes = document.getElementsByClassName("whiteBoxes")[0];
@@ -67,21 +67,21 @@ function exitIntro() {
 
     // /////intromodal leaving
     let introLeave = gsap.timeline()
-    introLeave.to(".introModal", { opacity: 0, x: '200%', y: "165%", duration: 1, ease: "circ", delay: ".5" });   
+    introLeave.to(".introModal", { opacity: 0, x: '200%', y: "165%", duration: 1, ease: "circ", delay: ".5" });
     printHearts()
     unlockChoice()
-    
+
     let levelBlock_descends = gsap.timeline({ defaults: { duration: .7 } })
     levelBlock_descends
-    .fromTo("#level", {opacity: 0.5, y:-30}, {opacity: 1, y:-5})
-    .set("#level", {innerText:"MED"})
-    .fromTo("#finger", {opacity: 0,}, {opacity: 1}, .7)    
-    .fromTo("#padlock", {opacity: 0}, {opacity: 1}, "<");
+        .fromTo("#level", { opacity: 0.5, y: -30 }, { opacity: 1, y: -5 })
+        .set("#level", { innerText: "MED" })
+        .fromTo("#finger", { opacity: 0, }, { opacity: 1 }, .7)
+        .fromTo("#padlock", { opacity: 0 }, { opacity: 1 }, "<");
 }
 function startGameAgain() {
     gsap.to(".tsModal", { opacity: 0, duration: 1, ease: "circ", y: '-165%' })
-    gsap.set(".quarter0, .quarter1, .quarter2, .quarter3, .quarter4, .quarter5, #restart-button", {clearProps: true});
-    
+    gsap.set(".quarter0, .quarter1, .quarter2, .quarter3, .quarter4, .quarter5, #restart-button", { clearProps: true });
+
     document.getElementsByClassName('time')[0].style.opacity = '0';
     document.getElementsByClassName('date')[0].style.opacity = '0';
 
@@ -90,7 +90,7 @@ function startGameAgain() {
 }
 function unlockChoice() {
     padlock.innerText = "\u{1f513}";
-    level.classList.remove('lockPadlock'); 
+    level.classList.remove('lockPadlock');
     level.addEventListener("click", selectDifficulty);
     level.style.cursor = 'pointer';
 
@@ -108,7 +108,17 @@ finger.addEventListener("click", selectDifficulty);
 function closeChoosing() {
     choiceStack.setAttribute('style', 'right:-100%;');
     document.getElementsByClassName('choiceblock')[0].style.height = '30px';
+    hideHeader();
 }
+
+function hideHeader() {
+    header.style.visibility = 'hidden';
+}
+
+function headerVisible() {
+    header.style.visibility = 'visible';
+}
+
 function selectDifficulty() {
     choiceStack.setAttribute('style', 'right: 0%;');
     level.setAttribute('style', 'height:30px;');
@@ -151,13 +161,14 @@ function begin() {
 }
 start.addEventListener("click", () => {
     closeChoosing();
+
     start.style.visibility = "hidden";
-    level.classList.add('lockPadlock'); 
-    level.style.cursor = 'default';    
+    level.classList.add('lockPadlock');
+    level.style.cursor = 'default';
     header.innerText = `Level ${round}`;
-    finger.style.display = 'none'; 
+    finger.style.display = 'none';
     padlock.innerText = "\u{1f512}";
-    level.removeEventListener("click", selectDifficulty);    
+    level.removeEventListener("click", selectDifficulty);
 
     document.getElementsByClassName('wBox2')[0].style.visibility = "visible";
     let secs = setInterval(() => {
@@ -183,7 +194,7 @@ start.addEventListener("click", () => {
         document.getElementById('score').innerText = score;
         timer = 29
         clearHolesAfterRound();
-    },30900); //shorten here for debugging mode
+    }, 10900); //shorten here for debugging mode
 });
 
 function choice(min, max) {
@@ -246,12 +257,33 @@ holes.forEach((val) => {
 // /////progress bar
 const progressBar = document.getElementsByClassName('progress-bar')[0];
 
-setTimeout(() => {
-setInterval(() => {
-    const width = goalReached() || 0;   
-    progressBar.style.setProperty('--width', width + .1)
-}, 7000);
-},5);
+function theTic() {
+
+    // let tOut = setTimeout(() => {
+
+    let theBar = setInterval(() => {
+        //  theBar = 0;
+        console.log(theBar, "theBar");
+        width = goalReached() || 0;
+        console.log(goalReached(), "count");
+        progressBar.style.setProperty('--width', width + .1)
+
+        if (width == theBar) {
+
+            clearInterval(theBar);
+        }
+
+        // 
+        // console.log(--width, "count2");
+    }, 7000);
+
+
+    // }, 0);
+
+    // 
+    return;
+}
+
 
 function statusMessage(msg) {
     let container = document.querySelector("#evalMes");
@@ -260,7 +292,7 @@ function statusMessage(msg) {
 // /////display hearts for lives
 function printHearts() {
     for (let i = 1; i < 5; i++) {
-        let hearts = document.getElementsByClassName(`heart${i}`)[0];       
+        let hearts = document.getElementsByClassName(`heart${i}`)[0];
         hearts.setAttribute('style', 'y:0', 'scale:1');
         hearts.innerText = "\u{2764}";
         hearts.style.opacity = 1;
@@ -269,9 +301,11 @@ function printHearts() {
 }
 // /////evaluation for percent to be converted and truncated
 function goalReached() {
+
     percentage = quarterScore / goal * 100;
     percentage = Math.min(100, Math.max(0, percentage));
-    percentage = NaN ? percentage = 0: percentage;    
+    percentage = NaN ? percentage = 0 : percentage;
+    console.log(percentage, "percentage");
     return percentage;
 }
 
@@ -286,6 +320,7 @@ function roundEnd() {
         val.classList.remove(`smash`);
         val.classList.remove(`bop`);
     })
+    header.style.display = 'block';
     document.getElementById('eval').style.visibility = "visible";
     document.getElementById("plusAmt").innerText = plusAmt;
     document.getElementById("plusValue").innerText = plusVal;
@@ -308,7 +343,7 @@ function roundEnd() {
         tryAgain = document.createElement("button");
         document.getElementById('eval').append(tryAgain);
         tryAgain.innerText = "\u{2764}";
-        tryAgain.setAttribute('style', 'color:red; font-size:x-large;');
+        tryAgain.setAttribute('style', 'color:rgb(255, 0, 0); font-size:large;');
         tryAgain.addEventListener("click", useHeart);
     }
     else if (round == 4) {
@@ -326,7 +361,7 @@ function roundEnd() {
         let advance = document.getElementById('eval');
         advance = document.createElement("button");
         document.getElementById('eval').append(advance);
-        advance.innerText = "\u{1f3c6}";       
+        advance.innerText = "\u{1f3c6}";
         advance.addEventListener("click", roundUp);
     }
 }
@@ -338,8 +373,8 @@ function sumArr() {
     return sum;
 }
 function useHeart() {
-    gsap.to(`.heart${life}`, { opacity: 0, duration: 2.5, y: -100, rotation: 720, scale: 0, clearProps: true  })
-    gsap.to(`.heart${life}`, { opacity: 0},"> -=.5");
+    gsap.to(`.heart${life}`, { opacity: 0, duration: 2.5, y: -100, rotation: 720, scale: 0, clearProps: true })
+    gsap.to(`.heart${life}`, { opacity: 0 }, "> -=.5");
     roundUp()
 };
 function noHearts() {
@@ -362,9 +397,13 @@ function clearHolesAfterRound() {
     clearHole1.forEach((val) => {
         val.classList.remove(`cash${round}`)
     });
+
+    theTic();
     roundEndGSAP();
+    headerVisible();
 }
-function roundEndGSAP(){
+function roundEndGSAP() {
+
     document.getElementById('plusImg').src = `./asset/minCash${round}.png`;
     let tl = gsap.timeline({ defaults: { duration: .5, opacity: 0 } })
     tl
@@ -388,11 +427,12 @@ function roundUp() {
     minusScore = 0;
 
     document.getElementById('start').style.visibility = "visible";
+    //  header.style.visibility = "visibile";
     header.innerText = `Level ${round}`;
     document.getElementById('eval').innerText = '';
     document.getElementById('score').innerText = score;
     document.getElementById('eval').style.visibility = "hidden";
-    document.body.style.backgroundImage = `url(./asset/round${round}.png)`;    
+    document.body.style.backgroundImage = `url(./asset/round${round}.png)`;
     document.getElementById('wBox5').src = `./asset/round${round + 1}.png`;
     document.getElementById('first').src = `./asset/minCash${round}.png`;
     document.getElementById('second').src = `./asset/mole${round}.png`;
@@ -406,18 +446,19 @@ let fadeDuration = 1,
     finalSBPrint2;
 
 let playAgain = document.getElementById('restart-button');
-    playAgain.innerText = "\u{1f3ac}";  
-    playAgain.addEventListener("click", startGameAgain);
+playAgain.innerText = "\u{1f3ac}";
+playAgain.addEventListener("click", startGameAgain);
 
 
 function gameEnd() {
+    header.style.visibility = 'visibile';
     header.innerText = 'Final';
-    gamePlay.score = sumArr();    
+    gamePlay.score = sumArr();
     postSB(masterArr);
     document.getElementById("quarter_one").innerText = rScores[0];
     document.getElementById("quarter_two").innerText = rScores[1];
     document.getElementById("quarter_three").innerText = rScores[2];
-    document.getElementById("quarter_four").innerText = rScores[3];    
+    document.getElementById("quarter_four").innerText = rScores[3];
     document.getElementById("totalScore").innerText = gamePlay.score;
 
     let finalSBPrint = gsap.timeline()
@@ -428,56 +469,53 @@ function gameEnd() {
         .to(".scoreCap", { opacity: 1, duration: 1.5, ease: "circ" })
 
         // /////top part of scoreboard --player score
-        .to(".quarter0", { opacity: 0, duration: .5, ease: "circ"})
-        .fromTo(".pScore0",{ opacity: 0, scale: 0}, { opacity: 1, scale: 1, y:"-9", duration: .6, ease: "circ"},"<")
-        .to(".quarter1", { opacity: 0, duration: .5, ease: "circ"})
-        .fromTo(".pScore1", { opacity: 0, scale: 0, y: "-50" },{ opacity: 1, scale: 1, y:"-10", duration: .6, ease: "circ" },"<")
-        .to(".quarter2", { opacity: 0, duration: .5, ease: "circ"})
-        .fromTo(".pScore2", { opacity: 0, scale: 0, y: "-50" },{ opacity: 1, scale: 1, y:"-10", duration: .6, ease: "circ" },"<")
-        .to(".quarter3", { opacity: 0, duration: .5, ease: "circ"})
-        .fromTo(".pScore3", { opacity: 0, scale: 0, y: "-50" },{ opacity: 1, scale: 1, y:"-10", duration: .6, ease: "circ" },"<")
-        .to(".quarter4", { opacity: 0, duration: .5, ease: "circ"})
-        .fromTo(".pScore4",{ opacity: 0, scale: 0, y: "-50" }, { opacity: 1, scale: 1, y:"-10", duration: .6, ease: "circ" },"<")
-        .to(".quarter5", { opacity: 0, duration: .5, ease: "circ"})
-        .fromTo(".pScore5", { opacity: 0, scale: 0, y: "-50"},{ opacity: 1, scale: 1, y:"-10", duration: .6, ease: "circ" },"<")
-        
+        .to(".quarter0", { opacity: 0, duration: .5, ease: "circ" })
+        .fromTo(".pScore0", { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, y: "-9", duration: .6, ease: "circ" }, "<")
+        .to(".quarter1", { opacity: 0, duration: .5, ease: "circ" })
+        .fromTo(".pScore1", { opacity: 0, scale: 0, y: "-50" }, { opacity: 1, scale: 1, y: "-10", duration: .6, ease: "circ" }, "<")
+        .to(".quarter2", { opacity: 0, duration: .5, ease: "circ" })
+        .fromTo(".pScore2", { opacity: 0, scale: 0, y: "-50" }, { opacity: 1, scale: 1, y: "-10", duration: .6, ease: "circ" }, "<")
+        .to(".quarter3", { opacity: 0, duration: .5, ease: "circ" })
+        .fromTo(".pScore3", { opacity: 0, scale: 0, y: "-50" }, { opacity: 1, scale: 1, y: "-10", duration: .6, ease: "circ" }, "<")
+        .to(".quarter4", { opacity: 0, duration: .5, ease: "circ" })
+        .fromTo(".pScore4", { opacity: 0, scale: 0, y: "-50" }, { opacity: 1, scale: 1, y: "-10", duration: .6, ease: "circ" }, "<")
+        .to(".quarter5", { opacity: 0, duration: .5, ease: "circ" })
+        .fromTo(".pScore5", { opacity: 0, scale: 0, y: "-50" }, { opacity: 1, scale: 1, y: "-10", duration: .6, ease: "circ" }, "<")
+
         // /////bottom part of scoreboard --top ten
         .fromTo(".scoreModal", { opacity: 0 }, { opacity: 1, duration: 1, ease: "circ" }, "+=.5")
         .fromTo(".rank", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 })
         .fromTo(".lvColor", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .fromTo(".score", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
         .fromTo(".name", { opacity: 0 }, { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
-        .to(".time", { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")  
-        .to(".date", { opacity: 0, duration: 2, ease: "circ", stagger: .4 }, "<")    
-        
-  
+        .to(".time", { opacity: 1, duration: 2, ease: "circ", stagger: .4 }, "<")
+        .to(".date", { opacity: 0, duration: 2, ease: "circ", stagger: .4 }, "<")
+
         .fromTo("#message", { opacity: 0, scale: 0, x: "20%", y: "33%" }, { opacity: 1, scale: 1.1, ease: "power2", duration: 1 }, "-=1")
-        .fromTo("#restart-button", { opacity: 0 }, { opacity: 1, x: "650%",  duration: 1, ease: "back", rotation: 720 }, "-=1")
-        
+        .fromTo("#restart-button", { opacity: 0 }, { opacity: 1, x: "650%", duration: 1, ease: "back", rotation: 720 }, "-=1")
 
-        
-        if(finalSBPrint2) {
-            finalSBPrint2.progress(0).kill();
-           }
-           finalSBPrint2 = gsap.timeline({repeat: -1});
-           gsap.set(".time", { opacity: 0 });
-           finalSBPrint2.to(".time", {opacity: 0, duration: fadeDuration}, stayDuration)
-             .to(".date", {opacity: 1, duration: fadeDuration}, "-=100%")
-             .to(".time", {opacity: 1, duration: fadeDuration}, "+=" + stayDuration)
-             .to(".date", {opacity: 0, duration: fadeDuration}, "-=100%");
-           
-           
-          let master = gsap.timeline();
-          master
-          .add(finalSBPrint)
-          .add(finalSBPrint2);
+    if (finalSBPrint2) {
+        finalSBPrint2.progress(0).kill();
+    }
+    finalSBPrint2 = gsap.timeline({ repeat: -1 });
+    gsap.set(".time", { opacity: 0 });
+    finalSBPrint2.to(".time", { opacity: 0, duration: fadeDuration }, stayDuration)
+        .to(".date", { opacity: 1, duration: fadeDuration }, "-=100%")
+        .to(".time", { opacity: 1, duration: fadeDuration }, "+=" + stayDuration)
+        .to(".date", { opacity: 0, duration: fadeDuration }, "-=100%");
 
-  document.getElementById('message').innerText = `Try to beat your score`;
+
+    let master = gsap.timeline();
+    master
+        .add(finalSBPrint)
+        .add(finalSBPrint2);
+
+    document.getElementById('message').innerText = `Try to beat your score`;
 }
 
 // /////color display for scoreboard
 function setLevelColor(currentPlace,
-     currentLevel) {
+    currentLevel) {
     switch (currentLevel) {
         case "EASY":
             document.getElementsByClassName("rank")[currentPlace].style.color = '#5dca5d';
@@ -549,14 +587,14 @@ function isTopTen(gamePlay, arrayOfPlayers) {
             level: gamePlay.level,
             score: gamePlay.score,
             time: getTime(),
-            date: getDate(),   
+            date: getDate(),
         });
 
         // Reset length of arrayOfPlayers (masterArr)
         arrayOfPlayers = sortArrayDescending(arrayOfPlayers, "score");
         arrayOfPlayers.length = (arrayOfPlayers.length > 10)
             ? 10
-            : arrayOfPlayers.length;        
+            : arrayOfPlayers.length;
 
         gameLocalStorage.setMasterArr(arrayOfPlayers);
         localStorage.setItem(lsName, JSON.stringify(masterArr));
@@ -570,7 +608,7 @@ function getName() {
 }
 function getTime() {
     let currTime = new Date();
-    timeStamp = currTime.getHours() + ':' + currTime.getMinutes() + ':' + currTime.getSeconds() 
+    timeStamp = currTime.getHours() + ':' + currTime.getMinutes() + ':' + currTime.getSeconds()
     return timeStamp;
 }
 function getDate() {
@@ -594,77 +632,48 @@ let myGame = (() => {
     // Private Functions
     function intro() {
         header.innerText = "CashSmash";
-    let rule = CSSRulePlugin.getRule("p:after");
-    start.style.visibility = "hidden";
-    let exitIntro1 = document.getElementById('xIntro');
-    document.getElementById('min1').src = `./asset/minCash1.png`;
-    document.getElementById('min2').src = `./asset/minCash2.png`;
-    document.getElementById('min3').src = `./asset/minCash3.png`;
-    document.getElementById('min4').src = `./asset/minCash4.png`;
-    exitIntro1.addEventListener("click", exitIntro);
+        let rule = CSSRulePlugin.getRule("p:after");
+        start.style.visibility = "hidden";
+        let exitIntro1 = document.getElementById('xIntro');
+        document.getElementById('min1').src = `./asset/minCash1.png`;
+        document.getElementById('min2').src = `./asset/minCash2.png`;
+        document.getElementById('min3').src = `./asset/minCash3.png`;
+        document.getElementById('min4').src = `./asset/minCash4.png`;
+        exitIntro1.addEventListener("click", exitIntro);
 
-    let intro = gsap.timeline({ defaults: { duration: 1.5 } })
-    intro
-        // /////modal slide in
-        .fromTo(".introModal", { opacity: 0, x: '-200%', y: '165%' }, { opacity: .8, duration: 1.5, x: 0, ease: "circ" })
-        // /////text reveal
-        .to(rule, { cssRule: { scaleY: 0 }, duration: 3.5 }, "-=.5")
-        // /////mole slide in
-        .fromTo(".moleShow", { opacity: 0, x: '-1500%', }, { opacity: 1, x: 0, duration: 2 }, "-=3.5");
+        let intro = gsap.timeline({ defaults: { duration: 1.5 } })
+        intro
+            // /////modal slide in
+            .fromTo(".introModal", { opacity: 0, x: '-200%', y: '165%' }, { opacity: .8, duration: 1.5, x: 0, ease: "circ" })
+            // /////text reveal
+            .to(rule, { cssRule: { scaleY: 0 }, duration: 3.5 }, "-=.5")
+            // /////mole slide in
+            .fromTo(".moleShow", { opacity: 0, x: '-1500%', }, { opacity: 1, x: 0, duration: 2 }, "-=3.5");
 
-    let cashCarousel = gsap.timeline({ repeat: -1 });
-    cashCarousel
-        .from("#min1", { opacity: 0, x: '-80%', duration: .5 })
-        .to("#min1", { opacity: 0, x: 0, duration: 1, delay: 2 })
-        .from("#min2", { opacity: 0, x: '-80%', duration: .5 })
-        .to("#min2", { opacity: 0, x: 0, duration: 1, delay: 2 })
-        .from("#min3", { opacity: 0, x: '-80%', duration: .5 })
-        .to("#min3", { opacity: 0, x: 0, duration: 1, delay: 2 })
-        .from("#min4", { opacity: 0, x: '-80%', duration: .5 })
-        .to("#min4", { opacity: 0, x: 0, duration: 1, delay: 2 });
-  
-    /////combining both timelines
-    let master = gsap.timeline();
-    master
-        .add(intro)
-        .add(cashCarousel);
+        let cashCarousel = gsap.timeline({ repeat: -1 });
+        cashCarousel
+            .from("#min1", { opacity: 0, x: '-80%', duration: .5 })
+            .to("#min1", { opacity: 0, x: 0, duration: 1, delay: 2 })
+            .from("#min2", { opacity: 0, x: '-80%', duration: .5 })
+            .to("#min2", { opacity: 0, x: 0, duration: 1, delay: 2 })
+            .from("#min3", { opacity: 0, x: '-80%', duration: .5 })
+            .to("#min3", { opacity: 0, x: 0, duration: 1, delay: 2 })
+            .from("#min4", { opacity: 0, x: '-80%', duration: .5 })
+            .to("#min4", { opacity: 0, x: 0, duration: 1, delay: 2 });
+
+        /////combining both timelines
+        let master = gsap.timeline();
+        master
+            .add(intro)
+            .add(cashCarousel);
 
         let startButton = document.getElementById('xIntro');
         startButton = document.createElement("button");
         document.getElementById('xIntro').append(startButton);
         startButton.innerText = "\u{1f44d}\u{1f3fe}";
         startButton.addEventListener("click", exitIntro);
-
-
     }
 
     intro();
 
-    // Public Function
-    function sayHi() {
-        console.log("HI")
-    }
-
-    return {
-        sayHi, // = sayHi: sayHi,
-    }
-
 })();
-
-myGame.sayHi()
-
-// let person = {
-//   name: "Duane",
-//   eyes: "Hazel"
-// }
-
-// person.sayHi=function(){console.log("hi" + this.name)}
-
-// let person = {
-//   name: "Duane",
-//   eyes: "Hazel",
-//   sayHi: function(){ console.log("Hi " + this.name + "!")},
-//   sayHello: () => { console.log("Hello " + this.name); }
-// }
-// person.sayHi()   -> "Hi Duane"
-// person.sayHello() => "Hello" -- arrow/anonymous function doesn't know "this"
