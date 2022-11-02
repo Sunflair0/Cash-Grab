@@ -6,7 +6,7 @@ html {
 }
 
 body {
-display: flex;
+  display: flex;
   flex-direction: column;
   position: relative;
   background-image: url(../asset/round1.png);
@@ -1045,7 +1045,7 @@ p {
   font-size: clamp(10px, 3vw, 16px);
   margin-bottom: 0.5rem;
   color: #fcddb6;
-  line-height: clamp(0.8rem, 3vw, 2.2rem);
+  line-height: clamp(0.8rem, 3vw, 1.8rem);
 }
 
 p::first-child {
