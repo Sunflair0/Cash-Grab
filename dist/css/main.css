@@ -1,19 +1,20 @@
 @charset "UTF-8";
 
 html {
-  overflow-x: hidden;
+  overflow: hidden;
   overflow-y: scroll;
 }
 
 body {
+display: flex;
+  flex-direction: column;
   position: relative;
   background-image: url(../asset/round1.png);
   background-color: black;
   background-size: cover;
   background-clip: content-box;
   background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
+  
   height: 100vh;
   min-width: 100%;
   justify-content: center;
@@ -228,7 +229,7 @@ img {
   align-items: center;
   justify-content: center;
   position: relative;
-  max-width: 600;
+  max-width: 400;
   height: 100%;
   margin-top: 10%;
   z-index: -1;
