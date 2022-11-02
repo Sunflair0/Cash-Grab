@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 html {
-  overflow: hidden;
-overflow-y: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 body {
@@ -18,8 +18,6 @@ body {
   min-width: 100%;
   justify-content: center;
   align-items: center;
-  overflow-x: hidden;
-
   transition: transform 1s;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -737,9 +735,9 @@ img {
 
 #quarterScore {
   height: 7rem;
-  position: absolute;
+  position: initial;
   font-size: large;
-  margin-top: -30%;
+  margin-top: -23%;
   margin-left: 75%;
   align-items: center;
 }
@@ -787,12 +785,12 @@ img {
 
 .time {
   opacity: 0;
-  transform: translate(9px, 6px);
+  transform: translate(9px, 4px);
 }
 
 .date {
   opacity: 0;
-  transform: translate(9px, -6px);
+  transform: translate(9px, -4px);
 }
 
 .head_font,
@@ -1206,7 +1204,7 @@ p:after {
   }
 
   #quarterScore {
-    margin-top: -20%;
+    margin-top: -26%;
   }
 
   #message {
@@ -1216,6 +1214,16 @@ p:after {
   .scoreModal {
     font-size: medium;
     height: 59%;
+  }
+
+  .time {
+    opacity: 0;
+    transform: translate(9px, 6px);
+  }
+
+  .date {
+    opacity: 0;
+    transform: translate(9px, -6px);
   }
 
   #evalMes,
@@ -1285,7 +1293,7 @@ p:after {
   }
 
   #quarterScore {
-    margin-left: 75%;
+    margin-left: -29%;
   }
 
   .theBar {
