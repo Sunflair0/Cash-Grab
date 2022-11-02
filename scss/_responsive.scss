@@ -1,22 +1,17 @@
-@include media-ss {
-    .progress-bar {
-        margin-bottom: 17%;
-    }
-}
-
 @include media-sm {
     .headings {
-        font-size: xx-large;
+        font-size: large;
     }
 
     .lineOne,
     .lineTwo {
+        height: 4rem;
         font-size: large;
     }
 
     .head_font,
     .header {
-        font-size: 70px;
+        font-size: 50px;
         margin: 0 5px;
     }
 
@@ -40,18 +35,24 @@
         width: 80px;
     }
 
-    .heartbox {
-        transform: translate(-5%, -4%);
+    #quarterScore {
+        margin-top: -20%;
     }
 
-    .bottom {
-        margin-bottom: 13px;
+    #message {
+        font-size: x-large;
     }
 
-    #plusImg,
-    #minusImg,
-    #coolmole1 {
-        min-width: 54px;
+    .scoreModal {
+        font-size: medium;
+        height: 59%;
+    }
+
+    .heart1,
+    .heart2,
+    .heart3,
+    .heart4 {
+        font-size: (10px, 2vw, 26px);
     }
 
     #evalMes,
@@ -83,30 +84,29 @@
     }
 
     #second {
-        margin-top: 1px;
+        margin-top: -2px;
         max-width: 100px;
         min-width: 80px;
     }
 
     #start {
-        min-height: 100px;
+        min-height: 85px;
     }
 }
 
 @include media-smh {
     .xIntro {
-        margin-top: -15%;
-        z-index: 10;
+        margin-top: -14%;
+    }
+
+    .line {
+        margin-top: 1.25rem;
     }
 
     .roundModal {
         font-size: smaller;
         height: 60%;
         top: -86%;
-    }
-
-    .progress-bar {
-        margin-top: 20%;
     }
 
     .introModal {
@@ -118,16 +118,15 @@
 
     .theBar {
         margin-top: -14%;
+        width: 50%;
     }
 }
 
 @include media-md {
+    .heartBox {
+        transform: translate(-5%, 10%);
+    }
 
-    // p {
-    //     font-size: 1rem;
-    //     margin-bottom: 0.9rem;
-    //     line-height: 1rem;
-    //   }
     .darkhole {
         max-width: 180px;
     }
@@ -143,17 +142,23 @@
         height: 70%;
         top: -106%;
     }
-
-    .scoreModal {
-        font-size: small;
-    }
-
-    .bottom {
-        margin-bottom: -3%;
-    }
 }
 
 @include media-lg {
+
+    .introModalShows {
+        height: 93%;
+    }
+
+    .heartBox {
+        transform: translate(-5%, -20%);
+    }
+
+    .head_font,
+    .header {
+        font-size: 70px;
+        margin: 0 5px;
+    }
 
     #score,
     #tick {
@@ -161,7 +166,7 @@
     }
 
     .second {
-        transform: scale(.35, .35);
+        transform: scale(0.35, 0.35);
         margin-bottom: 8vh;
     }
 }

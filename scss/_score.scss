@@ -1,7 +1,7 @@
 #start {
     display: flex;
     width: auto;
-    height: 69%;
+    height: 100%;
     margin: auto;
     cursor: pointer;
 }
@@ -22,22 +22,22 @@
 
 #score,
 #tick {
-    font-size: large;
-    font-family: 'Orbitron';
-    width: 200px;
-    text-align: center;
+     font-size: clamp(12px, 2vw, 24px);
+  font-family: "Orbitron";
+  width: 200px;
+  text-align: center;
 }
 
 .whiteBoxes {
-    display: flex;
-    flex-direction: row;
-    max-height: 100px;
-    width: 100%;
-    padding: 3px;
-    color: #ffffff;
-    border: #ffffff 5px dotted;
-    outline: #ffffff ridge 4px;
-    outline-offset: -11px;
+      display: flex;
+  flex-direction: row;
+  max-height: 100px;
+  width: 100%;
+  padding: 3px;
+  color: #ffffff;
+  border: #ffffff 5px dotted;
+  outline: #ffffff ridge 4px;
+  outline-offset: -11px;
 }
 
 .color {
@@ -94,23 +94,25 @@
 }
 
 .heartBox {
-    display: flex;
-    max-width: 100px;
-    z-index: 10;
-    transform: translate(-5%, -37%);
+     display: flex;
+  max-width: 100px;
+  z-index: 10;
+  transform: translate(-5%, 50%);
+  height: 30px;
+  position: absolute;
 }
 
 .heart1,
 .heart2,
 .heart3,
 .heart4 {
-    display: flex;
-    width: 25%;
-    margin: 60px auto;
-    color: rgb(255, 0, 0);
-    background-image: red;
-    font-size: clamp(14px, 2vw, 24px);
-    z-index: 10;
+   display: flex;
+  width: 25%;
+  margin: 0 auto;
+  color: rgb(255, 0, 0);
+  background-image: rgb(255, 0, 0);
+  font-size: small;
+  z-index: 10;
 }
 
 .wBox4 {
@@ -123,34 +125,37 @@
 }
 
 .antiScore {
-    max-width: 100px;
-    min-width: 80px;
-    margin: 0 auto;
+      max-width: 100px;
+  min-width: 80px;
+  margin: 0 auto;
+  margin-right: auto;
+  margin-left: auto;
 
     &::before {
-        content: '-15 pts';
-        position: absolute;
-        color: rgb(255, 67, 67);
-        height: 20px;
-        width: 40%;
-        font-weight: 600;
-        font-size: clamp(14px, 2vw, 24px);
+        content: "-15 pts";
+  position: absolute;
+  color: rgb(255, 67, 67);
+  width: 40%;
+  font-weight: 600;
+  font-size: clamp(14px, 2vw, 20px);
     }
 }
 
 .proScore {
-    max-width: 100px;
-    min-width: 60px;
-    margin: 0 auto;
+     max-width: 100px;
+  min-width: 60px;
+  margin: 0 auto;
+  margin-right: auto;
+  margin-left: auto;
 
     &::before {
-        content: '50 pts';
-        position: absolute;
-        color: rgb(77, 224, 57);
-        width: 50%;
-        font-weight: 600;
-        font-size: clamp(14px, 2vw, 24px);
-        margin-bottom: 5px;
+        content: "50 pts";
+  position: absolute;
+  color: rgb(77, 224, 57);
+  width: 50%;
+  font-weight: 600;
+  font-size: clamp(14px, 2vw, 20px);
+  margin-bottom: 5px;
     }
 }
 
