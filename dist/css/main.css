@@ -545,8 +545,8 @@ img {
   font-size: small;
   padding: 15px 7px 0;
   margin: 15px auto 12px;
-  line-height: 0.7rem;
-  height: 38%;
+  line-height: 0.6rem;
+  height: 39%;
   opacity: 0;
   overflow: visible;
   z-index: 1;
@@ -1199,14 +1199,14 @@ p:after {
     margin-top: -20%;
   }
 
-#message {
-font-size: x-large;
-}
+  #message {
+    font-size: x-large;
+  }
 
-.scoreModal {
-  font-size: medium;
-height: 59%;
-}
+  .scoreModal {
+    font-size: medium;
+    height: 59%;
+  }
 
   .heart1,
   .heart2,
@@ -1302,7 +1302,8 @@ height: 59%;
     height: 70%;
     top: -106%;
   }
-/* 
+
+  /* 
   .scoreModal {
     font-size: small;
   } */
