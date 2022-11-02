@@ -546,7 +546,7 @@ img {
   padding: 15px 7px 0;
   margin: 15px auto 12px;
   line-height: 0.45rem;
-  height: 40%;
+  height: 38%;
   opacity: 0;
   overflow: visible;
   z-index: 1;
@@ -1302,10 +1302,10 @@ height: 59%;
     height: 70%;
     top: -106%;
   }
-
+/* 
   .scoreModal {
     font-size: small;
-  }
+  } */
 }
 
 @media screen and (min-width: 1060px) {
