@@ -1,4 +1,4 @@
-@mixin wBox4{
+@mixin wBox4 {
   flex-basis: 50%;
   max-width: 50px;
   height: 50px;
@@ -6,63 +6,64 @@
   margin: auto;
   background-size: contain;
   background-repeat: no-repeat;
-  display: flex;      
-  margin: auto; 
+  display: flex;
+  margin: auto;
   flex-basis: 20%;
   margin-left: -1%;
-  max-width: 50px;  
+  max-width: 50px;
   min-width: 50px;
-  position: absolute; 
- }
+  position: absolute;
+}
+
 @mixin flexShell {
   display: flex;
-  flex-direction: row;  
-  flex-wrap: wrap;    
+  flex-direction: row;
+  flex-wrap: wrap;
 }
+
 @mixin actionBox {
   flex-basis: 32%;
   max-width: 240px;
-  height: 90px; 
+  height: 90px;
   margin: auto;
-  background-position: center; 
+  background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   border-radius: 20%;
 }
+
 @mixin sbPlus {
-  display: flex;    
+  display: flex;
   flex-basis: 25%;
   font-size: small;
 }
 
-@mixin media-ss {
-  @media screen and (min-width: 376px) {
-      @content;
+@mixin media-sm {
+  @media screen and (min-width: 500px) {
+    @content;
   }
 }
 
-@mixin media-sm {
-  @media screen and (min-width: 500px) {
-      @content;
-  }
-}
 @mixin media-smh {
-  @media screen and (max-height: 750px){
-      @content;
+  @media screen and (max-height: 750px) {
+    @content;
   }
 }
+
 @mixin media-md {
-   @media screen and (min-width: 768px) {
-       @content;
-   }
+  @media screen and (min-width: 768px) {
+    @content;
+  }
 }
+
 @mixin media-lg {
   @media screen and (min-width: 1060px) {
-      @content;
+    @content;
   }
 }
+
 @mixin media-xl {
   @media screen and (min-width: 1200px) {
-      @content;
+    @content;
   }
 }
