@@ -40,14 +40,14 @@
 .smash {
     @include flexShell;
     @include actionBox;
-    height: 90px;
+    height: 80px;
     background-image: url(../asset/smash.png);
 }
 
 .bop {
     @include flexShell;
     @include actionBox;
-    height: 90px;
+    height: 80px;
     background-image: url(../asset/bop.png);
 }
 
